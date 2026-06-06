@@ -78,6 +78,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://sufyan-frontend.vercel.app",
   },
+  verification: {
+    google: "google129327d0e5fe8cad",
+  },
 };
 
 const websiteSchema = {

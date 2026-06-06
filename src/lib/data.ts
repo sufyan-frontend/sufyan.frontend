@@ -8,7 +8,7 @@ export const person = {
   phone: '+923438640594',
   location: 'Lahore, Pakistan',
   github: 'https://github.com/sufyan-frontend',
-  linkedin: 'https://linkedin.com/in/sufyan-frontend',
+  linkedin: 'https://www.linkedin.com/in/sufyan-frontend',
   bio: 'Frontend Developer with 1.5+ years of experience building responsive, scalable, and production-ready web applications using React and Next.js.',
   fullBio: 'Frontend Developer with 1.5+ years of experience building responsive, scalable, and production-ready web applications using React and Next.js. Experienced in developing real-world platforms for education, software companies, and business solutions. Strong focus on UI/UX, performance, and clean code practices. Currently working on multiple deployed production projects, including education portals, company websites, and SaaS-style platforms.',
   objective: 'Seeking a Frontend Developer role where I can contribute to scalable web applications, improve UI/UX systems, and grow into a mid/senior-level developer role in a professional engineering environment.',

@@ -21,7 +21,7 @@ const jsonLd = {
   telephone: "+923438640594",
   url: "https://sufyan-frontend.vercel.app",
   address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
-  sameAs: ["https://github.com/sufyan-frontend"],
+  sameAs: ["https://github.com/sufyan-frontend", "https://www.linkedin.com/in/sufyan-frontend"],
   knowsAbout: ["React.js", "Next.js", "JavaScript", "Tailwind CSS", "Frontend Development"],
 };
 
