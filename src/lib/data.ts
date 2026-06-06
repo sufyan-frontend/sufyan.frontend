@@ -67,6 +67,15 @@ export const projects = [
     featured: false,
   },
   {
+    id: 'fieldxai',
+    title: 'FieldX AI',
+    description: 'AI-powered platform with a modern, responsive frontend delivering a clean and professional user experience for field operations and intelligent workflows.',
+    url: 'https://fieldxai.com/',
+    image: '/porfolio%20image/fieldxai.png',
+    tags: ['Next.js', 'AI', 'SaaS', 'Tailwind CSS'],
+    featured: false,
+  },
+  {
     id: 'ehsas',
     title: 'Ehsas Next App',
     description: 'React-based web application deployed on Vercel with optimized UI architecture and component-based design system.',
@@ -198,6 +207,49 @@ export const testimonials = [
     role: 'UI/UX Designer',
     company: 'Freelance',
     text: 'Sufyan translates designs into code with impressive accuracy. His attention to spacing, color, and interactivity brings mockups to life exactly as intended.',
+  },
+];
+
+export const practiceProjects = [
+  {
+    id: 'chatbot-ui',
+    title: 'Chat Bot UI',
+    description: 'A clean and interactive chatbot user interface built as a practice project to sharpen React component design, state management, and real-time UI patterns.',
+    url: 'https://chat-botui.netlify.app/',
+    image: '/practicewebsite/chabot.png',
+    tags: ['React', 'CSS', 'UI Design', 'Practice'],
+  },
+  {
+    id: 'hiba-logic',
+    title: 'Hiba Logic',
+    description: 'A practice frontend project showcasing modern UI layout, component structuring, and responsive design techniques built and deployed on Netlify.',
+    url: 'https://sufyan-frontend-hibalogic.netlify.app/',
+    image: '/practicewebsite/hibalogic.png',
+    tags: ['React', 'Netlify', 'Responsive', 'Practice'],
+  },
+  {
+    id: 'ehsas-lab-new',
+    title: 'Ehsas Lab (Redesign)',
+    description: 'A redesigned practice version of the Ehsas Lab website with improved UI layout, modern styling, and enhanced responsiveness deployed on Netlify.',
+    url: 'https://ehsas-lab.netlify.app/',
+    image: '/practicewebsite/ehsaslabnew.png',
+    tags: ['React', 'Netlify', 'Redesign', 'Practice'],
+  },
+  {
+    id: 'music-app',
+    title: 'Music App UI',
+    description: 'A practice music application UI with a stylish and modern interface, built to explore creative layouts, animations, and component design in React.',
+    url: 'https://suf13.netlify.app/',
+    image: '/practicewebsite/music.png',
+    tags: ['React', 'Netlify', 'UI Design', 'Practice'],
+  },
+  {
+    id: 'uniq-form',
+    title: 'Uniq Form',
+    description: 'A practice project focused on building clean, accessible, and well-designed form UI components with validation and smooth user interaction.',
+    url: 'https://s-f.netlify.app/',
+    image: '/practicewebsite/uniqform.png',
+    tags: ['React', 'Netlify', 'Forms', 'Practice'],
   },
 ];
 

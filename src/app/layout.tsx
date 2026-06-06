@@ -8,32 +8,76 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sufyan-frontend.vercel.app"),
   title: {
-    default: "Muhammad Sufyan | Frontend Developer",
+    default: "Muhammad Sufyan | Frontend Developer in Lahore, Pakistan",
     template: "%s | Muhammad Sufyan",
   },
   description:
-    "Muhammad Sufyan is a Frontend Developer with 1.5+ years of experience building React and Next.js applications. Based in Lahore, Pakistan. Open to work.",
-  keywords: ["Frontend Developer", "React Developer", "Next.js Developer", "Lahore", "Pakistan", "Muhammad Sufyan"],
-  authors: [{ name: "Muhammad Sufyan", url: "https://github.com/sufyan-frontend" }],
+    "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building fast, responsive, and production-ready React and Next.js web applications.",
+  keywords: [
+    "Frontend Developer Pakistan",
+    "React Developer Lahore",
+    "Next.js Developer Pakistan",
+    "Muhammad Sufyan",
+    "Web Developer Lahore",
+    "React.js Developer",
+    "Next.js Developer",
+    "JavaScript Developer Pakistan",
+    "Hire Frontend Developer",
+    "Tailwind CSS Developer",
+    "Portfolio Muhammad Sufyan",
+    "Frontend Development Lahore",
+    "Education Platform Developer",
+    "Web Development Pakistan",
+  ],
+  authors: [{ name: "Muhammad Sufyan", url: "https://sufyan-frontend.vercel.app" }],
   creator: "Muhammad Sufyan",
-  icons: { icon: "/favicon.png" },
+  publisher: "Muhammad Sufyan",
+  formatDetection: { email: false, telephone: false },
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://sufyan-frontend.vercel.app",
-    title: "Muhammad Sufyan | Frontend Developer",
-    description: "Frontend Developer building production-ready web apps with React & Next.js.",
-    siteName: "Muhammad Sufyan",
-    images: [{ url: "/profile.png", width: 500, height: 500, alt: "Muhammad Sufyan" }],
+    title: "Muhammad Sufyan | Frontend Developer in Lahore, Pakistan",
+    description:
+      "Frontend Developer with 1.5+ years building production-ready React & Next.js apps. Based in Lahore, Pakistan. Open to work.",
+    siteName: "Muhammad Sufyan — Frontend Developer",
+    images: [
+      {
+        url: "/profile.png",
+        width: 1200,
+        height: 630,
+        alt: "Muhammad Sufyan — Frontend Developer in Lahore, Pakistan",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Sufyan | Frontend Developer",
-    description: "Frontend Developer building production-ready web apps with React & Next.js.",
+    title: "Muhammad Sufyan | Frontend Developer in Lahore, Pakistan",
+    description:
+      "Frontend Developer building production-ready React & Next.js apps. Based in Lahore, Pakistan. Open to work.",
     images: ["/profile.png"],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://sufyan-frontend.vercel.app",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

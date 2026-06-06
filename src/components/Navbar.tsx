@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -15,24 +16,54 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav aria-label="Primary" className="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-md border-b border-white/5">
+    <nav
+      aria-label="Primary"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-dark/95 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20"
+          : "bg-dark/70 backdrop-blur-md border-b border-white/5"
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-primary font-bold text-xl tracking-tight">
-            MS<span className="text-accent">.</span>
+        <div className="flex items-center justify-between h-17">
+
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="relative w-9 h-9 rounded-xl overflow-hidden ring-1 ring-white/10 group-hover:ring-primary/50 transition-all duration-200">
+              <Image
+                src="/favicon.png"
+                alt="Muhammad Sufyan logo"
+                fill
+                className="object-cover"
+                sizes="36px"
+                priority
+              />
+            </div>
+            <div className="hidden sm:block leading-none">
+              <span className="text-surface font-bold text-sm block">Muhammad Sufyan</span>
+              <span className="text-primary font-mono text-xs">Frontend Developer</span>
+            </div>
           </Link>
 
-          <ul className="hidden md:flex items-center gap-1" role="list">
+          {/* Desktop nav */}
+          <ul className="hidden md:flex items-center gap-0.5" role="list">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     pathname === link.href
                       ? "text-primary bg-primary/10"
-                      : "text-surface/70 hover:text-surface hover:bg-white/5"
+                      : "text-surface/60 hover:text-surface hover:bg-white/5"
                   }`}
                 >
                   {link.label}
@@ -41,17 +72,19 @@ export default function Navbar() {
             ))}
           </ul>
 
+          {/* Hire Me CTA */}
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center gap-2 bg-primary text-dark font-semibold text-sm px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
+            className="hidden md:inline-flex items-center gap-2 bg-primary text-dark font-semibold text-sm px-4 py-2.5 rounded-lg hover:bg-primary/90 transition-all hover:shadow-md hover:shadow-primary/25"
           >
             Hire Me
           </Link>
 
+          {/* Hamburger */}
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
+            aria-expanded={open ? "true" : "false"}
             aria-controls="mobile-menu"
             onClick={() => setOpen(!open)}
             className="md:hidden p-2 rounded-lg text-surface/70 hover:text-surface hover:bg-white/5 transition-colors"
@@ -67,15 +100,16 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile menu */}
       {open && (
-        <div id="mobile-menu" className="md:hidden border-t border-white/5 bg-card">
+        <div id="mobile-menu" className="md:hidden border-t border-white/5 bg-dark/95 backdrop-blur-xl">
           <ul className="px-4 py-3 space-y-1" role="list">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                     pathname === link.href
                       ? "text-primary bg-primary/10"
                       : "text-surface/70 hover:text-surface hover:bg-white/5"
@@ -89,7 +123,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setOpen(false)}
-                className="block mt-2 text-center bg-primary text-dark font-semibold text-sm px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
+                className="flex justify-center mt-2 bg-primary text-dark font-semibold text-sm px-4 py-2.5 rounded-lg hover:bg-primary/90 transition-colors"
               >
                 Hire Me
               </Link>
