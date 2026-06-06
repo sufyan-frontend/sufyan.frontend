@@ -1,65 +1,204 @@
+import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
+import HeroSection from "@/components/HeroSection";
+import Reveal from "@/components/Reveal";
+import { projects, skills, testimonials } from "@/lib/data";
+
+export const metadata: Metadata = {
+  title: "Muhammad Sufyan | Frontend Developer in Lahore",
+  description:
+    "Muhammad Sufyan — Frontend Developer with 1.5+ years building React & Next.js apps. Based in Lahore, Pakistan. Open to work.",
+  alternates: { canonical: "https://sufyan-frontend.vercel.app" },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Muhammad Sufyan",
+  jobTitle: "Frontend Developer",
+  email: "sufyan.frontend@gmail.com",
+  telephone: "+923438640594",
+  url: "https://sufyan-frontend.vercel.app",
+  address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
+  sameAs: ["https://github.com/sufyan-frontend"],
+  knowsAbout: ["React.js", "Next.js", "JavaScript", "Tailwind CSS", "Frontend Development"],
+};
 
 export default function Home() {
+  const featured = projects.filter((p) => p.featured);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <HeroSection />
+
+      {/* Featured Projects */}
+      <section className="py-24 bg-card/30" aria-labelledby="projects-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-16">
+              <p className="text-primary font-mono text-sm mb-2">Portfolio</p>
+              <h2 id="projects-heading" className="text-3xl sm:text-4xl font-bold text-surface mb-4">
+                Featured Projects
+              </h2>
+              <p className="text-surface/60 max-w-xl mx-auto">
+                Production-ready applications built for education, corporate, and software clients.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featured.map((project, i) => (
+              <Reveal key={project.id} delay={i * 0.1}>
+                <article className="bg-card border border-white/5 rounded-2xl overflow-hidden group hover:border-primary/20 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 h-full flex flex-col">
+                  <div className="relative h-48 overflow-hidden bg-dark">
+                    <Image
+                      src={project.image}
+                      alt={`Screenshot of ${project.title}`}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="text-surface font-semibold text-lg mb-2">{project.title}</h3>
+                    <p className="text-surface/60 text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:underline"
+                    >
+                      Visit Live
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.3}>
+            <div className="text-center mt-12">
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 border border-primary/30 text-primary font-medium px-6 py-3 rounded-xl hover:bg-primary/10 transition-all"
+              >
+                View All Projects
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </Reveal>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Skills */}
+      <section className="py-24" aria-labelledby="skills-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-16">
+              <p className="text-primary font-mono text-sm mb-2">Expertise</p>
+              <h2 id="skills-heading" className="text-3xl sm:text-4xl font-bold text-surface">
+                Technical Skills
+              </h2>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {skills.map((skill, i) => (
+              <Reveal key={skill.name} delay={i * 0.04}>
+                <div className="bg-card border border-white/5 rounded-xl p-4 text-center hover:border-primary/20 transition-all group">
+                  <p className="text-surface group-hover:text-primary transition-colors font-medium text-sm mb-2">
+                    {skill.name}
+                  </p>
+                  <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-linear-to-r from-primary to-accent"
+                      style={{ width: `${skill.level}%` }}
+                    />
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 bg-card/30" aria-labelledby="testimonials-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-16">
+              <p className="text-primary font-mono text-sm mb-2">Feedback</p>
+              <h2 id="testimonials-heading" className="text-3xl sm:text-4xl font-bold text-surface">
+                What People Say
+              </h2>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t, i) => (
+              <Reveal key={t.name} delay={i * 0.1}>
+                <figure className="bg-card border border-white/5 rounded-2xl p-6 hover:border-primary/20 transition-all h-full flex flex-col">
+                  <svg className="w-8 h-8 text-primary/30 mb-4 flex-shrink-0" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                  </svg>
+                  <blockquote className="text-surface/70 text-sm leading-relaxed flex-1">
+                    <p>{t.text}</p>
+                  </blockquote>
+                  <figcaption className="mt-4 pt-4 border-t border-white/5">
+                    <strong className="text-surface text-sm font-semibold block">{t.name}</strong>
+                    <span className="text-surface/50 text-xs">
+                      {t.role}, {t.company}
+                    </span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Reveal>
+            <p className="text-primary font-mono text-sm mb-4">Let&apos;s Collaborate</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-surface mb-6">
+              Ready to build something great?
+            </h2>
+            <p className="text-surface/60 text-lg mb-8 leading-relaxed">
+              I&apos;m open to new opportunities — whether you have a project in mind or just want to say hi, my inbox is open.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-primary text-dark font-semibold px-8 py-4 rounded-xl hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20 text-lg"
+            >
+              Get In Touch
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+    </>
   );
 }

@@ -4,7 +4,6 @@ Frontend Developer (React / Next.js)
 📧 sufyan.frontend@gmail.com
 📱 +923438640594
 🔗 GitHub:https://github.com/sufyan-frontend 
-🔗 Portfolio: https://your-portfolio-link.vercel.app
 
 👨‍💻 Professional Summary
 Frontend Developer with 1.5+ years of experience building responsive, scalable, and production-ready web applications using React and Next.js. Experienced in developing real-world platforms for education, software companies, and business solutions. Strong focus on UI/UX, performance, and clean code practices.
