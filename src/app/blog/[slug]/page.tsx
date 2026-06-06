@@ -25,8 +25,42 @@ export default async function BlogPost({ params }: Props) {
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Person",
+      name: "Muhammad Sufyan",
+      url: "https://sufyan-frontend.vercel.app/about",
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Muhammad Sufyan",
+      url: "https://sufyan-frontend.vercel.app",
+    },
+    url: `https://sufyan-frontend.vercel.app/blog/${post.slug}`,
+    mainEntityOfPage: `https://sufyan-frontend.vercel.app/blog/${post.slug}`,
+    keywords: post.tags.join(", "),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://sufyan-frontend.vercel.app/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://sufyan-frontend.vercel.app/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://sufyan-frontend.vercel.app/blog/${post.slug}` },
+    ],
+  };
+
   return (
     <div className="pt-24 pb-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           href="/blog"

@@ -80,10 +80,33 @@ export const metadata: Metadata = {
   },
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Muhammad Sufyan — Frontend Developer",
+  url: "https://sufyan-frontend.vercel.app",
+  description: "Portfolio of Muhammad Sufyan, a Frontend Developer from Lahore, Pakistan specialising in React and Next.js.",
+  author: {
+    "@type": "Person",
+    name: "Muhammad Sufyan",
+    jobTitle: "Frontend Developer",
+    address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://sufyan-frontend.vercel.app/projects",
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="min-h-screen bg-dark text-surface antialiased flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:bg-primary focus:text-dark focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold"

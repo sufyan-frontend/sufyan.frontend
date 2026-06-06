@@ -23,8 +23,8 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="inline-flex items-center gap-3 group mb-5">
-              <div className="relative w-11 h-11 rounded-xl overflow-hidden ring-1 ring-white/10 group-hover:ring-primary/40 transition-all">
-                <Image src="/favicon.png" alt="Muhammad Sufyan logo" fill className="object-cover" sizes="44px" />
+              <div className="relative w-11 h-11">
+                <Image src="/favicon.png" alt="Muhammad Sufyan logo" fill className="object-fit" sizes="44px" />
               </div>
               <div className="leading-none">
                 <span className="text-surface font-bold text-base block mb-0.5">Muhammad Sufyan</span>

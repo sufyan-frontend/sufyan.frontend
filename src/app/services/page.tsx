@@ -43,9 +43,34 @@ const icons: Record<string, React.ReactNode> = {
   ),
 };
 
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Frontend Development Services by Muhammad Sufyan",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Frontend Development", description: "Building fast, scalable, production-ready web applications using React and Next.js." },
+    { "@type": "ListItem", position: 2, name: "Responsive Web Design", description: "Mobile-first, pixel-perfect designs that look flawless on any screen size." },
+    { "@type": "ListItem", position: 3, name: "API Integration", description: "Connecting frontends to RESTful APIs and backend services with proper error handling." },
+    { "@type": "ListItem", position: 4, name: "UI/UX Implementation", description: "Converting Figma or design mockups into clean, accessible, and interactive user interfaces." },
+    { "@type": "ListItem", position: 5, name: "Performance Optimization", description: "Improving Core Web Vitals, load times, and overall app performance." },
+    { "@type": "ListItem", position: 6, name: "Deployment & Hosting", description: "Deploying and managing projects on Vercel and Netlify with CI/CD pipelines." },
+  ],
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://sufyan-frontend.vercel.app/" },
+    { "@type": "ListItem", position: 2, name: "Services", item: "https://sufyan-frontend.vercel.app/services" },
+  ],
+};
+
 export default function Services() {
   return (
     <div className="pt-24 pb-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center mb-16">

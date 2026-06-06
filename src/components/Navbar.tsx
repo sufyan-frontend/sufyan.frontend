@@ -38,17 +38,17 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="relative w-9 h-9 rounded-xl overflow-hidden ring-1 ring-white/10 group-hover:ring-primary/50 transition-all duration-200">
+            <div className="relative w-9 h-9 ">
               <Image
                 src="/favicon.png"
                 alt="Muhammad Sufyan logo"
                 fill
-                className="object-cover"
+                className="object-fit"
                 sizes="36px"
                 priority
               />
             </div>
-            <div className="hidden sm:block leading-none">
+            <div className="leading-none">
               <span className="text-surface font-bold text-sm block">Muhammad Sufyan</span>
               <span className="text-primary font-mono text-xs">Frontend Developer</span>
             </div>

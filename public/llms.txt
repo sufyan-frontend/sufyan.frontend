@@ -1,0 +1,43 @@
+# Muhammad Sufyan — Frontend Developer
+
+> Muhammad Sufyan is a Frontend Developer based in Lahore, Pakistan with 1.5+ years of experience building fast, responsive, and production-ready web applications using React and Next.js.
+
+## About
+
+Muhammad Sufyan started his web development journey in 2024 at Ehsas Lab, where he completed a 6-month intensive programme and went on to become an instructor. He is currently a Frontend Developer at Ehya Education, working on production systems used by thousands of students and faculty in Pakistan.
+
+He has built education platforms, corporate websites, SaaS-style frontends, and AI-powered interfaces.
+
+## Skills
+
+- React.js, Next.js, JavaScript (ES6+), TypeScript
+- Tailwind CSS, Bootstrap, CSS3, HTML5
+- Redux, Zod, REST API integration
+- Git, GitHub, GitLab, Vercel, Netlify
+- Responsive design, performance optimisation, Core Web Vitals
+
+## Key Pages
+
+- [Home](https://sufyan-frontend.vercel.app/) — Portfolio overview, featured projects, technical skills, and work experience
+- [About](https://sufyan-frontend.vercel.app/about) — Full background, skill proficiency, work timeline, and Ehsas Lab instructor certificate
+- [Projects](https://sufyan-frontend.vercel.app/projects) — Production portfolio (9 live projects) and practice websites (5 projects)
+- [Services](https://sufyan-frontend.vercel.app/services) — Frontend development, responsive design, API integration, UI/UX implementation, performance optimisation, deployment
+- [Blog](https://sufyan-frontend.vercel.app/blog) — Articles on Next.js App Router, Tailwind CSS best practices, and React performance
+- [Contact](https://sufyan-frontend.vercel.app/contact) — Hire Muhammad Sufyan for freelance or full-time frontend work
+
+## Featured Projects
+
+- Alif Laila Education Platform — https://aliflaila.app/
+- Ehya Education Platform — https://www.ehya.com.pk/
+- Classmate Portal — https://classmate.ehya.com.pk/
+- FieldX AI — https://fieldxai.com/
+- TillShop Technologies — https://www.tillshoptechnologies.com/
+- ANP Engineering Website — https://www.anpengineerings.com/
+
+## Contact
+
+- Email: sufyan.frontend@gmail.com
+- Phone: +923438640594
+- Location: Lahore, Pakistan
+- GitHub: https://github.com/sufyan-frontend
+- Available for: Freelance projects, full-time roles, and collaborative work
