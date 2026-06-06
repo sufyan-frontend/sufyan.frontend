@@ -84,15 +84,43 @@ export const projects = [
     tags: ['Next.js', 'Corporate', 'Responsive'],
     featured: false,
   },
+  {
+    id: 'faizan-noor-ul-quran',
+    title: 'Faizan Noor ul Quran',
+    description: 'Islamic education platform for Quran learning with a clean, user-friendly interface designed to serve students and teachers effectively.',
+    url: 'http://faizan-noor-ul-quran-s.vercel.app/',
+    image: '/porfolio%20image/faizan-noor-ul-quran.png',
+    tags: ['Next.js', 'Education', 'Islamic'],
+    featured: false,
+  },
+  {
+    id: 'soft-ehya',
+    title: 'Soft Ehya',
+    description: 'Software division platform for Ehya Education, showcasing tech services and digital solutions with a professional corporate design.',
+    url: 'http://soft.ehya.com.pk/',
+    image: '/porfolio%20image/soft-ehya.png',
+    tags: ['Next.js', 'Corporate', 'Software'],
+    featured: false,
+  },
+  {
+    id: 'tillshop-new',
+    title: 'TillShop New',
+    description: 'Redesigned and modernised version of the TillShop Technologies website with an updated layout, refreshed branding, and improved UI.',
+    url: 'https://tillshopnew.vercel.app/',
+    image: '/porfolio%20image/tillshopnew.png',
+    tags: ['Next.js', 'Corporate', 'Redesign'],
+    featured: false,
+  },
 ];
 
 export const experience = [
   {
     role: 'Frontend Developer (Intern → Junior)',
     company: 'Ehya Education',
+    url: 'https://www.ehya.com.pk/',
     location: 'Lahore, Pakistan',
     duration: '1.5+ Years',
-    period: '2023 – Present',
+    period: '2025 – Present',
     highlights: [
       'Developed and maintained multiple education-based web platforms',
       'Converted UI designs into responsive React/Next.js applications',
@@ -100,6 +128,21 @@ export const experience = [
       'Worked on production systems actively used by thousands of users',
       'Fixed UI/UX issues and improved performance metrics across pages',
       'Collaborated effectively with backend and design teams',
+    ],
+  },
+  {
+    role: 'Learner → Instructor & Freelancer',
+    company: 'Ehsas Lab',
+    url: 'https://ehsaslab.com/',
+    location: 'Lahore, Pakistan',
+    duration: '1+ Year',
+    period: '2024 – 2025',
+    highlights: [
+      'Completed a 6-month intensive web development programme — HTML, CSS, JavaScript, and React',
+      'Progressed from student to Instructor, teaching frontend development to new learners',
+      'Awarded Best Instructor Certificate by Ehsas Lab for outstanding teaching contributions',
+      'Took on freelance client projects, building real-world web solutions independently',
+      'Self-learned Next.js, Tailwind CSS, Redux, Zod, Git, GitLab, Vercel, Netlify, and React Native',
     ],
   },
 ];

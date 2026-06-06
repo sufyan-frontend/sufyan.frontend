@@ -102,15 +102,30 @@ export default function About() {
               Work Experience
             </h2>
           </Reveal>
+          <div className="space-y-6">
           {experience.map((job, i) => (
-            <Reveal key={i} delay={0.1}>
+            <Reveal key={i} delay={i * 0.1}>
               <div className="relative pl-8 border-l-2 border-primary/20">
                 <div className="absolute -left-2 top-2 w-4 h-4 rounded-full bg-primary border-2 border-dark" aria-hidden="true" />
                 <div className="bg-card border border-white/5 rounded-2xl p-6 hover:border-primary/20 transition-all">
                   <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
                     <div>
                       <h3 className="text-surface font-bold text-lg">{job.role}</h3>
-                      <p className="text-primary font-medium">{job.company}</p>
+                      {job.url ? (
+                        <a
+                          href={job.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary font-medium hover:underline inline-flex items-center gap-1"
+                        >
+                          {job.company}
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                      ) : (
+                        <p className="text-primary font-medium">{job.company}</p>
+                      )}
                     </div>
                     <div className="text-right">
                       <span className="text-surface/50 text-sm block">{job.period}</span>
@@ -129,6 +144,55 @@ export default function About() {
               </div>
             </Reveal>
           ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certificates & Achievements */}
+      <section className="py-16 bg-card/30" aria-labelledby="certificates-heading">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-12">
+              <p className="text-primary font-mono text-sm mb-2">Ehsas Lab</p>
+              <h2 id="certificates-heading" className="text-2xl sm:text-3xl font-bold text-surface mb-3">
+                Certificates &amp; Achievements
+              </h2>
+              <p className="text-surface/50 text-sm max-w-md mx-auto">
+                Awarded Best Instructor Certificate by{" "}
+                <a href="https://ehsaslab.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  Ehsas Lab
+                </a>{" "}
+                for outstanding teaching and mentoring contributions.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              { src: "/ehsas%20lab%20image/instructercertifcae.jpeg", label: "Best Instructor Certificate" },
+              { src: "/ehsas%20lab%20image/instructercertifcae3.jpeg", label: "Instructor Recognition Award" },
+              { src: "/ehsas%20lab%20image/teacherdaycelebration.jpeg", label: "Teacher Day Celebration" },
+            ].map((item, i) => (
+              <Reveal key={i} delay={i * 0.12}>
+                <figure className="bg-card border border-white/5 rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300 group hover:shadow-xl hover:shadow-primary/5">
+                  <div className="relative h-64 overflow-hidden bg-dark">
+                    <Image
+                      src={item.src}
+                      alt={item.label}
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, 33vw"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-dark/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <figcaption className="px-4 py-3 text-center">
+                    <span className="text-surface/70 text-sm font-medium">{item.label}</span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </div>

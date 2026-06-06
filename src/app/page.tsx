@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import HeroSection from "@/components/HeroSection";
 import Reveal from "@/components/Reveal";
-import { projects, skills, testimonials } from "@/lib/data";
+import { projects, skills, experience, testimonials } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Muhammad Sufyan | Frontend Developer in Lahore",
@@ -61,7 +61,7 @@ export default function Home() {
                       src={project.image}
                       alt={`Screenshot of ${project.title}`}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       loading="lazy"
                     />
@@ -138,6 +138,73 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Experience */}
+      <section className="py-24" aria-labelledby="experience-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-16">
+              <p className="text-primary font-mono text-sm mb-2">Career</p>
+              <h2 id="experience-heading" className="text-3xl sm:text-4xl font-bold text-surface">
+                Work Experience
+              </h2>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {experience.map((job, i) => (
+              <Reveal key={i} delay={i * 0.12}>
+                <div className="bg-card border border-white/5 rounded-2xl p-6 hover:border-primary/20 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 h-full flex flex-col">
+                  <div className="flex items-center justify-between gap-3 mb-5">
+                    <span className="text-xs font-mono bg-primary/10 text-primary px-3 py-1 rounded-full">
+                      {job.period}
+                    </span>
+                    <span className="text-surface/40 text-xs">{job.location}</span>
+                  </div>
+                  <h3 className="text-surface font-bold text-lg mb-1">{job.role}</h3>
+                  {job.url ? (
+                    <a
+                      href={job.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary text-sm font-medium hover:underline inline-flex items-center gap-1 mb-4"
+                    >
+                      {job.company}
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  ) : (
+                    <p className="text-primary text-sm font-medium mb-4">{job.company}</p>
+                  )}
+                  <ul className="space-y-2 flex-1">
+                    {job.highlights.slice(0, 4).map((item, j) => (
+                      <li key={j} className="flex items-start gap-2 text-surface/60 text-sm">
+                        <span className="text-primary mt-0.5 shrink-0" aria-hidden="true">▸</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.25}>
+            <div className="text-center mt-10">
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 border border-primary/30 text-primary font-medium px-6 py-3 rounded-xl hover:bg-primary/10 transition-all"
+              >
+                View Full Experience
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
