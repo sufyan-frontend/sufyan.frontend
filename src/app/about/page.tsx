@@ -29,8 +29,8 @@ export default function About() {
               </blockquote>
               <div className="flex flex-wrap gap-4 mt-8">
                 <a
-                  href="/cv.pdf"
-                  download
+                  href="/Muhammad Sufyan.pdf"
+                  download="Muhammad_Sufyan_CV.pdf"
                   className="inline-flex items-center gap-2 bg-primary text-dark font-semibold px-5 py-2.5 rounded-xl hover:bg-primary/90 transition-all text-sm"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
