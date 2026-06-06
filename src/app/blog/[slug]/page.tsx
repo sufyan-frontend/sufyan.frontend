@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/lib/data";
+import { blogContent } from "@/lib/blog-content";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -96,9 +97,13 @@ export default async function BlogPost({ params }: Props) {
 
         <p className="text-surface/70 text-lg leading-relaxed mb-8">{post.excerpt}</p>
 
-        <div className="bg-card border border-white/5 rounded-2xl p-6 text-center">
-          <p className="text-surface/50 text-sm">Full article coming soon. Stay tuned!</p>
-        </div>
+        {blogContent[post.slug] ? (
+          <div className="prose-custom">{blogContent[post.slug]}</div>
+        ) : (
+          <div className="bg-card border border-white/5 rounded-2xl p-6 text-center">
+            <p className="text-surface/50 text-sm">Full article coming soon. Stay tuned!</p>
+          </div>
+        )}
       </div>
     </div>
   );
