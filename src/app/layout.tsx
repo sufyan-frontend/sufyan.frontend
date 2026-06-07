@@ -36,9 +36,13 @@ export const metadata: Metadata = {
   publisher: "Muhammad Sufyan",
   formatDetection: { email: false, telephone: false },
   icons: {
-    icon: "/favicon.png",
+    icon: [
+      { url: "/favicon.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+    ],
     shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    apple: { url: "/favicon.png", sizes: "180x180", type: "image/png" },
+    other: [{ rel: "manifest", url: "/site.webmanifest" }],
   },
   openGraph: {
     type: "website",
@@ -93,6 +97,7 @@ const websiteSchema = {
     "@type": "Person",
     name: "Muhammad Sufyan",
     jobTitle: "Frontend Developer",
+    image: "https://sufyan-frontend.vercel.app/profile.png",
     address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
   },
   potentialAction: {
@@ -102,6 +107,27 @@ const websiteSchema = {
   },
 };
 
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Muhammad Sufyan",
+  url: "https://sufyan-frontend.vercel.app",
+  image: "https://sufyan-frontend.vercel.app/profile.png",
+  jobTitle: "Frontend Developer",
+  description: "Frontend Developer with 1.5+ years building React & Next.js apps. Based in Lahore, Pakistan.",
+  email: "sufyantechsolutions@gmail.com",
+  telephone: "+923438640594",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lahore",
+    addressCountry: "PK",
+  },
+  sameAs: [
+    "https://github.com/sufyan-frontend",
+    "https://www.linkedin.com/in/sufyan-frontend",
+  ],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
@@ -109,6 +135,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
         <a
           href="#main-content"
