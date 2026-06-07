@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import { blogPosts } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Blog — Frontend Development Articles",
   description:
     "Articles and insights by Muhammad Sufyan on React, Next.js, Tailwind CSS, and modern frontend development.",
   alternates: { canonical: "https://sufyan-frontend.vercel.app/blog" },

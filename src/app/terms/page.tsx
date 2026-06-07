@@ -2,8 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions — Muhammad Sufyan",
+  title: "Terms & Conditions",
   description: "Terms of use for this personal portfolio website.",
+  alternates: { canonical: "https://sufyan-frontend.vercel.app/terms" },
+  robots: { index: false },
 };
 
 const sections = [

@@ -4,10 +4,32 @@ import ContactForm from "@/components/ContactForm";
 import { person } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact — Hire a Frontend Developer",
   description:
     "Get in touch with Muhammad Sufyan — Frontend Developer. Available for freelance projects, full-time roles, and collaborations.",
   alternates: { canonical: "https://sufyan-frontend.vercel.app/contact" },
+};
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Muhammad Sufyan",
+  jobTitle: "Frontend Developer",
+  url: "https://sufyan-frontend.vercel.app",
+  email: "sufyantechsolutions@gmail.com",
+  telephone: "+923438640594",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lahore",
+    addressCountry: "PK",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    email: "sufyantechsolutions@gmail.com",
+    telephone: "+923438640594",
+    availableLanguage: ["English", "Urdu"],
+  },
 };
 
 const contactItems = [
@@ -58,6 +80,11 @@ const contactItems = [
 
 export default function Contact() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+      />
     <div className="pt-24 pb-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
@@ -116,5 +143,6 @@ export default function Contact() {
         </div>
       </div>
     </div>
+    </>
   );
 }

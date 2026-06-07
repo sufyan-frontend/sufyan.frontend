@@ -2,8 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Muhammad Sufyan",
+  title: "Privacy Policy",
   description: "How this portfolio site collects and uses your information.",
+  alternates: { canonical: "https://sufyan-frontend.vercel.app/privacy" },
+  robots: { index: false },
 };
 
 const sections = [

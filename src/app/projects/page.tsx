@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import { projects, practiceProjects } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "Projects — React & Next.js Portfolio",
   description:
     "Browse the portfolio of Muhammad Sufyan — education platforms, corporate websites, and web apps built with React and Next.js.",
   alternates: { canonical: "https://sufyan-frontend.vercel.app/projects" },

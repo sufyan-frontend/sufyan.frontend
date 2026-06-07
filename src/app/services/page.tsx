@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import { services } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Services — React & Next.js Development",
   description:
     "Frontend development services by Muhammad Sufyan — React/Next.js apps, responsive design, API integration, performance optimization, and deployment.",
   alternates: { canonical: "https://sufyan-frontend.vercel.app/services" },
