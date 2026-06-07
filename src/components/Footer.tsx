@@ -65,7 +65,9 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href={`mailto:${person.email}`}
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${person.email}&su=Project%20Inquiry`}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Send email"
                 className="w-9 h-9 flex items-center justify-center rounded-lg bg-white/5 border border-white/5 text-surface/50 hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all"
               >
@@ -99,7 +101,7 @@ export default function Footer() {
             <h2 className="text-surface font-semibold mb-5 text-xs uppercase tracking-widest text-surface/40">Get In Touch</h2>
             <ul className="space-y-3 text-sm" role="list">
               <li>
-                <a href={`mailto:${person.email}`} className="text-surface/55 hover:text-primary transition-colors flex items-start gap-2.5">
+                <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${person.email}&su=Project%20Inquiry`} target="_blank" rel="noopener noreferrer" className="text-surface/55 hover:text-primary transition-colors flex items-start gap-2.5">
                   <svg className="w-4 h-4 text-primary/50 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>

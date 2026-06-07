@@ -17,7 +17,7 @@ const jsonLd = {
   "@type": "Person",
   name: "Muhammad Sufyan",
   jobTitle: "Frontend Developer",
-  email: "sufyan.frontend@gmail.com",
+  email: "sufyantechsolutions@gmail.com",
   telephone: "+923438640594",
   url: "https://sufyan-frontend.vercel.app",
   address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },

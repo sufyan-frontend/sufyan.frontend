@@ -4,7 +4,7 @@ export const person = {
   name: 'Muhammad Sufyan',
   role: 'Frontend Developer',
   stack: 'React · Next.js',
-  email: 'sufyan.frontend@gmail.com',
+  email: 'sufyantechsolutions@gmail.com',
   phone: '+923438640594',
   location: 'Lahore, Pakistan',
   github: 'https://github.com/sufyan-frontend',

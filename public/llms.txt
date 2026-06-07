@@ -36,7 +36,7 @@ He has built education platforms, corporate websites, SaaS-style frontends, and 
 
 ## Contact
 
-- Email: sufyan.frontend@gmail.com
+- Email: sufyantechsolutions@gmail.com
 - Phone: +923438640594
 - Location: Lahore, Pakistan
 - GitHub: https://github.com/sufyan-frontend

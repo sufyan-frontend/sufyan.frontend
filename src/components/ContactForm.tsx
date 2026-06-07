@@ -2,11 +2,12 @@
 import { useState } from "react";
 
 type Status = "idle" | "loading" | "success" | "error";
-// 
+
 export default function ContactForm({ email }: { email: string }) {
   const [form, setForm] = useState({ name: "", email: "", phone: "", address: "", subject: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -30,6 +31,7 @@ export default function ContactForm({ email }: { email: string }) {
       }
 
       setStatus("success");
+      setShowModal(true);
       setForm({ name: "", email: "", phone: "", address: "", subject: "", message: "" });
     } catch (err) {
       setStatus("error");
@@ -42,40 +44,50 @@ export default function ContactForm({ email }: { email: string }) {
 
   const isLoading = status === "loading";
 
-  if (status === "success") {
-    return (
-      <div className="space-y-4">
-        <h2 className="text-xl font-semibold text-surface mb-6">Send a Message</h2>
-        <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
-          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-            <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <p className="text-surface font-semibold text-lg">Message Sent!</p>
-          <p className="text-surface/60 text-sm max-w-xs">
-            Thanks for reaching out. I've sent a confirmation to your email and will get back to you soon.
-          </p>
-          <div className="flex items-start gap-2 bg-yellow-500/10 border border-yellow-500/20 rounded-xl px-4 py-3 max-w-xs text-left">
-            <span className="text-yellow-400 text-base mt-0.5">⚠</span>
-            <p className="text-yellow-300/80 text-xs leading-relaxed">
-              Don&apos;t see the confirmation email? Check your <strong className="text-yellow-300">spam or junk folder</strong> and mark it as &quot;Not Spam&quot;.
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={() => setStatus("idle")}
-            className="mt-2 text-sm text-primary hover:underline"
-          >
-            Send another message
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-4">
+    <>
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+          <div className="bg-dark border border-white/10 rounded-2xl p-8 max-w-sm w-full shadow-2xl text-center space-y-5">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+              <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div className="space-y-2">
+              <p className="text-surface font-semibold text-lg">Message Sent!</p>
+              <p className="text-surface/60 text-sm">
+                Thanks for reaching out. A confirmation email has been sent to your inbox.
+              </p>
+            </div>
+            <div className="flex items-start gap-2 bg-yellow-500/10 border border-yellow-500/20 rounded-xl px-4 py-3 text-left">
+              <span className="text-yellow-400 text-base mt-0.5">⚠</span>
+              <p className="text-yellow-300/80 text-xs leading-relaxed">
+                Don&apos;t see it? Check your <strong className="text-yellow-300">spam or junk folder</strong> and mark it as &quot;Not Spam&quot;.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 pt-1">
+              <button
+                type="button"
+                onClick={() => { setShowModal(false); setStatus("idle"); }}
+                className="flex-1 border border-white/10 text-surface/70 text-sm font-medium py-2.5 rounded-xl hover:bg-white/5 transition-colors"
+              >
+                Cancel
+              </button>
+              <a
+                href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#spam"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => { setShowModal(false); setStatus("idle"); }}
+                className="flex-1 bg-primary text-dark text-sm font-semibold py-2.5 rounded-xl hover:bg-primary/90 transition-colors text-center"
+              >
+                View Confirmation
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+      <form onSubmit={handleSubmit} noValidate className="space-y-4">
       <h2 className="text-xl font-semibold text-surface mb-6">Send a Message</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -205,5 +217,6 @@ export default function ContactForm({ email }: { email: string }) {
         )}
       </button>
     </form>
+    </>
   );
 }

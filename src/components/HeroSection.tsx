@@ -66,7 +66,9 @@ export default function HeroSection() {
                 </svg>
               </a>
               <a
-                href={`mailto:${person.email}`}
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${person.email}&su=Project%20Inquiry`}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Email"
                 className="text-surface/40 hover:text-primary transition-colors"
               >
