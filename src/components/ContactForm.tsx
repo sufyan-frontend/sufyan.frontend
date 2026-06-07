@@ -25,8 +25,8 @@ export default function ContactForm({ email }: { email: string }) {
       });
 
       if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || "Something went wrong.");
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Something went wrong. Please try again.");
       }
 
       setStatus("success");

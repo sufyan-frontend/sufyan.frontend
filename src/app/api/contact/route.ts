@@ -4,6 +4,7 @@ import { NextRequest } from "next/server";
 const OWNER_EMAIL = "sufyan.frontend@gmail.com";
 
 export async function POST(request: NextRequest) {
+  try {
   const { name, email, subject, message } = await request.json();
 
   if (!name || !email || !message) {
@@ -59,4 +60,9 @@ export async function POST(request: NextRequest) {
   });
 
   return Response.json({ success: true });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error("[contact] sendMail error:", msg);
+    return Response.json({ error: msg }, { status: 500 });
+  }
 }
