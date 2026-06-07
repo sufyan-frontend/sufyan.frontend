@@ -23,3 +23,8 @@ body {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #0F172A; }
 ::-webkit-scrollbar-thumb { background: #38BDF8; border-radius: 3px; }
+
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(56,189,248,0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
