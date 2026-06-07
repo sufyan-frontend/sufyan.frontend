@@ -4,7 +4,7 @@ import { useState } from "react";
 type Status = "idle" | "loading" | "success" | "error";
 // 
 export default function ContactForm({ email }: { email: string }) {
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", address: "", subject: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -30,7 +30,7 @@ export default function ContactForm({ email }: { email: string }) {
       }
 
       setStatus("success");
-      setForm({ name: "", email: "", subject: "", message: "" });
+      setForm({ name: "", email: "", phone: "", address: "", subject: "", message: "" });
     } catch (err) {
       setStatus("error");
       setErrorMsg(err instanceof Error ? err.message : "Failed to send message.");
@@ -56,6 +56,12 @@ export default function ContactForm({ email }: { email: string }) {
           <p className="text-surface/60 text-sm max-w-xs">
             Thanks for reaching out. I've sent a confirmation to your email and will get back to you soon.
           </p>
+          <div className="flex items-start gap-2 bg-yellow-500/10 border border-yellow-500/20 rounded-xl px-4 py-3 max-w-xs text-left">
+            <span className="text-yellow-400 text-base mt-0.5">⚠</span>
+            <p className="text-yellow-300/80 text-xs leading-relaxed">
+              Don&apos;t see the confirmation email? Check your <strong className="text-yellow-300">spam or junk folder</strong> and mark it as &quot;Not Spam&quot;.
+            </p>
+          </div>
           <button
             type="button"
             onClick={() => setStatus("idle")}
@@ -109,19 +115,54 @@ export default function ContactForm({ email }: { email: string }) {
         </div>
       </div>
 
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="subject" className="block text-xs text-surface/60 mb-1.5 uppercase tracking-wider">
+            Subject
+          </label>
+          <input
+            id="subject"
+            name="subject"
+            type="text"
+            disabled={isLoading}
+            value={form.subject}
+            onChange={handleChange}
+            className={inputClass}
+            placeholder="Project Inquiry"
+          />
+        </div>
+        <div>
+          <label htmlFor="phone" className="block text-xs text-surface/60 mb-1.5 uppercase tracking-wider">
+            Phone <span className="text-surface/40 normal-case tracking-normal">(optional)</span>
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            disabled={isLoading}
+            value={form.phone}
+            onChange={handleChange}
+            className={inputClass}
+            placeholder="+92 300 1234567"
+          />
+        </div>
+      </div>
+
       <div>
-        <label htmlFor="subject" className="block text-xs text-surface/60 mb-1.5 uppercase tracking-wider">
-          Subject
+        <label htmlFor="address" className="block text-xs text-surface/60 mb-1.5 uppercase tracking-wider">
+          Address <span className="text-surface/40 normal-case tracking-normal">(optional)</span>
         </label>
         <input
-          id="subject"
-          name="subject"
+          id="address"
+          name="address"
           type="text"
+          autoComplete="street-address"
           disabled={isLoading}
-          value={form.subject}
+          value={form.address}
           onChange={handleChange}
           className={inputClass}
-          placeholder="Project Inquiry"
+          placeholder="123 Main St, Lahore, Pakistan"
         />
       </div>
 
