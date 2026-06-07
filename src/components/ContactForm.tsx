@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 type Status = "idle" | "loading" | "success" | "error";
-
+// 
 export default function ContactForm({ email }: { email: string }) {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
