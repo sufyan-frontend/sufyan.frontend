@@ -132,9 +132,19 @@ export default function Footer() {
           <p className="text-surface/35 text-xs">
             &copy; 2026 Muhammad Sufyan. All rights reserved.
           </p>
-          <p className="text-surface/25 text-xs">
-            Built with Next.js &amp; Tailwind CSS
-          </p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy" className="text-surface/30 hover:text-primary text-xs transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="text-white/10 text-xs">|</span>
+            <Link href="/terms" className="text-surface/30 hover:text-primary text-xs transition-colors">
+              Terms &amp; Conditions
+            </Link>
+            <span className="text-white/10 text-xs hidden sm:inline">|</span>
+            <p className="text-surface/25 text-xs hidden sm:block">
+              Built with Next.js &amp; Tailwind CSS
+            </p>
+          </div>
         </div>
       </div>
     </footer>
