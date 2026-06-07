@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import { NextRequest } from "next/server";
 
-const OWNER_EMAIL = "sufyan.frontend@gmail.com";
+const OWNER_EMAIL = "sufyantechsolutions@gmail.com";
 
 export async function POST(request: NextRequest) {
   try {
@@ -11,8 +11,15 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: "Name, email, and message are required." }, { status: 400 });
   }
 
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+    console.error("[contact] Missing GMAIL_USER or GMAIL_APP_PASSWORD env vars");
+    return Response.json({ error: "Email service not configured." }, { status: 500 });
+  }
+
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
     auth: {
       user: process.env.GMAIL_USER,
       pass: process.env.GMAIL_APP_PASSWORD,
