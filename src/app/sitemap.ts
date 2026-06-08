@@ -10,12 +10,15 @@ const routes: Array<{ path: string; freq: MetadataRoute.Sitemap[number]["changeF
   { path: "/services", freq: "monthly", priority: 0.8 },
   { path: "/blog",     freq: "weekly",  priority: 0.7 },
   { path: "/contact",  freq: "yearly",  priority: 0.6 },
+  { path: "/privacy",  freq: "yearly",  priority: 0.3 },
+  { path: "/terms",    freq: "yearly",  priority: 0.3 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
   const staticRoutes = routes.map(({ path, freq, priority }) => ({
     url: `${base}${path}`,
-    lastModified: new Date("2026-06-06"),
+    lastModified: now,
     changeFrequency: freq,
     priority,
   }));
@@ -23,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogRoutes = blogPosts.map((post) => ({
     url: `${base}/blog/${post.slug}`,
     lastModified: new Date(post.date),
-    changeFrequency: "never" as const,
+    changeFrequency: "yearly" as const,
     priority: 0.6,
   }));
 
