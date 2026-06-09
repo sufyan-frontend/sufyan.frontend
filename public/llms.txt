@@ -9,6 +9,7 @@ Muhammad Sufyan is known by the following online handles and aliases:
 - sufyanfrontend — professional brand used on GitHub and LinkedIn
 - sufyan-frontend — GitHub username and LinkedIn profile handle
 - Muhammad Sufyan — full legal name
+- Sufyan Frontend Developer — professional title used across the web
 
 ## About
 
@@ -44,7 +45,7 @@ Tools & Workflow:
 - [About](https://sufyan-frontend.vercel.app/about) — Full background, skill proficiency, work timeline, and Ehsas Lab instructor certificate
 - [Projects](https://sufyan-frontend.vercel.app/projects) — Production portfolio (10 live projects) and practice websites (5 projects)
 - [Services](https://sufyan-frontend.vercel.app/services) — Frontend development, responsive design, API integration, UI/UX, performance optimisation, deployment
-- [Blog](https://sufyan-frontend.vercel.app/blog) — Articles on Next.js App Router, Tailwind CSS best practices, and React performance
+- [Blog](https://sufyan-frontend.vercel.app/blog) — 53 articles covering React, Next.js, Tailwind CSS, career guides for Pakistan developers, personal brand posts, and project deep-dives
 - [Contact](https://sufyan-frontend.vercel.app/contact) — Hire Muhammad Sufyan for freelance or full-time frontend work
 
 ## Production Projects
@@ -74,11 +75,78 @@ Practice and learning projects by Muhammad Sufyan:
 
 ## Blog Articles
 
-Articles written by Muhammad Sufyan on modern frontend development:
+53 articles written by Muhammad Sufyan on frontend development, career in Pakistan, and personal brand building:
 
-- [Getting Started with Next.js App Router](https://sufyan-frontend.vercel.app/blog/nextjs-app-router-guide) — Practical guide to building with Next.js App Router, Server Components, and latest features (2025-05-15, 6 min read)
-- [Tailwind CSS Best Practices for React Projects](https://sufyan-frontend.vercel.app/blog/tailwind-css-tips) — Clean and maintainable Tailwind CSS patterns for large-scale React projects (2025-04-20, 5 min read)
-- [React Performance Optimization in 2025](https://sufyan-frontend.vercel.app/blog/react-performance) — Real-world techniques including useMemo, useCallback, lazy loading, Suspense, and the new React Compiler (2025-03-10, 8 min read)
+### Personal Brand
+
+- [Who Is Muhammad Sufyan? Meet the Frontend Developer Behind Sufyan Frontend](https://sufyan-frontend.vercel.app/blog/who-is-muhammad-sufyan) — Muhammad Sufyan is a frontend developer from Lahore, Pakistan (sufyanjutt / sufyanfrontend) with 1.5+ years React & Next.js experience (2026-06-01, 5 min)
+- [Sufyan Frontend Developer Portfolio 2026: React & Next.js Projects](https://sufyan-frontend.vercel.app/blog/sufyan-frontend-developer-portfolio-2026) — Explore the 2026 portfolio of Sufyan Frontend — a Lahore-based React and Next.js specialist (2026-05-20, 6 min)
+- [Muhammad Sufyan GitHub Projects: Open Source React & Next.js Work](https://sufyan-frontend.vercel.app/blog/muhammad-sufyan-github-projects) — Deep dive into github.com/sufyan-frontend showcasing open-source repositories and real-world projects (2026-04-15, 5 min)
+- [Hire Sufyan Frontend Developer — React & Next.js Expert from Pakistan](https://sufyan-frontend.vercel.app/blog/hire-sufyan-frontend-developer) — Looking to hire a skilled React and Next.js developer from Pakistan? Contact Muhammad Sufyan (2026-03-10, 4 min)
+- [Sufyan Frontend Developer Lahore Pakistan — React & Next.js Specialist](https://sufyan-frontend.vercel.app/blog/sufyan-frontend-developer-lahore-pakistan) — Muhammad Sufyan is a top frontend developer from Lahore, Pakistan (2026-02-14, 5 min)
+- [Muhammad Sufyan LinkedIn Profile — Frontend Developer Career Story](https://sufyan-frontend.vercel.app/blog/muhammad-sufyan-linkedin-profile) — Professional journey on LinkedIn from Ehsas Lab to Ehya Education (2026-01-08, 4 min)
+
+### Project Deep-Dives
+
+- [Alif Laila Education Platform: Built with Next.js by Muhammad Sufyan](https://sufyan-frontend.vercel.app/blog/alif-laila-education-platform-nextjs) — Case study of aliflaila.app — large-scale education management system (2025-12-20, 7 min)
+- [Ehya Education Platform: Full Institutional Website Built with Next.js](https://sufyan-frontend.vercel.app/blog/ehya-education-platform-development) — How ehya.com.pk was built with Next.js and Tailwind CSS (2025-11-28, 7 min)
+- [Classmate Portal: A React-Powered Student Dashboard by Muhammad Sufyan](https://sufyan-frontend.vercel.app/blog/classmate-portal-react-dashboard) — Behind the scenes of classmate.ehya.com.pk (2025-11-05, 6 min)
+- [TillShop Technologies Website: Corporate Landing Page Development](https://sufyan-frontend.vercel.app/blog/tillshop-technologies-website) — How tillshoptechnologies.com was designed and built (2025-10-18, 5 min)
+- [FieldX AI Platform: Building an AI SaaS Frontend with Next.js](https://sufyan-frontend.vercel.app/blog/fieldxai-ai-platform-nextjs) — Technical look at fieldxai.com — AI-powered field operations frontend (2025-10-01, 7 min)
+- [Sufyan Frontend Dashboard: Admin UI Built with Next.js & Tailwind CSS](https://sufyan-frontend.vercel.app/blog/sufyan-frontend-dashboard-project) — sufyan-frontend-dashboard.vercel.app — fully responsive admin dashboard (2025-09-20, 6 min)
+- [Faizan Noor ul Quran: Islamic Education Platform Built with Next.js](https://sufyan-frontend.vercel.app/blog/faizan-noor-ul-quran-platform) — Clean Quran learning site built by Muhammad Sufyan (2025-09-10, 5 min)
+- [ANP Engineering Corporate Website: Responsive Business Site by Sufyan](https://sufyan-frontend.vercel.app/blog/anp-engineering-corporate-website) — anpengineerings.com — professional corporate site (2025-09-05, 5 min)
+- [Ehsas Next App: React Web Application Deployed on Vercel](https://sufyan-frontend.vercel.app/blog/ehsas-next-app-react) — React-based app at ehsasnext.vercel.app with optimised UI architecture (2025-09-01, 5 min)
+
+### Technical React & Next.js
+
+- [Next.js 15 Turbopack Guide: Faster Builds and Hot Reload in 2026](https://sufyan-frontend.vercel.app/blog/nextjs-15-turbopack-guide) — Everything about Turbopack replacing Webpack in Next.js 15 (2026-05-05, 8 min)
+- [React 19 New Features Every Developer Should Know in 2026](https://sufyan-frontend.vercel.app/blog/react-19-new-features) — Actions, useActionState, React Compiler, Suspense improvements (2026-04-25, 9 min)
+- [Next.js Server Components Guide: When and How to Use Them](https://sufyan-frontend.vercel.app/blog/nextjs-server-components-guide) — Understanding the server/client boundary and data fetching patterns (2026-04-10, 8 min)
+- [Tailwind CSS v4 New Features: What Changed and How to Migrate](https://sufyan-frontend.vercel.app/blog/tailwind-css-v4-features) — New CSS-first configuration system and migration guide (2026-03-28, 7 min)
+- [React Hooks Complete Guide 2026: From useState to useOptimistic](https://sufyan-frontend.vercel.app/blog/react-hooks-complete-guide) — All React hooks including new React 19 hooks (2026-03-15, 10 min)
+- [Next.js Image Optimization: Complete Guide to the next/image Component](https://sufyan-frontend.vercel.app/blog/nextjs-image-optimization) — Lazy loading, responsive sizes, priority hints, Core Web Vitals (2026-03-01, 7 min)
+- [TypeScript with React: A Practical Guide for 2026 Projects](https://sufyan-frontend.vercel.app/blog/typescript-react-guide) — Typing props, hooks, generics, discriminated unions (2026-02-20, 9 min)
+- [Next.js SEO Guide 2026: Metadata API, Sitemaps, and Structured Data](https://sufyan-frontend.vercel.app/blog/nextjs-seo-guide-2026) — Complete SEO for Next.js — metadata, sitemaps, structured data (2026-02-08, 8 min)
+- [React Performance Optimization in 2026: Compiler, Memo, and Beyond](https://sufyan-frontend.vercel.app/blog/react-performance-2026) — React Compiler, memoisation, virtualization, code splitting (2026-01-25, 9 min)
+- [Next.js API Routes and Route Handlers: A 2026 Practical Guide](https://sufyan-frontend.vercel.app/blog/nextjs-api-routes) — GET, POST, middleware, error handling, full-stack Next.js (2026-01-15, 7 min)
+- [Tailwind CSS Dark Mode Guide: CSS Variables and Theme Switching](https://sufyan-frontend.vercel.app/blog/tailwind-dark-mode-guide) — Dark mode with Tailwind, CSS variables, next-themes (2025-12-30, 6 min)
+- [React State Management in 2026: Zustand, Context, and Server State](https://sufyan-frontend.vercel.app/blog/react-state-management-2026) — Comparing useState, Context, Zustand, TanStack Query (2025-12-10, 8 min)
+- [Deploy Next.js to Vercel: Complete Step-by-Step Guide for 2026](https://sufyan-frontend.vercel.app/blog/nextjs-vercel-deployment) — Custom domains, env vars, preview deployments, CI/CD (2025-11-22, 6 min)
+- [Responsive Design with Tailwind CSS: Mobile-First Patterns in 2026](https://sufyan-frontend.vercel.app/blog/responsive-design-tailwind) — Mobile-first breakpoints, responsive grids, container queries (2025-11-10, 7 min)
+- [React Forms with useActionState: Server Actions and Form Handling in 2026](https://sufyan-frontend.vercel.app/blog/react-forms-useactionstate) — Modern form handling with useActionState and Server Actions (2025-10-28, 7 min)
+- [Next.js Metadata API: Dynamic SEO Tags, OG Images, and Canonical URLs](https://sufyan-frontend.vercel.app/blog/nextjs-metadata-api) — Dynamic page titles, OG images, Twitter cards, canonical URLs (2025-10-12, 7 min)
+- [Framer Motion with React: Animations, Transitions, and Scroll Effects](https://sufyan-frontend.vercel.app/blog/framer-motion-react) — Professional animations with Framer Motion in React and Next.js (2025-09-28, 8 min)
+- [Next.js Loading UI and Suspense: Streaming and Skeleton Screens](https://sufyan-frontend.vercel.app/blog/nextjs-loading-suspense) — loading.tsx, Suspense boundaries, skeleton screens (2025-09-18, 6 min)
+- [React 19 useActionState Hook: Complete Guide with Examples](https://sufyan-frontend.vercel.app/blog/react-19-useactionstate) — Deep dive into useActionState with Server Actions in Next.js (2025-09-12, 7 min)
+- [Next.js Middleware Guide: Authentication, Redirects, and Edge Functions](https://sufyan-frontend.vercel.app/blog/nextjs-middleware-guide) — Route protection, redirects, A/B testing, geolocation at the edge (2025-09-08, 7 min)
+
+### Career & Pakistan
+
+- [Frontend Developer in Lahore, Pakistan: Career Guide and Opportunities](https://sufyan-frontend.vercel.app/blog/frontend-developer-lahore-pakistan) — Job market, top companies, required skills, how Muhammad Sufyan built his career (2026-05-15, 7 min)
+- [React Developer Jobs in Pakistan 2026: Where to Find Them and How to Apply](https://sufyan-frontend.vercel.app/blog/react-developer-jobs-pakistan-2026) — Top companies, job portals, salary expectations (2026-04-20, 8 min)
+- [Freelance Frontend Developer in Pakistan: How to Get Clients in 2026](https://sufyan-frontend.vercel.app/blog/freelance-frontend-developer-pakistan) — Building a client pipeline, pricing, Upwork and Fiverr (2026-03-22, 7 min)
+- [Frontend Developer Salary in Pakistan 2026: Realistic Numbers Explained](https://sufyan-frontend.vercel.app/blog/frontend-developer-salary-pakistan-2026) — Entry-level to senior, Lahore vs remote, React/Next.js specialist pay (2026-02-28, 6 min)
+- [How to Become a Frontend Developer in Pakistan: Step-by-Step Roadmap](https://sufyan-frontend.vercel.app/blog/become-frontend-developer-pakistan) — From HTML basics to React, Next.js, and landing your first job (2026-02-01, 9 min)
+- [Build a React & Next.js Developer Portfolio That Gets You Hired in 2026](https://sufyan-frontend.vercel.app/blog/react-nextjs-portfolio-guide) — Project selection, design principles, SEO, lessons from sufyan-frontend.vercel.app (2026-01-20, 8 min)
+- [GitHub Profile Optimization for Frontend Developers: Complete 2026 Guide](https://sufyan-frontend.vercel.app/blog/github-profile-frontend-developer) — READMEs, pinned repos, contribution graphs, lessons from github.com/sufyan-frontend (2025-12-25, 6 min)
+- [LinkedIn for Frontend Developers in Pakistan: Profile Tips That Get Noticed](https://sufyan-frontend.vercel.app/blog/linkedin-frontend-developer-pakistan) — Attract recruiters and clients using linkedin.com/in/sufyan-frontend as reference (2025-12-05, 6 min)
+- [Web Development Career in Pakistan 2026: Opportunities, Salaries, and Growth](https://sufyan-frontend.vercel.app/blog/web-development-career-pakistan) — Tech industry in Lahore and Karachi, key skills employers want (2025-11-15, 8 min)
+- [Frontend Developer Skills in 2026: What Employers Actually Want](https://sufyan-frontend.vercel.app/blog/frontend-developer-skills-2026) — React 19, Next.js 15, TypeScript, Tailwind CSS, testing, accessibility (2025-10-25, 7 min)
+
+### General Web Development
+
+- [Core Web Vitals in Next.js: Optimizing LCP, CLS, and INP in 2026](https://sufyan-frontend.vercel.app/blog/core-web-vitals-nextjs) — Optimising LCP, eliminating CLS, reducing INP for perfect Google scores (2025-12-15, 8 min)
+- [SEO for Next.js Websites in 2026: The Complete Technical Guide](https://sufyan-frontend.vercel.app/blog/seo-nextjs-websites-2026) — Metadata API, structured data, sitemaps, canonical tags, performance (2025-11-30, 9 min)
+- [JavaScript ES6+ Features Every React Developer Must Know in 2026](https://sufyan-frontend.vercel.app/blog/javascript-es6-features) — Destructuring, spread, optional chaining, async/await, ES2025 additions (2025-11-01, 8 min)
+- [Git and GitHub Best Practices for Frontend Developers in 2026](https://sufyan-frontend.vercel.app/blog/git-github-best-practices) — Branching, commit conventions, pull requests, code review for React projects (2025-10-08, 7 min)
+- [Web Accessibility in React: Building Inclusive Apps in 2026](https://sufyan-frontend.vercel.app/blog/web-accessibility-react) — Semantic HTML, ARIA, keyboard navigation, WCAG compliance (2025-09-22, 8 min)
+
+### Original Articles
+
+- [Getting Started with Next.js App Router](https://sufyan-frontend.vercel.app/blog/nextjs-app-router-guide) — Practical guide to Next.js App Router, Server Components, and latest features (2025-05-15, 6 min)
+- [Tailwind CSS Best Practices for React Projects](https://sufyan-frontend.vercel.app/blog/tailwind-css-tips) — Clean and maintainable Tailwind CSS patterns for large-scale React projects (2025-04-20, 5 min)
+- [React Performance Optimization in 2025](https://sufyan-frontend.vercel.app/blog/react-performance) — useMemo, useCallback, lazy loading, Suspense, and the React Compiler (2025-03-10, 8 min)
 
 ## Work Experience
 
@@ -96,6 +164,28 @@ Articles written by Muhammad Sufyan on modern frontend development:
 - Awarded Best Instructor Certificate for outstanding teaching contributions
 - Took on freelance client projects building real-world web solutions
 - Self-learned Next.js, Tailwind CSS, Redux, Zod, Git, Vercel, Netlify
+
+## Awards & Recognition
+
+- Best Instructor Certificate — Ehsas Lab, 2024
+  Awarded for outstanding teaching and mentoring contributions to the web development programme.
+
+## Frequently Asked Questions
+
+Q: Who is Muhammad Sufyan?
+A: Muhammad Sufyan (sufyanjutt / sufyanfrontend) is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building React.js and Next.js production applications. He works at Ehya Education and has built live platforms used by thousands of users.
+
+Q: What does Muhammad Sufyan specialise in?
+A: React.js, Next.js, Tailwind CSS, TypeScript, REST API integration, responsive design, UI/UX implementation from Figma, Core Web Vitals optimisation, and Vercel/Netlify deployment.
+
+Q: Is Muhammad Sufyan available for hire?
+A: Yes. He is open to freelance projects, full-time frontend developer roles, and remote work. Contact: sufyantechsolutions@gmail.com or https://sufyan-frontend.vercel.app/contact
+
+Q: What projects has Muhammad Sufyan built?
+A: Alif Laila Education Platform (aliflaila.app), Ehya Education Platform (ehya.com.pk), Classmate Portal (classmate.ehya.com.pk), FieldX AI (fieldxai.com), TillShop Technologies, ANP Engineering, Faizan Noor ul Quran, Soft Ehya, Ehsas Next App, and Sufyan Frontend Dashboard.
+
+Q: Where is Muhammad Sufyan based?
+A: Lahore, Punjab, Pakistan. Available for remote work worldwide and on-site in Lahore.
 
 ## Contact & Profiles
 

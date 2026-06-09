@@ -57,14 +57,77 @@ const icons: Record<string, React.ReactNode> = {
 const servicesSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Frontend Development Services by Muhammad Sufyan",
+  name: "Frontend Development Services by Muhammad Sufyan (sufyanjutt)",
+  description: "Professional frontend development services by Muhammad Sufyan — React.js, Next.js, Tailwind CSS, REST API integration, and Vercel deployment from Lahore, Pakistan.",
+  url: "https://sufyan-frontend.vercel.app/services",
+  numberOfItems: 6,
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Frontend Development", description: "Building fast, scalable, production-ready web applications using React and Next.js." },
-    { "@type": "ListItem", position: 2, name: "Responsive Web Design", description: "Mobile-first, pixel-perfect designs that look flawless on any screen size." },
-    { "@type": "ListItem", position: 3, name: "API Integration", description: "Connecting frontends to RESTful APIs and backend services with proper error handling." },
-    { "@type": "ListItem", position: 4, name: "UI/UX Implementation", description: "Converting Figma or design mockups into clean, accessible, and interactive user interfaces." },
-    { "@type": "ListItem", position: 5, name: "Performance Optimization", description: "Improving Core Web Vitals, load times, and overall app performance." },
-    { "@type": "ListItem", position: 6, name: "Deployment & Hosting", description: "Deploying and managing projects on Vercel and Netlify with CI/CD pipelines." },
+    {
+      "@type": "ListItem", position: 1,
+      item: {
+        "@type": "Service",
+        name: "React & Next.js Frontend Development",
+        description: "Building fast, scalable, production-ready web applications using React.js and Next.js with clean, maintainable TypeScript code.",
+        provider: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
+        areaServed: "Worldwide",
+        url: "https://sufyan-frontend.vercel.app/services",
+      },
+    },
+    {
+      "@type": "ListItem", position: 2,
+      item: {
+        "@type": "Service",
+        name: "Responsive Web Design",
+        description: "Mobile-first, pixel-perfect designs with Tailwind CSS that look flawless on any screen size, from phones to large desktops.",
+        provider: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
+        areaServed: "Worldwide",
+        url: "https://sufyan-frontend.vercel.app/services",
+      },
+    },
+    {
+      "@type": "ListItem", position: 3,
+      item: {
+        "@type": "Service",
+        name: "REST API Integration",
+        description: "Connecting React and Next.js frontends to RESTful APIs and backend services with proper error handling and state management.",
+        provider: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
+        areaServed: "Worldwide",
+        url: "https://sufyan-frontend.vercel.app/services",
+      },
+    },
+    {
+      "@type": "ListItem", position: 4,
+      item: {
+        "@type": "Service",
+        name: "UI/UX Implementation from Figma",
+        description: "Converting Figma or design mockups into clean, accessible, and beautifully interactive user interfaces with pixel precision.",
+        provider: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
+        areaServed: "Worldwide",
+        url: "https://sufyan-frontend.vercel.app/services",
+      },
+    },
+    {
+      "@type": "ListItem", position: 5,
+      item: {
+        "@type": "Service",
+        name: "Performance & Core Web Vitals Optimization",
+        description: "Improving LCP, CLS, and INP scores — Core Web Vitals, load times, and overall app performance for better SEO and user experience.",
+        provider: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
+        areaServed: "Worldwide",
+        url: "https://sufyan-frontend.vercel.app/services",
+      },
+    },
+    {
+      "@type": "ListItem", position: 6,
+      item: {
+        "@type": "Service",
+        name: "Vercel & Netlify Deployment",
+        description: "Deploying and managing Next.js projects on Vercel and Netlify with CI/CD pipelines, custom domains, and environment configuration.",
+        provider: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
+        areaServed: "Worldwide",
+        url: "https://sufyan-frontend.vercel.app/services",
+      },
+    },
   ],
 };
 
@@ -77,11 +140,79 @@ const breadcrumbSchema = {
   ],
 };
 
+const servicesFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What frontend development services does Muhammad Sufyan offer?",
+      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan (sufyanjutt / sufyanfrontend) offers React.js and Next.js web application development, responsive UI design with Tailwind CSS, REST API integration, UI/UX implementation from Figma designs, performance and Core Web Vitals optimisation, and Vercel/Netlify deployment." },
+    },
+    {
+      "@type": "Question",
+      name: "How can I hire Muhammad Sufyan as a frontend developer?",
+      acceptedAnswer: { "@type": "Answer", text: "You can hire Muhammad Sufyan by visiting https://sufyan-frontend.vercel.app/contact, emailing sufyantechsolutions@gmail.com, or calling +923438640594. He is available for freelance projects, full-time roles, and remote work." },
+    },
+    {
+      "@type": "Question",
+      name: "Does Muhammad Sufyan work remotely?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Muhammad Sufyan is available for remote frontend development work globally. He is based in Lahore, Pakistan and has experience collaborating with distributed teams on production projects." },
+    },
+    {
+      "@type": "Question",
+      name: "What types of websites does Muhammad Sufyan build?",
+      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan builds education management platforms, corporate and business websites, admin dashboards, landing pages, SaaS frontends, and Islamic education platforms. All projects are built with React.js, Next.js, and Tailwind CSS." },
+    },
+  ],
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Work With Muhammad Sufyan — Frontend Developer",
+  description: "The process for hiring Muhammad Sufyan (sufyanjutt / sufyanfrontend) for your React or Next.js frontend development project.",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Contact Muhammad Sufyan",
+      text: "Reach out via email at sufyantechsolutions@gmail.com or through the contact form at sufyan-frontend.vercel.app/contact. Describe your project requirements.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Project Discovery Call",
+      text: "Muhammad Sufyan will review your requirements, ask clarifying questions, and provide a detailed project scope with estimated timeline and cost.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Development Phase",
+      text: "Muhammad Sufyan builds your React or Next.js frontend using Tailwind CSS, integrates your APIs, and shares progress updates throughout development.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 4,
+      name: "Review and Revisions",
+      text: "Review the completed work, request any changes, and Muhammad Sufyan makes revisions until the final result matches your vision.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 5,
+      name: "Deployment and Handover",
+      text: "Muhammad Sufyan deploys your project to Vercel or Netlify, provides the codebase, and offers post-launch support.",
+    },
+  ],
+};
+
 export default function Services() {
   return (
     <div className="pt-24 pb-20">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesFaqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center mb-16">
@@ -105,6 +236,33 @@ export default function Services() {
               </div>
             </Reveal>
           ))}
+        </div>
+
+        {/* How It Works */}
+        <div className="mb-20">
+          <Reveal>
+            <div className="text-center mb-12">
+              <p className="text-primary font-mono text-sm mb-2">Process</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-surface">How We Work Together</h2>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {[
+              { step: "01", title: "Contact", body: "Send your project brief via email or the contact form." },
+              { step: "02", title: "Discovery", body: "Review requirements and agree on scope, timeline, and cost." },
+              { step: "03", title: "Development", body: "Build the React / Next.js frontend with regular progress updates." },
+              { step: "04", title: "Review", body: "Test the work and request revisions until it is exactly right." },
+              { step: "05", title: "Launch", body: "Deploy to Vercel or Netlify and hand over the full codebase." },
+            ].map(({ step, title, body }) => (
+              <Reveal key={step}>
+                <div className="bg-card border border-white/5 rounded-2xl p-5 text-center hover:border-primary/20 transition-all h-full">
+                  <span className="text-primary font-mono text-2xl font-bold block mb-3">{step}</span>
+                  <h3 className="text-surface font-semibold text-sm mb-2">{title}</h3>
+                  <p className="text-surface/55 text-xs leading-relaxed">{body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
 
         <Reveal>

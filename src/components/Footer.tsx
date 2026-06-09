@@ -18,7 +18,7 @@ export default function Footer() {
       <div className="h-px bg-linear-to-r from-transparent via-primary/50 to-transparent" aria-hidden="true" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
 
           {/* Brand */}
           <div>
@@ -80,7 +80,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <nav aria-label="Footer navigation">
-            <h2 className="text-surface font-semibold mb-5 text-xs uppercase tracking-widest text-surface/40">Quick Links</h2>
+            <h2 className="text-surface/40 font-semibold mb-5 text-xs uppercase tracking-widest">Quick Links</h2>
             <ul className="space-y-2.5" role="list">
               {footerLinks.map((link) => (
                 <li key={link.href}>
@@ -98,7 +98,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h2 className="text-surface font-semibold mb-5 text-xs uppercase tracking-widest text-surface/40">Get In Touch</h2>
+            <h2 className="text-surface/40 font-semibold mb-5 text-xs uppercase tracking-widest">Get In Touch</h2>
             <ul className="space-y-3 text-sm" role="list">
               <li>
                 <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${person.email}&su=Project%20Inquiry`} target="_blank" rel="noopener noreferrer" className="text-surface/55 hover:text-primary transition-colors flex items-start gap-2.5">
@@ -123,6 +123,19 @@ export default function Footer() {
                 </svg>
                 {person.location}
               </li>
+            </ul>
+          </div>
+
+          {/* Tech Stack */}
+          <div>
+            <h2 className="text-surface/40 font-semibold mb-5 text-xs uppercase tracking-widest">Tech Stack</h2>
+            <ul className="space-y-2 text-xs text-surface/50" role="list">
+              {["React.js", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript (ES6+)", "REST API Integration", "Vercel & Netlify", "Git & GitHub"].map((tech) => (
+                <li key={tech} className="flex items-center gap-2">
+                  <span className="w-1 h-1 bg-accent/50 rounded-full shrink-0" aria-hidden="true" />
+                  {tech}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

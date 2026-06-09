@@ -17,7 +17,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.excerpt,
+    keywords: [
+      ...post.tags,
+      "Muhammad Sufyan", "sufyanjutt", "sufyanfrontend",
+      "Frontend Developer Pakistan", "React Next.js tutorial",
+    ],
+    authors: [{ name: "Muhammad Sufyan", url: "https://sufyan-frontend.vercel.app" }],
     alternates: { canonical: `https://sufyan-frontend.vercel.app/blog/${post.slug}` },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.excerpt,
+      url: `https://sufyan-frontend.vercel.app/blog/${post.slug}`,
+      publishedTime: post.date,
+      authors: ["Muhammad Sufyan"],
+      tags: post.tags,
+      images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: post.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: ["https://sufyan-frontend.vercel.app/profile.png"],
+    },
   };
 }
 
@@ -29,22 +51,49 @@ export default async function BlogPost({ params }: Props) {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `https://sufyan-frontend.vercel.app/blog/${post.slug}`,
     headline: post.title,
     description: post.excerpt,
+    articleBody: post.excerpt,
     datePublished: post.date,
     dateModified: post.date,
+    inLanguage: "en-PK",
+    url: `https://sufyan-frontend.vercel.app/blog/${post.slug}`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://sufyan-frontend.vercel.app/blog/${post.slug}`,
+    },
+    image: {
+      "@type": "ImageObject",
+      url: "https://sufyan-frontend.vercel.app/profile.png",
+      width: 1200,
+      height: 630,
+    },
     author: {
       "@type": "Person",
+      "@id": "https://sufyan-frontend.vercel.app/#person",
       name: "Muhammad Sufyan",
-      url: "https://sufyan-frontend.vercel.app/about",
+      url: "https://sufyan-frontend.vercel.app",
+      sameAs: ["https://github.com/sufyan-frontend", "https://www.linkedin.com/in/sufyan-frontend"],
     },
     publisher: {
       "@type": "Person",
+      "@id": "https://sufyan-frontend.vercel.app/#person",
       name: "Muhammad Sufyan",
       url: "https://sufyan-frontend.vercel.app",
+      image: {
+        "@type": "ImageObject",
+        url: "https://sufyan-frontend.vercel.app/profile.png",
+        width: 400,
+        height: 400,
+      },
     },
-    url: `https://sufyan-frontend.vercel.app/blog/${post.slug}`,
-    mainEntityOfPage: `https://sufyan-frontend.vercel.app/blog/${post.slug}`,
+    isPartOf: {
+      "@type": "Blog",
+      "@id": "https://sufyan-frontend.vercel.app/blog",
+      name: "Muhammad Sufyan — Frontend Development Blog",
+      url: "https://sufyan-frontend.vercel.app/blog",
+    },
     keywords: post.tags.join(", "),
   };
 

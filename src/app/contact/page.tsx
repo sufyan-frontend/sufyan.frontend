@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 import { person } from "@/lib/data";
@@ -11,6 +12,14 @@ export const metadata: Metadata = {
     "contact Muhammad Sufyan", "hire sufyanjutt", "hire sufyanfrontend",
     "freelance frontend developer Pakistan", "hire React developer Lahore",
     "Muhammad Sufyan email", "frontend developer for hire",
+    "hire Muhammad Sufyan", "Muhammad Sufyan contact", "sufyan developer contact",
+    "hire React developer Pakistan", "hire Next.js developer Lahore", "Muhammad Sufyan phone",
+    "hire frontend developer 2026", "freelance React developer Pakistan",
+    "React Next.js freelancer Pakistan", "frontend developer hire Lahore",
+    "web developer for hire Pakistan", "Muhammad Sufyan project inquiry",
+    "sufyan jutt hire", "hire sufyan developer", "Muhammad Sufyan available for work",
+    "front end developer Pakistan contact", "remote frontend developer Pakistan hire",
+    "sufyantechsolutions", "frontend developer available Pakistan",
   ],
   alternates: { canonical: "https://sufyan-frontend.vercel.app/contact" },
   openGraph: {
@@ -21,10 +30,31 @@ export const metadata: Metadata = {
   },
 };
 
+const contactWebPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "https://sufyan-frontend.vercel.app/contact",
+  url: "https://sufyan-frontend.vercel.app/contact",
+  name: "Contact Muhammad Sufyan — Hire a Frontend Developer",
+  description: "Hire Muhammad Sufyan (sufyanjutt / sufyanfrontend) for React.js and Next.js projects. Available for freelance work, full-time roles, and remote collaboration. Based in Lahore, Pakistan.",
+  dateModified: "2026-06-09",
+  isPartOf: { "@id": "https://sufyan-frontend.vercel.app" },
+  about: { "@id": "https://sufyan-frontend.vercel.app/#person" },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://sufyan-frontend.vercel.app/" },
+      { "@type": "ListItem", position: 2, name: "Contact", item: "https://sufyan-frontend.vercel.app/contact" },
+    ],
+  },
+};
+
 const contactSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://sufyan-frontend.vercel.app/#person",
   name: "Muhammad Sufyan",
+  alternateName: ["sufyanjutt", "sufyanfrontend"],
   jobTitle: "Frontend Developer",
   url: "https://sufyan-frontend.vercel.app",
   email: "sufyantechsolutions@gmail.com",
@@ -32,6 +62,7 @@ const contactSchema = {
   address: {
     "@type": "PostalAddress",
     addressLocality: "Lahore",
+    addressRegion: "Punjab",
     addressCountry: "PK",
   },
   contactPoint: {
@@ -92,10 +123,8 @@ const contactItems = [
 export default function Contact() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactWebPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }} />
     <div className="pt-24 pb-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
@@ -115,7 +144,7 @@ export default function Contact() {
               <div className="space-y-5">
                 {contactItems.map((item) => (
                   <div key={item.label} className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 text-primary">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 text-primary">
                       {item.icon}
                     </div>
                     <div>
@@ -154,6 +183,55 @@ export default function Contact() {
         </div>
       </div>
     </div>
+
+    {/* Why Work With Me */}
+    <section className="py-14 border-t border-white/5" aria-label="Why hire Muhammad Sufyan">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <p className="text-primary font-mono text-xs text-center uppercase tracking-widest mb-2">Why Muhammad Sufyan</p>
+          <h2 className="text-2xl font-bold text-surface text-center mb-10">Why Hire sufyanjutt for Your Project?</h2>
+        </Reveal>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[
+            { title: "1.5+ Years Production Experience", body: "Muhammad Sufyan has built and maintained real-world apps used by thousands of users — not just practice projects." },
+            { title: "React & Next.js Specialist", body: "Deep expertise in React.js and Next.js App Router, Tailwind CSS, TypeScript, and REST API integration." },
+            { title: "Education & AI Platform Experience", body: "Built complex platforms: Alif Laila, Ehya Education, Classmate Portal, and FieldX AI — all live in production." },
+            { title: "Fast Turnaround", body: "Typical response within 24 hours. Efficient delivery with clean, maintainable code and proper documentation." },
+            { title: "Based in Lahore, Pakistan", body: "Available for on-site work in Lahore and remote work globally. Competitive rates for international clients." },
+            { title: "Open to Work", body: "Available for freelance projects, part-time contracts, and full-time frontend developer roles starting immediately." },
+          ].map(({ title, body }) => (
+            <Reveal key={title}>
+              <div className="bg-card border border-white/5 rounded-2xl p-5 hover:border-primary/20 transition-all">
+                <h3 className="text-surface font-semibold text-sm mb-2">{title}</h3>
+                <p className="text-surface/55 text-xs leading-relaxed">{body}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Explore More */}
+    <section className="py-14 border-t border-white/5" aria-label="Explore more">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="text-primary font-mono text-xs text-center uppercase tracking-widest mb-2">Explore More</p>
+        <h2 className="text-xl font-bold text-surface text-center mb-8">More From Muhammad Sufyan</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+          {[
+            { href: "/", label: "Home", desc: "Portfolio overview" },
+            { href: "/about", label: "About", desc: "My background" },
+            { href: "/projects", label: "Projects", desc: "10 live productions" },
+            { href: "/services", label: "Services", desc: "What I offer" },
+            { href: "/blog", label: "Blog", desc: "53 dev articles" },
+          ].map(({ href, label, desc }) => (
+            <Link key={href} href={href} className="bg-card border border-white/5 rounded-xl p-4 hover:border-primary/20 transition-all group text-center block">
+              <p className="text-surface font-semibold text-sm group-hover:text-primary transition-colors">{label}</p>
+              <p className="text-surface/40 text-xs mt-1">{desc}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
     </>
   );
 }

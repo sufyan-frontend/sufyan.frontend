@@ -9,11 +9,11 @@ const routes: Array<{
   priority: number;
   lastMod?: string;
 }> = [
-  { path: "/",         freq: "monthly", priority: 1.0, lastMod: "2025-06-01" },
-  { path: "/about",    freq: "monthly", priority: 0.9, lastMod: "2025-06-01" },
+  { path: "/",         freq: "monthly", priority: 1.0, lastMod: "2026-06-09" },
+  { path: "/about",    freq: "monthly", priority: 0.9, lastMod: "2026-06-09" },
   { path: "/projects", freq: "monthly", priority: 0.9, lastMod: "2026-06-09" },
   { path: "/services", freq: "monthly", priority: 0.8, lastMod: "2025-05-01" },
-  { path: "/blog",     freq: "weekly",  priority: 0.7 },
+  { path: "/blog",     freq: "weekly",  priority: 0.7, lastMod: "2026-06-09" },
   { path: "/contact",  freq: "yearly",  priority: 0.6 },
   { path: "/privacy",  freq: "yearly",  priority: 0.3 },
   { path: "/terms",    freq: "yearly",  priority: 0.3 },

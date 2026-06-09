@@ -13,7 +13,14 @@ export const metadata: Metadata = {
     "Muhammad Sufyan", "sufyanjutt", "sufyanfrontend", "sufyan jutt",
     "sufyan frontend developer", "Frontend Developer Lahore", "React Developer Pakistan",
     "Next.js Developer Lahore", "hire frontend developer Pakistan",
+    "sufyan developer", "Muhammad Sufyan React", "Muhammad Sufyan Next.js",
+    "frontend developer portfolio Pakistan", "Muhammad Sufyan portfolio",
+    "sufyan-frontend vercel", "React developer Lahore Pakistan",
+    "web developer Lahore Pakistan", "sufyanfrontend portfolio",
+    "Muhammad Sufyan Lahore", "best frontend developer Pakistan",
+    "sufyan jutt frontend developer", "hire React developer Pakistan",
   ],
+  authors: [{ name: "Muhammad Sufyan", url: "https://sufyan-frontend.vercel.app" }],
   alternates: { canonical: "https://sufyan-frontend.vercel.app" },
   openGraph: {
     title: "Muhammad Sufyan | Frontend Developer in Lahore, Pakistan",
@@ -26,14 +33,93 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://sufyan-frontend.vercel.app/#person",
   name: "Muhammad Sufyan",
+  alternateName: ["sufyanjutt", "sufyanfrontend", "Sufyan Frontend"],
   jobTitle: "Frontend Developer",
+  description: "Muhammad Sufyan (sufyanjutt / sufyanfrontend) is a Frontend Developer from Lahore, Pakistan with 1.5+ years building production-ready React.js and Next.js applications.",
   email: "sufyantechsolutions@gmail.com",
   telephone: "+923438640594",
   url: "https://sufyan-frontend.vercel.app",
-  address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
+  image: "https://sufyan-frontend.vercel.app/profile.png",
+  address: { "@type": "PostalAddress", addressLocality: "Lahore", addressRegion: "Punjab", addressCountry: "PK" },
   sameAs: ["https://github.com/sufyan-frontend", "https://www.linkedin.com/in/sufyan-frontend"],
-  knowsAbout: ["React.js", "Next.js", "JavaScript", "Tailwind CSS", "Frontend Development"],
+  knowsAbout: ["React.js", "Next.js", "JavaScript", "TypeScript", "Tailwind CSS", "Frontend Development", "Web Development", "REST APIs"],
+  award: "Best Instructor Certificate — Ehsas Lab 2024",
+  worksFor: { "@type": "Organization", name: "Ehya Education", url: "https://www.ehya.com.pk" },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Who is Muhammad Sufyan?",
+      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan (also known as sufyanjutt and sufyanfrontend) is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building React.js and Next.js web applications. He works at Ehya Education and has built production platforms used by thousands of users." },
+    },
+    {
+      "@type": "Question",
+      name: "What does Muhammad Sufyan specialise in?",
+      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan specialises in React.js and Next.js frontend development, Tailwind CSS responsive design, REST API integration, and production deployment on Vercel. He has built education platforms, corporate websites, admin dashboards, and AI-powered SaaS frontends." },
+    },
+    {
+      "@type": "Question",
+      name: "Is Muhammad Sufyan available for hire?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Muhammad Sufyan (sufyanjutt / sufyanfrontend) is open to freelance projects, full-time frontend developer roles, and remote work opportunities. You can contact him at sufyantechsolutions@gmail.com or through his portfolio at https://sufyan-frontend.vercel.app/contact." },
+    },
+    {
+      "@type": "Question",
+      name: "Where is Muhammad Sufyan based?",
+      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan is based in Lahore, Punjab, Pakistan. He is available for remote work worldwide and on-site roles in Lahore and surrounding areas." },
+    },
+    {
+      "@type": "Question",
+      name: "What projects has Muhammad Sufyan built?",
+      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan has built Alif Laila Education Platform (aliflaila.app), Ehya Education Platform (ehya.com.pk), Classmate Portal (classmate.ehya.com.pk), FieldX AI (fieldxai.com), TillShop Technologies (tillshoptechnologies.com), and several other live production websites." },
+    },
+  ],
+};
+
+const reviewsSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Reviews for Muhammad Sufyan — Frontend Developer",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "Review",
+        reviewBody: "Sufyan consistently delivered high-quality UI work on time. His attention to detail and deep understanding of responsive design made a real difference in our products.",
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        author: { "@type": "Person", name: "Ali Hassan", jobTitle: "Project Manager" },
+        itemReviewed: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "Review",
+        reviewBody: "Working with Sufyan has been seamless. He integrates APIs cleanly, asks the right questions, and communicates effectively about frontend requirements.",
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        author: { "@type": "Person", name: "Usman Malik", jobTitle: "Backend Developer" },
+        itemReviewed: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "Review",
+        reviewBody: "Sufyan translates designs into code with impressive accuracy. His attention to spacing, color, and interactivity brings mockups to life exactly as intended.",
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        author: { "@type": "Person", name: "Sara Ahmed", jobTitle: "UI/UX Designer" },
+        itemReviewed: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
+      },
+    },
+  ],
 };
 
 export default function Home() {
@@ -44,6 +130,14 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsSchema) }}
       />
 
       <HeroSection />
@@ -248,6 +342,56 @@ export default function Home() {
                     </span>
                   </figcaption>
                 </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Visible FAQ — backs up FAQPage schema */}
+      <section className="py-24 bg-card/30" aria-labelledby="faq-heading">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-12">
+              <p className="text-primary font-mono text-sm mb-2">FAQ</p>
+              <h2 id="faq-heading" className="text-3xl sm:text-4xl font-bold text-surface">
+                Frequently Asked Questions
+              </h2>
+            </div>
+          </Reveal>
+          <div className="space-y-4">
+            {[
+              {
+                q: "Who is Muhammad Sufyan?",
+                a: "Muhammad Sufyan (also known as sufyanjutt and sufyanfrontend) is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building React.js and Next.js web applications. He works at Ehya Education and has built production platforms used by thousands of users.",
+              },
+              {
+                q: "What does Muhammad Sufyan specialise in?",
+                a: "Muhammad Sufyan specialises in React.js and Next.js frontend development, Tailwind CSS responsive design, REST API integration, and production deployment on Vercel. He has built education platforms, corporate websites, admin dashboards, and AI-powered SaaS frontends.",
+              },
+              {
+                q: "Is Muhammad Sufyan available for hire?",
+                a: "Yes. Muhammad Sufyan (sufyanjutt / sufyanfrontend) is open to freelance projects, full-time frontend developer roles, and remote work. Contact him at sufyantechsolutions@gmail.com.",
+              },
+              {
+                q: "What projects has Muhammad Sufyan built?",
+                a: "Muhammad Sufyan has built Alif Laila Education Platform, Ehya Education Platform, Classmate Portal, FieldX AI, TillShop Technologies, Sufyan Frontend Dashboard, and more — all live in production.",
+              },
+              {
+                q: "Where is Muhammad Sufyan based?",
+                a: "Muhammad Sufyan is based in Lahore, Punjab, Pakistan. He is available for remote work worldwide and on-site roles in Lahore.",
+              },
+            ].map(({ q, a }, i) => (
+              <Reveal key={i} delay={i * 0.07}>
+                <details className="bg-card border border-white/5 rounded-2xl p-6 group hover:border-primary/20 transition-all">
+                  <summary className="text-surface font-semibold text-sm cursor-pointer list-none flex items-center justify-between gap-3">
+                    {q}
+                    <svg className="w-4 h-4 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <p className="text-surface/60 text-sm leading-relaxed mt-4">{a}</p>
+                </details>
               </Reveal>
             ))}
           </div>

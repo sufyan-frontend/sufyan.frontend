@@ -104,60 +104,117 @@ const websiteSchema = {
   name: "Muhammad Sufyan — Frontend Developer",
   url: "https://sufyan-frontend.vercel.app",
   description: "Portfolio of Muhammad Sufyan, a Frontend Developer from Lahore, Pakistan specialising in React and Next.js.",
+  hasPart: [
+    { "@type": "WebPage", "@id": "https://sufyan-frontend.vercel.app/", name: "Home", url: "https://sufyan-frontend.vercel.app/" },
+    { "@type": "AboutPage", "@id": "https://sufyan-frontend.vercel.app/about", name: "About Muhammad Sufyan", url: "https://sufyan-frontend.vercel.app/about" },
+    { "@type": "CollectionPage", "@id": "https://sufyan-frontend.vercel.app/projects", name: "Projects Portfolio", url: "https://sufyan-frontend.vercel.app/projects" },
+    { "@type": "WebPage", "@id": "https://sufyan-frontend.vercel.app/services", name: "Frontend Development Services", url: "https://sufyan-frontend.vercel.app/services" },
+    { "@type": "Blog", "@id": "https://sufyan-frontend.vercel.app/blog", name: "Frontend Development Blog", url: "https://sufyan-frontend.vercel.app/blog" },
+    { "@type": "ContactPage", "@id": "https://sufyan-frontend.vercel.app/contact", name: "Contact Muhammad Sufyan", url: "https://sufyan-frontend.vercel.app/contact" },
+  ],
   author: {
     "@type": "Person",
+    "@id": "https://sufyan-frontend.vercel.app/#person",
     name: "Muhammad Sufyan",
     jobTitle: "Frontend Developer",
     image: "https://sufyan-frontend.vercel.app/profile.png",
     address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
-  },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: "https://sufyan-frontend.vercel.app/projects",
-    "query-input": "required name=search_term_string",
   },
 };
 
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://sufyan-frontend.vercel.app/#person",
   name: "Muhammad Sufyan",
-  alternateName: ["sufyanjutt", "sufyanfrontend", "sufyan-frontend", "sufyan jutt"],
+  alternateName: ["sufyanjutt", "sufyanfrontend", "Sufyan Frontend", "Muhammad Sufyan Frontend Developer"],
   url: "https://sufyan-frontend.vercel.app",
-  image: "https://sufyan-frontend.vercel.app/profile.png",
+  image: {
+    "@type": "ImageObject",
+    url: "https://sufyan-frontend.vercel.app/profile.png",
+    width: 400,
+    height: 400,
+  },
   jobTitle: "Frontend Developer",
-  description: "Frontend Developer with 1.5+ years building React & Next.js apps. Based in Lahore, Pakistan. Known online as sufyanjutt and sufyanfrontend.",
+  description: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building production-ready React.js and Next.js web applications for education platforms, corporate websites, and SaaS products.",
   email: "sufyantechsolutions@gmail.com",
   telephone: "+923438640594",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Lahore",
+    addressRegion: "Punjab",
     addressCountry: "PK",
+    postalCode: "54000",
   },
-  knowsAbout: ["React.js", "Next.js", "JavaScript", "TypeScript", "Tailwind CSS", "Frontend Development", "Web Development", "UI/UX"],
+  nationality: { "@type": "Country", name: "Pakistan" },
+  knowsLanguage: ["English", "Urdu"],
+  knowsAbout: [
+    "React.js", "Next.js", "JavaScript", "TypeScript", "Tailwind CSS",
+    "Frontend Development", "Web Development", "REST API Integration",
+    "Responsive Design", "UI/UX Implementation", "Vercel Deployment",
+    "Core Web Vitals", "SEO Optimization", "Performance Optimization",
+    "Education Platform Development", "Dashboard Development",
+  ],
+  hasOccupation: {
+    "@type": "Occupation",
+    name: "Frontend Developer",
+    occupationLocation: { "@type": "City", name: "Lahore" },
+    skills: "React.js, Next.js, JavaScript, TypeScript, Tailwind CSS, REST APIs, Git, Vercel",
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "Ehya Education",
+    url: "https://www.ehya.com.pk",
+    address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
+  },
+  alumniOf: {
+    "@type": "Organization",
+    name: "Ehsas Lab",
+    url: "https://ehsaslab.com",
+  },
+  award: "Best Instructor Certificate — Ehsas Lab 2024",
   sameAs: [
     "https://github.com/sufyan-frontend",
     "https://www.linkedin.com/in/sufyan-frontend",
     "https://sufyan-frontend.vercel.app",
+    "https://peerlist.io/sufyan",
   ],
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.ehya.com.pk/#organization",
+  name: "Ehya Education",
+  url: "https://www.ehya.com.pk",
+  description: "Ehya Education is an education technology company based in Lahore, Pakistan, providing digital learning platforms and management systems for students and faculty.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lahore",
+    addressRegion: "Punjab",
+    addressCountry: "PK",
+  },
+  employee: {
+    "@type": "Person",
+    "@id": "https://sufyan-frontend.vercel.app/#person",
+    name: "Muhammad Sufyan",
+    jobTitle: "Frontend Developer",
+  },
 };
 
 const profilePageSchema = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
+  "@id": "https://sufyan-frontend.vercel.app/#profilepage",
+  url: "https://sufyan-frontend.vercel.app",
+  name: "Muhammad Sufyan — Frontend Developer Portfolio",
+  description: "Portfolio of Muhammad Sufyan, a Frontend Developer from Lahore, Pakistan specialising in React.js and Next.js.",
   dateCreated: "2024-01-01",
-  dateModified: new Date().toISOString().split("T")[0],
-  mainEntity: {
-    "@type": "Person",
-    name: "Muhammad Sufyan",
-    alternateName: ["sufyanjutt", "sufyanfrontend", "sufyan-frontend"],
-    identifier: "sufyan-frontend",
-    description: "Frontend Developer from Lahore, Pakistan. React & Next.js specialist with 1.5+ years building production-ready web apps.",
-    image: "https://sufyan-frontend.vercel.app/profile.png",
-    sameAs: [
-      "https://github.com/sufyan-frontend",
-      "https://www.linkedin.com/in/sufyan-frontend",
-    ],
+  dateModified: "2026-06-09",
+  mainEntity: { "@id": "https://sufyan-frontend.vercel.app/#person" },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://sufyan-frontend.vercel.app/" }],
   },
 };
 
@@ -176,6 +233,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         <a
           href="#main-content"

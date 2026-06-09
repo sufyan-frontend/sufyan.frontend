@@ -11,6 +11,12 @@ export const metadata: Metadata = {
   keywords: [
     "Muhammad Sufyan about", "sufyanjutt", "sufyanfrontend", "sufyan jutt frontend",
     "sufyan developer Lahore", "Ehya Education frontend developer", "Ehsas Lab instructor",
+    "who is Muhammad Sufyan", "Muhammad Sufyan background", "Muhammad Sufyan experience",
+    "sufyan jutt developer Pakistan", "Muhammad Sufyan skills", "sufyan web developer about",
+    "Best Instructor Ehsas Lab 2024", "Muhammad Sufyan React developer", "Muhammad Sufyan Next.js developer",
+    "frontend developer 1.5 years Pakistan", "sufyan developer profile", "React developer Lahore background",
+    "Pakistani frontend developer", "Muhammad Sufyan portfolio about", "Muhammad Sufyan career",
+    "sufyan frontend developer biography", "sufyan jutt lahore", "hire frontend developer Lahore",
   ],
   alternates: { canonical: "https://sufyan-frontend.vercel.app/about" },
   openGraph: {
@@ -21,9 +27,86 @@ export const metadata: Metadata = {
   },
 };
 
+const aboutPersonSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://sufyan-frontend.vercel.app/#person",
+  name: "Muhammad Sufyan",
+  alternateName: ["sufyanjutt", "sufyanfrontend", "Sufyan Frontend Developer"],
+  jobTitle: "Frontend Developer",
+  url: "https://sufyan-frontend.vercel.app",
+  image: "https://sufyan-frontend.vercel.app/profile.png",
+  description: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 1.5+ years building React.js and Next.js production applications. He is the Best Instructor award winner at Ehsas Lab.",
+  email: "sufyantechsolutions@gmail.com",
+  telephone: "+923438640594",
+  address: { "@type": "PostalAddress", addressLocality: "Lahore", addressRegion: "Punjab", addressCountry: "PK" },
+  worksFor: { "@type": "Organization", name: "Ehya Education", url: "https://www.ehya.com.pk" },
+  alumniOf: { "@type": "Organization", name: "Ehsas Lab", url: "https://ehsaslab.com" },
+  award: "Best Instructor Certificate — Ehsas Lab 2024",
+  knowsAbout: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript", "REST API Integration", "Vercel", "Git"],
+  hasCredential: {
+    "@type": "EducationalOccupationalCredential",
+    name: "Best Instructor Certificate",
+    credentialCategory: "certificate",
+    recognizedBy: { "@type": "Organization", name: "Ehsas Lab" },
+    dateCreated: "2024",
+  },
+  sameAs: ["https://github.com/sufyan-frontend", "https://www.linkedin.com/in/sufyan-frontend"],
+};
+
+const aboutWebPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://sufyan-frontend.vercel.app/about",
+  url: "https://sufyan-frontend.vercel.app/about",
+  name: "About Muhammad Sufyan — Frontend Developer in Lahore, Pakistan",
+  description: "About Muhammad Sufyan (sufyanjutt / sufyanfrontend) — Frontend Developer with 1.5+ years of React.js and Next.js experience, working at Ehya Education in Lahore, Pakistan.",
+  dateModified: "2026-06-09",
+  isPartOf: { "@id": "https://sufyan-frontend.vercel.app" },
+  about: { "@id": "https://sufyan-frontend.vercel.app/#person" },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://sufyan-frontend.vercel.app/" },
+      { "@type": "ListItem", position: 2, name: "About", item: "https://sufyan-frontend.vercel.app/about" },
+    ],
+  },
+};
+
+const aboutFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How many years of experience does Muhammad Sufyan have?",
+      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan has 1.5+ years of professional frontend development experience, working at Ehya Education in Lahore. Prior to that he completed an intensive programme at Ehsas Lab where he became an instructor and won the Best Instructor Certificate." },
+    },
+    {
+      "@type": "Question",
+      name: "What technologies does Muhammad Sufyan know?",
+      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan (sufyanjutt) knows React.js, Next.js, JavaScript (ES6+), TypeScript, Tailwind CSS, Bootstrap, REST API integration, Redux, Git, GitHub, Vercel, and Netlify. He specialises in building fast, responsive, production-ready web applications." },
+    },
+    {
+      "@type": "Question",
+      name: "Did Muhammad Sufyan win any awards?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Muhammad Sufyan was awarded the Best Instructor Certificate by Ehsas Lab in 2024 for outstanding teaching and mentoring contributions to their web development programme." },
+    },
+    {
+      "@type": "Question",
+      name: "Where does Muhammad Sufyan work?",
+      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan currently works as a Frontend Developer at Ehya Education in Lahore, Pakistan, where he builds and maintains multiple production education platforms used by thousands of students and faculty." },
+    },
+  ],
+};
+
 export default function About() {
   return (
-    <div className="pt-24">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutWebPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPersonSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutFaqSchema) }} />
+      <div className="pt-24">
       {/* Bio */}
       <section className="py-16" aria-labelledby="about-heading">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -205,6 +288,36 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* Explore More — internal cross-page links for SEO and user navigation */}
+      <section className="py-14 border-t border-white/5" aria-label="Explore more">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <p className="text-primary font-mono text-xs text-center uppercase tracking-widest mb-2">Explore More</p>
+            <h2 className="text-xl font-bold text-surface text-center mb-8">Other Sections on This Site</h2>
+          </Reveal>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+            {[
+              { href: "/", label: "Home", desc: "Portfolio overview" },
+              { href: "/projects", label: "Projects", desc: "10 live productions" },
+              { href: "/services", label: "Services", desc: "What I offer" },
+              { href: "/blog", label: "Blog", desc: "53 dev articles" },
+              { href: "/contact", label: "Contact", desc: "Hire me" },
+            ].map(({ href, label, desc }) => (
+              <Reveal key={href}>
+                <Link
+                  href={href}
+                  className="bg-card border border-white/5 rounded-xl p-4 hover:border-primary/20 transition-all group text-center block"
+                >
+                  <p className="text-surface font-semibold text-sm group-hover:text-primary transition-colors">{label}</p>
+                  <p className="text-surface/40 text-xs mt-1">{desc}</p>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
+    </>
   );
 }
