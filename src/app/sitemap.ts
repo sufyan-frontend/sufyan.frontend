@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/data";
 
+export const dynamic = "force-static";
+
 const base = "https://sufyan-frontend.vercel.app";
 
 const routes: Array<{
