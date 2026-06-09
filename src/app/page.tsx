@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Muhammad Sufyan | Frontend Developer in Lahore, Pakistan",
     description: "sufyanjutt · sufyanfrontend — React & Next.js developer. 1.5+ years building production apps. Open to work.",
     url: "https://sufyan-frontend.vercel.app",
-    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 400, height: 400, alt: "Muhammad Sufyan — Frontend Developer" }],
+    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Frontend Developer" }],
   },
 };
 
@@ -81,32 +81,6 @@ const faqSchema = {
   ],
 };
 
-const reviewsSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://sufyan-frontend.vercel.app/#person",
-  name: "Muhammad Sufyan",
-  review: [
-    {
-      "@type": "Review",
-      reviewBody: "Sufyan consistently delivered high-quality UI work on time. His attention to detail and deep understanding of responsive design made a real difference in our products.",
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      author: { "@type": "Person", name: "Ali Hassan", jobTitle: "Project Manager" },
-    },
-    {
-      "@type": "Review",
-      reviewBody: "Working with Sufyan has been seamless. He integrates APIs cleanly, asks the right questions, and communicates effectively about frontend requirements.",
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      author: { "@type": "Person", name: "Usman Malik", jobTitle: "Backend Developer" },
-    },
-    {
-      "@type": "Review",
-      reviewBody: "Sufyan translates designs into code with impressive accuracy. His attention to spacing, color, and interactivity brings mockups to life exactly as intended.",
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      author: { "@type": "Person", name: "Sara Ahmed", jobTitle: "UI/UX Designer" },
-    },
-  ],
-};
 
 export default function Home() {
   const featured = projects.filter((p) => p.featured);
@@ -120,10 +94,6 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsSchema) }}
       />
 
       <HeroSection />

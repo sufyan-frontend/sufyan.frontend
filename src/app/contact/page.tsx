@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Contact sufyanjutt — Hire Frontend Developer",
     description: "Hire Muhammad Sufyan for React & Next.js development. Freelance & full-time available. Based in Lahore, Pakistan.",
     url: "https://sufyan-frontend.vercel.app/contact",
-    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 400, height: 400, alt: "Contact Muhammad Sufyan" }],
+    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Contact Muhammad Sufyan" }],
   },
 };
 
@@ -67,7 +67,7 @@ const contactSchema = {
   },
   contactPoint: {
     "@type": "ContactPoint",
-    contactType: "customer support",
+    contactType: "sales",
     email: "sufyantechsolutions@gmail.com",
     telephone: "+923438640594",
     availableLanguage: ["English", "Urdu"],

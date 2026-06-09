@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { blogPosts } from "@/lib/data";
 import { blogContent } from "@/lib/blog-content";
 
+const hasContent = (slug: string) => slug in blogContent;
+
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
@@ -24,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ],
     authors: [{ name: "Muhammad Sufyan", url: "https://sufyan-frontend.vercel.app" }],
     alternates: { canonical: `https://sufyan-frontend.vercel.app/blog/${post.slug}` },
+    robots: hasContent(post.slug) ? undefined : { index: false, follow: false },
     openGraph: {
       type: "article",
       title: post.title,
@@ -64,8 +67,8 @@ export default async function BlogPost({ params }: Props) {
     image: {
       "@type": "ImageObject",
       url: "https://sufyan-frontend.vercel.app/profile.png",
-      width: 400,
-      height: 400,
+      width: 1200,
+      height: 630,
     },
     author: {
       "@type": "Person",
@@ -143,12 +146,8 @@ export default async function BlogPost({ params }: Props) {
 
         <p className="text-surface/70 text-lg leading-relaxed mb-8">{post.excerpt}</p>
 
-        {blogContent[post.slug] ? (
+        {blogContent[post.slug] && (
           <div className="prose-custom">{blogContent[post.slug]}</div>
-        ) : (
-          <div className="bg-card border border-white/5 rounded-2xl p-6 text-center">
-            <p className="text-surface/50 text-sm">Full article coming soon. Stay tuned!</p>
-          </div>
         )}
       </div>
     </div>

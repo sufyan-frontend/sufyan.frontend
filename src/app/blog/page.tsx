@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Blog by sufyanjutt — React, Next.js & Frontend Dev",
     description: "Tutorials and insights on React, Next.js, Tailwind CSS and modern web development by Muhammad Sufyan.",
     url: "https://sufyan-frontend.vercel.app/blog",
-    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 400, height: 400, alt: "Muhammad Sufyan — Blog" }],
+    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Blog" }],
   },
 };
 
@@ -40,33 +40,10 @@ const blogWebPageSchema = {
   author: { "@id": "https://sufyan-frontend.vercel.app/#person" },
 };
 
-const blogCollectionSchema = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "@id": "https://sufyan-frontend.vercel.app/blog",
-  name: "Muhammad Sufyan — Frontend Development Blog",
-  description: "53 articles by Muhammad Sufyan (sufyanjutt / sufyanfrontend) on React.js, Next.js, Tailwind CSS, frontend career tips, and web development in Pakistan.",
-  url: "https://sufyan-frontend.vercel.app/blog",
-  author: {
-    "@type": "Person",
-    name: "Muhammad Sufyan",
-    url: "https://sufyan-frontend.vercel.app",
-    alternateName: ["sufyanjutt", "sufyanfrontend"],
-  },
-  breadcrumb: {
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://sufyan-frontend.vercel.app/" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://sufyan-frontend.vercel.app/blog" },
-    ],
-  },
-};
-
 export default function Blog() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogWebPageSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogCollectionSchema) }} />
     <div className="pt-24 pb-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>

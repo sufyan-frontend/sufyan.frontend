@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "Projects — Muhammad Sufyan (sufyanjutt) Portfolio",
     description: "9 live production projects by sufyanjutt — education platforms, corporate sites & AI interfaces built with React & Next.js.",
     url: "https://sufyan-frontend.vercel.app/projects",
-    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 400, height: 400, alt: "Muhammad Sufyan — Projects Portfolio" }],
+    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Projects Portfolio" }],
   },
 };
 

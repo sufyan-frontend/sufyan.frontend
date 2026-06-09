@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "About Muhammad Sufyan — Frontend Developer Lahore",
     description: "sufyanjutt · sufyanfrontend — React & Next.js developer at Ehya Education. Best Instructor at Ehsas Lab. Based in Lahore, Pakistan.",
     url: "https://sufyan-frontend.vercel.app/about",
-    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 400, height: 400, alt: "Muhammad Sufyan — Frontend Developer" }],
+    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Frontend Developer" }],
   },
 };
 
@@ -149,6 +149,7 @@ export default function About() {
                     alt="Muhammad Sufyan, Frontend Developer in Lahore"
                     fill
                     className="object-cover"
+                    priority
                     sizes="(max-width: 640px) 256px, 288px"
                   />
                 </div>
