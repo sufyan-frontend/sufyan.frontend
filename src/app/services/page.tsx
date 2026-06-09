@@ -4,10 +4,21 @@ import Reveal from "@/components/Reveal";
 import { services } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Services — React & Next.js Development",
+  title: "Services — Hire Muhammad Sufyan (sufyanjutt) | Frontend Developer",
   description:
-    "Frontend development services by Muhammad Sufyan — React/Next.js apps, responsive design, API integration, performance optimization, and deployment.",
+    "Hire Muhammad Sufyan (sufyanjutt / sufyanfrontend) for React & Next.js development, responsive design, API integration, performance optimisation, and Vercel deployment. Based in Lahore, Pakistan.",
+  keywords: [
+    "hire frontend developer Pakistan", "hire React developer Lahore",
+    "Muhammad Sufyan services", "sufyanjutt hire", "Next.js development services",
+    "responsive web design Pakistan", "API integration frontend", "Vercel deployment",
+  ],
   alternates: { canonical: "https://sufyan-frontend.vercel.app/services" },
+  openGraph: {
+    title: "Hire sufyanjutt — Frontend Development Services",
+    description: "React, Next.js, responsive design, API integration and deployment services by Muhammad Sufyan — Lahore, Pakistan.",
+    url: "https://sufyan-frontend.vercel.app/services",
+    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Services" }],
+  },
 };
 
 const icons: Record<string, React.ReactNode> = {

@@ -4,10 +4,21 @@ import Reveal from "@/components/Reveal";
 import { projects, practiceProjects } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Projects — React & Next.js Portfolio",
+  title: "Projects — Muhammad Sufyan (sufyanjutt) Portfolio",
   description:
-    "Browse the portfolio of Muhammad Sufyan — education platforms, corporate websites, and web apps built with React and Next.js.",
+    "Portfolio of Muhammad Sufyan (sufyanjutt / sufyanfrontend) — 9 live production projects: education platforms, corporate sites, AI interfaces, and web apps built with React & Next.js.",
+  keywords: [
+    "Muhammad Sufyan projects", "sufyanjutt portfolio", "sufyanfrontend projects",
+    "React Next.js portfolio Pakistan", "Frontend Developer portfolio Lahore",
+    "Alif Laila education platform", "Ehya Education website", "FieldX AI frontend",
+  ],
   alternates: { canonical: "https://sufyan-frontend.vercel.app/projects" },
+  openGraph: {
+    title: "Projects — Muhammad Sufyan (sufyanjutt) Portfolio",
+    description: "9 live production projects by sufyanjutt — education platforms, corporate sites & AI interfaces built with React & Next.js.",
+    url: "https://sufyan-frontend.vercel.app/projects",
+    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Projects Portfolio" }],
+  },
 };
 
 export default function Projects() {

@@ -31,6 +31,15 @@ export const skills = [
 
 export const projects = [
   {
+    id: 'sufyan-frontend-dashboard',
+    title: 'Sufyan Frontend Dashboard',
+    description: 'A modern, fully responsive admin dashboard built with Next.js and Tailwind CSS featuring clean data visualizations, sidebar navigation, and a professional dark UI.',
+    url: 'https://sufyan-frontend-dashboard.vercel.app/',
+    image: '/porfolio%20image/sufyan-frontend-dashboard.png',
+    tags: ['Next.js', 'Dashboard', 'Tailwind CSS', 'Admin UI'],
+    featured: true,
+  },
+  {
     id: 'alif-laila',
     title: 'Alif Laila Education Platform',
     description: 'Full education management UI system with role-based dashboards and structured UI components built for a large-scale educational institution.',

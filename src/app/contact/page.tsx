@@ -4,10 +4,21 @@ import ContactForm from "@/components/ContactForm";
 import { person } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Contact — Hire a Frontend Developer",
+  title: "Contact Muhammad Sufyan (sufyanjutt) — Hire Frontend Developer",
   description:
-    "Get in touch with Muhammad Sufyan — Frontend Developer. Available for freelance projects, full-time roles, and collaborations.",
+    "Contact Muhammad Sufyan (sufyanjutt / sufyanfrontend) — Frontend Developer in Lahore, Pakistan. Available for freelance React/Next.js projects, full-time roles, and collaborations.",
+  keywords: [
+    "contact Muhammad Sufyan", "hire sufyanjutt", "hire sufyanfrontend",
+    "freelance frontend developer Pakistan", "hire React developer Lahore",
+    "Muhammad Sufyan email", "frontend developer for hire",
+  ],
   alternates: { canonical: "https://sufyan-frontend.vercel.app/contact" },
+  openGraph: {
+    title: "Contact sufyanjutt — Hire Frontend Developer",
+    description: "Hire Muhammad Sufyan for React & Next.js development. Freelance & full-time available. Based in Lahore, Pakistan.",
+    url: "https://sufyan-frontend.vercel.app/contact",
+    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Contact Muhammad Sufyan" }],
+  },
 };
 
 const contactSchema = {

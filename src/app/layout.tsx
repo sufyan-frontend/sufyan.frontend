@@ -16,10 +16,16 @@ export const metadata: Metadata = {
   description:
     "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building fast, responsive, and production-ready React and Next.js web applications.",
   keywords: [
+    "Muhammad Sufyan",
+    "sufyanjutt",
+    "sufyan jutt",
+    "sufyanfrontend",
+    "sufyan frontend",
+    "sufyan-frontend",
+    "sufyan frontend developer",
     "Frontend Developer Pakistan",
     "React Developer Lahore",
     "Next.js Developer Pakistan",
-    "Muhammad Sufyan",
     "Web Developer Lahore",
     "React.js Developer",
     "Next.js Developer",
@@ -30,6 +36,11 @@ export const metadata: Metadata = {
     "Frontend Development Lahore",
     "Education Platform Developer",
     "Web Development Pakistan",
+    "sufyan developer",
+    "sufyan web developer",
+    "Muhammad Sufyan Lahore",
+    "Muhammad Sufyan React Developer",
+    "Muhammad Sufyan Next.js",
   ],
   authors: [{ name: "Muhammad Sufyan", url: "https://sufyan-frontend.vercel.app" }],
   creator: "Muhammad Sufyan",
@@ -111,10 +122,11 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Muhammad Sufyan",
+  alternateName: ["sufyanjutt", "sufyanfrontend", "sufyan-frontend", "sufyan jutt"],
   url: "https://sufyan-frontend.vercel.app",
   image: "https://sufyan-frontend.vercel.app/profile.png",
   jobTitle: "Frontend Developer",
-  description: "Frontend Developer with 1.5+ years building React & Next.js apps. Based in Lahore, Pakistan.",
+  description: "Frontend Developer with 1.5+ years building React & Next.js apps. Based in Lahore, Pakistan. Known online as sufyanjutt and sufyanfrontend.",
   email: "sufyantechsolutions@gmail.com",
   telephone: "+923438640594",
   address: {
@@ -122,10 +134,31 @@ const personSchema = {
     addressLocality: "Lahore",
     addressCountry: "PK",
   },
+  knowsAbout: ["React.js", "Next.js", "JavaScript", "TypeScript", "Tailwind CSS", "Frontend Development", "Web Development", "UI/UX"],
   sameAs: [
     "https://github.com/sufyan-frontend",
     "https://www.linkedin.com/in/sufyan-frontend",
+    "https://sufyan-frontend.vercel.app",
   ],
+};
+
+const profilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  dateCreated: "2024-01-01",
+  dateModified: new Date().toISOString().split("T")[0],
+  mainEntity: {
+    "@type": "Person",
+    name: "Muhammad Sufyan",
+    alternateName: ["sufyanjutt", "sufyanfrontend", "sufyan-frontend"],
+    identifier: "sufyan-frontend",
+    description: "Frontend Developer from Lahore, Pakistan. React & Next.js specialist with 1.5+ years building production-ready web apps.",
+    image: "https://sufyan-frontend.vercel.app/profile.png",
+    sameAs: [
+      "https://github.com/sufyan-frontend",
+      "https://www.linkedin.com/in/sufyan-frontend",
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -139,6 +172,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
         />
         <a
           href="#main-content"

@@ -5,10 +5,20 @@ import Reveal from "@/components/Reveal";
 import { person, skills, experience } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "About — Frontend Developer in Lahore, Pakistan",
+  title: "About Muhammad Sufyan — sufyanjutt | Frontend Developer, Lahore",
   description:
-    "Learn about Muhammad Sufyan — a Frontend Developer from Lahore, Pakistan with 1.5+ years building React and Next.js applications.",
+    "About Muhammad Sufyan (sufyanjutt / sufyanfrontend) — Frontend Developer from Lahore, Pakistan. 1.5+ years building React & Next.js apps at Ehya Education. Best Instructor at Ehsas Lab.",
+  keywords: [
+    "Muhammad Sufyan about", "sufyanjutt", "sufyanfrontend", "sufyan jutt frontend",
+    "sufyan developer Lahore", "Ehya Education frontend developer", "Ehsas Lab instructor",
+  ],
   alternates: { canonical: "https://sufyan-frontend.vercel.app/about" },
+  openGraph: {
+    title: "About Muhammad Sufyan — Frontend Developer Lahore",
+    description: "sufyanjutt · sufyanfrontend — React & Next.js developer at Ehya Education. Best Instructor at Ehsas Lab. Based in Lahore, Pakistan.",
+    url: "https://sufyan-frontend.vercel.app/about",
+    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Frontend Developer" }],
+  },
 };
 
 export default function About() {
@@ -83,8 +93,8 @@ export default function About() {
                   </div>
                   <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-linear-to-r from-primary to-accent rounded-full"
-                      style={{ width: `${skill.level}%` }}
+                      className="h-full bg-linear-to-r from-primary to-accent rounded-full skill-bar"
+                      style={{ "--skill-level": `${skill.level}%` } as React.CSSProperties}
                     />
                   </div>
                 </div>

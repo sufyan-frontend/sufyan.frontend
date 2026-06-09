@@ -4,10 +4,21 @@ import Reveal from "@/components/Reveal";
 import { blogPosts } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Blog — Frontend Development Articles",
+  title: "Blog — Muhammad Sufyan (sufyanjutt) | React & Next.js Articles",
   description:
-    "Articles and insights by Muhammad Sufyan on React, Next.js, Tailwind CSS, and modern frontend development.",
+    "Frontend development articles by Muhammad Sufyan (sufyanjutt) — tutorials on React, Next.js App Router, Tailwind CSS, and performance optimisation.",
+  keywords: [
+    "Muhammad Sufyan blog", "sufyanjutt blog", "React tutorials Pakistan",
+    "Next.js App Router guide", "Tailwind CSS tips", "React performance 2025",
+    "frontend development articles",
+  ],
   alternates: { canonical: "https://sufyan-frontend.vercel.app/blog" },
+  openGraph: {
+    title: "Blog by sufyanjutt — React, Next.js & Frontend Dev",
+    description: "Tutorials and insights on React, Next.js, Tailwind CSS and modern web development by Muhammad Sufyan.",
+    url: "https://sufyan-frontend.vercel.app/blog",
+    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Blog" }],
+  },
 };
 
 export default function Blog() {
