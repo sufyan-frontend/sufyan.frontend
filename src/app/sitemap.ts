@@ -27,9 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: lastMod ? new Date(lastMod) : now,
     changeFrequency: freq,
     priority,
-    alternates: {
-      languages: { "en-PK": `${base}${path}` },
-    },
   }));
 
   const blogRoutes = blogPosts.map((post) => ({
@@ -37,9 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.date),
     changeFrequency: "yearly" as const,
     priority: 0.6,
-    alternates: {
-      languages: { "en-PK": `${base}/blog/${post.slug}` },
-    },
   }));
 
   return [...staticRoutes, ...blogRoutes];
