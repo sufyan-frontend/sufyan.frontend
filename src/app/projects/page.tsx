@@ -108,7 +108,7 @@ export default function Projects() {
                   )}
                 </div>
                 <div className="p-6 flex flex-col flex-1">
-                  <h2 className="text-surface font-semibold text-lg mb-2">{project.title}</h2>
+                  <h3 className="text-surface font-semibold text-lg mb-2">{project.title}</h3>
                   <p className="text-surface/60 text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (

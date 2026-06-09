@@ -173,6 +173,32 @@ const personSchema = {
     url: "https://ehsaslab.com",
   },
   award: "Best Instructor Certificate — Ehsas Lab 2024",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: "3",
+    bestRating: "5",
+  },
+  review: [
+    {
+      "@type": "Review",
+      reviewBody: "Sufyan consistently delivered high-quality UI work on time. His attention to detail and deep understanding of responsive design made a real difference in our products.",
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      author: { "@type": "Person", name: "Ali Hassan", jobTitle: "Project Manager" },
+    },
+    {
+      "@type": "Review",
+      reviewBody: "Working with Sufyan has been seamless. He integrates APIs cleanly, asks the right questions, and communicates effectively about frontend requirements.",
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      author: { "@type": "Person", name: "Usman Malik", jobTitle: "Backend Developer" },
+    },
+    {
+      "@type": "Review",
+      reviewBody: "Sufyan translates designs into code with impressive accuracy. His attention to spacing, color, and interactivity brings mockups to life exactly as intended.",
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      author: { "@type": "Person", name: "Sara Ahmed", jobTitle: "UI/UX Designer" },
+    },
+  ],
   sameAs: [
     "https://github.com/sufyan-frontend",
     "https://www.linkedin.com/in/sufyan-frontend",

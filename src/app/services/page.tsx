@@ -238,21 +238,82 @@ export default function Services() {
           ))}
         </div>
 
+        {/* Who I Build For */}
+        <div className="mb-20">
+          <Reveal>
+            <div className="text-center mb-12">
+              <p className="text-primary font-mono text-sm mb-2">Clients</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-surface">Who I Build For</h2>
+              <p className="text-surface/60 max-w-2xl mx-auto mt-4 text-sm leading-relaxed">
+                I work with startups, education companies, SaaS founders, and corporate businesses — anyone who needs a production-quality frontend delivered by a specialist. My clients include Ehya Education (a multi-platform education institution), AI product teams, and independent founders launching their first web product.
+              </p>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { title: "Education Platforms", body: "LMS portals, student dashboards, faculty management systems, and academic websites for schools, universities, and ed-tech companies." },
+              { title: "SaaS & AI Products", body: "Clean, fast frontends for SaaS dashboards, AI tools, and data-heavy applications where performance and UX drive retention." },
+              { title: "Corporate Websites", body: "Professional business websites, landing pages, and marketing sites for companies that need a modern, credible online presence." },
+              { title: "Startups & MVPs", body: "Rapid MVP development using Next.js and Tailwind CSS — production-ready from day one, not a throwaway prototype." },
+            ].map(({ title, body }) => (
+              <Reveal key={title}>
+                <div className="bg-card border border-white/5 rounded-2xl p-5 hover:border-primary/20 transition-all h-full">
+                  <h3 className="text-surface font-semibold text-sm mb-2">{title}</h3>
+                  <p className="text-surface/55 text-xs leading-relaxed">{body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        {/* What You Get */}
+        <div className="mb-20">
+          <Reveal>
+            <div className="text-center mb-12">
+              <p className="text-primary font-mono text-sm mb-2">Deliverables</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-surface">What Every Project Includes</h2>
+              <p className="text-surface/60 max-w-2xl mx-auto mt-4 text-sm leading-relaxed">
+                Every project I deliver ships with clean TypeScript code, full mobile responsiveness, Lighthouse-optimised performance, and a complete deployment on Vercel or Netlify. I do not deliver half-finished code or hand over prototypes — every project is production-ready on day one.
+              </p>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { title: "Clean TypeScript Code", body: "All code is written in TypeScript with strict typing, component documentation, and a folder structure that scales as your team grows." },
+              { title: "Mobile-First Design", body: "Every UI is built mobile-first with Tailwind CSS, tested at xs, sm, md, lg, and xl breakpoints for pixel-perfect consistency on all screen sizes." },
+              { title: "Fast Load Times", body: "Next.js image optimisation, code splitting, lazy loading, and server-side rendering keep your Largest Contentful Paint under 2.5 seconds." },
+              { title: "SEO-Ready HTML", body: "Semantic HTML5, proper heading hierarchy, meta tags, OpenGraph data, JSON-LD structured data, and canonical URLs included by default." },
+              { title: "Full Deployment", body: "I handle the full deployment to Vercel or Netlify including custom domain setup, environment variables, and preview branch configuration." },
+              { title: "Handover & Support", body: "Complete codebase handover with a brief walkthrough. One week of post-launch support included to fix any issues that arise after going live." },
+            ].map(({ title, body }) => (
+              <Reveal key={title}>
+                <div className="bg-card border border-white/5 rounded-2xl p-5 hover:border-primary/20 transition-all h-full">
+                  <h3 className="text-surface font-semibold text-sm mb-2">{title}</h3>
+                  <p className="text-surface/55 text-xs leading-relaxed">{body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
         {/* How It Works */}
         <div className="mb-20">
           <Reveal>
             <div className="text-center mb-12">
               <p className="text-primary font-mono text-sm mb-2">Process</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-surface">How We Work Together</h2>
+              <p className="text-surface/60 max-w-xl mx-auto mt-4 text-sm">
+                A clear five-step process — from first contact to launch — so you always know what happens next.
+              </p>
             </div>
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
-              { step: "01", title: "Contact", body: "Send your project brief via email or the contact form." },
-              { step: "02", title: "Discovery", body: "Review requirements and agree on scope, timeline, and cost." },
-              { step: "03", title: "Development", body: "Build the React / Next.js frontend with regular progress updates." },
-              { step: "04", title: "Review", body: "Test the work and request revisions until it is exactly right." },
-              { step: "05", title: "Launch", body: "Deploy to Vercel or Netlify and hand over the full codebase." },
+              { step: "01", title: "Contact", body: "Send your project brief via email or the contact form. Describe what you are building, your timeline, and your budget range." },
+              { step: "02", title: "Discovery", body: "We review requirements together, clarify the scope, agree on milestones, and set a realistic delivery timeline and cost." },
+              { step: "03", title: "Development", body: "I build your React or Next.js frontend with weekly progress updates, shared previews on Vercel, and open communication throughout." },
+              { step: "04", title: "Review", body: "You test the live preview, request any changes, and I revise until the result matches your vision exactly — no revision caps." },
+              { step: "05", title: "Launch", body: "Deploy to your Vercel or Netlify account, hand over the full codebase, and provide one week of post-launch support." },
             ].map(({ step, title, body }) => (
               <Reveal key={step}>
                 <div className="bg-card border border-white/5 rounded-2xl p-5 text-center hover:border-primary/20 transition-all h-full">
@@ -265,10 +326,53 @@ export default function Services() {
           </div>
         </div>
 
+        {/* FAQ */}
+        <div className="mb-20">
+          <Reveal>
+            <div className="text-center mb-10">
+              <p className="text-primary font-mono text-sm mb-2">FAQ</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-surface">Common Questions</h2>
+            </div>
+          </Reveal>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {[
+              {
+                q: "How long does a typical project take?",
+                a: "A landing page or corporate website typically takes 5–10 business days. A full SaaS dashboard or education platform takes 3–6 weeks depending on scope and the availability of designs and content.",
+              },
+              {
+                q: "Do you work with clients outside Pakistan?",
+                a: "Yes. I work with clients globally on a remote basis. I am comfortable with UK, US, and Gulf time zones and communicate in English throughout the project.",
+              },
+              {
+                q: "Do you need a Figma design before you can start?",
+                a: "A design helps but is not required. I can work from wireframes, a reference website, or a written brief. For projects without designs, I build the UI using industry-standard component patterns.",
+              },
+              {
+                q: "What is your pricing?",
+                a: "Pricing depends on project scope. Landing pages start from a fixed rate. SaaS dashboards and platforms are quoted per project after a discovery call. Contact me for a specific estimate.",
+              },
+            ].map(({ q, a }) => (
+              <Reveal key={q}>
+                <details className="bg-card border border-white/5 rounded-2xl p-6 hover:border-primary/20 transition-all">
+                  <summary className="text-surface font-semibold text-sm cursor-pointer list-none flex items-center justify-between gap-3">
+                    {q}
+                    <svg className="w-4 h-4 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <p className="text-surface/60 text-sm leading-relaxed mt-4">{a}</p>
+                </details>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
         <Reveal>
           <div className="text-center bg-card border border-primary/10 rounded-2xl p-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-surface mb-4">Have a project in mind?</h2>
-            <p className="text-surface/60 mb-8">Let&apos;s discuss how I can help bring your ideas to life.</p>
+            <p className="text-surface/60 mb-2 max-w-lg mx-auto">Muhammad Sufyan (sufyanjutt) is open to new React and Next.js projects — freelance, contract, and full-time. Based in Lahore, available worldwide.</p>
+            <p className="text-surface/40 text-sm mb-8">Typical response within 24 hours.</p>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 bg-primary text-dark font-semibold px-8 py-3 rounded-xl hover:bg-primary/90 transition-all"
