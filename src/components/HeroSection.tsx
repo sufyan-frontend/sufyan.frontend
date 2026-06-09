@@ -23,13 +23,12 @@ export default function HeroSection() {
               Hi, I&apos;m
             </motion.p>
 
-            <motion.h1 {...fade(0.2)} className="text-5xl sm:text-6xl lg:text-7xl font-bold text-surface leading-tight mb-3">
+            <motion.h1 {...fade(0.2)} className="text-5xl sm:text-6xl lg:text-7xl font-bold text-surface leading-tight mb-6">
               {person.name}
+              <span className="block text-2xl sm:text-3xl font-medium mt-3 text-primary">
+                {person.role}
+              </span>
             </motion.h1>
-
-            <motion.p {...fade(0.3)} className="text-2xl sm:text-3xl font-medium mb-6" style={{ color: "#38BDF8" }}>
-              {person.role}
-            </motion.p>
 
             <motion.p {...fade(0.4)} className="text-surface/65 text-lg leading-relaxed mb-8 max-w-lg">
               {person.bio}

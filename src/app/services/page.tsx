@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "Hire sufyanjutt — Frontend Development Services",
     description: "React, Next.js, responsive design, API integration and deployment services by Muhammad Sufyan — Lahore, Pakistan.",
     url: "https://sufyan-frontend.vercel.app/services",
-    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Services" }],
+    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 400, height: 400, alt: "Muhammad Sufyan — Services" }],
   },
 };
 

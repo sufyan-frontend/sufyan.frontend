@@ -54,9 +54,7 @@ export default async function BlogPost({ params }: Props) {
     "@id": `https://sufyan-frontend.vercel.app/blog/${post.slug}`,
     headline: post.title,
     description: post.excerpt,
-    articleBody: post.excerpt,
     datePublished: post.date,
-    dateModified: post.date,
     inLanguage: "en-PK",
     url: `https://sufyan-frontend.vercel.app/blog/${post.slug}`,
     mainEntityOfPage: {
@@ -66,8 +64,8 @@ export default async function BlogPost({ params }: Props) {
     image: {
       "@type": "ImageObject",
       url: "https://sufyan-frontend.vercel.app/profile.png",
-      width: 1200,
-      height: 630,
+      width: 400,
+      height: 400,
     },
     author: {
       "@type": "Person",
@@ -77,15 +75,14 @@ export default async function BlogPost({ params }: Props) {
       sameAs: ["https://github.com/sufyan-frontend", "https://www.linkedin.com/in/sufyan-frontend"],
     },
     publisher: {
-      "@type": "Person",
-      "@id": "https://sufyan-frontend.vercel.app/#person",
-      name: "Muhammad Sufyan",
+      "@type": "Organization",
+      name: "Muhammad Sufyan — Frontend Developer",
       url: "https://sufyan-frontend.vercel.app",
-      image: {
+      logo: {
         "@type": "ImageObject",
-        url: "https://sufyan-frontend.vercel.app/profile.png",
-        width: 400,
-        height: 400,
+        url: "https://sufyan-frontend.vercel.app/favicon.png",
+        width: 192,
+        height: 192,
       },
     },
     isPartOf: {
