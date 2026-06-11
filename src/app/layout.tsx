@@ -75,10 +75,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Sufyan | Frontend Developer in Lahore, Pakistan",
-    description:
-      "Frontend Developer building production-ready React & Next.js apps. Based in Lahore, Pakistan. Open to work.",
-    images: ["/profile.png"],
+    creator: "@sufyanfrontend",
+    site: "@sufyanfrontend",
   },
   robots: {
     index: true,

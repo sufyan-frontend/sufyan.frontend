@@ -9,15 +9,25 @@ export const metadata: Metadata = {
     "Hire Muhammad Sufyan (sufyanjutt / sufyanfrontend) for React & Next.js development, responsive design, API integration, performance optimisation, and Vercel deployment. Based in Lahore, Pakistan.",
   keywords: [
     "hire frontend developer Pakistan", "hire React developer Lahore",
-    "Muhammad Sufyan services", "sufyanjutt hire", "Next.js development services",
-    "responsive web design Pakistan", "API integration frontend", "Vercel deployment",
+    "Muhammad Sufyan services", "sufyanjutt hire", "sufyanfrontend hire",
+    "Next.js development services Pakistan", "React development services Lahore",
+    "responsive web design Pakistan", "API integration frontend developer",
+    "Vercel deployment services", "freelance frontend developer Pakistan",
+    "hire web developer Lahore", "Muhammad Sufyan freelance",
+    "Next.js developer for hire", "React developer for hire Pakistan",
+    "frontend development services 2026", "Tailwind CSS developer hire",
+    "performance optimisation frontend Pakistan", "TypeScript developer Lahore",
+    "custom web application development Pakistan", "UI development services",
+    "Next.js App Router developer", "REST API frontend integration Pakistan",
+    "sufyan jutt services", "web developer services Lahore",
+    "remote frontend developer Pakistan hire",
   ],
   alternates: { canonical: "https://sufyan-frontend.vercel.app/services" },
   openGraph: {
     title: "Hire sufyanjutt — Frontend Development Services",
     description: "React, Next.js, responsive design, API integration and deployment services by Muhammad Sufyan — Lahore, Pakistan.",
     url: "https://sufyan-frontend.vercel.app/services",
-    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 400, height: 400, alt: "Muhammad Sufyan — Services" }],
+    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Services" }],
   },
 };
 

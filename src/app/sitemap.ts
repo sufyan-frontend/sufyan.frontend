@@ -12,7 +12,7 @@ const routes: Array<{
   { path: "/",         freq: "monthly", priority: 1.0, lastMod: "2026-06-09" },
   { path: "/about",    freq: "monthly", priority: 0.9, lastMod: "2026-06-09" },
   { path: "/projects", freq: "monthly", priority: 0.9, lastMod: "2026-06-09" },
-  { path: "/services", freq: "monthly", priority: 0.8, lastMod: "2025-05-01" },
+  { path: "/services", freq: "monthly", priority: 0.8, lastMod: "2026-06-11" },
   { path: "/blog",     freq: "weekly",  priority: 0.7, lastMod: "2026-06-09" },
   { path: "/contact",  freq: "yearly",  priority: 0.6 },
   { path: "/privacy",  freq: "yearly",  priority: 0.3 },
