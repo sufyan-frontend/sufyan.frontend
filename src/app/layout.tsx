@@ -95,6 +95,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "google129327d0e5fe8cad",
+    other: {
+      "msvalidate.01": "021818FF49D5FB671A22DF411453FD4C",
+    },
   },
 };
 
