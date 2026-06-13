@@ -1,16 +1,18 @@
 "use client";
-import type { Metadata } from "next";
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { getPosts } from "@/lib/cms-api";
 import { SidebarCtx } from "./_context";
 
+const ADMIN_PASSWORD = "sufyandev123";
+
 /* ─── Auth Gate ──────────────────────────────────────────────────────── */
 
-function AuthGate({ onAuth }: { onAuth: (secret: string) => void }) {
+function AuthGate({ onAuth }: { onAuth: () => void }) {
   const [val, setVal] = useState("");
+  const [error, setError] = useState(false);
   return (
     <div className="min-h-screen bg-dark flex items-center justify-center p-4">
       <div className="w-full max-w-sm">
@@ -23,24 +25,36 @@ function AuthGate({ onAuth }: { onAuth: (secret: string) => void }) {
             </div>
           </div>
           <h1 className="text-surface text-xl font-bold text-center mb-1">CMS Admin</h1>
-          <p className="text-surface/40 text-sm text-center mb-7">Enter your CMS secret to continue</p>
+          <p className="text-surface/40 text-sm text-center mb-7">Enter your password to continue</p>
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              if (!val.trim()) return;
-              sessionStorage.setItem("cms-secret", val.trim());
-              onAuth(val.trim());
+              if (val === ADMIN_PASSWORD) {
+                sessionStorage.setItem("cms-authed", "1");
+                setError(false);
+                onAuth();
+              } else {
+                setError(true);
+                setVal("");
+              }
             }}
             className="space-y-4"
           >
-            <input
-              type="password"
-              placeholder="Secret key"
-              value={val}
-              onChange={(e) => setVal(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-surface placeholder-surface/30 text-sm focus:outline-none focus:border-primary/50 transition-colors"
-              autoFocus
-            />
+            <div>
+              <input
+                type="password"
+                placeholder="Password"
+                value={val}
+                onChange={(e) => { setVal(e.target.value); setError(false); }}
+                className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-surface placeholder-surface/30 text-sm focus:outline-none transition-colors ${
+                  error ? "border-red-500/60 focus:border-red-500" : "border-white/10 focus:border-primary/50"
+                }`}
+                autoFocus
+              />
+              {error && (
+                <p className="text-red-400 text-xs mt-2">Incorrect password. Try again.</p>
+              )}
+            </div>
             <button
               type="submit"
               className="w-full bg-primary text-dark font-semibold py-3 rounded-xl hover:bg-primary/90 transition-colors text-sm"
@@ -58,13 +72,12 @@ function AuthGate({ onAuth }: { onAuth: (secret: string) => void }) {
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [isAuthed, setIsAuthed] = useState<boolean | undefined>(undefined);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
-    const s = sessionStorage.getItem("cms-secret") ?? process.env.NEXT_PUBLIC_CMS_SECRET ?? "";
-    if (s) sessionStorage.setItem("cms-secret", s);
-    setIsAuthed(!!s);
+    setIsAuthed(sessionStorage.getItem("cms-authed") === "1");
   }, []);
 
   const { data: posts = [] } = useQuery({
@@ -74,8 +87,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   });
 
   const logout = () => {
-    sessionStorage.removeItem("cms-secret");
-    setIsAuthed(false);
+    sessionStorage.removeItem("cms-authed");
+    router.push("/");
   };
 
   if (isAuthed === undefined) return null;
@@ -98,9 +111,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           />
         )}
 
-        {/* ── Sidebar ── */}
+        {/* ── Sidebar (static on lg left side, fixed overlay on mobile) ── */}
         <aside
-          className={`fixed inset-y-0 left-0 z-40 w-60 bg-card border-r border-white/5 flex flex-col transition-transform duration-200 lg:static lg:translate-x-0 lg:z-auto ${
+          className={`fixed inset-y-0 left-0 z-40 w-60 bg-card border-r border-white/5 flex flex-col transition-transform duration-200 lg:static lg:inset-auto lg:z-auto lg:translate-x-0 lg:shrink-0 ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >

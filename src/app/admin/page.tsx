@@ -224,7 +224,7 @@ export default function AdminPage() {
                     className="bg-card border border-white/5 rounded-2xl overflow-hidden flex flex-col hover:border-white/10 transition-colors group"
                   >
                     {/* Cover */}
-                    <div className="relative h-44 bg-white/[0.03] overflow-hidden shrink-0">
+                    <div className="relative h-44 bg-white/3 overflow-hidden shrink-0">
                       {post.image ? (
                         <img
                           src={post.image}
