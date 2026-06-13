@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
-import { getPost, updatePost, type CmsPost } from "@/lib/cms-api";
+import { getPost, updatePost, type CmsPost, type CmsPostInput } from "@/lib/cms-api";
 
 type FormState = {
   slug: string;
@@ -12,7 +12,6 @@ type FormState = {
   date: string;
   author: string;
   tags: string;
-  image: string;
 };
 
 const toSlug = (s: string) =>
@@ -30,17 +29,15 @@ const postToForm = (p: CmsPost): FormState => ({
   date: p.date,
   author: p.author,
   tags: p.tags.join(", "),
-  image: p.image,
 });
 
-const formToPost = (f: FormState): CmsPost => ({
+const formToPost = (f: FormState): CmsPostInput => ({
   slug: f.slug,
   title: f.title,
   description: f.description,
   date: f.date,
   author: f.author,
   tags: f.tags.split(",").map((t) => t.trim()).filter(Boolean),
-  image: f.image || `images/${f.slug}.png`,
 });
 
 export default function EditPostPage() {
@@ -50,6 +47,8 @@ export default function EditPostPage() {
   const [ready, setReady] = useState(false);
   const [slugManual, setSlugManual] = useState(true);
   const [form, setForm] = useState<FormState | null>(null);
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
 
   useEffect(() => {
     const s =
@@ -75,41 +74,30 @@ export default function EditPostPage() {
   }, [post, form]);
 
   const mut = useMutation({
-    mutationFn: (data: CmsPost) => updatePost(slug, data, secret),
+    mutationFn: (data: CmsPostInput) => updatePost(slug, data, imageFile ?? undefined),
     onSuccess: () => router.push("/admin"),
   });
 
   const handleTitle = (title: string) => {
     const newSlug = slugManual ? form!.slug : toSlug(title);
-    setForm((f) =>
-      f
-        ? {
-            ...f,
-            title,
-            slug: newSlug,
-            image:
-              f.image && f.image !== `images/${f.slug}.png`
-                ? f.image
-                : `images/${newSlug}.png`,
-          }
-        : f
-    );
+    setForm((f) => f ? { ...f, title, slug: newSlug } : f);
   };
 
-  const handleSlug = (slug: string) => {
+  const handleSlug = (s: string) => {
     setSlugManual(true);
-    setForm((f) =>
-      f
-        ? {
-            ...f,
-            slug,
-            image:
-              f.image && f.image !== `images/${f.slug}.png`
-                ? f.image
-                : `images/${slug}.png`,
-          }
-        : f
-    );
+    setForm((f) => f ? { ...f, slug: s } : f);
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] ?? null;
+    setImageFile(file);
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => setImagePreview(reader.result as string);
+      reader.readAsDataURL(file);
+    } else {
+      setImagePreview(null);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -191,29 +179,43 @@ export default function EditPostPage() {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
-                    Slug <span className="text-red-400">*</span>
+              <div>
+                <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
+                  Slug <span className="text-red-400">*</span>
+                </label>
+                <input
+                  required
+                  value={form.slug}
+                  onChange={(e) => handleSlug(e.target.value)}
+                  placeholder="post-slug"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-surface text-sm placeholder-surface/20 focus:outline-none focus:border-primary/50 transition-colors font-mono"
+                />
+              </div>
+
+              <div>
+                <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
+                  Cover Image{" "}
+                  <span className="normal-case text-surface/30 font-normal">(leave empty to keep current)</span>
+                </label>
+                <div className="flex gap-3 items-start">
+                  <label className="flex-1 cursor-pointer border border-dashed border-white/20 rounded-xl px-4 py-3 text-center hover:border-primary/50 transition-colors">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                      className="sr-only"
+                    />
+                    <span className="text-surface/40 text-sm">
+                      {imageFile ? imageFile.name : "Click to replace image"}
+                    </span>
                   </label>
-                  <input
-                    required
-                    value={form.slug}
-                    onChange={(e) => handleSlug(e.target.value)}
-                    placeholder="post-slug"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-surface text-sm placeholder-surface/20 focus:outline-none focus:border-primary/50 transition-colors font-mono"
-                  />
-                </div>
-                <div>
-                  <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
-                    Image Path
-                  </label>
-                  <input
-                    value={form.image}
-                    onChange={(e) => setForm((f) => f ? { ...f, image: e.target.value } : f)}
-                    placeholder="images/slug.png"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-surface text-sm placeholder-surface/20 focus:outline-none focus:border-primary/50 transition-colors font-mono"
-                  />
+                  {(imagePreview ?? post?.image) && (
+                    <img
+                      src={imagePreview ?? post!.image!}
+                      alt="Preview"
+                      className="w-16 h-16 object-cover rounded-xl border border-white/10 shrink-0"
+                    />
+                  )}
                 </div>
               </div>
 

@@ -86,18 +86,16 @@ function Toast({ msg, type }: { msg: string; type: "success" | "error" }) {
 
 function DeleteConfirm({
   slug,
-  secret,
   onClose,
   onToast,
 }: {
   slug: string;
-  secret: string;
   onClose: () => void;
   onToast: (msg: string, type: "success" | "error") => void;
 }) {
   const qc = useQueryClient();
   const mut = useMutation({
-    mutationFn: () => deletePost(slug, secret),
+    mutationFn: () => deletePost(slug),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["cms-posts"] });
       onToast("Post deleted.", "success");
@@ -497,7 +495,6 @@ export default function AdminPage() {
       {deleteSlug && (
         <DeleteConfirm
           slug={deleteSlug}
-          secret={secret}
           onClose={() => setDeleteSlug(null)}
           onToast={showToast}
         />
