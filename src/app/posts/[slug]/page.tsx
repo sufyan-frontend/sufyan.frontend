@@ -98,7 +98,7 @@ export default function PostPage() {
           <img
             src={post.image}
             alt={post.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
             onError={(e) => {
               (e.currentTarget.parentElement as HTMLElement).style.display = "none";
             }}

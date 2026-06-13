@@ -1,9 +1,10 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createPost, type CmsPostInput } from "@/lib/cms-api";
+import { useAdminSidebar } from "../../_context";
 
 type FormState = {
   slug: string;
@@ -35,8 +36,7 @@ const formToPost = (f: FormState): CmsPostInput => ({
 
 export default function NewPostPage() {
   const router = useRouter();
-  const [secret, setSecret] = useState("");
-  const [ready, setReady] = useState(false);
+  const { toggle } = useAdminSidebar();
   const [slugManual, setSlugManual] = useState(false);
   const [form, setForm] = useState<FormState>({
     slug: "",
@@ -48,19 +48,6 @@ export default function NewPostPage() {
   });
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
-
-  useEffect(() => {
-    const s =
-      sessionStorage.getItem("cms-secret") ??
-      process.env.NEXT_PUBLIC_CMS_SECRET ??
-      "";
-    if (!s) {
-      router.replace("/admin");
-      return;
-    }
-    setSecret(s);
-    setReady(true);
-  }, [router]);
 
   const mut = useMutation({
     mutationFn: (data: CmsPostInput) => createPost(data, imageFile ?? undefined),
@@ -94,17 +81,22 @@ export default function NewPostPage() {
     mut.mutate(formToPost(form));
   };
 
-  const tagArr = form.tags
-    .split(",")
-    .map((t) => t.trim())
-    .filter(Boolean);
-
-  if (!ready) return null;
+  const tagArr = form.tags.split(",").map((t) => t.trim()).filter(Boolean);
 
   return (
-    <div className="min-h-screen bg-dark">
+    <>
       {/* Header */}
-      <header className="h-14 border-b border-white/5 bg-card/60 backdrop-blur-sm sticky top-0 z-20 flex items-center gap-3 px-4 sm:px-6">
+      <header className="h-14 border-b border-white/5 bg-card/60 backdrop-blur-sm sticky top-0 z-20 flex items-center gap-3 px-4 sm:px-6 shrink-0">
+        <button
+          type="button"
+          onClick={toggle}
+          className="lg:hidden p-2 rounded-lg text-surface/40 hover:text-surface hover:bg-white/5 transition-colors"
+          aria-label="Open sidebar"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
         <Link
           href="/admin"
           className="flex items-center gap-2 text-surface/40 hover:text-surface transition-colors text-sm"
@@ -164,22 +156,13 @@ export default function NewPostPage() {
                 </label>
                 <div className="flex gap-3 items-start">
                   <label className="flex-1 cursor-pointer border border-dashed border-white/20 rounded-xl px-4 py-3 text-center hover:border-primary/50 transition-colors">
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handleImageChange}
-                      className="sr-only"
-                    />
+                    <input type="file" accept="image/*" onChange={handleImageChange} className="sr-only" />
                     <span className="text-surface/40 text-sm">
                       {imageFile ? imageFile.name : "Click to select image"}
                     </span>
                   </label>
                   {imagePreview && (
-                    <img
-                      src={imagePreview}
-                      alt="Preview"
-                      className="w-16 h-16 object-cover rounded-xl border border-white/10 shrink-0"
-                    />
+                    <img src={imagePreview} alt="Preview" className="w-16 h-16 object-cover rounded-xl border border-white/10 shrink-0" />
                   )}
                 </div>
               </div>
@@ -228,8 +211,7 @@ export default function NewPostPage() {
 
               <div>
                 <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
-                  Tags{" "}
-                  <span className="normal-case text-surface/30 font-normal">(comma-separated)</span>
+                  Tags <span className="normal-case text-surface/30 font-normal">(comma-separated)</span>
                 </label>
                 <input
                   value={form.tags}
@@ -240,9 +222,7 @@ export default function NewPostPage() {
                 {tagArr.length > 0 && (
                   <div className="flex flex-wrap gap-1.5 mt-2.5">
                     {tagArr.map((t) => (
-                      <span key={t} className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
-                        {t}
-                      </span>
+                      <span key={t} className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">{t}</span>
                     ))}
                   </div>
                 )}
@@ -279,6 +259,6 @@ export default function NewPostPage() {
           </div>
         </div>
       </main>
-    </div>
+    </>
   );
 }

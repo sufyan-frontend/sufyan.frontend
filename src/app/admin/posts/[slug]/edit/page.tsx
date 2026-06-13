@@ -4,6 +4,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { getPost, updatePost, type CmsPost, type CmsPostInput } from "@/lib/cms-api";
+import { useAdminSidebar } from "../../../_context";
 
 type FormState = {
   slug: string;
@@ -43,30 +44,16 @@ const formToPost = (f: FormState): CmsPostInput => ({
 export default function EditPostPage() {
   const router = useRouter();
   const { slug } = useParams<{ slug: string }>();
-  const [secret, setSecret] = useState("");
-  const [ready, setReady] = useState(false);
-  const [slugManual, setSlugManual] = useState(true);
+  const { toggle } = useAdminSidebar();
+  const [slugManual] = useState(true);
   const [form, setForm] = useState<FormState | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
 
-  useEffect(() => {
-    const s =
-      sessionStorage.getItem("cms-secret") ??
-      process.env.NEXT_PUBLIC_CMS_SECRET ??
-      "";
-    if (!s) {
-      router.replace("/admin");
-      return;
-    }
-    setSecret(s);
-    setReady(true);
-  }, [router]);
-
   const { data: post, isLoading, isError } = useQuery({
     queryKey: ["cms-post", slug],
     queryFn: () => getPost(slug),
-    enabled: ready && !!slug,
+    enabled: !!slug,
   });
 
   useEffect(() => {
@@ -84,7 +71,6 @@ export default function EditPostPage() {
   };
 
   const handleSlug = (s: string) => {
-    setSlugManual(true);
     setForm((f) => f ? { ...f, slug: s } : f);
   };
 
@@ -106,14 +92,12 @@ export default function EditPostPage() {
     mut.mutate(formToPost(form));
   };
 
-  const tagArr = form
-    ? form.tags.split(",").map((t) => t.trim()).filter(Boolean)
-    : [];
+  const tagArr = form ? form.tags.split(",").map((t) => t.trim()).filter(Boolean) : [];
 
-  if (!ready || isLoading) {
+  if (isLoading || !form) {
     return (
-      <div className="min-h-screen bg-dark p-8">
-        <div className="max-w-2xl mx-auto space-y-4 animate-pulse">
+      <div className="p-8 animate-pulse">
+        <div className="max-w-2xl mx-auto space-y-4">
           <div className="h-10 bg-white/5 rounded-xl w-32" />
           <div className="h-64 bg-card border border-white/5 rounded-2xl" />
         </div>
@@ -121,23 +105,31 @@ export default function EditPostPage() {
     );
   }
 
-  if (isError || !form) {
+  if (isError) {
     return (
-      <div className="min-h-screen bg-dark flex items-center justify-center">
+      <div className="flex-1 flex items-center justify-center">
         <div className="text-center">
           <p className="text-surface/50 mb-4">Post not found.</p>
-          <Link href="/admin" className="text-primary text-sm hover:underline">
-            ← Back to admin
-          </Link>
+          <Link href="/admin" className="text-primary text-sm hover:underline">← Back to admin</Link>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-dark">
+    <>
       {/* Header */}
-      <header className="h-14 border-b border-white/5 bg-card/60 backdrop-blur-sm sticky top-0 z-20 flex items-center gap-3 px-4 sm:px-6">
+      <header className="h-14 border-b border-white/5 bg-card/60 backdrop-blur-sm sticky top-0 z-20 flex items-center gap-3 px-4 sm:px-6 shrink-0">
+        <button
+          type="button"
+          onClick={toggle}
+          className="lg:hidden p-2 rounded-lg text-surface/40 hover:text-surface hover:bg-white/5 transition-colors"
+          aria-label="Open sidebar"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
         <Link
           href="/admin"
           className="flex items-center gap-2 text-surface/40 hover:text-surface transition-colors text-sm"
@@ -194,17 +186,11 @@ export default function EditPostPage() {
 
               <div>
                 <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
-                  Cover Image{" "}
-                  <span className="normal-case text-surface/30 font-normal">(leave empty to keep current)</span>
+                  Cover Image <span className="normal-case text-surface/30 font-normal">(leave empty to keep current)</span>
                 </label>
                 <div className="flex gap-3 items-start">
                   <label className="flex-1 cursor-pointer border border-dashed border-white/20 rounded-xl px-4 py-3 text-center hover:border-primary/50 transition-colors">
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handleImageChange}
-                      className="sr-only"
-                    />
+                    <input type="file" accept="image/*" onChange={handleImageChange} className="sr-only" />
                     <span className="text-surface/40 text-sm">
                       {imageFile ? imageFile.name : "Click to replace image"}
                     </span>
@@ -263,8 +249,7 @@ export default function EditPostPage() {
 
               <div>
                 <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
-                  Tags{" "}
-                  <span className="normal-case text-surface/30 font-normal">(comma-separated)</span>
+                  Tags <span className="normal-case text-surface/30 font-normal">(comma-separated)</span>
                 </label>
                 <input
                   value={form.tags}
@@ -275,9 +260,7 @@ export default function EditPostPage() {
                 {tagArr.length > 0 && (
                   <div className="flex flex-wrap gap-1.5 mt-2.5">
                     {tagArr.map((t) => (
-                      <span key={t} className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
-                        {t}
-                      </span>
+                      <span key={t} className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">{t}</span>
                     ))}
                   </div>
                 )}
@@ -314,6 +297,6 @@ export default function EditPostPage() {
           </div>
         </div>
       </main>
-    </div>
+    </>
   );
 }

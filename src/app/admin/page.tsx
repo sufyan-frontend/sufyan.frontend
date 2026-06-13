@@ -1,63 +1,10 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import {
-  getPosts,
-  deletePost,
-  type CmsPost,
-} from "@/lib/cms-api";
-
-
-/* ─── Auth Gate ──────────────────────────────────────────────────────── */
-
-function AuthGate({ onAuth }: { onAuth: (secret: string) => void }) {
-  const [val, setVal] = useState("");
-  return (
-    <div className="min-h-screen bg-dark flex items-center justify-center p-4">
-      <div className="w-full max-w-sm">
-        <div className="bg-card border border-white/10 rounded-2xl p-8 shadow-2xl">
-          <div className="flex items-center justify-center mb-6">
-            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-              <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-            </div>
-          </div>
-          <h1 className="text-surface text-xl font-bold text-center mb-1">CMS Admin</h1>
-          <p className="text-surface/40 text-sm text-center mb-7">
-            Enter your CMS secret to continue
-          </p>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (!val.trim()) return;
-              sessionStorage.setItem("cms-secret", val.trim());
-              onAuth(val.trim());
-            }}
-            className="space-y-4"
-          >
-            <input
-              type="password"
-              placeholder="Secret key"
-              value={val}
-              onChange={(e) => setVal(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-surface placeholder-surface/30 text-sm focus:outline-none focus:border-primary/50 transition-colors"
-              autoFocus
-            />
-            <button
-              type="submit"
-              className="w-full bg-primary text-dark font-semibold py-3 rounded-xl hover:bg-primary/90 transition-colors text-sm"
-            >
-              Enter Admin
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  );
-}
+import { getPosts, deletePost, type CmsPost } from "@/lib/cms-api";
+import { useAdminSidebar } from "./_context";
 
 /* ─── Toast ──────────────────────────────────────────────────────────── */
 
@@ -155,20 +102,7 @@ function DeleteConfirm({
 
 export default function AdminPage() {
   const router = useRouter();
-  const [secret, setSecretState] = useState("");
-  const [isAuthed, setIsAuthed] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  useEffect(() => {
-    const envSecret = process.env.NEXT_PUBLIC_CMS_SECRET;
-    const stored = sessionStorage.getItem("cms-secret") ?? envSecret ?? "";
-    if (stored) {
-      sessionStorage.setItem("cms-secret", stored);
-      setSecretState(stored);
-      setIsAuthed(true);
-    }
-  }, []);
-
+  const { toggle } = useAdminSidebar();
   const [deleteSlug, setDeleteSlug] = useState<string | null>(null);
   const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
   const [search, setSearch] = useState("");
@@ -176,7 +110,6 @@ export default function AdminPage() {
   const { data: posts = [], isLoading } = useQuery({
     queryKey: ["cms-posts"],
     queryFn: getPosts,
-    enabled: isAuthed,
   });
 
   const showToast = (msg: string, type: "success" | "error" = "success") => {
@@ -184,16 +117,8 @@ export default function AdminPage() {
     setTimeout(() => setToast(null), 3500);
   };
 
-  const logout = () => {
-    sessionStorage.removeItem("cms-secret");
-    setSecretState("");
-    setIsAuthed(false);
-  };
-
   const openAdd = () => router.push("/admin/posts/new");
   const openEdit = (p: CmsPost) => router.push(`/admin/posts/${p.slug}/edit`);
-
-  if (!isAuthed) return <AuthGate onAuth={(s) => { setSecretState(s); setIsAuthed(true); }} />;
 
   const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
   const filtered = search.trim()
@@ -206,292 +131,240 @@ export default function AdminPage() {
     : sorted;
 
   return (
-    <div className="min-h-screen bg-dark flex">
+    <>
+      {/* ── Navbar ── */}
+      <header className="h-14 border-b border-white/5 bg-card/60 backdrop-blur-sm sticky top-0 z-20 flex items-center gap-3 px-4 sm:px-6 shrink-0">
+        <button
+          type="button"
+          onClick={toggle}
+          className="lg:hidden p-2 rounded-lg text-surface/40 hover:text-surface hover:bg-white/5 transition-colors"
+          aria-label="Open sidebar"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
 
-      {/* ── Mobile sidebar overlay ── */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 z-30 bg-black/60 backdrop-blur-sm lg:hidden"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
+        <h1 className="text-surface font-bold text-sm hidden sm:block">Posts</h1>
 
-      {/* ── Sidebar ── */}
-      <aside
-        className={`fixed inset-y-0 left-0 z-40 w-60 bg-card border-r border-white/5 flex flex-col transition-transform duration-200 lg:static lg:translate-x-0 lg:z-auto ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        {/* Brand */}
-        <div className="h-14 flex items-center gap-3 px-5 border-b border-white/5 shrink-0">
-          <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-            <svg className="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        <div className="flex items-center gap-2 ml-auto">
+          <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-1.5">
+            <svg className="w-3.5 h-3.5 text-surface/30 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
+            <input
+              type="text"
+              placeholder="Search…"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="bg-transparent text-surface text-xs placeholder-surface/20 focus:outline-none w-28 sm:w-36"
+            />
           </div>
-          <span className="text-surface font-bold text-sm tracking-tight">CMS Admin</span>
-        </div>
 
-        {/* Nav */}
-        <nav className="flex-1 p-3 space-y-0.5 overflow-y-auto">
-          <p className="text-surface/20 text-[10px] font-semibold uppercase tracking-widest px-3 pt-2 pb-1.5">
-            Content
-          </p>
-          <button
-            onClick={() => setSidebarOpen(false)}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary text-sm font-medium"
-          >
-            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            Posts
-            <span className="ml-auto text-xs bg-primary/20 text-primary px-1.5 py-0.5 rounded-full font-mono leading-none">
-              {posts.length}
-            </span>
-          </button>
-        </nav>
-
-        {/* Footer */}
-        <div className="p-3 border-t border-white/5 space-y-1 shrink-0">
-          <Link
-            href="/posts"
-            target="_blank"
-            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-surface/40 hover:text-surface hover:bg-white/5 transition-colors text-sm"
-          >
-            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-            View Site
-          </Link>
           <button
             type="button"
-            onClick={logout}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-surface/40 hover:text-red-400 hover:bg-red-500/5 transition-colors text-sm"
+            onClick={openAdd}
+            className="flex items-center gap-1.5 bg-primary text-dark text-sm font-semibold px-4 py-2 rounded-xl hover:bg-primary/90 transition-colors"
           >
-            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
             </svg>
-            Logout
+            <span className="hidden sm:inline">New Post</span>
           </button>
         </div>
-      </aside>
+      </header>
 
-      {/* ── Right side ── */}
-      <div className="flex-1 flex flex-col min-w-0">
-
-        {/* ── Navbar ── */}
-        <header className="h-14 border-b border-white/5 bg-card/60 backdrop-blur-sm sticky top-0 z-20 flex items-center gap-3 px-4 sm:px-6 shrink-0">
-          {/* Mobile menu toggle */}
-          <button
-            type="button"
-            onClick={() => setSidebarOpen(true)}
-            className="lg:hidden p-2 rounded-lg text-surface/40 hover:text-surface hover:bg-white/5 transition-colors"
-            aria-label="Open sidebar"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-
-          <h1 className="text-surface font-bold text-sm hidden sm:block">Posts</h1>
-
-          <div className="flex items-center gap-2 ml-auto">
-            {/* Search */}
-            <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-1.5">
-              <svg className="w-3.5 h-3.5 text-surface/30 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      {/* ── Main ── */}
+      <main className="flex-1 p-4 sm:p-6 lg:p-8">
+        {isLoading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="bg-card border border-white/5 rounded-2xl overflow-hidden animate-pulse">
+                <div className="h-44 bg-white/5" />
+                <div className="p-5 space-y-3">
+                  <div className="h-4 bg-white/5 rounded w-1/3" />
+                  <div className="h-5 bg-white/5 rounded w-3/4" />
+                  <div className="h-3 bg-white/5 rounded" />
+                  <div className="h-3 bg-white/5 rounded w-5/6" />
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : posts.length === 0 ? (
+          <div className="text-center py-32">
+            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+              <svg className="w-8 h-8 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              <input
-                type="text"
-                placeholder="Search…"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="bg-transparent text-surface text-xs placeholder-surface/20 focus:outline-none w-28 sm:w-36"
-              />
             </div>
-
-            {/* New Post */}
+            <h2 className="text-surface font-bold text-xl mb-2">No posts yet</h2>
+            <p className="text-surface/40 text-sm mb-7">Create your first post to get started.</p>
             <button
               type="button"
               onClick={openAdd}
-              className="flex items-center gap-1.5 bg-primary text-dark text-sm font-semibold px-4 py-2 rounded-xl hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-primary text-dark font-semibold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
-              <span className="hidden sm:inline">New Post</span>
+              Create First Post
             </button>
           </div>
-        </header>
-
-        {/* ── Main ── */}
-        <main className="flex-1 p-4 sm:p-6 lg:p-8">
-          {isLoading ? (
-            <div className="space-y-2">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="h-14 bg-card border border-white/5 rounded-xl animate-pulse" />
-              ))}
-            </div>
-          ) : posts.length === 0 ? (
-            <div className="text-center py-32">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                <svg className="w-8 h-8 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h2 className="text-surface font-bold text-xl mb-2">No posts yet</h2>
-              <p className="text-surface/40 text-sm mb-7">Create your first post to get started.</p>
-              <button
-                type="button"
-                onClick={openAdd}
-                className="inline-flex items-center gap-2 bg-primary text-dark font-semibold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                </svg>
-                Create First Post
-              </button>
-            </div>
-          ) : (
-            <div className="bg-card border border-white/5 rounded-2xl overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[600px]">
-                  <thead>
-                    <tr className="border-b border-white/5">
-                      <th className="text-left text-xs text-surface/30 font-semibold uppercase tracking-wider px-5 py-4 w-10">
-                        #
-                      </th>
-                      <th className="text-left text-xs text-surface/30 font-semibold uppercase tracking-wider px-5 py-4">
-                        Post
-                      </th>
-                      <th className="text-left text-xs text-surface/30 font-semibold uppercase tracking-wider px-5 py-4 hidden md:table-cell">
-                        Author
-                      </th>
-                      <th className="text-left text-xs text-surface/30 font-semibold uppercase tracking-wider px-5 py-4 hidden lg:table-cell">
-                        Date
-                      </th>
-                      <th className="text-left text-xs text-surface/30 font-semibold uppercase tracking-wider px-5 py-4 hidden xl:table-cell">
-                        Tags
-                      </th>
-                      <th className="text-right text-xs text-surface/30 font-semibold uppercase tracking-wider px-5 py-4">
-                        Actions
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-white/[0.04]">
-                    {filtered.length === 0 ? (
-                      <tr>
-                        <td colSpan={6} className="text-center py-12 text-surface/30 text-sm">
-                          No posts match &ldquo;{search}&rdquo;
-                        </td>
-                      </tr>
-                    ) : (
-                      filtered.map((post, i) => (
-                        <tr
-                          key={post.slug}
-                          className="hover:bg-white/[0.015] transition-colors group"
+        ) : (
+          <>
+            {filtered.length === 0 ? (
+              <p className="text-center py-16 text-surface/30 text-sm">
+                No posts match &ldquo;{search}&rdquo;
+              </p>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                {filtered.map((post) => (
+                  <div
+                    key={post.slug}
+                    className="bg-card border border-white/5 rounded-2xl overflow-hidden flex flex-col hover:border-white/10 transition-colors group"
+                  >
+                    {/* Cover */}
+                    <div className="relative h-44 bg-white/[0.03] overflow-hidden shrink-0">
+                      {post.image ? (
+                        <img
+                          src={post.image}
+                          alt={post.title}
+                          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                          onError={(e) => {
+                            (e.currentTarget.parentElement as HTMLElement).classList.add("hidden");
+                          }}
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <svg className="w-10 h-10 text-white/5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                      )}
+                      {/* Action buttons overlay */}
+                      <div className="absolute top-2.5 right-2.5 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Link
+                          href={`/admin/posts/${post.slug}`}
+                          title="View"
+                          className="w-7 h-7 flex items-center justify-center bg-dark/80 backdrop-blur-sm rounded-lg text-surface/60 hover:text-surface transition-colors"
                         >
-                          <td className="px-5 py-4 text-surface/20 text-xs font-mono">{i + 1}</td>
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={() => openEdit(post)}
+                          title="Edit"
+                          className="w-7 h-7 flex items-center justify-center bg-dark/80 backdrop-blur-sm rounded-lg text-surface/60 hover:text-primary transition-colors"
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                          </svg>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setDeleteSlug(post.slug)}
+                          title="Delete"
+                          className="w-7 h-7 flex items-center justify-center bg-dark/80 backdrop-blur-sm rounded-lg text-surface/60 hover:text-red-400 transition-colors"
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
 
-                          <td className="px-5 py-4">
-                            <div className="font-semibold text-surface text-sm leading-tight">
-                              {post.title}
-                            </div>
-                            <div className="text-surface/30 text-xs font-mono mt-0.5 truncate max-w-[200px]">
-                              /{post.slug}
-                            </div>
-                          </td>
+                    {/* Body */}
+                    <div className="p-5 flex flex-col flex-1">
+                      {/* Tags */}
+                      {post.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-1 mb-3">
+                          {post.tags.slice(0, 3).map((t) => (
+                            <span key={t} className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+                              {t}
+                            </span>
+                          ))}
+                          {post.tags.length > 3 && (
+                            <span className="text-xs text-surface/20">+{post.tags.length - 3}</span>
+                          )}
+                        </div>
+                      )}
 
-                          <td className="px-5 py-4 hidden md:table-cell text-surface/50 text-sm">
-                            {post.author}
-                          </td>
+                      {/* Title */}
+                      <Link
+                        href={`/admin/posts/${post.slug}`}
+                        className="text-surface font-bold text-base leading-snug line-clamp-2 mb-2 hover:text-primary transition-colors"
+                      >
+                        {post.title}
+                      </Link>
 
-                          <td className="px-5 py-4 hidden lg:table-cell text-surface/40 text-xs font-mono whitespace-nowrap">
+                      {/* Description */}
+                      <p className="text-surface/40 text-xs leading-relaxed line-clamp-2 flex-1 mb-4">
+                        {post.description}
+                      </p>
+
+                      {/* Footer */}
+                      <div className="flex items-center justify-between pt-3 border-t border-white/5">
+                        <div className="flex items-center gap-1.5 text-surface/30 text-xs">
+                          <span>{post.author}</span>
+                          <span>·</span>
+                          <time dateTime={post.date}>
                             {new Date(post.date).toLocaleDateString("en-GB", {
                               day: "2-digit",
                               month: "short",
                               year: "numeric",
                             })}
-                          </td>
+                          </time>
+                        </div>
 
-                          <td className="px-5 py-4 hidden xl:table-cell">
-                            <div className="flex flex-wrap gap-1">
-                              {post.tags.slice(0, 3).map((t) => (
-                                <span
-                                  key={t}
-                                  className="text-xs bg-primary/10 text-primary px-1.5 py-0.5 rounded-md"
-                                >
-                                  {t}
-                                </span>
-                              ))}
-                              {post.tags.length > 3 && (
-                                <span className="text-xs text-surface/20">
-                                  +{post.tags.length - 3}
-                                </span>
-                              )}
-                            </div>
-                          </td>
-
-                          <td className="px-5 py-4">
-                            <div className="flex items-center justify-end gap-0.5">
-                              <Link
-                                href={`/posts/${post.slug}`}
-                                target="_blank"
-                                title="View post"
-                                className="p-2 rounded-lg text-surface/20 hover:text-surface hover:bg-white/5 transition-colors"
-                              >
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                </svg>
-                              </Link>
-                              <button
-                                onClick={() => openEdit(post)}
-                                title="Edit post"
-                                className="p-2 rounded-lg text-surface/20 hover:text-primary hover:bg-primary/10 transition-colors"
-                              >
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                </svg>
-                              </button>
-                              <button
-                                onClick={() => setDeleteSlug(post.slug)}
-                                title="Delete post"
-                                className="p-2 rounded-lg text-surface/20 hover:text-red-400 hover:bg-red-500/10 transition-colors"
-                              >
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      ))
-                    )}
-                  </tbody>
-                </table>
+                        <div className="flex items-center gap-0.5">
+                          <Link
+                            href={`/admin/posts/${post.slug}`}
+                            title="View"
+                            className="p-1.5 rounded-lg text-surface/20 hover:text-surface hover:bg-white/5 transition-colors"
+                          >
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                          </Link>
+                          <button
+                            type="button"
+                            onClick={() => openEdit(post)}
+                            title="Edit"
+                            className="p-1.5 rounded-lg text-surface/20 hover:text-primary hover:bg-primary/10 transition-colors"
+                          >
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setDeleteSlug(post.slug)}
+                            title="Delete"
+                            className="p-1.5 rounded-lg text-surface/20 hover:text-red-400 hover:bg-red-500/10 transition-colors"
+                          >
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
+            )}
 
-              <div className="px-5 py-3 border-t border-white/5 flex items-center justify-between">
-                <p className="text-surface/30 text-xs">
-                  {filtered.length} of {posts.length} post{posts.length !== 1 ? "s" : ""}
-                </p>
-                <button
-                  onClick={openAdd}
-                  className="inline-flex items-center gap-1.5 text-primary text-xs font-medium hover:underline"
-                >
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                  </svg>
-                  Add post
-                </button>
-              </div>
-            </div>
-          )}
-        </main>
-      </div>
+            <p className="text-surface/20 text-xs mt-6">
+              {filtered.length} of {posts.length} post{posts.length !== 1 ? "s" : ""}
+            </p>
+          </>
+        )}
+      </main>
 
-      {/* ── Delete confirm ── */}
       {deleteSlug && (
         <DeleteConfirm
           slug={deleteSlug}
@@ -500,8 +373,7 @@ export default function AdminPage() {
         />
       )}
 
-      {/* ── Toast ── */}
       {toast && <Toast msg={toast.msg} type={toast.type} />}
-    </div>
+    </>
   );
 }
