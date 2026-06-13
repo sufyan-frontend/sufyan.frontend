@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import HeroSection from "@/components/HeroSection";
 import Reveal from "@/components/Reveal";
+import CmsPostsSection from "@/components/CmsPostsSection";
+import SkillBar from "@/components/SkillBar";
 import { projects, skills, experience, testimonials } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -170,6 +172,8 @@ export default function Home() {
         </div>
       </section>
 
+      <CmsPostsSection />
+
       {/* Skills */}
       <section className="py-24" aria-labelledby="skills-heading">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -189,12 +193,7 @@ export default function Home() {
                   <p className="text-surface group-hover:text-primary transition-colors font-medium text-sm mb-2">
                     {skill.name}
                   </p>
-                  <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-linear-to-r from-primary to-accent skill-bar"
-                      style={{ "--skill-level": `${skill.level}%` } as React.CSSProperties}
-                    />
-                  </div>
+                  <SkillBar level={skill.level} />
                 </div>
               </Reveal>
             ))}
