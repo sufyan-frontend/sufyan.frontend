@@ -55,7 +55,7 @@ export default function PostPage() {
       {/* Back */}
       <Link
         href="/posts"
-        className="inline-flex items-center gap-2 text-surface/40 hover:text-surface text-sm transition-colors mb-10"
+        className="inline-flex items-center mt-4 gap-2 text-surface/40 hover:text-surface text-sm transition-colors mb-10"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
