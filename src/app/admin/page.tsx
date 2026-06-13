@@ -1,71 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   getPosts,
-  createPost,
-  updatePost,
   deletePost,
   type CmsPost,
 } from "@/lib/cms-api";
 
-/* ─── Types ─────────────────────────────────────────────────────────── */
-
-type FormState = {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  author: string;
-  tags: string;
-  image: string;
-};
-
-/* ─── Helpers ────────────────────────────────────────────────────────── */
-
-const todayStr = () => new Date().toISOString().split("T")[0];
-
-const toSlug = (s: string) =>
-  s
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/g, "")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "");
-
-const emptyForm = (): FormState => ({
-  slug: "",
-  title: "",
-  description: "",
-  date: todayStr(),
-  author: "Muhammad Sufyan",
-  tags: "",
-  image: "",
-});
-
-const postToForm = (p: CmsPost): FormState => ({
-  slug: p.slug,
-  title: p.title,
-  description: p.description,
-  date: p.date,
-  author: p.author,
-  tags: p.tags.join(", "),
-  image: p.image,
-});
-
-const formToPost = (f: FormState): CmsPost => ({
-  slug: f.slug,
-  title: f.title,
-  description: f.description,
-  date: f.date,
-  author: f.author,
-  tags: f.tags
-    .split(",")
-    .map((t) => t.trim())
-    .filter(Boolean),
-  image: f.image || `images/${f.slug}.png`,
-});
 
 /* ─── Auth Gate ──────────────────────────────────────────────────────── */
 
@@ -135,263 +78,6 @@ function Toast({ msg, type }: { msg: string; type: "success" | "error" }) {
         </svg>
       )}
       {msg}
-    </div>
-  );
-}
-
-/* ─── Post Modal (Add / Edit) ────────────────────────────────────────── */
-
-function PostModal({
-  open,
-  mode,
-  initial,
-  secret,
-  onClose,
-  onToast,
-}: {
-  open: boolean;
-  mode: "add" | "edit";
-  initial: FormState;
-  secret: string;
-  onClose: () => void;
-  onToast: (msg: string, type: "success" | "error") => void;
-}) {
-  const qc = useQueryClient();
-  const [form, setForm] = useState<FormState>(initial);
-  const [slugManual, setSlugManual] = useState(false);
-
-  useEffect(() => {
-    setForm(initial);
-    setSlugManual(mode === "edit");
-  }, [initial, mode, open]);
-
-  const createMut = useMutation({
-    mutationFn: (data: CmsPost) => createPost(data, secret),
-    onSuccess: () => {
-      qc.invalidateQueries({ queryKey: ["cms-posts"] });
-      onToast("Post created successfully!", "success");
-      onClose();
-    },
-    onError: (e: Error) => onToast(e.message || "Failed to create post.", "error"),
-  });
-
-  const updateMut = useMutation({
-    mutationFn: ({ slug, data }: { slug: string; data: Partial<CmsPost> }) =>
-      updatePost(slug, data, secret),
-    onSuccess: () => {
-      qc.invalidateQueries({ queryKey: ["cms-posts"] });
-      onToast("Post updated successfully!", "success");
-      onClose();
-    },
-    onError: (e: Error) => onToast(e.message || "Failed to update post.", "error"),
-  });
-
-  const busy = createMut.isPending || updateMut.isPending;
-
-  const handleTitle = (title: string) => {
-    const newSlug = slugManual ? form.slug : toSlug(title);
-    setForm((f) => ({
-      ...f,
-      title,
-      slug: newSlug,
-      image: f.image && f.image !== `images/${f.slug}.png` ? f.image : `images/${newSlug}.png`,
-    }));
-  };
-
-  const handleSlug = (slug: string) => {
-    setSlugManual(true);
-    setForm((f) => ({
-      ...f,
-      slug,
-      image: f.image && f.image !== `images/${f.slug}.png` ? f.image : `images/${slug}.png`,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const post = formToPost(form);
-    if (mode === "add") createMut.mutate(post);
-    else updateMut.mutate({ slug: initial.slug, data: post });
-  };
-
-  const tagArr = form.tags
-    .split(",")
-    .map((t) => t.trim())
-    .filter(Boolean);
-
-  if (!open) return null;
-
-  return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center p-4">
-      <div
-        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-        onClick={onClose}
-      />
-      <div className="relative w-full max-w-2xl bg-card border border-white/10 rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
-        {/* Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-white/5">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-              <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {mode === "add" ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                )}
-              </svg>
-            </div>
-            <h2 className="text-surface font-bold text-base">
-              {mode === "add" ? "New Post" : "Edit Post"}
-            </h2>
-          </div>
-          <button
-            type="button"
-            onClick={onClose}
-            className="text-surface/30 hover:text-surface transition-colors p-1"
-            aria-label="Close"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-5">
-          {/* Title */}
-          <div>
-            <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
-              Title <span className="text-red-400">*</span>
-            </label>
-            <input
-              required
-              value={form.title}
-              onChange={(e) => handleTitle(e.target.value)}
-              placeholder="Post title"
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-surface text-sm placeholder-surface/20 focus:outline-none focus:border-primary/50 transition-colors"
-            />
-          </div>
-
-          {/* Slug + Image */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
-                Slug <span className="text-red-400">*</span>
-              </label>
-              <input
-                required
-                value={form.slug}
-                onChange={(e) => handleSlug(e.target.value)}
-                placeholder="post-slug"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-surface text-sm placeholder-surface/20 focus:outline-none focus:border-primary/50 transition-colors font-mono"
-              />
-            </div>
-            <div>
-              <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
-                Image Path
-              </label>
-              <input
-                value={form.image}
-                onChange={(e) => setForm((f) => ({ ...f, image: e.target.value }))}
-                placeholder="images/slug.png"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-surface text-sm placeholder-surface/20 focus:outline-none focus:border-primary/50 transition-colors font-mono"
-              />
-            </div>
-          </div>
-
-          {/* Description */}
-          <div>
-            <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
-              Description <span className="text-red-400">*</span>
-            </label>
-            <textarea
-              required
-              rows={3}
-              value={form.description}
-              onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
-              placeholder="Short description of the post..."
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-surface text-sm placeholder-surface/20 focus:outline-none focus:border-primary/50 transition-colors resize-none"
-            />
-          </div>
-
-          {/* Author + Date */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
-                Author <span className="text-red-400">*</span>
-              </label>
-              <input
-                required
-                value={form.author}
-                onChange={(e) => setForm((f) => ({ ...f, author: e.target.value }))}
-                placeholder="Author name"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-surface text-sm placeholder-surface/20 focus:outline-none focus:border-primary/50 transition-colors"
-              />
-            </div>
-            <div>
-              <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
-                Date <span className="text-red-400">*</span>
-              </label>
-              <input
-                type="date"
-                required
-                title="Post date"
-                value={form.date}
-                onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-surface text-sm focus:outline-none focus:border-primary/50 transition-colors"
-              />
-            </div>
-          </div>
-
-          {/* Tags */}
-          <div>
-            <label className="block text-surface/50 text-xs font-semibold uppercase tracking-wider mb-1.5">
-              Tags{" "}
-              <span className="normal-case text-surface/30 font-normal">(comma-separated)</span>
-            </label>
-            <input
-              value={form.tags}
-              onChange={(e) => setForm((f) => ({ ...f, tags: e.target.value }))}
-              placeholder="react, nextjs, tailwind"
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-surface text-sm placeholder-surface/20 focus:outline-none focus:border-primary/50 transition-colors"
-            />
-            {tagArr.length > 0 && (
-              <div className="flex flex-wrap gap-1.5 mt-2.5">
-                {tagArr.map((t) => (
-                  <span key={t} className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Footer */}
-          <div className="flex items-center justify-end gap-3 pt-2 border-t border-white/5">
-            <button
-              type="button"
-              onClick={onClose}
-              disabled={busy}
-              className="px-5 py-2.5 text-sm text-surface/50 hover:text-surface border border-white/10 rounded-xl hover:bg-white/5 transition-colors"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              disabled={busy}
-              className="flex items-center gap-2 px-6 py-2.5 text-sm bg-primary text-dark font-semibold rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-60"
-            >
-              {busy && (
-                <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                </svg>
-              )}
-              {mode === "add" ? "Create Post" : "Save Changes"}
-            </button>
-          </div>
-        </form>
-      </div>
     </div>
   );
 }
@@ -467,11 +153,13 @@ function DeleteConfirm({
   );
 }
 
-/* ─── Main Admin Page ────────────────────────────────────────────────── */
+/* ─── Admin Page ─────────────────────────────────────────────────────── */
 
 export default function AdminPage() {
+  const router = useRouter();
   const [secret, setSecretState] = useState("");
   const [isAuthed, setIsAuthed] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     const envSecret = process.env.NEXT_PUBLIC_CMS_SECRET;
@@ -482,12 +170,6 @@ export default function AdminPage() {
       setIsAuthed(true);
     }
   }, []);
-
-  const [modal, setModal] = useState<{
-    open: boolean;
-    mode: "add" | "edit";
-    initial: FormState;
-  }>({ open: false, mode: "add", initial: emptyForm() });
 
   const [deleteSlug, setDeleteSlug] = useState<string | null>(null);
   const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
@@ -510,9 +192,8 @@ export default function AdminPage() {
     setIsAuthed(false);
   };
 
-  const openAdd = () => setModal({ open: true, mode: "add", initial: emptyForm() });
-  const openEdit = (p: CmsPost) =>
-    setModal({ open: true, mode: "edit", initial: postToForm(p) });
+  const openAdd = () => router.push("/admin/posts/new");
+  const openEdit = (p: CmsPost) => router.push(`/admin/posts/${p.slug}/edit`);
 
   if (!isAuthed) return <AuthGate onAuth={(s) => { setSecretState(s); setIsAuthed(true); }} />;
 
@@ -527,25 +208,98 @@ export default function AdminPage() {
     : sorted;
 
   return (
-    <div className="min-h-screen bg-dark">
-      {/* ── Header ── */}
-      <header className="border-b border-white/5 bg-card/60 backdrop-blur-sm sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3 shrink-0">
-            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-              <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-              </svg>
-            </div>
-            <span className="text-surface font-bold text-sm">CMS Admin</span>
-            <span className="hidden sm:inline text-surface/20 text-xs font-mono">
-              {posts.length} post{posts.length !== 1 ? "s" : ""}
-            </span>
-          </div>
+    <div className="min-h-screen bg-dark flex">
 
-          <div className="flex items-center gap-2">
+      {/* ── Mobile sidebar overlay ── */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-black/60 backdrop-blur-sm lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
+      {/* ── Sidebar ── */}
+      <aside
+        className={`fixed inset-y-0 left-0 z-40 w-60 bg-card border-r border-white/5 flex flex-col transition-transform duration-200 lg:static lg:translate-x-0 lg:z-auto ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        {/* Brand */}
+        <div className="h-14 flex items-center gap-3 px-5 border-b border-white/5 shrink-0">
+          <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+            <svg className="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          </div>
+          <span className="text-surface font-bold text-sm tracking-tight">CMS Admin</span>
+        </div>
+
+        {/* Nav */}
+        <nav className="flex-1 p-3 space-y-0.5 overflow-y-auto">
+          <p className="text-surface/20 text-[10px] font-semibold uppercase tracking-widest px-3 pt-2 pb-1.5">
+            Content
+          </p>
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary text-sm font-medium"
+          >
+            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Posts
+            <span className="ml-auto text-xs bg-primary/20 text-primary px-1.5 py-0.5 rounded-full font-mono leading-none">
+              {posts.length}
+            </span>
+          </button>
+        </nav>
+
+        {/* Footer */}
+        <div className="p-3 border-t border-white/5 space-y-1 shrink-0">
+          <Link
+            href="/posts"
+            target="_blank"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-surface/40 hover:text-surface hover:bg-white/5 transition-colors text-sm"
+          >
+            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            View Site
+          </Link>
+          <button
+            type="button"
+            onClick={logout}
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-surface/40 hover:text-red-400 hover:bg-red-500/5 transition-colors text-sm"
+          >
+            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            Logout
+          </button>
+        </div>
+      </aside>
+
+      {/* ── Right side ── */}
+      <div className="flex-1 flex flex-col min-w-0">
+
+        {/* ── Navbar ── */}
+        <header className="h-14 border-b border-white/5 bg-card/60 backdrop-blur-sm sticky top-0 z-20 flex items-center gap-3 px-4 sm:px-6 shrink-0">
+          {/* Mobile menu toggle */}
+          <button
+            type="button"
+            onClick={() => setSidebarOpen(true)}
+            className="lg:hidden p-2 rounded-lg text-surface/40 hover:text-surface hover:bg-white/5 transition-colors"
+            aria-label="Open sidebar"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+          <h1 className="text-surface font-bold text-sm hidden sm:block">Posts</h1>
+
+          <div className="flex items-center gap-2 ml-auto">
             {/* Search */}
-            <div className="hidden sm:flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-1.5">
+            <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-1.5">
               <svg className="w-3.5 h-3.5 text-surface/30 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -554,21 +308,11 @@ export default function AdminPage() {
                 placeholder="Search…"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="bg-transparent text-surface text-xs placeholder-surface/20 focus:outline-none w-32"
+                className="bg-transparent text-surface text-xs placeholder-surface/20 focus:outline-none w-28 sm:w-36"
               />
             </div>
 
-            <Link
-              href="/posts"
-              target="_blank"
-              className="hidden sm:flex items-center gap-1.5 text-surface/40 hover:text-surface text-xs transition-colors px-2 py-1.5"
-            >
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-              View site
-            </Link>
-
+            {/* New Post */}
             <button
               type="button"
               onClick={openAdd}
@@ -579,68 +323,38 @@ export default function AdminPage() {
               </svg>
               <span className="hidden sm:inline">New Post</span>
             </button>
-
-            <button
-              type="button"
-              onClick={logout}
-              title="Logout"
-              className="text-surface/30 hover:text-surface transition-colors p-2 rounded-lg hover:bg-white/5"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-              </svg>
-            </button>
           </div>
-        </div>
-      </header>
+        </header>
 
-      {/* ── Main ── */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {isLoading ? (
-          <div className="space-y-2">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="h-14 bg-card border border-white/5 rounded-xl animate-pulse" />
-            ))}
-          </div>
-        ) : posts.length === 0 ? (
-          /* Empty state */
-          <div className="text-center py-32">
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
-              <svg className="w-8 h-8 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
+        {/* ── Main ── */}
+        <main className="flex-1 p-4 sm:p-6 lg:p-8">
+          {isLoading ? (
+            <div className="space-y-2">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="h-14 bg-card border border-white/5 rounded-xl animate-pulse" />
+              ))}
             </div>
-            <h2 className="text-surface font-bold text-xl mb-2">No posts yet</h2>
-            <p className="text-surface/40 text-sm mb-7">Create your first post to get started.</p>
-            <button
-              type="button"
-              onClick={openAdd}
-              className="inline-flex items-center gap-2 bg-primary text-dark font-semibold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-              </svg>
-              Create First Post
-            </button>
-          </div>
-        ) : (
-          <>
-            {/* Mobile search */}
-            <div className="sm:hidden mb-4">
-              <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5">
-                <svg className="w-4 h-4 text-surface/30 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          ) : posts.length === 0 ? (
+            <div className="text-center py-32">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+                <svg className="w-8 h-8 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                <input
-                  type="text"
-                  placeholder="Search posts…"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className="bg-transparent text-surface text-sm placeholder-surface/30 focus:outline-none flex-1"
-                />
               </div>
+              <h2 className="text-surface font-bold text-xl mb-2">No posts yet</h2>
+              <p className="text-surface/40 text-sm mb-7">Create your first post to get started.</p>
+              <button
+                type="button"
+                onClick={openAdd}
+                className="inline-flex items-center gap-2 bg-primary text-dark font-semibold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+                Create First Post
+              </button>
             </div>
-
+          ) : (
             <div className="bg-card border border-white/5 rounded-2xl overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[600px]">
@@ -679,10 +393,8 @@ export default function AdminPage() {
                           key={post.slug}
                           className="hover:bg-white/[0.015] transition-colors group"
                         >
-                          {/* # */}
                           <td className="px-5 py-4 text-surface/20 text-xs font-mono">{i + 1}</td>
 
-                          {/* Title + slug */}
                           <td className="px-5 py-4">
                             <div className="font-semibold text-surface text-sm leading-tight">
                               {post.title}
@@ -692,12 +404,10 @@ export default function AdminPage() {
                             </div>
                           </td>
 
-                          {/* Author */}
                           <td className="px-5 py-4 hidden md:table-cell text-surface/50 text-sm">
                             {post.author}
                           </td>
 
-                          {/* Date */}
                           <td className="px-5 py-4 hidden lg:table-cell text-surface/40 text-xs font-mono whitespace-nowrap">
                             {new Date(post.date).toLocaleDateString("en-GB", {
                               day: "2-digit",
@@ -706,7 +416,6 @@ export default function AdminPage() {
                             })}
                           </td>
 
-                          {/* Tags */}
                           <td className="px-5 py-4 hidden xl:table-cell">
                             <div className="flex flex-wrap gap-1">
                               {post.tags.slice(0, 3).map((t) => (
@@ -725,10 +434,8 @@ export default function AdminPage() {
                             </div>
                           </td>
 
-                          {/* Actions */}
                           <td className="px-5 py-4">
                             <div className="flex items-center justify-end gap-0.5">
-                              {/* View */}
                               <Link
                                 href={`/posts/${post.slug}`}
                                 target="_blank"
@@ -740,7 +447,6 @@ export default function AdminPage() {
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                 </svg>
                               </Link>
-                              {/* Edit */}
                               <button
                                 onClick={() => openEdit(post)}
                                 title="Edit post"
@@ -750,7 +456,6 @@ export default function AdminPage() {
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                 </svg>
                               </button>
-                              {/* Delete */}
                               <button
                                 onClick={() => setDeleteSlug(post.slug)}
                                 title="Delete post"
@@ -769,7 +474,6 @@ export default function AdminPage() {
                 </table>
               </div>
 
-              {/* Table footer */}
               <div className="px-5 py-3 border-t border-white/5 flex items-center justify-between">
                 <p className="text-surface/30 text-xs">
                   {filtered.length} of {posts.length} post{posts.length !== 1 ? "s" : ""}
@@ -785,19 +489,9 @@ export default function AdminPage() {
                 </button>
               </div>
             </div>
-          </>
-        )}
-      </main>
-
-      {/* ── Modal ── */}
-      <PostModal
-        open={modal.open}
-        mode={modal.mode}
-        initial={modal.initial}
-        secret={secret}
-        onClose={() => setModal((m) => ({ ...m, open: false }))}
-        onToast={showToast}
-      />
+          )}
+        </main>
+      </div>
 
       {/* ── Delete confirm ── */}
       {deleteSlug && (
