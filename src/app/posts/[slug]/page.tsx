@@ -48,7 +48,7 @@ export default function PostPage() {
     );
   }
 
-  const img = post.image.startsWith("http") ? post.image : `${BASE}/${post.image}`;
+  
 
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -93,16 +93,18 @@ export default function PostPage() {
       </div>
 
       {/* Cover image */}
-      <div className="relative h-72 sm:h-96 rounded-2xl overflow-hidden bg-white/5 mb-10">
-        <img
-          src={img}
-          alt={post.title}
-          className="w-full h-full object-cover"
-          onError={(e) => {
-            (e.currentTarget.parentElement as HTMLElement).style.display = "none";
-          }}
-        />
-      </div>
+      {post.image && (
+        <div className="relative h-72 sm:h-96 rounded-2xl overflow-hidden bg-white/5 mb-10">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              (e.currentTarget.parentElement as HTMLElement).style.display = "none";
+            }}
+          />
+        </div>
+      )}
 
       {/* Description / body */}
       <div className="prose prose-invert prose-sm sm:prose max-w-none">

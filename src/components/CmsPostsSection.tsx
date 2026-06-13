@@ -20,19 +20,25 @@ function SkeletonCard() {
 }
 
 function PostCard({ post }: { post: CmsPost }) {
-  const img = post.image.startsWith("http") ? post.image : `${BASE}/${post.image}`;
+  const img = post.image
+    ? post.image.startsWith("http")
+      ? post.image
+      : `${BASE}/${post.image}`
+    : null;
   return (
     <article className="bg-card border border-white/5 rounded-2xl overflow-hidden group hover:border-primary/20 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 flex flex-col h-full">
-      <div className="relative h-44 bg-white/5 overflow-hidden">
-        <img
-          src={img}
-          alt={post.title}
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-          onError={(e) => {
-            (e.currentTarget.parentElement as HTMLElement).style.display = "none";
-          }}
-        />
-      </div>
+      {img && (
+        <div className="relative h-44 bg-white/5 overflow-hidden">
+          <img
+            src={img}
+            alt={post.title}
+            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            onError={(e) => {
+              (e.currentTarget.parentElement as HTMLElement).style.display = "none";
+            }}
+          />
+        </div>
+      )}
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-center gap-2 text-xs text-surface/40 mb-2.5">
           <time dateTime={post.date}>
