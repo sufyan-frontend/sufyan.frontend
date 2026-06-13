@@ -7,12 +7,12 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  const body = await req.arrayBuffer()
-  const contentType = req.headers.get('content-type') ?? 'application/json'
+  // Parse incoming FormData and re-forward — fetch sets Content-Type + boundary automatically
+  const formData = await req.formData()
   const res = await fetch(`${BACKEND}/api/cms/posts`, {
     method: 'POST',
-    headers: { 'x-cms-secret': process.env.CMS_SECRET!, 'content-type': contentType },
-    body,
+    headers: { 'x-cms-secret': process.env.CMS_SECRET! },
+    body: formData,
   })
   const data = await res.json()
   return Response.json(data, { status: res.status })
