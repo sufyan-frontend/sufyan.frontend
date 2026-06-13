@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 
 const SITE_URL = "https://sufyan-frontend.vercel.app";
+const BACKEND = "https://sufyan-backend.vercel.app";
 
 async function fetchPost(slug: string) {
   try {
-    const res = await fetch(`${SITE_URL}/api/cms/posts/${slug}`, {
+    const res = await fetch(`${BACKEND}/api/cms/posts/${slug}`, {
       cache: "no-store",
     });
     if (!res.ok) return null;
@@ -23,13 +24,15 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = await fetchPost(slug);
 
+  const canonicalUrl = `${SITE_URL}/posts/${slug}`;
+
   if (!post) {
     return {
       title: "Post Not Found — Muhammad Sufyan",
+      openGraph: { title: "Post Not Found", url: canonicalUrl },
     };
   }
 
-  const canonicalUrl = `${SITE_URL}/posts/${slug}`;
   const ogImage = post.image
     ? [{ url: post.image, width: 1200, height: 630, alt: post.title }]
     : [{ url: `${SITE_URL}/profile.png`, width: 1200, height: 630, alt: post.title }];
