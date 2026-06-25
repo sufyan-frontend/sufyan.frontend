@@ -143,6 +143,8 @@ export default function Home() {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`Visit ${project.title} live website`}
+                      title={`Visit ${project.title} live website`}
                       className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:underline"
                     >
                       Visit Live

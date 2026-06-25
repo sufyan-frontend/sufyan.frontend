@@ -129,6 +129,15 @@ export const projects = [
     tags: ['Next.js', 'Corporate', 'Redesign'],
     featured: false,
   },
+  {
+    id: 'tillshop-org',
+    title: 'TillShop',
+    description: 'Official TillShop platform delivering a modern, fully responsive web experience with clean UI, polished branding, and a professional production-ready frontend.',
+    url: 'https://www.tillshop.org/',
+    image: '/porfolio%20image/tillshop.png',
+    tags: ['Next.js', 'Tailwind CSS', 'Corporate', 'Responsive'],
+    featured: true,
+  },
 ];
 
 export const experience = [

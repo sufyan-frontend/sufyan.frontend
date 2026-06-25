@@ -43,7 +43,7 @@ Tools & Workflow:
 
 - [Home](https://sufyan-frontend.vercel.app/) — Portfolio overview, featured projects, technical skills, and work experience
 - [About](https://sufyan-frontend.vercel.app/about) — Full background, skill proficiency, work timeline, and Ehsas Lab instructor certificate
-- [Projects](https://sufyan-frontend.vercel.app/projects) — Production portfolio (10 live projects) and practice websites (5 projects)
+- [Projects](https://sufyan-frontend.vercel.app/projects) — Production portfolio (11 live projects) and practice websites (5 projects)
 - [Services](https://sufyan-frontend.vercel.app/services) — Frontend development, responsive design, API integration, UI/UX, performance optimisation, deployment
 - [Blog](https://sufyan-frontend.vercel.app/blog) — 53 articles covering React, Next.js, Tailwind CSS, career guides for Pakistan developers, personal brand posts, and project deep-dives
 - [Contact](https://sufyan-frontend.vercel.app/contact) — Hire Muhammad Sufyan for freelance or full-time frontend work
@@ -57,6 +57,7 @@ Live projects built and maintained by Muhammad Sufyan:
 - [Ehya Education Platform](https://www.ehya.com.pk/) — Complete institutional web platform with responsive UI and modern frontend architecture, serving thousands of students and faculty
 - [Classmate Portal](https://classmate.ehya.com.pk/) — Student and teacher interface system with dashboard-based UI for managing classes, assignments, and academic data
 - [FieldX AI](https://fieldxai.com/) — AI-powered platform with a modern, responsive frontend delivering a professional user experience for field operations and intelligent workflows
+- [TillShop](https://www.tillshop.org/) — Official TillShop platform delivering a modern, fully responsive web experience with clean UI, polished branding, and a professional production-ready frontend
 - [TillShop Technologies](https://www.tillshoptechnologies.com/) — Corporate software house website with modern landing page, service showcases, and professional branding
 - [ANP Engineering Website](https://www.anpengineerings.com/) — Professional business website for an engineering company with responsive design and corporate branding
 - [Faizan Noor ul Quran](http://faizan-noor-ul-quran-s.vercel.app/) — Islamic education platform for Quran learning with a clean, user-friendly interface
@@ -182,7 +183,7 @@ Q: Is Muhammad Sufyan available for hire?
 A: Yes. He is open to freelance projects, full-time frontend developer roles, and remote work. Contact: sufyantechsolutions@gmail.com or https://sufyan-frontend.vercel.app/contact
 
 Q: What projects has Muhammad Sufyan built?
-A: Alif Laila Education Platform (aliflaila.app), Ehya Education Platform (ehya.com.pk), Classmate Portal (classmate.ehya.com.pk), FieldX AI (fieldxai.com), TillShop Technologies, ANP Engineering, Faizan Noor ul Quran, Soft Ehya, Ehsas Next App, and Sufyan Frontend Dashboard.
+A: Alif Laila Education Platform (aliflaila.app), Ehya Education Platform (ehya.com.pk), Classmate Portal (classmate.ehya.com.pk), FieldX AI (fieldxai.com), TillShop (tillshop.org), TillShop Technologies, ANP Engineering, Faizan Noor ul Quran, Soft Ehya, Ehsas Next App, and Sufyan Frontend Dashboard.
 
 Q: Where is Muhammad Sufyan based?
 A: Lahore, Punjab, Pakistan. Available for remote work worldwide and on-site in Lahore.

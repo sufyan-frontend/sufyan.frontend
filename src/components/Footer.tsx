@@ -155,6 +155,19 @@ export default function Footer() {
             </Link>
             <span className="text-white/10 text-xs hidden sm:inline">|</span>
             <p className="text-surface/25 text-xs hidden sm:block">
+              Featured project:{" "}
+              <a
+                href="https://www.tillshop.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="TillShop — built by Muhammad Sufyan"
+                className="text-surface/40 hover:text-primary transition-colors"
+              >
+                TillShop
+              </a>
+            </p>
+            <span className="text-white/10 text-xs hidden lg:inline">|</span>
+            <p className="text-surface/25 text-xs hidden lg:block">
               Built with Next.js &amp; Tailwind CSS
             </p>
           </div>
