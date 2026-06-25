@@ -5,7 +5,11 @@ import HeroSection from "@/components/HeroSection";
 import Reveal from "@/components/Reveal";
 import CmsPostsSection from "@/components/CmsPostsSection";
 import SkillBar from "@/components/SkillBar";
-import { projects, skills, experience, testimonials } from "@/lib/data";
+import PricingSection from "@/components/PricingSection";
+import {
+  projects, skills, experience, testimonials,
+  clientServices, whyChooseMe, processSteps, pricingTiers,
+} from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Muhammad Sufyan | Frontend Developer in Lahore, Pakistan",
@@ -41,7 +45,7 @@ const jsonLd = {
   jobTitle: "Frontend Developer",
   description: "Muhammad Sufyan (sufyanjutt / sufyanfrontend) is a Frontend Developer from Lahore, Pakistan with 1.5+ years building production-ready React.js and Next.js applications.",
   email: "sufyantechsolutions@gmail.com",
-  telephone: "+923438640594",
+  telephone: "+923227479636",
   url: "https://sufyan-frontend.vercel.app",
   image: "https://sufyan-frontend.vercel.app/profile.png",
   address: { "@type": "PostalAddress", addressLocality: "Lahore", addressRegion: "Punjab", addressCountry: "PK" },
@@ -84,6 +88,49 @@ const faqSchema = {
 };
 
 
+const offerSchema = {
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  name: "Website Development Packages by Muhammad Sufyan",
+  url: "https://sufyan-frontend.vercel.app/#pricing",
+  itemListElement: pricingTiers.map((tier, i) => ({
+    "@type": "Offer",
+    position: i + 1,
+    name: tier.name,
+    description: tier.description,
+    priceCurrency: "PKR",
+    ...(tier.custom
+      ? { priceSpecification: { "@type": "PriceSpecification", description: "Custom quote" } }
+      : { price: String(tier.pkrAmount) }),
+    availability: "https://schema.org/InStock",
+    seller: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
+    url: "https://sufyan-frontend.vercel.app/contact",
+  })),
+};
+
+const iconPaths: Record<string, string> = {
+  building: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2M5 21H3m6-14h.01M9 11h.01M9 15h.01M13 7h.01M13 11h.01M13 15h.01",
+  target: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+  cart: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z",
+  dashboard: "M4 5a1 1 0 011-1h4a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM14 13a1 1 0 011-1h4a1 1 0 011 1v6a1 1 0 01-1 1h-4a1 1 0 01-1-1v-6zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3z",
+  api: "M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
+  speed: "M13 10V3L4 14h7v7l9-11h-7z",
+  search: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
+  mobile: "M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z",
+  bolt: "M13 10V3L4 14h7v7l9-11h-7z",
+  code: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
+  sparkles: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
+  gauge: "M3 15a9 9 0 1118 0M12 15l4-4M9 19h6",
+};
+
+function FeatureIcon({ name }: { name: string }) {
+  return (
+    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={iconPaths[name]} />
+    </svg>
+  );
+}
+
 export default function Home() {
   const featured = projects.filter((p) => p.featured);
 
@@ -97,14 +144,63 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(offerSchema) }}
+      />
 
       <HeroSection />
 
-      {/* Featured Projects */}
-      <section className="py-24 bg-card/30" aria-labelledby="projects-heading">
+      {/* Services */}
+      <section className="py-16" aria-labelledby="services-heading">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
+              <p className="text-primary font-mono text-sm mb-2">What I Build</p>
+              <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-surface mb-4">
+                Services That Grow Your Business
+              </h2>
+              <p className="text-surface/60 max-w-xl mx-auto">
+                From a single landing page to a full web application — everything your business needs to win online.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {clientServices.map((service, i) => (
+              <Reveal key={service.title} delay={i * 0.05}>
+                <div className="bg-card border border-white/5 rounded-2xl p-6 hover:border-primary/20 transition-all duration-300 group h-full">
+                  <div className="text-primary mb-4 group-hover:scale-110 transition-transform duration-300 inline-block">
+                    <FeatureIcon name={service.icon} />
+                  </div>
+                  <h3 className="text-surface font-semibold text-base mb-2">{service.title}</h3>
+                  <p className="text-surface/55 text-sm leading-relaxed">{service.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.2}>
+            <div className="text-center mt-12">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-primary text-dark font-semibold px-6 py-3 rounded-xl hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
+              >
+                Start Your Project
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Featured Projects */}
+      <section className="py-16 bg-card/30" aria-labelledby="projects-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-12">
               <p className="text-primary font-mono text-sm mb-2">Portfolio</p>
               <h2 id="projects-heading" className="text-3xl sm:text-4xl font-bold text-surface mb-4">
                 Featured Projects
@@ -174,13 +270,78 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Why Choose Me */}
+      <section className="py-16" aria-labelledby="why-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-12">
+              <p className="text-primary font-mono text-sm mb-2">Why Work With Me</p>
+              <h2 id="why-heading" className="text-3xl sm:text-4xl font-bold text-surface mb-4">
+                Built Right, Delivered Fast
+              </h2>
+              <p className="text-surface/60 max-w-xl mx-auto">
+                What you get when you hire a specialist who cares about results — not just code.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {whyChooseMe.map((item, i) => (
+              <Reveal key={item.title} delay={i * 0.06}>
+                <div className="bg-card border border-white/5 rounded-2xl p-6 hover:border-primary/20 transition-all duration-300 flex items-start gap-4 h-full">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <FeatureIcon name={item.icon} />
+                  </div>
+                  <div>
+                    <h3 className="text-surface font-semibold text-base mb-1">{item.title}</h3>
+                    <p className="text-surface/55 text-sm leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="py-16 bg-card/30" aria-labelledby="process-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-12">
+              <p className="text-primary font-mono text-sm mb-2">How It Works</p>
+              <h2 id="process-heading" className="text-3xl sm:text-4xl font-bold text-surface mb-4">
+                My Process — From Idea to Launch
+              </h2>
+              <p className="text-surface/60 max-w-xl mx-auto">
+                A clear, six-step process so you always know exactly what happens next.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {processSteps.map((step, i) => (
+              <Reveal key={step.step} delay={i * 0.06}>
+                <div className="bg-card border border-white/5 rounded-2xl p-6 hover:border-primary/20 transition-all duration-300 h-full">
+                  <span className="text-primary/30 font-mono text-3xl font-bold block mb-3">{step.step}</span>
+                  <h3 className="text-surface font-semibold text-base mb-1">{step.title}</h3>
+                  <p className="text-surface/55 text-sm leading-relaxed">{step.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing (client component — auto PKR/USD by visitor location) */}
+      <PricingSection />
+
       <CmsPostsSection />
 
       {/* Skills */}
-      <section className="py-24" aria-labelledby="skills-heading">
+      <section className="py-16" aria-labelledby="skills-heading">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <p className="text-primary font-mono text-sm mb-2">Expertise</p>
               <h2 id="skills-heading" className="text-3xl sm:text-4xl font-bold text-surface">
                 Technical Skills
@@ -204,10 +365,10 @@ export default function Home() {
       </section>
 
       {/* Experience */}
-      <section className="py-24" aria-labelledby="experience-heading">
+      <section className="py-16" aria-labelledby="experience-heading">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <p className="text-primary font-mono text-sm mb-2">Career</p>
               <h2 id="experience-heading" className="text-3xl sm:text-4xl font-bold text-surface">
                 Work Experience
@@ -271,10 +432,10 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-card/30" aria-labelledby="testimonials-heading">
+      <section className="py-16 bg-card/30" aria-labelledby="testimonials-heading">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <p className="text-primary font-mono text-sm mb-2">Feedback</p>
               <h2 id="testimonials-heading" className="text-3xl sm:text-4xl font-bold text-surface">
                 What People Say
@@ -306,7 +467,7 @@ export default function Home() {
       </section>
 
       {/* Visible FAQ — backs up FAQPage schema */}
-      <section className="py-24 bg-card/30" aria-labelledby="faq-heading">
+      <section className="py-16 bg-card/30" aria-labelledby="faq-heading">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-12">
@@ -356,7 +517,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-24">
+      <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Reveal>
             <p className="text-primary font-mono text-sm mb-4">Let&apos;s Collaborate</p>

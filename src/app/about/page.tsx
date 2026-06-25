@@ -38,7 +38,7 @@ const aboutPersonSchema = {
   image: "https://sufyan-frontend.vercel.app/profile.png",
   description: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 1.5+ years building React.js and Next.js production applications. He is the Best Instructor award winner at Ehsas Lab.",
   email: "sufyantechsolutions@gmail.com",
-  telephone: "+923438640594",
+  telephone: "+923227479636",
   address: { "@type": "PostalAddress", addressLocality: "Lahore", addressRegion: "Punjab", addressCountry: "PK" },
   worksFor: { "@type": "Organization", name: "Ehya Education", url: "https://www.ehya.com.pk" },
   alumniOf: { "@type": "Organization", name: "Ehsas Lab", url: "https://ehsaslab.com" },

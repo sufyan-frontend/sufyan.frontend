@@ -191,7 +191,7 @@ A: Lahore, Punjab, Pakistan. Available for remote work worldwide and on-site in 
 ## Contact & Profiles
 
 - Email: sufyantechsolutions@gmail.com
-- Phone: +923438640594
+- Phone: +923227479636
 - Location: Lahore, Pakistan
 - Portfolio: https://sufyan-frontend.vercel.app
 - GitHub: https://github.com/sufyan-frontend

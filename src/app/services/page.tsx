@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import RunningCosts from "@/components/RunningCosts";
 import { services } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -62,6 +63,16 @@ const icons: Record<string, React.ReactNode> = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
     </svg>
   ),
+  server: (
+    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 12V7a2 2 0 012-2h10a2 2 0 012 2v5m-14 0h14m-14 0a2 2 0 00-2 2v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 00-2-2M8 16h.01M12 16h.01" />
+    </svg>
+  ),
+  search: (
+    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    </svg>
+  ),
 };
 
 const servicesSchema = {
@@ -70,8 +81,30 @@ const servicesSchema = {
   name: "Frontend Development Services by Muhammad Sufyan (sufyanjutt)",
   description: "Professional frontend development services by Muhammad Sufyan — React.js, Next.js, Tailwind CSS, REST API integration, and Vercel deployment from Lahore, Pakistan.",
   url: "https://sufyan-frontend.vercel.app/services",
-  numberOfItems: 6,
+  numberOfItems: 8,
   itemListElement: [
+    {
+      "@type": "ListItem", position: 7,
+      item: {
+        "@type": "Service",
+        name: "Full-Stack Web Development",
+        description: "End-to-end web applications — React/Next.js frontend, REST APIs, databases, and authentication built and connected as one solution.",
+        provider: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
+        areaServed: "Worldwide",
+        url: "https://sufyan-frontend.vercel.app/services",
+      },
+    },
+    {
+      "@type": "ListItem", position: 8,
+      item: {
+        "@type": "Service",
+        name: "SEO Optimization",
+        description: "On-page SEO, structured data, Core Web Vitals, and semantic markup so websites rank on Google and AI search engines.",
+        provider: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
+        areaServed: "Worldwide",
+        url: "https://sufyan-frontend.vercel.app/services",
+      },
+    },
     {
       "@type": "ListItem", position: 1,
       item: {
@@ -162,7 +195,7 @@ const servicesFaqSchema = {
     {
       "@type": "Question",
       name: "How can I hire Muhammad Sufyan as a frontend developer?",
-      acceptedAnswer: { "@type": "Answer", text: "You can hire Muhammad Sufyan by visiting https://sufyan-frontend.vercel.app/contact, emailing sufyantechsolutions@gmail.com, or calling +923438640594. He is available for freelance projects, full-time roles, and remote work." },
+      acceptedAnswer: { "@type": "Answer", text: "You can hire Muhammad Sufyan by visiting https://sufyan-frontend.vercel.app/contact, emailing sufyantechsolutions@gmail.com, or calling +923227479636. He is available for freelance projects, full-time roles, and remote work." },
     },
     {
       "@type": "Question",
@@ -305,6 +338,9 @@ export default function Services() {
             ))}
           </div>
         </div>
+
+        {/* Running Costs — hosting, domain, email, server (geo currency) */}
+        <RunningCosts />
 
         {/* How It Works */}
         <div className="mb-20">

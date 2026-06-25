@@ -140,7 +140,7 @@ const personSchema = {
   jobTitle: "Frontend Developer",
   description: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building production-ready React.js and Next.js web applications for education platforms, corporate websites, and SaaS products.",
   email: "sufyantechsolutions@gmail.com",
-  telephone: "+923438640594",
+  telephone: "+923227479636",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Lahore",

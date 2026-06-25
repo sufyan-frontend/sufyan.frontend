@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingActions from "@/components/FloatingActions";
 
 export default function ConditionalShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -14,6 +15,7 @@ export default function ConditionalShell({ children }: { children: React.ReactNo
         {children}
       </main>
       {!isAdmin && <Footer />}
+      {!isAdmin && <FloatingActions />}
     </>
   );
 }

@@ -2,7 +2,7 @@ Muhammad Sufyan
 Frontend Developer (React / Next.js)
 📍 Lahore, Pakistan
 📧 sufyantechsolutions@gmail.com
-📱 +923438640594
+📱 +923227479636
 🔗 GitHub:https://github.com/sufyan-frontend 
 
 👨‍💻 Professional Summary

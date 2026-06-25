@@ -5,7 +5,8 @@ export const person = {
   role: 'Frontend Developer',
   stack: 'React · Next.js',
   email: 'sufyantechsolutions@gmail.com',
-  phone: '+923438640594',
+  phone: '+923227479636',
+  whatsapp: '923227479636',
   location: 'Lahore, Pakistan',
   github: 'https://github.com/sufyan-frontend',
   linkedin: 'https://www.linkedin.com/in/sufyan-frontend',
@@ -14,11 +15,17 @@ export const person = {
   objective: 'Seeking a Frontend Developer role where I can contribute to scalable web applications, improve UI/UX systems, and grow into a mid/senior-level developer role in a professional engineering environment.',
 };
 
+// Pre-filled WhatsApp deep link used by all WhatsApp CTAs and the floating button.
+export const whatsappMessage = "Hi Sufyan, I'd like to discuss a website project.";
+export const whatsappLink = `https://wa.me/${person.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
+
 export const skills = [
   { name: 'HTML5 & CSS3', level: 95, category: 'Core' },
   { name: 'JavaScript (ES6+)', level: 88, category: 'Core' },
   { name: 'React.js', level: 90, category: 'Framework' },
   { name: 'Next.js', level: 88, category: 'Framework' },
+  { name: 'React Native', level: 75, category: 'Framework' },
+  { name: 'Vue.js', level: 70, category: 'Framework' },
   { name: 'Tailwind CSS', level: 92, category: 'Styling' },
   { name: 'Bootstrap', level: 84, category: 'Styling' },
   { name: 'REST API Integration', level: 82, category: 'Integration' },
@@ -181,6 +188,16 @@ export const services = [
     icon: 'code',
   },
   {
+    title: 'Full-Stack Development',
+    description: 'End-to-end web apps — frontend, REST APIs, databases, and authentication — built and connected as one complete solution.',
+    icon: 'server',
+  },
+  {
+    title: 'SEO Optimization',
+    description: 'On-page SEO, structured data, fast Core Web Vitals, and clean semantic markup so your site ranks on Google and AI search.',
+    icon: 'search',
+  },
+  {
     title: 'Responsive Web Design',
     description: 'Mobile-first, pixel-perfect designs that look flawless on any screen size, from phones to large desktops.',
     icon: 'mobile',
@@ -206,6 +223,200 @@ export const services = [
     icon: 'cloud',
   },
 ];
+
+// Headline metrics shown in the hero trust strip.
+export const heroStats = [
+  { value: '11+', label: 'Live Projects Shipped' },
+  { value: '10+', label: 'Technologies Mastered' },
+  { value: '1.5+ yrs', label: 'Production Experience' },
+  { value: '100%', label: 'Responsive & SEO-Ready' },
+];
+
+// Client-facing services (homepage grid) — framed around what a business buys, not just tech.
+export const clientServices = [
+  {
+    title: 'Business Websites',
+    description: 'Modern, credible company websites that build trust and turn visitors into enquiries — fast, secure, and easy to manage.',
+    icon: 'building',
+  },
+  {
+    title: 'Landing Pages',
+    description: 'High-converting, single-focus landing pages for product launches, ads, and campaigns — built to drive sign-ups and sales.',
+    icon: 'target',
+  },
+  {
+    title: 'E-commerce Frontends',
+    description: 'Fast, mobile-first storefronts with smooth product browsing and checkout flows that reduce drop-off and grow revenue.',
+    icon: 'cart',
+  },
+  {
+    title: 'Dashboard Development',
+    description: 'Clean, data-rich admin panels and SaaS dashboards with charts, tables, and role-based UI your team will actually enjoy using.',
+    icon: 'dashboard',
+  },
+  {
+    title: 'API Integration',
+    description: 'Connecting your frontend to any REST API, CMS, payment, or auth service with proper error handling and secure data flow.',
+    icon: 'api',
+  },
+  {
+    title: 'Website Optimization',
+    description: 'Speeding up slow sites — better Core Web Vitals, smaller bundles, and load times under 2.5s for happier users and better rankings.',
+    icon: 'speed',
+  },
+  {
+    title: 'SEO-Friendly Websites',
+    description: 'Semantic HTML, structured data, meta tags, and clean URLs baked in — so Google and AI search can find and rank your business.',
+    icon: 'search',
+  },
+  {
+    title: 'Responsive Design',
+    description: 'Pixel-perfect layouts that look flawless on every device, from small phones to large desktops — tested at every breakpoint.',
+    icon: 'mobile',
+  },
+];
+
+// "Why choose me" differentiators (homepage).
+export const whyChooseMe = [
+  {
+    title: 'Fast Delivery',
+    description: 'Most landing pages ship in 3–5 days. I respect your deadlines and keep you updated at every step.',
+    icon: 'bolt',
+  },
+  {
+    title: 'Clean Code',
+    description: 'Maintainable, well-structured TypeScript that your team (or your next developer) can build on without headaches.',
+    icon: 'code',
+  },
+  {
+    title: 'Responsive Design',
+    description: 'Mobile-first by default. Your site works perfectly on every screen size your customers actually use.',
+    icon: 'mobile',
+  },
+  {
+    title: 'SEO Optimization',
+    description: 'Structured data, meta tags, and semantic markup built in — so your site is ready to rank from day one.',
+    icon: 'search',
+  },
+  {
+    title: 'Modern UI/UX',
+    description: 'Premium, 2026-standard interfaces with thoughtful spacing, motion, and hierarchy that build instant trust.',
+    icon: 'sparkles',
+  },
+  {
+    title: 'Performance Focused',
+    description: 'Optimised images, lazy loading, and great Core Web Vitals — fast sites that convert and rank better.',
+    icon: 'gauge',
+  },
+];
+
+// 6-step working process (homepage).
+export const processSteps = [
+  { step: '01', title: 'Discussion', description: 'We talk through your goals, audience, and what success looks like for your project.' },
+  { step: '02', title: 'Planning', description: 'I map out scope, pages, features, and a clear timeline so you know exactly what to expect.' },
+  { step: '03', title: 'Design', description: 'We agree on layout, style, and UX — working from your designs or industry-best patterns.' },
+  { step: '04', title: 'Development', description: 'I build your site in React/Next.js with weekly previews and open communication throughout.' },
+  { step: '05', title: 'Testing', description: 'Cross-device, cross-browser, performance, and SEO checks so everything is solid before launch.' },
+  { step: '06', title: 'Delivery', description: 'Deploy to your hosting, hand over the codebase, and provide post-launch support.' },
+];
+
+// Pricing tiers — each carries both PKR (local) and USD (international) prices.
+// The visible currency is chosen automatically by visitor location (see <PricingSection/>).
+export const pricingNotePK = 'Prices shown in PKR for clients in Pakistan. Switch to USD for international rates.';
+export const pricingNoteINTL = 'Prices shown in USD for international clients. Every project is quoted after a quick discovery chat.';
+
+export const pricingTiers = [
+  {
+    id: 'starter',
+    name: 'Starter Website',
+    pkr: 'Rs 25,000',
+    usd: '$199',
+    pkrAmount: 25000,
+    usdAmount: 199,
+    custom: false,
+    tagline: 'Up to 6 pages',
+    description: 'Great value for personal brands, portfolios, and small businesses that need a clean, professional online presence.',
+    highlights: ['Up to 6 responsive pages', 'Contact form + WhatsApp', 'Basic on-page SEO', 'Free domain + hosting setup', 'Delivered in 4–6 days'],
+    popular: false,
+    cta: 'Start a Project',
+  },
+  {
+    id: 'business',
+    name: 'Business Website',
+    pkr: 'Rs 65,000',
+    usd: '$449',
+    pkrAmount: 65000,
+    usdAmount: 449,
+    custom: false,
+    tagline: 'Up to 12 pages',
+    description: 'The right fit for growing companies that need more pages, integrations, and stronger SEO to generate leads.',
+    highlights: ['Up to 12 responsive pages', 'API / CMS integration', 'Advanced SEO + structured data', 'Google Analytics setup', 'Delivered in 7–12 days'],
+    popular: true,
+    cta: 'Get Started',
+  },
+  {
+    id: 'premium',
+    name: 'Premium Custom',
+    pkr: 'Custom',
+    usd: 'Custom',
+    pkrAmount: 0,
+    usdAmount: 0,
+    custom: true,
+    tagline: 'Fully custom',
+    description: 'Tailored web apps, dashboards, e-commerce, and SaaS frontends scoped exactly to your business needs.',
+    highlights: ['Unlimited pages / custom app', 'Dashboards & e-commerce', 'Full performance optimisation', 'Priority support'],
+    popular: false,
+    cta: 'Request a Quote',
+  },
+];
+
+// Feature comparison matrix (rows × the 3 tiers above).
+export const pricingFeatureRows = [
+  { label: 'Pages', values: ['Up to 6', 'Up to 12', 'Unlimited'] },
+  { label: 'Responsive design', values: [true, true, true] },
+  { label: 'Contact form', values: [true, true, true] },
+  { label: 'On-page SEO', values: ['Basic', 'Advanced', 'Advanced +'] },
+  { label: 'API / CMS integration', values: [false, true, true] },
+  { label: 'Dashboard / E-commerce', values: [false, false, true] },
+  { label: 'Performance optimisation', values: [true, true, true] },
+  { label: 'Revisions', values: ['2', '4', 'Unlimited'] },
+  { label: 'Delivery time', values: ['4–6 days', '7–12 days', 'Custom'] },
+  { label: 'Post-launch support', values: ['1 week', '1 month', '3 months'] },
+];
+
+// Recurring third-party running costs (hosting, domain, email, server) shown on the Services page.
+// Each carries PKR (local) + USD (international); currency auto-selected by visitor location.
+export const runningCosts = [
+  {
+    title: 'Web Hosting',
+    detail: 'Fast, reliable hosting on Vercel / Netlify (free tier available) or shared hosting for traditional sites.',
+    pkr: 'Free – Rs 8,000/yr',
+    usd: 'Free – $50/yr',
+    icon: 'cloud',
+  },
+  {
+    title: 'Domain Name',
+    detail: 'Your own .com / .pk / .org domain name, registered and pointed to your site.',
+    pkr: 'Rs 3,000 – 5,000/yr',
+    usd: '$12 – 20/yr',
+    icon: 'globe',
+  },
+  {
+    title: 'Email Integration',
+    detail: 'A built-in contact form on your site that delivers client messages straight to your inbox — and automatically sends each customer a confirmation reply.',
+    pkr: 'Free – included',
+    usd: 'Free – included',
+    icon: 'mail',
+  },
+  {
+    title: 'Server / Database',
+    detail: 'Managed database & backend hosting (Supabase, Railway, VPS) for full-stack apps that need it.',
+    pkr: 'From Rs 2,500/mo',
+    usd: 'From $10/mo',
+    icon: 'server',
+  },
+];
+export const runningCostsNote = 'These are third-party recurring costs paid directly to providers — not my fee. I set everything up for you and can start on free tiers where possible.';
 
 export const testimonials = [
   {
