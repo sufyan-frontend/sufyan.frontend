@@ -2,12 +2,61 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PrintButton from "@/components/cv/PrintButton";
 
+const SITE = "https://sufyan-frontend.vercel.app";
+const CV_URL = `${SITE}/cv`;
+const cvDescription =
+  "Online CV / resume of Muhammad Sufyan — Frontend Developer from Lahore, Pakistan with 1.5+ years building production-ready React & Next.js applications. View experience, technical skills, projects, certifications, and contact details, or download the CV as a one-page PDF.";
+
 export const metadata: Metadata = {
-  title: "CV",
-  description:
-    "Curriculum Vitae of Muhammad Sufyan — Frontend Developer (React & Next.js) from Lahore, Pakistan with 1.5+ years of production experience.",
-  robots: { index: false, follow: false },
-  alternates: { canonical: "https://sufyan-frontend.vercel.app/cv" },
+  title: { absolute: "CV — Muhammad Sufyan | Frontend Developer (React & Next.js)" },
+  description: cvDescription,
+  keywords: [
+    "Muhammad Sufyan CV",
+    "Muhammad Sufyan resume",
+    "Frontend Developer CV",
+    "Frontend Developer resume Pakistan",
+    "React Developer resume",
+    "Next.js Developer CV",
+    "Sufyan frontend resume",
+    "hire frontend developer Lahore",
+    "React Next.js developer Lahore",
+    "download developer CV PDF",
+  ],
+  authors: [{ name: "Muhammad Sufyan", url: SITE }],
+  creator: "Muhammad Sufyan",
+  publisher: "Muhammad Sufyan",
+  alternates: { canonical: CV_URL },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "profile",
+    firstName: "Muhammad",
+    lastName: "Sufyan",
+    username: "sufyanfrontend",
+    url: CV_URL,
+    siteName: "Muhammad Sufyan — Frontend Developer",
+    title: "CV — Muhammad Sufyan | Frontend Developer (React & Next.js)",
+    description: cvDescription,
+    locale: "en_US",
+    images: [{ url: "/profile.png", width: 400, height: 400, alt: "Muhammad Sufyan — Frontend Developer in Lahore, Pakistan" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@sufyanfrontend",
+    creator: "@sufyanfrontend",
+    title: "CV — Muhammad Sufyan | Frontend Developer",
+    description: cvDescription,
+    images: ["/profile.png"],
+  },
 };
 
 /* ----------------------------- inline icons ----------------------------- */
@@ -141,6 +190,73 @@ const languages = [
 ];
 const certifications = ["Best Instructor Certificate — Ehsas Lab (2024)", "Frontend Development — Self-paced & Online Courses"];
 
+/* ----------------------- structured data (JSON-LD) ----------------------- */
+const cvSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": `${CV_URL}#profilepage`,
+      url: CV_URL,
+      name: "CV — Muhammad Sufyan | Frontend Developer",
+      description: cvDescription,
+      inLanguage: "en",
+      dateModified: "2026-06-25",
+      isPartOf: { "@type": "WebSite", url: SITE, name: "Muhammad Sufyan — Frontend Developer" },
+      primaryImageOfPage: { "@type": "ImageObject", url: `${SITE}/profile.png`, width: 400, height: 400 },
+      mainEntity: { "@id": `${SITE}/#person` },
+      significantLink: projects.map((p) => p.url),
+      breadcrumb: { "@id": `${CV_URL}#breadcrumb` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE}/#person`,
+      name: "Muhammad Sufyan",
+      alternateName: ["sufyanjutt", "sufyanfrontend", "Sufyan Frontend"],
+      jobTitle: "Frontend Developer",
+      description:
+        "Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building responsive, production-ready React and Next.js web applications for education platforms, software companies, and business solutions.",
+      url: SITE,
+      mainEntityOfPage: CV_URL,
+      image: { "@type": "ImageObject", url: `${SITE}/profile.png`, width: 400, height: 400 },
+      email: `mailto:${email}`,
+      telephone: phoneRaw,
+      address: { "@type": "PostalAddress", addressLocality: "Lahore", addressRegion: "Punjab", addressCountry: "PK" },
+      nationality: { "@type": "Country", name: "Pakistan" },
+      knowsLanguage: languages.map((l) => l.name),
+      knowsAbout: Array.from(new Set(skillGroups.flatMap((g) => g.items))),
+      hasOccupation: {
+        "@type": "Occupation",
+        name: "Frontend Developer",
+        occupationLocation: { "@type": "City", name: "Lahore" },
+        skills: skillGroups.flatMap((g) => g.items).join(", "),
+        description: experience.points.join(" "),
+      },
+      worksFor: {
+        "@type": "Organization",
+        name: experience.company,
+        address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
+      },
+      alumniOf: { "@type": "Organization", name: "Ehsas Lab", url: "https://ehsaslab.com" },
+      award: "Best Instructor Certificate — Ehsas Lab 2024",
+      sameAs: [
+        "https://github.com/sufyan-frontend",
+        "https://www.linkedin.com/in/sufyan-frontend",
+        "https://peerlist.io/sufyan",
+        SITE,
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${CV_URL}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+        { "@type": "ListItem", position: 2, name: "CV", item: CV_URL },
+      ],
+    },
+  ],
+};
+
 /* ----------------------------- sub-components ---------------------------- */
 function SidebarHeading({ icon, children }: { icon: React.ReactNode; children: React.ReactNode }) {
   return (
@@ -170,10 +286,45 @@ function SectionHeading({ icon, children }: { icon: React.ReactNode; children: R
 export default function CvPage() {
   const iconSm = "h-4 w-4";
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 px-3 py-6 text-slate-800 print:bg-white print:p-0">
+    <div className="min-h-screen w-full bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 px-3 py-6 text-slate-800 print:block print:min-h-0 print:bg-white print:p-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(cvSchema) }}
+      />
       <PrintButton />
 
+      {/* Print/PDF rules: force exact colours (sidebar gradient, chips, badges),
+          keep the two-column layout, full-bleed A4, and avoid splitting sections. */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @media print {
+              @page { size: A4 portrait; margin: 0; }
+              html, body { background: #ffffff !important; margin: 0 !important; }
+              body * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+              }
+              /* Scale the whole sheet to fit a single A4 page (measured: natural
+                 height needs ~0.64 zoom). Width 1240px × 0.64 ≈ 794px = A4 width,
+                 columns kept at the on-screen 300:580 ratio so proportions match,
+                 and zoom reflows height in Chromium so pagination stays correct. */
+              #cv-sheet {
+                width: 1240px !important;
+                max-width: 1240px !important;
+                zoom: 0.64;
+                grid-template-columns: 34.0909% 65.9091% !important;
+                box-shadow: none !important;
+              }
+              #cv-sheet a { text-decoration: none !important; }
+            }
+          `,
+        }}
+      />
+
       <article
+        id="cv-sheet"
         className="mx-auto grid max-w-[880px] grid-cols-1 overflow-hidden rounded-2xl bg-white shadow-[0_25px_70px_-15px_rgba(15,23,42,0.45)] ring-1 ring-black/5 md:grid-cols-[300px_1fr] print:max-w-none print:rounded-none print:shadow-none print:ring-0"
         style={{ WebkitPrintColorAdjust: "exact", printColorAdjust: "exact" }}
       >
@@ -183,8 +334,8 @@ export default function CvPage() {
           style={{ background: "linear-gradient(160deg,#22344a 0%,#1a2a3c 45%,#13202e 100%)" }}
         >
           {/* decorative glow */}
-          <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#2563eb]/20 blur-3xl" aria-hidden="true" />
-          <div className="pointer-events-none absolute -bottom-20 -left-12 h-52 w-52 rounded-full bg-[#7cc4ff]/10 blur-3xl" aria-hidden="true" />
+          <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#2563eb]/20 blur-3xl print:hidden" aria-hidden="true" />
+          <div className="pointer-events-none absolute -bottom-20 -left-12 h-52 w-52 rounded-full bg-[#7cc4ff]/10 blur-3xl print:hidden" aria-hidden="true" />
 
           <div className="relative">
             {/* photo */}
@@ -268,7 +419,7 @@ export default function CvPage() {
         </aside>
 
         {/* ----------------------------- MAIN ----------------------------- */}
-        <main className="relative px-7 py-7">
+        <div className="relative px-7 py-7">
           {/* name header */}
           <header className="relative pb-5">
             <span className="absolute left-0 top-1 hidden h-14 w-1.5 rounded-full bg-gradient-to-b from-[#3b82f6] to-[#2563eb] sm:block" aria-hidden="true" />
@@ -398,7 +549,7 @@ export default function CvPage() {
           <p className="mt-7 rounded-xl bg-gradient-to-r from-[#22344a] to-[#13202e] px-5 py-3 text-center text-[12.5px] font-medium italic tracking-wide text-slate-100">
             &ldquo;Always eager to learn, build, and grow.&rdquo;
           </p>
-        </main>
+        </div>
       </article>
     </div>
   );

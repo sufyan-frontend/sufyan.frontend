@@ -110,6 +110,7 @@ const websiteSchema = {
     { "@type": "WebPage", "@id": "https://sufyan-frontend.vercel.app/", name: "Home", url: "https://sufyan-frontend.vercel.app/" },
     { "@type": "AboutPage", "@id": "https://sufyan-frontend.vercel.app/about", name: "About Muhammad Sufyan", url: "https://sufyan-frontend.vercel.app/about" },
     { "@type": "CollectionPage", "@id": "https://sufyan-frontend.vercel.app/projects", name: "Projects Portfolio", url: "https://sufyan-frontend.vercel.app/projects" },
+    { "@type": "ProfilePage", "@id": "https://sufyan-frontend.vercel.app/cv", name: "CV — Muhammad Sufyan", url: "https://sufyan-frontend.vercel.app/cv" },
     { "@type": "WebPage", "@id": "https://sufyan-frontend.vercel.app/services", name: "Frontend Development Services", url: "https://sufyan-frontend.vercel.app/services" },
     { "@type": "Blog", "@id": "https://sufyan-frontend.vercel.app/blog", name: "Frontend Development Blog", url: "https://sufyan-frontend.vercel.app/blog" },
     { "@type": "ContactPage", "@id": "https://sufyan-frontend.vercel.app/contact", name: "Contact Muhammad Sufyan", url: "https://sufyan-frontend.vercel.app/contact" },
