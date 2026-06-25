@@ -44,9 +44,6 @@ const GithubIcon = (p: IconProps) => (
 const UserIcon = (p: IconProps) => (
   <I {...p}><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></I>
 );
-const CapIcon = (p: IconProps) => (
-  <I {...p}><path d="M22 10 12 5 2 10l10 5 10-5Z" /><path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5" /></I>
-);
 const CodeIcon = (p: IconProps) => (
   <I {...p}><path d="m16 18 6-6-6-6" /><path d="m8 6-6 6 6 6" /></I>
 );
@@ -75,7 +72,7 @@ const Check = (p: IconProps) => (
   <I {...p}><path d="M20 6 9 17l-5-5" /></I>
 );
 const LinkIcon = (p: IconProps) => (
-  <I {...p}><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></I>
+  <I {...p}><path d="M7 17 17 7" /><path d="M7 7h10v10" /></I>
 );
 
 /* ------------------------------- content ------------------------------- */
@@ -84,20 +81,20 @@ const phoneRaw = "+923227479636";
 const email = "sufyantechsolutions@gmail.com";
 
 const skillGroups = [
-  { label: "Languages", items: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript"] },
-  { label: "Frameworks & Libraries", items: ["React.js", "Next.js", "React Native", "Vue.js", "Redux"] },
+  { label: "Languages", items: ["HTML5", "CSS3", "JavaScript", "TypeScript"] },
+  { label: "Frameworks & Libraries", items: ["React.js", "Next.js", "React Native", "Redux"] },
   { label: "Styling", items: ["Tailwind CSS", "Bootstrap"] },
   { label: "Tools & Platforms", items: ["Git & GitHub", "Vercel", "Netlify", "REST APIs"] },
-  { label: "Practices", items: ["Responsive Design", "Performance", "Reusable Components"] },
+  { label: "Practices", items: ["Responsive", "Performance", "Reusable Components"] },
 ];
 
 const skillBadges = [
   { name: "HTML5", color: "#e34f26" },
   { name: "CSS3", color: "#1572b6" },
-  { name: "JavaScript", color: "#f7df1e" },
-  { name: "React.js", color: "#61dafb" },
+  { name: "JavaScript", color: "#e6b800" },
+  { name: "React.js", color: "#0ea5b7" },
   { name: "Next.js", color: "#0f172a" },
-  { name: "Tailwind", color: "#38bdf8" },
+  { name: "Tailwind", color: "#0ea5e9" },
   { name: "Bootstrap", color: "#7952b3" },
   { name: "Redux", color: "#764abc" },
   { name: "REST API", color: "#10b981" },
@@ -139,16 +136,16 @@ const achievements = [
 const strengths = ["Quick Learner", "Problem Solver", "Clean & Reusable Code", "Responsive Design", "Team Collaboration", "Detail Oriented"];
 const interests = ["Coding", "Web Development", "UI / UX Design", "Open Source", "Continuous Learning"];
 const languages = [
-  { name: "English", level: "Professional" },
-  { name: "Urdu", level: "Native" },
+  { name: "English", level: "Professional", dots: 4 },
+  { name: "Urdu", level: "Native", dots: 5 },
 ];
 const certifications = ["Best Instructor Certificate — Ehsas Lab (2024)", "Frontend Development — Self-paced & Online Courses"];
 
 /* ----------------------------- sub-components ---------------------------- */
 function SidebarHeading({ icon, children }: { icon: React.ReactNode; children: React.ReactNode }) {
   return (
-    <h2 className="mb-3 flex items-center gap-2 border-b border-white/15 pb-2 text-[13px] font-bold uppercase tracking-[0.14em] text-[#7cc4ff]">
-      <span className="text-[#7cc4ff]">{icon}</span>
+    <h2 className="mb-3.5 flex items-center gap-2.5 text-[12.5px] font-bold uppercase tracking-[0.16em] text-white">
+      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/10 text-[#7cc4ff] ring-1 ring-white/15">{icon}</span>
       {children}
     </h2>
   );
@@ -156,10 +153,15 @@ function SidebarHeading({ icon, children }: { icon: React.ReactNode; children: R
 
 function SectionHeading({ icon, children }: { icon: React.ReactNode; children: React.ReactNode }) {
   return (
-    <div className="mb-3 flex items-center gap-3">
-      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#2563eb] text-white">{icon}</span>
-      <h2 className="text-[15px] font-extrabold uppercase tracking-[0.1em] text-[#1e293b]">{children}</h2>
-      <span className="ml-1 h-px flex-1 bg-slate-200" />
+    <div className="mb-3.5 flex items-center gap-3">
+      <span
+        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white shadow-sm"
+        style={{ background: "linear-gradient(135deg,#3b82f6,#2563eb)" }}
+      >
+        {icon}
+      </span>
+      <h2 className="text-[15px] font-extrabold uppercase tracking-[0.12em] text-[#1e293b]">{children}</h2>
+      <span className="ml-1 h-[3px] flex-1 rounded-full bg-gradient-to-r from-blue-200 to-transparent" />
     </div>
   );
 }
@@ -168,123 +170,169 @@ function SectionHeading({ icon, children }: { icon: React.ReactNode; children: R
 export default function CvPage() {
   const iconSm = "h-4 w-4";
   return (
-    <div className="min-h-screen w-full bg-slate-300 px-3 py-8 text-slate-800 print:bg-white print:p-0">
+    <div className="min-h-screen w-full bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 px-3 py-6 text-slate-800 print:bg-white print:p-0">
       <PrintButton />
 
       <article
-        className="mx-auto grid max-w-[860px] grid-cols-1 overflow-hidden rounded-xl bg-white shadow-2xl md:grid-cols-[290px_1fr] print:max-w-none print:rounded-none print:shadow-none"
+        className="mx-auto grid max-w-[880px] grid-cols-1 overflow-hidden rounded-2xl bg-white shadow-[0_25px_70px_-15px_rgba(15,23,42,0.45)] ring-1 ring-black/5 md:grid-cols-[300px_1fr] print:max-w-none print:rounded-none print:shadow-none print:ring-0"
         style={{ WebkitPrintColorAdjust: "exact", printColorAdjust: "exact" }}
       >
         {/* ---------------------------- SIDEBAR ---------------------------- */}
         <aside
-          className="px-6 py-8 text-slate-100"
-          style={{ background: "linear-gradient(180deg,#1f2d40 0%,#16222f 100%)" }}
+          className="relative overflow-hidden px-6 py-8 text-slate-100"
+          style={{ background: "linear-gradient(160deg,#22344a 0%,#1a2a3c 45%,#13202e 100%)" }}
         >
-          <div className="mx-auto mb-6 h-36 w-36 overflow-hidden rounded-full ring-4 ring-white/20">
-            <Image
-              src="/profile.png"
-              alt="Muhammad Sufyan — Frontend Developer"
-              width={180}
-              height={180}
-              priority
-              className="h-full w-full object-cover"
-            />
-          </div>
+          {/* decorative glow */}
+          <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#2563eb]/20 blur-3xl" aria-hidden="true" />
+          <div className="pointer-events-none absolute -bottom-20 -left-12 h-52 w-52 rounded-full bg-[#7cc4ff]/10 blur-3xl" aria-hidden="true" />
 
-          <section className="mb-7">
-            <SidebarHeading icon={<UserIcon className={iconSm} />}>Contact</SidebarHeading>
-            <ul className="space-y-3 text-[12.5px] leading-snug text-slate-200">
-              <li className="flex items-start gap-2.5"><PhoneIcon className="mt-0.5 h-4 w-4 shrink-0 text-[#7cc4ff]" /><a href={`tel:${phoneRaw}`} className="break-all hover:text-white">{phoneDisplay}</a></li>
-              <li className="flex items-start gap-2.5"><MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-[#7cc4ff]" /><a href={`mailto:${email}`} className="break-all hover:text-white">{email}</a></li>
-              <li className="flex items-start gap-2.5"><LinkedinIcon className="mt-0.5 h-4 w-4 shrink-0 text-[#7cc4ff]" /><a href="https://www.linkedin.com/in/sufyan-frontend" className="break-all hover:text-white">linkedin.com/in/sufyan-frontend</a></li>
-              <li className="flex items-start gap-2.5"><GithubIcon className="mt-0.5 h-4 w-4 shrink-0 text-[#7cc4ff]" /><a href="https://github.com/sufyan-frontend" className="break-all hover:text-white">github.com/sufyan-frontend</a></li>
-              <li className="flex items-start gap-2.5"><PinIcon className="mt-0.5 h-4 w-4 shrink-0 text-[#7cc4ff]" />Lahore, Pakistan</li>
-            </ul>
-          </section>
-
-          <section className="mb-7">
-            <SidebarHeading icon={<CodeIcon className={iconSm} />}>Technical Skills</SidebarHeading>
-            <div className="space-y-3">
-              {skillGroups.map((g) => (
-                <div key={g.label}>
-                  <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-[#7cc4ff]/80">{g.label}</p>
-                  <p className="text-[12.5px] leading-relaxed text-slate-200">{g.items.join(" · ")}</p>
+          <div className="relative">
+            {/* photo */}
+            <div className="mx-auto mb-6 w-fit">
+              <div className="rounded-full bg-gradient-to-tr from-[#2563eb] via-[#38bdf8] to-[#7cc4ff] p-[3px] shadow-xl shadow-blue-900/40">
+                <div className="overflow-hidden rounded-full bg-[#13202e] p-1">
+                  <Image
+                    src="/profile.png"
+                    alt="Muhammad Sufyan — Frontend Developer"
+                    width={180}
+                    height={180}
+                    priority
+                    className="h-32 w-32 rounded-full object-cover"
+                  />
                 </div>
-              ))}
+              </div>
             </div>
-          </section>
 
-          <section className="mb-7">
-            <SidebarHeading icon={<GlobeIcon className={iconSm} />}>Languages</SidebarHeading>
-            <ul className="space-y-2 text-[12.5px] text-slate-200">
-              {languages.map((l) => (
-                <li key={l.name} className="flex items-center justify-between">
-                  <span>{l.name}</span>
-                  <span className="text-[#7cc4ff]">{l.level}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
+            <section className="mb-6">
+              <SidebarHeading icon={<UserIcon className={iconSm} />}>Contact</SidebarHeading>
+              <ul className="space-y-3 text-[12.5px] leading-snug text-slate-200">
+                {[
+                  { icon: <PhoneIcon className="h-3.5 w-3.5" />, text: phoneDisplay, href: `tel:${phoneRaw}` },
+                  { icon: <MailIcon className="h-3.5 w-3.5" />, text: email, href: `mailto:${email}` },
+                  { icon: <LinkedinIcon className="h-3.5 w-3.5" />, text: "linkedin.com/in/sufyan-frontend", href: "https://www.linkedin.com/in/sufyan-frontend" },
+                  { icon: <GithubIcon className="h-3.5 w-3.5" />, text: "github.com/sufyan-frontend", href: "https://github.com/sufyan-frontend" },
+                  { icon: <PinIcon className="h-3.5 w-3.5" />, text: "Lahore, Pakistan", href: undefined },
+                ].map((c, i) => (
+                  <li key={i} className="flex items-center gap-2.5">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/10 text-[#7cc4ff] ring-1 ring-white/10">{c.icon}</span>
+                    {c.href ? <a href={c.href} className="break-all transition-colors hover:text-white">{c.text}</a> : <span className="break-all">{c.text}</span>}
+                  </li>
+                ))}
+              </ul>
+            </section>
 
-          <section>
-            <SidebarHeading icon={<CertIcon className={iconSm} />}>Certifications</SidebarHeading>
-            <ul className="space-y-2 text-[12.5px] leading-snug text-slate-200">
-              {certifications.map((c) => (
-                <li key={c} className="flex items-start gap-2"><Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#7cc4ff]" />{c}</li>
-              ))}
-            </ul>
-          </section>
+            <section className="mb-6">
+              <SidebarHeading icon={<CodeIcon className={iconSm} />}>Technical Skills</SidebarHeading>
+              <div className="space-y-3.5">
+                {skillGroups.map((g) => (
+                  <div key={g.label}>
+                    <p className="mb-1.5 text-[10.5px] font-semibold uppercase tracking-wider text-[#7cc4ff]">{g.label}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {g.items.map((it) => (
+                        <span key={it} className="rounded-md bg-white/10 px-2 py-1 text-[11px] font-medium text-slate-100 ring-1 ring-white/10">{it}</span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="mb-6">
+              <SidebarHeading icon={<GlobeIcon className={iconSm} />}>Languages</SidebarHeading>
+              <ul className="space-y-2.5 text-[12.5px] text-slate-200">
+                {languages.map((l) => (
+                  <li key={l.name}>
+                    <div className="mb-1 flex items-center justify-between">
+                      <span className="font-medium">{l.name}</span>
+                      <span className="text-[11px] text-[#7cc4ff]">{l.level}</span>
+                    </div>
+                    <div className="flex gap-1">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <span key={i} className={`h-1.5 flex-1 rounded-full ${i < l.dots ? "bg-[#7cc4ff]" : "bg-white/15"}`} />
+                      ))}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section>
+              <SidebarHeading icon={<CertIcon className={iconSm} />}>Certifications</SidebarHeading>
+              <ul className="space-y-2.5 text-[12.5px] leading-snug text-slate-200">
+                {certifications.map((c) => (
+                  <li key={c} className="flex items-start gap-2"><Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#7cc4ff]" />{c}</li>
+                ))}
+              </ul>
+            </section>
+          </div>
         </aside>
 
         {/* ----------------------------- MAIN ----------------------------- */}
-        <main className="px-7 py-8">
+        <main className="relative px-7 py-7">
           {/* name header */}
-          <header className="border-b border-slate-200 pb-5">
-            <h1 className="text-3xl font-extrabold uppercase tracking-[0.06em] text-[#1e293b] sm:text-4xl">Muhammad Sufyan</h1>
-            <p className="mt-1.5 text-[13px] font-semibold uppercase tracking-[0.22em] text-[#2563eb]">Frontend Developer · React &amp; Next.js</p>
-            <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-[12.5px] text-slate-600">
-              <span className="inline-flex items-center gap-1.5"><PhoneIcon className="h-3.5 w-3.5 text-[#2563eb]" />{phoneDisplay}</span>
-              <span className="inline-flex items-center gap-1.5"><MailIcon className="h-3.5 w-3.5 text-[#2563eb]" />{email}</span>
-              <span className="inline-flex items-center gap-1.5"><PinIcon className="h-3.5 w-3.5 text-[#2563eb]" />Lahore, Pakistan</span>
+          <header className="relative pb-5">
+            <span className="absolute left-0 top-1 hidden h-14 w-1.5 rounded-full bg-gradient-to-b from-[#3b82f6] to-[#2563eb] sm:block" aria-hidden="true" />
+            <div className="sm:pl-5">
+              <h1 className="text-[2rem] font-extrabold uppercase leading-none tracking-[0.05em] text-[#1e293b] sm:text-[2.5rem]">
+                Muhammad <span className="text-[#2563eb]">Sufyan</span>
+              </h1>
+              <p className="mt-2 text-[12.5px] font-semibold uppercase tracking-[0.28em] text-[#2563eb]">Frontend Developer · React &amp; Next.js</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {[
+                  { icon: <PhoneIcon className="h-3.5 w-3.5" />, text: phoneDisplay },
+                  { icon: <MailIcon className="h-3.5 w-3.5" />, text: email },
+                  { icon: <PinIcon className="h-3.5 w-3.5" />, text: "Lahore, Pakistan" },
+                ].map((c, i) => (
+                  <span key={i} className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-[12px] font-medium text-slate-600">
+                    <span className="text-[#2563eb]">{c.icon}</span>{c.text}
+                  </span>
+                ))}
+              </div>
             </div>
           </header>
+
+          <div className="h-px w-full bg-gradient-to-r from-blue-200 via-slate-200 to-transparent" />
 
           {/* profile */}
           <section className="mt-6">
             <SectionHeading icon={<UserIcon className={iconSm} />}>Profile</SectionHeading>
-            <p className="text-[13px] leading-relaxed text-slate-600">
+            <p className="rounded-xl bg-slate-50 p-4 text-[13px] leading-relaxed text-slate-600 ring-1 ring-slate-100">
               Frontend Developer with 1.5+ years of experience building responsive, scalable, and
               production-ready web applications using React and Next.js. Experienced in developing
               real-world platforms for education, software companies, and business solutions. Strong
-              focus on UI/UX, performance, and clean, reusable code. Currently working on multiple
-              deployed production projects, including education portals, company websites, and
+              focus on UI/UX, performance, and clean, reusable code — currently shipping multiple
+              deployed production projects including education portals, company websites, and
               SaaS-style platforms.
             </p>
           </section>
 
           {/* experience */}
-          <section className="mt-6">
+          <section className="mt-5">
             <SectionHeading icon={<BriefcaseIcon className={iconSm} />}>Work Experience</SectionHeading>
-            <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-              <h3 className="text-[14px] font-bold text-[#1e293b]">{experience.role}</h3>
-              <span className="text-[12px] font-semibold text-[#2563eb]">{experience.period}</span>
+            <div className="relative pl-6">
+              <span className="absolute left-[7px] top-2 h-[calc(100%-0.5rem)] w-px bg-slate-200" aria-hidden="true" />
+              <span className="absolute left-0 top-1.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-[#2563eb] shadow ring-2 ring-blue-200" aria-hidden="true" />
+              <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                <h3 className="text-[14.5px] font-bold text-[#1e293b]">{experience.role}</h3>
+                <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-[11.5px] font-semibold text-[#2563eb]">{experience.period}</span>
+              </div>
+              <p className="text-[12.5px] font-medium text-slate-500">{experience.company} · {experience.location}</p>
+              <ul className="mt-2.5 space-y-1.5">
+                {experience.points.map((p) => (
+                  <li key={p} className="flex items-start gap-2 text-[12.5px] leading-relaxed text-slate-600">
+                    <Check className="mt-[3px] h-3.5 w-3.5 shrink-0 text-[#2563eb]" />{p}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <p className="text-[12.5px] font-medium text-slate-500">{experience.company} · {experience.location}</p>
-            <ul className="mt-2 space-y-1.5">
-              {experience.points.map((p) => (
-                <li key={p} className="flex items-start gap-2 text-[12.5px] leading-relaxed text-slate-600">
-                  <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#2563eb]" />{p}
-                </li>
-              ))}
-            </ul>
           </section>
 
           {/* skills summary */}
-          <section className="mt-6">
+          <section className="mt-5">
             <SectionHeading icon={<CodeIcon className={iconSm} />}>Technical Skills Summary</SectionHeading>
             <div className="grid grid-cols-3 gap-2.5 sm:grid-cols-4">
               {skillBadges.map((s) => (
-                <div key={s.name} className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-2">
+                <div key={s.name} className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-2.5 py-2 shadow-sm transition-shadow hover:shadow-md">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-[11px] font-bold text-white" style={{ backgroundColor: s.color }}>{s.name.charAt(0)}</span>
                   <span className="truncate text-[11.5px] font-medium text-slate-700">{s.name}</span>
                 </div>
@@ -293,56 +341,61 @@ export default function CvPage() {
           </section>
 
           {/* projects */}
-          <section className="mt-6">
+          <section className="mt-5">
             <SectionHeading icon={<FolderIcon className={iconSm} />}>Projects</SectionHeading>
             <div className="grid gap-2.5 sm:grid-cols-2">
               {projects.map((p) => (
-                <div key={p.url} className="rounded-lg border border-slate-200 p-3">
-                  <a href={p.url} className="flex items-center gap-1.5 text-[13px] font-bold text-[#1e293b] hover:text-[#2563eb]">
+                <a
+                  key={p.url}
+                  href={p.url}
+                  className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-3.5 pl-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md"
+                >
+                  <span className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[#3b82f6] to-[#2563eb]" aria-hidden="true" />
+                  <div className="flex items-center gap-1.5 text-[13px] font-bold text-[#1e293b] group-hover:text-[#2563eb]">
                     {p.title}
-                    <LinkIcon className="h-3 w-3 text-[#2563eb]" />
-                  </a>
+                    <LinkIcon className="h-3 w-3 text-[#2563eb] opacity-0 transition-opacity group-hover:opacity-100" />
+                  </div>
                   <p className="mt-1 text-[12px] leading-relaxed text-slate-600">{p.desc}</p>
-                </div>
+                </a>
               ))}
             </div>
           </section>
 
           {/* achievements */}
-          <section className="mt-6">
+          <section className="mt-5">
             <SectionHeading icon={<TrophyIcon className={iconSm} />}>Achievements</SectionHeading>
-            <ul className="space-y-1.5">
+            <ul className="grid gap-2 sm:grid-cols-2">
               {achievements.map((a) => (
-                <li key={a} className="flex items-start gap-2 text-[12.5px] leading-relaxed text-slate-600">
-                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#2563eb]" />{a}
+                <li key={a} className="flex items-start gap-2 rounded-lg bg-slate-50 px-3 py-2 text-[12.5px] leading-relaxed text-slate-600 ring-1 ring-slate-100">
+                  <TrophyIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#f59e0b]" />{a}
                 </li>
               ))}
             </ul>
           </section>
 
           {/* interests + strengths */}
-          <section className="mt-6 grid gap-6 sm:grid-cols-2">
+          <section className="mt-5 grid gap-6 sm:grid-cols-2">
             <div>
               <SectionHeading icon={<HeartIcon className={iconSm} />}>Interests</SectionHeading>
               <div className="flex flex-wrap gap-2">
                 {interests.map((i) => (
-                  <span key={i} className="rounded-full bg-blue-50 px-3 py-1 text-[12px] font-medium text-[#2563eb]">{i}</span>
+                  <span key={i} className="rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 px-3 py-1 text-[12px] font-medium text-[#2563eb] ring-1 ring-blue-100">{i}</span>
                 ))}
               </div>
             </div>
             <div>
-              <SectionHeading icon={<StarIcon className={iconSm} />}>Personal Strengths</SectionHeading>
+              <SectionHeading icon={<StarIcon className={iconSm} />}>Strengths</SectionHeading>
               <ul className="grid grid-cols-1 gap-1.5">
                 {strengths.map((s) => (
                   <li key={s} className="flex items-center gap-2 text-[12.5px] text-slate-600">
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#2563eb]" />{s}
+                    <StarIcon className="h-3.5 w-3.5 shrink-0 text-[#f59e0b]" />{s}
                   </li>
                 ))}
               </ul>
             </div>
           </section>
 
-          <p className="mt-8 border-t border-slate-200 pt-4 text-center text-[12.5px] italic text-slate-500">
+          <p className="mt-7 rounded-xl bg-gradient-to-r from-[#22344a] to-[#13202e] px-5 py-3 text-center text-[12.5px] font-medium italic tracking-wide text-slate-100">
             &ldquo;Always eager to learn, build, and grow.&rdquo;
           </p>
         </main>
