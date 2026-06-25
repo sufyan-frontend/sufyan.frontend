@@ -6,16 +6,17 @@ import FloatingActions from "@/components/FloatingActions";
 
 export default function ConditionalShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isAdmin = pathname.startsWith("/admin");
+  // Routes that render standalone, without the site chrome (navbar/footer/floating CTAs).
+  const isBare = pathname.startsWith("/admin") || pathname.startsWith("/cv");
 
   return (
     <>
-      {!isAdmin && <Navbar />}
+      {!isBare && <Navbar />}
       <main id="main-content" className="flex-1">
         {children}
       </main>
-      {!isAdmin && <Footer />}
-      {!isAdmin && <FloatingActions />}
+      {!isBare && <Footer />}
+      {!isBare && <FloatingActions />}
     </>
   );
 }
