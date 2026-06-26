@@ -183,7 +183,8 @@ const faces: { cls?: string; node: React.ReactNode }[] = [
     cls: "cover-face back-cover",
     node: (
       <div className="cover-inner">
-        <div className="monogram">MS</div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="cover-photo" src="/book/profile.webp" alt="Muhammad Sufyan" />
         <h3>Thanks for reading!</h3>
         <div className="loc">Muhammad Sufyan · Frontend Developer</div>
       </div>
@@ -196,17 +197,48 @@ const leaves: { front: (typeof faces)[number]; back?: (typeof faces)[number] }[]
 for (let i = 0; i < faces.length; i += 2) {
   leaves.push({ front: faces[i], back: faces[i + 1] });
 }
-const labels = ["Cover", "About · Skills", "Projects", "Projects", "Experience · Services", "Contact", "The End"];
+const labels = ["Cover", "About · Skills", "Projects", "Projects", "Experience · Services", "The End"];
+/* Last leaf has no back face when the face count is odd, so the final turn would
+   reveal a blank page — cap navigation one turn earlier in that case. */
+const maxTurned = faces.length % 2 === 0 ? leaves.length : leaves.length - 1;
+
+/* Mobile shows ONE page at a time. Skip faces[0] (the flat cover) since the 3D
+   closed book already acts as the cover; start from About. */
+const mobileFaces = faces.slice(1);
+const mobileLabels = ["About", "Skills", "Projects", "Projects", "Projects", "Projects", "Experience", "Services", "Contact", "The End"];
 
 export default function BookPortfolio() {
   const [turned, setTurned] = useState(0);
   const [opening, setOpening] = useState(false);
   // The single leaf currently mid-flip + its direction — drives the page-lift shadow.
   const [active, setActive] = useState<{ idx: number; dir: 1 | -1 } | null>(null);
+  // Mobile single-page reader: which page is showing + slide direction.
+  const [isMobile, setIsMobile] = useState(false);
+  const [mPage, setMPage] = useState(0);
+  const [mDir, setMDir] = useState<1 | -1>(1);
+
+  // Detect the mobile single-page breakpoint (kept in sync with the CSS media query).
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width:560px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   const go = useCallback((d: number) => {
+    if (isMobile) {
+      setMPage((p) => {
+        const np = p + d;
+        if (np < 0) { setTurned(0); return 0; }        // back past the first page → close the book
+        if (np > mobileFaces.length - 1) return p;     // already at the last page
+        setMDir(d > 0 ? 1 : -1);
+        return np;
+      });
+      return;
+    }
     setTurned((t) => {
-      const nt = Math.max(0, Math.min(leaves.length, t + d));
+      const nt = Math.max(0, Math.min(maxTurned, t + d));
       if (nt !== t) {
         const idx = d > 0 ? t : nt; // index of the leaf that physically turns
         setActive({ idx, dir: d > 0 ? 1 : -1 });
@@ -214,16 +246,16 @@ export default function BookPortfolio() {
       }
       return nt;
     });
-  }, []);
+  }, [isMobile]);
 
-  // Closed 3D book → play an opening animation, then reveal the open spread.
+  // Closed 3D book → play an opening animation, then reveal the open spread/page.
   const openBook = useCallback(() => {
-    setOpening((o) => {
-      if (o) return o;
-      window.setTimeout(() => { setTurned(1); setOpening(false); }, 340);
-      return true;
-    });
-  }, []);
+    if (opening || turned !== 0) return;
+    setOpening(true);
+    setMPage(0);  // mobile starts on the first page
+    setTurned(1); // open the spread underneath NOW while the overlay still hides it
+    window.setTimeout(() => setOpening(false), 340);
+  }, [opening, turned]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -240,10 +272,50 @@ export default function BookPortfolio() {
     go(e.clientX - r.left > r.width / 2 ? 1 : -1);
   };
 
+  // True once the book is open on a phone — drives the single-page reader.
+  const mobileOpen = isMobile && turned > 0;
+  const atLastMobile = mPage >= mobileFaces.length - 1;
+
   // Page-block thickness on each side grows/shrinks as you read — gives real volume.
   const total = leaves.length;
   const leftDepth = Math.min(14, 3 + turned * 2);
   const rightDepth = Math.min(14, 3 + (total - turned) * 2);
+
+  // The closed 3D book — reused as a desktop overlay and as an in-flow block on mobile.
+  const closedBook = (
+    <>
+      <div className="floor floor-closed" aria-hidden="true" />
+      <div className={`book3d-wrap${opening ? " opening" : ""}`}>
+        <div className="book3d">
+          {/* front cover with photo */}
+          <div className="b3 b3-front">
+            {/* binding crease where the cover meets the spine */}
+            <span className="b3c-crease" aria-hidden="true" />
+            <div className="b3c-inner">
+              <div className="b3c-label">Portfolio</div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="b3c-photo" src="/book/profile.webp" alt="Muhammad Sufyan" />
+              <h3 className="b3c-name">Muhammad Sufyan</h3>
+              <div className="b3c-role">Frontend Developer</div>
+              <div className="b3c-loc">React · Next.js — Lahore, PK</div>
+              <div className="b3c-tap">Tap to open ›</div>
+            </div>
+            {/* soft sheen + outer edge highlight (glossy laminate) */}
+            <span className="b3c-edge" aria-hidden="true" />
+            <span className="b3c-gloss" aria-hidden="true" />
+          </div>
+          {/* spine (binding) */}
+          <div className="b3 b3-spine"><span>MUHAMMAD SUFYAN · PORTFOLIO</span></div>
+          {/* fore-edge pages */}
+          <div className="b3 b3-right" />
+          <div className="b3 b3-top" />
+          <div className="b3 b3-bottom" />
+          {/* back cover */}
+          <div className="b3 b3-back"><div className="b3-mono">MS</div></div>
+        </div>
+      </div>
+    </>
+  );
 
   return (
     <div className="bp-scope">
@@ -262,39 +334,12 @@ export default function BookPortfolio() {
 
       <a className="bp-back" href="/">← Back to site</a>
 
-      {turned === 0 ? (
-        <div className="scene scene-closed">
-          <div className="floor floor-closed" aria-hidden="true" />
-          <div className={`book3d-wrap${opening ? " opening" : ""}`} onClick={openBook}>
-            <div className="book3d">
-              {/* front cover with photo */}
-              <div className="b3 b3-front">
-                <div className="b3c-inner">
-                  <div className="b3c-label">Portfolio</div>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img className="b3c-photo" src="/book/profile.webp" alt="Muhammad Sufyan" />
-                  <h3 className="b3c-name">Muhammad Sufyan</h3>
-                  <div className="b3c-role">Frontend Developer</div>
-                  <div className="b3c-loc">React · Next.js — Lahore, PK</div>
-                  <div className="b3c-tap">Tap to open ›</div>
-                </div>
-                <span className="b3c-gloss" aria-hidden="true" />
-              </div>
-              {/* spine (binding) */}
-              <div className="b3 b3-spine"><span>MUHAMMAD SUFYAN · PORTFOLIO</span></div>
-              {/* fore-edge pages */}
-              <div className="b3 b3-right" />
-              <div className="b3 b3-top" />
-              <div className="b3 b3-bottom" />
-              {/* back cover */}
-              <div className="b3 b3-back"><div className="b3-mono">MS</div></div>
-            </div>
-          </div>
-        </div>
-      ) : (
+      {/* DESKTOP: two-page 3D spread, always mounted so images paint on load.
+          While the book is closed it sits behind the closed-cover overlay. */}
+      {!isMobile && (
         <div className="scene">
           <div className="floor" aria-hidden="true" />
-          <div className="book" onClick={onBookClick}>
+          <div className={`book${opening ? " opening" : ""}`} onClick={onBookClick}>
             {/* page-block thickness under each side (real depth) */}
             <div className="block left" style={{ ["--d" as string]: `${leftDepth}px` }} aria-hidden="true" />
             <div className="block right" style={{ ["--d" as string]: `${rightDepth}px` }} aria-hidden="true" />
@@ -334,10 +379,42 @@ export default function BookPortfolio() {
         </div>
       )}
 
+      {/* MOBILE: single full-width page that slides left/right. */}
+      {mobileOpen && (
+        <div className="m-scene">
+          <div className="m-book" onClick={onBookClick}>
+            {mobileFaces.map((f, i) => {
+              const pos = i === mPage ? "cur" : i < mPage ? "prev" : "next";
+              return (
+                <div key={i} className={`m-page ${pos}${f.cls ? " " + f.cls : ""}`} data-dir={mDir}>
+                  {f.node}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* DESKTOP closed book: absolute overlay above the spread; fades out on open. */}
+      {!isMobile && (opening || turned === 0) && (
+        <div className={`closed-overlay${opening ? " opening" : ""}`} onClick={openBook}>
+          {closedBook}
+        </div>
+      )}
+
+      {/* MOBILE closed book: in normal flow so the controls sit below it. */}
+      {isMobile && turned === 0 && (
+        <div className="m-closed" onClick={openBook}>
+          {closedBook}
+        </div>
+      )}
+
       <div className="controls">
         <button type="button" className="nav" onClick={() => go(-1)} disabled={turned === 0} aria-label="Previous page">&#8592;</button>
-        <div className="progress">{labels[turned] || "The End"}</div>
-        <button type="button" className="nav" onClick={() => go(1)} disabled={turned === leaves.length} aria-label="Next page">&#8594;</button>
+        <div className="progress">
+          {turned === 0 ? "Cover" : mobileOpen ? mobileLabels[mPage] : labels[turned] || "The End"}
+        </div>
+        <button type="button" className="nav" onClick={() => go(1)} disabled={mobileOpen ? atLastMobile : turned >= maxTurned} aria-label="Next page">&#8594;</button>
       </div>
     </div>
   );
@@ -348,8 +425,8 @@ const CSS = `
   --ink:#20262e; --muted:#6b7480; --accent:#16c2e8; --accent-2:#6c5ce7;
   --paper:#f7f3ea; --paper-2:#f1ece0; --edge:#e9e1cd; --cover-a:#161c26;
   --cover-b:#0c1016; --gold:#d9b25a;
-  min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
-  gap:34px; padding:56px 16px 40px; position:relative; overflow:hidden;
+  min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+  gap:22px; padding:20px 16px 32px; position:relative; overflow:hidden;
   background:
     radial-gradient(1100px 620px at 50% -6%, #233150 0%, transparent 60%),
     radial-gradient(900px 600px at 50% 120%, #15233b 0%, transparent 60%),
@@ -390,7 +467,22 @@ const CSS = `
   filter:blur(11px); border-radius:50%; transition:all .6s ease; animation:bpFloorPulse 6s ease-in-out infinite; }
 @keyframes bpFloorPulse { 0%,100%{ transform:scaleX(1); opacity:.9; } 50%{ transform:scaleX(.94); opacity:.7; } }
 .bp-scope .scene-closed { display:flex; align-items:center; justify-content:center; min-height:560px; }
-.bp-scope .floor-closed { left:33%; right:33%; bottom:46px; height:30px; }
+/* book now sits near the top; its wrapper drop-shadow grounds it, so the
+   separate floor blob (anchored to the viewport bottom) is hidden. */
+.bp-scope .floor-closed { display:none; }
+
+/* closed-cover overlay: hides the always-mounted open spread until opened.
+   Same background as .bp-scope so it's seamless; fades out on tap. */
+.bp-scope .closed-overlay { position:absolute; inset:0; z-index:50; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; padding-bottom:80px;
+  background:
+    radial-gradient(1100px 620px at 50% -6%, #233150 0%, transparent 60%),
+    radial-gradient(900px 600px at 50% 120%, #15233b 0%, transparent 60%),
+    linear-gradient(180deg, #0c1322 0%, #070b13 55%, #05070d 100%);
+  transition:opacity .34s ease; }
+.bp-scope .closed-overlay.opening { opacity:0; pointer-events:none; }
+/* keep controls / back-link clickable above the overlay */
+.bp-scope .controls { z-index:51; }
 .bp-scope .book { position:relative; width:100%; aspect-ratio:16/10; transform-style:preserve-3d;
   transform:rotateX(24deg) rotateY(-2deg) rotateZ(.3deg); transition:transform 1s ease; cursor:pointer;
   animation:bpSpreadIn .4s cubic-bezier(.2,.7,.2,1) both, bpIdle 9s ease-in-out .8s infinite; }
@@ -412,20 +504,24 @@ const CSS = `
 
 /* ---------- real 3D closed book (cuboid) ---------- */
 .bp-scope .book3d-wrap { perspective:1150px; perspective-origin:50% 45%; width:100%;
-  display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  filter:drop-shadow(30px 38px 34px rgba(0,0,0,.5)); }
 .bp-scope .book3d { position:relative; width:340px; height:454px; transform-style:preserve-3d;
-  transform:rotateX(-6deg) rotateY(32deg); transition:transform .45s cubic-bezier(.4,.1,.2,1), opacity .34s ease;
+  transform:rotateX(-6deg) rotateY(28deg); transition:transform .45s cubic-bezier(.4,.1,.2,1), opacity .34s ease;
   animation:bpBookIn 1s ease both; }
-@keyframes bpBookIn { from{ transform:rotateX(-6deg) rotateY(56deg); opacity:0; } to{ transform:rotateX(-6deg) rotateY(32deg); opacity:1; } }
-.bp-scope .book3d-wrap:hover .book3d { transform:rotateX(-6deg) rotateY(24deg) translateY(-6px); }
+@keyframes bpBookIn { from{ transform:rotateX(-6deg) rotateY(52deg); opacity:0; } to{ transform:rotateX(-6deg) rotateY(28deg); opacity:1; } }
+.bp-scope .book3d-wrap:hover .book3d { transform:rotateX(-6deg) rotateY(21deg) translateY(-6px); }
 .bp-scope .book3d-wrap.opening .book3d { transform:rotateX(-2deg) rotateY(-3deg) scale(1.05); opacity:0; }
 .bp-scope .book3d .b3 { position:absolute; top:50%; left:50%; overflow:hidden; }
 .bp-scope .book3d .b3-front, .bp-scope .book3d .b3-back { width:340px; height:454px; border-radius:3px 7px 7px 3px; backface-visibility:hidden; }
 .bp-scope .book3d .b3-front { transform:translate(-50%,-50%) translateZ(45px);
-  background:radial-gradient(140% 100% at 22% 0%, #2a374f 0%, transparent 55%),
-    radial-gradient(120% 90% at 100% 100%, rgba(108,92,231,.4) 0%, transparent 50%),
-    linear-gradient(135deg,#1a2233 0%,#0e1420 55%,#070b12 100%);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.05); }
+  background:
+    radial-gradient(150% 120% at 82% 4%, rgba(22,194,232,.42) 0%, transparent 44%),
+    radial-gradient(140% 100% at 16% 2%, rgba(70,100,150,.5) 0%, transparent 50%),
+    radial-gradient(130% 95% at 108% 108%, rgba(108,92,231,.55) 0%, transparent 52%),
+    linear-gradient(135deg,#1b2740 0%,#101a2e 52%,#070b14 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08), inset 0 2px 0 rgba(255,255,255,.14),
+    inset 0 -30px 50px rgba(0,0,0,.35); }
 .bp-scope .book3d .b3-back { transform:translate(-50%,-50%) rotateY(180deg) translateZ(45px);
   background:linear-gradient(135deg,#0e1420,#05080c); display:grid; place-items:center; }
 .bp-scope .book3d .b3-mono { width:60px; height:60px; border-radius:14px; display:grid; place-items:center;
@@ -453,7 +549,8 @@ const CSS = `
 .bp-scope .b3c-label { color:var(--gold); font-size:11px; font-weight:800; letter-spacing:5px; text-transform:uppercase; }
 .bp-scope .b3c-photo { width:120px; height:120px; border-radius:50%; object-fit:cover;
   border:3px solid rgba(255,255,255,.18); box-shadow:0 12px 30px rgba(0,0,0,.5), 0 0 0 5px rgba(22,194,232,.16); }
-.bp-scope .b3c-name { color:#eef3fa; font-size:23px; font-weight:800; letter-spacing:.4px; }
+.bp-scope .b3c-name { color:#f3f7fc; font-size:25px; font-weight:800; letter-spacing:.4px;
+  text-shadow:0 2px 16px rgba(0,0,0,.5), 0 0 1px rgba(255,255,255,.3); }
 .bp-scope .b3c-role { display:flex; align-items:center; gap:9px; color:var(--gold); font-size:11px; font-weight:800;
   letter-spacing:3px; text-transform:uppercase; }
 .bp-scope .b3c-role::before, .bp-scope .b3c-role::after { content:""; width:18px; height:1px; background:var(--gold); opacity:.7; }
@@ -461,10 +558,18 @@ const CSS = `
 .bp-scope .b3c-tap { margin-top:6px; font-size:11px; color:#dbe3ee; padding:6px 14px; border-radius:20px;
   border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.05); animation:bpPulse 1.8s ease-in-out infinite; }
 /* moving light gloss sweeping across the closed cover */
-.bp-scope .b3c-gloss { position:absolute; inset:0; z-index:3; pointer-events:none; border-radius:3px 7px 7px 3px;
+.bp-scope .b3c-gloss { position:absolute; inset:0; z-index:5; pointer-events:none; border-radius:3px 7px 7px 3px;
   overflow:hidden; mix-blend-mode:screen; opacity:.8;
   background:linear-gradient(118deg, transparent 40%, rgba(190,220,255,.22) 49%, rgba(255,255,255,.4) 52%, transparent 66%);
   background-size:260% 100%; animation:bpSheen 5.5s ease-in-out infinite; }
+/* dark binding crease where the cover folds into the spine (left edge) */
+.bp-scope .b3c-crease { position:absolute; left:0; top:0; bottom:0; width:34px; z-index:4; pointer-events:none;
+  border-radius:3px 0 0 3px;
+  background:linear-gradient(90deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.34) 24%, rgba(0,0,0,.08) 62%, rgba(255,255,255,.06) 100%); }
+/* bright laminate highlight on the outer fore-edge (right edge) */
+.bp-scope .b3c-edge { position:absolute; right:0; top:0; bottom:0; width:11px; z-index:4; pointer-events:none;
+  border-radius:0 7px 7px 0;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.16) 55%, rgba(255,255,255,.38)); }
 
 .bp-scope .spread { position:absolute; inset:0; display:flex; border-radius:6px 10px 10px 6px;
   box-shadow:0 60px 100px rgba(0,0,0,.6), 0 26px 50px rgba(0,0,0,.45), 0 2px 0 rgba(255,255,255,.04) inset; }
@@ -501,6 +606,9 @@ const CSS = `
 .bp-scope .leaf .front { border-radius:0 10px 10px 0; box-shadow:inset 22px 0 30px -22px rgba(0,0,0,.4); }
 .bp-scope .leaf .back { transform:rotateY(180deg); border-radius:6px 0 0 6px; box-shadow:inset -22px 0 30px -22px rgba(0,0,0,.4); }
 .bp-scope .leaf.flipped { transform:rotateY(-180deg); }
+/* on initial open, snap leaves into place (no flip) so the cover fade reveals
+   the already-open spread instead of the flat cover page mid-turn */
+.bp-scope .book.opening .leaf { transition:none; }
 
 /* fore-edge curl highlight — catches light on the outer edge of each page */
 .bp-scope .curl { position:absolute; top:0; bottom:0; right:0; width:26px; pointer-events:none; z-index:6;
@@ -558,6 +666,8 @@ const CSS = `
   animation:bpPulse 1.8s ease-in-out infinite; }
 @keyframes bpPulse { 0%,100%{ opacity:.55;} 50%{ opacity:1;} }
 .bp-scope .back-cover { background:linear-gradient(135deg,var(--cover-b),#05080c) !important; color:#cfd8e4; }
+.bp-scope .cover-photo { width:108px; height:108px; border-radius:50%; object-fit:cover;
+  border:3px solid rgba(255,255,255,.18); box-shadow:0 12px 30px rgba(0,0,0,.5), 0 0 0 5px rgba(22,194,232,.16); }
 
 .bp-scope .about-top { display:flex; gap:13px; align-items:flex-start; margin-bottom:8px; }
 .bp-scope .avatar { width:62px; height:62px; border-radius:14px; object-fit:cover; flex-shrink:0;
@@ -629,18 +739,37 @@ const CSS = `
 .bp-scope .nav:disabled { opacity:.35; cursor:not-allowed; }
 .bp-scope .progress { color:#9aa6bd; font-size:13px; min-width:120px; text-align:center; }
 
+/* ---------- mobile single-page reader (one page, full width) ---------- */
+.bp-scope .m-closed { position:relative; z-index:2; width:100%; display:flex;
+  align-items:center; justify-content:center; min-height:60vh; cursor:pointer; }
+.bp-scope .m-scene { position:relative; z-index:2; width:100%; display:flex; justify-content:center; }
+.bp-scope .m-book { position:relative; width:min(440px,92vw); height:min(74vh,620px);
+  border-radius:16px; overflow:hidden; cursor:pointer; background:var(--paper);
+  box-shadow:0 34px 60px rgba(0,0,0,.55), 0 12px 26px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.25);
+  animation:bpSpreadIn .5s cubic-bezier(.2,.7,.2,1) both; }
+.bp-scope .m-page { position:absolute; inset:0; background:var(--paper);
+  overflow-x:hidden; overflow-y:auto; -webkit-overflow-scrolling:touch;
+  transition:transform .42s cubic-bezier(.4,.1,.2,1), opacity .42s ease; will-change:transform; }
+.bp-scope .m-page.cur { transform:translateX(0); opacity:1; z-index:2; }
+.bp-scope .m-page.prev { transform:translateX(-102%); opacity:0; z-index:1; }
+.bp-scope .m-page.next { transform:translateX(102%); opacity:0; z-index:1; }
+/* the page content fills the full card height on mobile */
+.bp-scope .m-page .pg { padding:22px 20px 24px; }
+.bp-scope .m-page .cover-inner { padding:34px 26px; }
+
 @media (max-width:560px) {
-  .bp-scope { padding:48px 10px 32px; }
-  .bp-scope .pg { padding:16px 14px 22px; }
+  .bp-scope { padding:28px 10px 24px; gap:16px; justify-content:center; }
   .bp-scope .scene { perspective:1500px; }
   /* gentler tilt + no float on small screens to avoid overflow */
   .bp-scope .book { animation:bpSpreadIn .6s ease both; transform:rotateX(12deg) rotateY(0deg); }
   .bp-scope .book:hover { transform:rotateX(12deg); }
   .bp-scope .block, .bp-scope .sheen { display:none; }
-  .bp-scope .bp-spot { width:480px; height:480px; }
+  .bp-scope .bp-spot { width:420px; height:420px; }
   .bp-scope .stat b { font-size:16px; }
   .bp-scope .progress { min-width:90px; font-size:12px; }
   .bp-scope .avatar { width:50px; height:50px; }
+  /* shrink the closed 3D book so it + its shadow fit the viewport */
+  .bp-scope .book3d-wrap { transform:scale(.76); }
 }
 @media (prefers-reduced-motion:reduce) {
   .bp-scope .leaf, .bp-scope .book { transition:none; }
