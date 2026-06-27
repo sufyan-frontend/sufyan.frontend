@@ -483,6 +483,15 @@ export const practiceProjects = [
 ];
 
 export const blogPosts = [
+  // ── FEATURED: Interactive Guide ──
+  {
+    slug: 'seo-fundamentals',
+    title: 'SEO Fundamentals for Beginners — The Complete Visual Guide',
+    excerpt: 'A free, beginner-friendly visual guide to SEO fundamentals: crawling, indexing, ranking, keywords, on-page, technical, off-page, local SEO, AEO and GEO — with diagrams, examples, quizzes and a completion certificate.',
+    date: '2026-06-27',
+    readTime: '25 min',
+    tags: ['SEO', 'Beginner Guide', 'Interactive'],
+  },
   // ── CATEGORY A: Personal Brand ──
   {
     slug: 'who-is-muhammad-sufyan',

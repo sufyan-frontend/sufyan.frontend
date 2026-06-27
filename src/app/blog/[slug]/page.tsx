@@ -7,7 +7,9 @@ import { blogContent } from "@/lib/blog-content";
 const hasContent = (slug: string) => slug in blogContent;
 
 export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  // `seo-fundamentals` has its own dedicated route (blog/seo-fundamentals/page.tsx),
+  // so exclude it here to avoid a static/dynamic path collision at build time.
+  return blogPosts.filter((post) => post.slug !== "seo-fundamentals").map((post) => ({ slug: post.slug }));
 }
 
 type Props = { params: Promise<{ slug: string }> };
