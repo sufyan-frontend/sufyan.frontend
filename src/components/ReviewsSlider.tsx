@@ -129,7 +129,7 @@ export default function ReviewsSlider() {
   const current = count ? list[Math.min(index, count - 1)] : null;
 
   return (
-    <section className="relative py-20 bg-card/20 overflow-hidden" aria-labelledby="reviews-heading">
+    <section id="reviews" className="relative py-20 bg-card/20 overflow-hidden scroll-mt-20" aria-labelledby="reviews-heading">
       {/* soft background grid */}
       <div className="pointer-events-none absolute inset-0 dot-grid opacity-40" aria-hidden="true" />
 
