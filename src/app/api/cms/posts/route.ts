@@ -1,4 +1,4 @@
-const BACKEND = 'https://sufyan-backend.vercel.app'
+import { BACKEND_URL as BACKEND } from '@/lib/backend'
 
 export async function GET() {
   const res = await fetch(`${BACKEND}/api/cms/posts`, { cache: 'no-store' })

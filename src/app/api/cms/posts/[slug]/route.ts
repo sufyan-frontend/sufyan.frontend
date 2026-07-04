@@ -1,4 +1,4 @@
-const BACKEND = 'https://sufyan-backend.vercel.app'
+import { BACKEND_URL as BACKEND } from '@/lib/backend'
 
 export async function GET(req: Request, context: { params: Promise<{ slug: string }> }) {
   const { slug } = await context.params
