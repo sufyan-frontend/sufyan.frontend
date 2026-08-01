@@ -53,6 +53,16 @@ export default async function BlogPost({ params }: Props) {
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  // Related posts: only link to indexable articles (same rule as generateMetadata's
+  // noindex), ranked by shared tags then recency, so every article links out to 3
+  // more — distributing internal link equity and preventing orphan pages.
+  const related = blogPosts
+    .filter((p) => p.slug !== post.slug && (hasContent(p.slug) || p.slug === "seo-fundamentals"))
+    .map((p) => ({ p, shared: p.tags.filter((t) => post.tags.includes(t)).length }))
+    .sort((a, b) => b.shared - a.shared || +new Date(b.p.date) - +new Date(a.p.date))
+    .slice(0, 3)
+    .map((x) => x.p);
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -150,6 +160,39 @@ export default async function BlogPost({ params }: Props) {
 
         {blogContent[post.slug] && (
           <div className="prose-custom">{blogContent[post.slug]}</div>
+        )}
+
+        {related.length > 0 && (
+          <aside className="mt-16 pt-10 border-t border-white/5">
+            <h2 className="text-surface font-semibold text-lg mb-6">Related Articles</h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {related.map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/blog/${r.slug}`}
+                  className="group block rounded-2xl border border-white/5 bg-white/2 p-5 hover:border-primary/30 hover:bg-white/4 transition-colors"
+                >
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {r.tags.slice(0, 2).map((t) => (
+                      <span key={t} className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-surface text-sm font-semibold leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                    {r.title}
+                  </h3>
+                  <p className="text-surface/50 text-xs leading-relaxed line-clamp-2">{r.excerpt}</p>
+                  <span className="mt-3 inline-flex items-center gap-1 text-primary text-xs font-medium">
+                    Read more
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </aside>
         )}
       </div>
     </div>

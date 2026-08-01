@@ -1,7 +1,14 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/data";
+import { blogContent } from "@/lib/blog-content";
 
 const base = "https://sufyan-frontend.vercel.app";
+
+// A blog post is indexable only when it has full content. `seo-fundamentals`
+// is served by its own dedicated route (not the [slug] map) but is indexable.
+// This mirrors the noindex logic in blog/[slug]/page.tsx so the sitemap never
+// advertises a URL that the page itself marks noindex.
+const isIndexable = (slug: string) => slug in blogContent || slug === "seo-fundamentals";
 
 const routes: Array<{
   path: string;
@@ -32,12 +39,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority,
   }));
 
-  const blogRoutes = blogPosts.map((post) => ({
-    url: `${base}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "yearly" as const,
-    priority: 0.6,
-  }));
+  const blogRoutes = blogPosts
+    .filter((post) => isIndexable(post.slug))
+    .map((post) => ({
+      url: `${base}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: "yearly" as const,
+      priority: 0.6,
+    }));
 
   return [...staticRoutes, ...blogRoutes];
 }

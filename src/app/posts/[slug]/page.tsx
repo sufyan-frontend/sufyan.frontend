@@ -1,57 +1,78 @@
-"use client";
-import { useParams } from "next/navigation";
-import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
-import { getPost } from "@/lib/cms-api";
+import { notFound } from "next/navigation";
+import type { CmsPost } from "@/lib/cms-api";
 
-const BASE = "https://sufyan-backend.vercel.app";
+const SITE_URL = "https://sufyan-frontend.vercel.app";
+const BACKEND = "https://sufyan-backend.vercel.app";
 
-export default function PostPage() {
-  const { slug } = useParams<{ slug: string }>();
+// Fetches a CMS post server-side so the body is in the initial HTML (crawlable).
+// A genuine 404 → notFound() (hard 404). Any other failure (backend down, 500,
+// network) throws so Next renders a 500 error page instead of a soft-404 that
+// would deindex a page that actually exists.
+async function fetchPost(slug: string): Promise<CmsPost | null> {
+  const res = await fetch(`${BACKEND}/api/cms/posts/${slug}`, { cache: "no-store" });
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`Failed to load post "${slug}" (${res.status})`);
+  const data = await res.json();
+  return "post" in data ? (data.post as CmsPost) : (data as CmsPost);
+}
 
-  const { data: post, isLoading, isError } = useQuery({
-    queryKey: ["cms-post", slug],
-    queryFn: () => getPost(slug),
-    enabled: !!slug,
-  });
+type Props = { params: Promise<{ slug: string }> };
 
-  if (isLoading) {
-    return (
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24 animate-pulse">
-        <div className="h-4 bg-white/5 rounded w-24 mb-8" />
-        <div className="h-10 bg-white/5 rounded w-3/4 mb-4" />
-        <div className="h-4 bg-white/5 rounded w-1/3 mb-8" />
-        <div className="h-72 bg-white/5 rounded-2xl mb-8" />
-        <div className="space-y-3">
-          <div className="h-4 bg-white/5 rounded" />
-          <div className="h-4 bg-white/5 rounded w-5/6" />
-          <div className="h-4 bg-white/5 rounded w-4/6" />
-        </div>
-      </div>
-    );
-  }
+export default async function PostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = await fetchPost(slug);
+  if (!post) notFound();
 
-  if (isError || !post) {
-    return (
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-        <h1 className="text-surface font-bold text-2xl mb-3">Post not found</h1>
-        <p className="text-surface/40 text-sm mb-8">
-          The post you&apos;re looking for doesn&apos;t exist or has been removed.
-        </p>
-        <Link href="/posts" className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:underline">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-          </svg>
-          Back to Posts
-        </Link>
-      </div>
-    );
-  }
+  const url = `${SITE_URL}/posts/${post.slug}`;
+  const image = post.image ?? `${SITE_URL}/profile.png`;
 
-  
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": url,
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    inLanguage: "en-PK",
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    image: { "@type": "ImageObject", url: image, width: 1200, height: 630 },
+    author: {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: post.author,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Muhammad Sufyan — Frontend Developer",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/favicon.png`,
+        width: 192,
+        height: 192,
+      },
+    },
+    ...(post.tags.length > 0 && { keywords: post.tags.join(", ") }),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Posts", item: `${SITE_URL}/posts` },
+      { "@type": "ListItem", position: 3, name: post.title, item: url },
+    ],
+  };
 
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       {/* Back */}
       <Link
         href="/posts"
@@ -95,20 +116,14 @@ export default function PostPage() {
       {/* Cover image */}
       {post.image && (
         <div className="relative h-72 sm:h-96 rounded-2xl overflow-hidden bg-white/5 mb-10">
-          <img
-            src={post.image}
-            alt={post.title}
-            className="w-full h-full object-cover object-top"
-            onError={(e) => {
-              (e.currentTarget.parentElement as HTMLElement).style.display = "none";
-            }}
-          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={post.image} alt={post.title} className="w-full h-full object-cover object-top" />
         </div>
       )}
 
       {/* Description / body */}
       <div className="prose prose-invert prose-sm sm:prose max-w-none">
-        <p className="text-surface/70 text-base leading-relaxed">{post.description}</p>
+        <p className="text-surface/70 text-base leading-relaxed whitespace-pre-line">{post.description}</p>
       </div>
 
       {/* Footer */}
