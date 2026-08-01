@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://sufyan-frontend.vercel.app/contact" },
   openGraph: {
-    title: "Contact sufyanjutt — Hire Frontend Developer",
+    title: "Contact Muhammad Sufyan — Hire Frontend Developer",
     description: "Hire Muhammad Sufyan for React & Next.js development. Freelance & full-time available. Based in Lahore, Pakistan.",
     url: "https://sufyan-frontend.vercel.app/contact",
     images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Contact Muhammad Sufyan" }],
@@ -211,7 +211,7 @@ export default function Contact() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <p className="text-primary font-mono text-xs text-center uppercase tracking-widest mb-2">Why Muhammad Sufyan</p>
-          <h2 className="text-2xl font-bold text-surface text-center mb-10">Why Hire sufyanjutt for Your Project?</h2>
+          <h2 className="text-2xl font-bold text-surface text-center mb-10">Why Hire Muhammad Sufyan for Your Project?</h2>
         </Reveal>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[

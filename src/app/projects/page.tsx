@@ -201,7 +201,7 @@ export default function Projects() {
           <div className="bg-card border border-primary/10 rounded-2xl p-10 text-center">
             <h2 className="text-2xl font-bold text-surface mb-3">Want a Website Like These?</h2>
             <p className="text-surface/60 text-sm max-w-md mx-auto mb-6">
-              Muhammad Sufyan (sufyanjutt) is available for new React and Next.js projects. Education platforms, corporate sites, dashboards — delivered production-ready.
+              Muhammad Sufyan is available for new React and Next.js projects. Education platforms, corporate sites, dashboards — delivered production-ready.
             </p>
             <Link
               href="/contact"

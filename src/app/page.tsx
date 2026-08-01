@@ -64,7 +64,7 @@ const faqSchema = {
     {
       "@type": "Question",
       name: "Who is Muhammad Sufyan?",
-      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan (also known as sufyanjutt and sufyanfrontend) is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building React.js and Next.js web applications. He works at Ehya Education and has built production platforms used by thousands of users." },
+      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building React.js and Next.js web applications. He works at Ehya Education and has built production platforms used by thousands of users." },
     },
     {
       "@type": "Question",
@@ -74,7 +74,7 @@ const faqSchema = {
     {
       "@type": "Question",
       name: "Is Muhammad Sufyan available for hire?",
-      acceptedAnswer: { "@type": "Answer", text: "Yes. Muhammad Sufyan (sufyanjutt / sufyanfrontend) is open to freelance projects, full-time frontend developer roles, and remote work opportunities. You can contact him at sufyantechsolutions@gmail.com or through his portfolio at https://sufyan-frontend.vercel.app/contact." },
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Muhammad Sufyan is open to freelance projects, full-time frontend developer roles, and remote work opportunities. You can contact him at sufyantechsolutions@gmail.com or through his portfolio at https://sufyan-frontend.vercel.app/contact." },
     },
     {
       "@type": "Question",
@@ -494,7 +494,7 @@ export default function Home() {
             {[
               {
                 q: "Who is Muhammad Sufyan?",
-                a: "Muhammad Sufyan (also known as sufyanjutt and sufyanfrontend) is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building React.js and Next.js web applications. He works at Ehya Education and has built production platforms used by thousands of users.",
+                a: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building React.js and Next.js web applications. He works at Ehya Education and has built production platforms used by thousands of users.",
               },
               {
                 q: "What does Muhammad Sufyan specialise in?",
@@ -502,7 +502,7 @@ export default function Home() {
               },
               {
                 q: "Is Muhammad Sufyan available for hire?",
-                a: "Yes. Muhammad Sufyan (sufyanjutt / sufyanfrontend) is open to freelance projects, full-time frontend developer roles, and remote work. Contact him at sufyantechsolutions@gmail.com.",
+                a: "Yes. Muhammad Sufyan is open to freelance projects, full-time frontend developer roles, and remote work. Contact him at sufyantechsolutions@gmail.com.",
               },
               {
                 q: "What projects has Muhammad Sufyan built?",

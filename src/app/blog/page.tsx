@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://sufyan-frontend.vercel.app/blog" },
   openGraph: {
-    title: "Blog by sufyanjutt — React, Next.js & Frontend Dev",
+    title: "Blog by Muhammad Sufyan — React, Next.js & Frontend Dev",
     description: "Tutorials and insights on React, Next.js, Tailwind CSS and modern web development by Muhammad Sufyan.",
     url: "https://sufyan-frontend.vercel.app/blog",
     images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Blog" }],

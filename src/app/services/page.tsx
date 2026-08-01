@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://sufyan-frontend.vercel.app/services" },
   openGraph: {
-    title: "Hire sufyanjutt — Frontend Development Services",
+    title: "Hire Muhammad Sufyan — Frontend Development Services",
     description: "React, Next.js, responsive design, API integration and deployment services by Muhammad Sufyan — Lahore, Pakistan.",
     url: "https://sufyan-frontend.vercel.app/services",
     images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Services" }],
@@ -409,7 +409,7 @@ export default function Services() {
         <Reveal>
           <div className="text-center bg-card border border-primary/10 rounded-2xl p-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-surface mb-4">Have a project in mind?</h2>
-            <p className="text-surface/60 mb-2 max-w-lg mx-auto">Muhammad Sufyan (sufyanjutt) is open to new React and Next.js projects — freelance, contract, and full-time. Based in Lahore, available worldwide.</p>
+            <p className="text-surface/60 mb-2 max-w-lg mx-auto">Muhammad Sufyan is open to new React and Next.js projects — freelance, contract, and full-time. Based in Lahore, available worldwide.</p>
             <p className="text-surface/40 text-sm mb-8">Typical response within 24 hours.</p>
             <Link
               href="/contact"
