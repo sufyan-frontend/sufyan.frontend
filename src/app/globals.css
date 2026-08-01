@@ -6,7 +6,8 @@
   --color-primary: #38BDF8;
   --color-accent: #A78BFA;
   --color-surface: #E2E8F0;
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-sora);
   --font-mono: var(--font-geist-mono);
 
   /* Brand scale used by the SEO Fundamentals guide (/blog/seo-fundamentals) */
@@ -65,7 +66,27 @@ html {
 body {
   background-color: #0F172A;
   color: #E2E8F0;
-  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-family: var(--font-inter), system-ui, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display type — Sora on all headings, with tight optical tracking. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sora), var(--font-inter), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.28);
+  color: #ffffff;
+}
+
+/* Elevation — the standard card surface (bg-card + rounded-2xl) gets subtle
+   depth so the UI feels layered rather than flat. Two-class selector keeps it
+   above single-class utilities and off unrelated bg-card elements. */
+.bg-card.rounded-2xl {
+  box-shadow: 0 1px 1px rgba(2, 6, 23, 0.35), 0 14px 34px -18px rgba(2, 6, 23, 0.8);
 }
 
 ::-webkit-scrollbar { width: 5px; }

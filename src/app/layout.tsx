@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Sora, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import ConditionalShell from "@/components/ConditionalShell";
 import { QueryProvider } from "@/providers/QueryProvider";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+// Body: Inter (clean, highly legible). Headings: Sora (geometric display).
+// Mono: Geist Mono (kept for eyebrow labels and code).
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
+const sora = Sora({ variable: "--font-sora", subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -184,7 +187,7 @@ const organizationSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${sora.variable} ${geistMono.variable}`}>
       <body className="min-h-screen bg-dark text-surface antialiased flex flex-col">
         <script
           type="application/ld+json"
