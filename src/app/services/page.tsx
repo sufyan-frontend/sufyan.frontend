@@ -174,6 +174,49 @@ const servicesSchema = {
   ],
 };
 
+// ProfessionalService — the commercial entity Google/AI use to understand that
+// this is a bookable service business, with the full catalogue of offerings.
+const professionalServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://sufyan-frontend.vercel.app/#service",
+  name: "Muhammad Sufyan — Frontend Development Services",
+  description:
+    "Freelance React.js and Next.js frontend development, responsive design, API integration, performance optimisation, and deployment by Muhammad Sufyan — Lahore, Pakistan. Available worldwide (remote).",
+  url: "https://sufyan-frontend.vercel.app/services",
+  image: "https://sufyan-frontend.vercel.app/profile.png",
+  areaServed: { "@type": "Place", name: "Worldwide" },
+  provider: {
+    "@type": "Person",
+    "@id": "https://sufyan-frontend.vercel.app/#person",
+    name: "Muhammad Sufyan",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lahore",
+    addressRegion: "Punjab",
+    addressCountry: "PK",
+  },
+  telephone: "+923227479636",
+  email: "sufyantechsolutions@gmail.com",
+  priceRange: "$$",
+  knowsAbout: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "REST API Integration", "Core Web Vitals"],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Frontend Development Services",
+    itemListElement: services.map((s) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: s.title,
+        description: s.description,
+        provider: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
+        areaServed: "Worldwide",
+      },
+    })),
+  },
+};
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -252,6 +295,7 @@ const howToSchema = {
 export default function Services() {
   return (
     <div className="pt-24 pb-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesFaqSchema) }} />
