@@ -73,7 +73,7 @@ export default async function BlogPost({ params }: Props) {
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    inLanguage: "en-PK",
+    inLanguage: "en",
     url: `https://sufyan-frontend.vercel.app/blog/${post.slug}`,
     mainEntityOfPage: {
       "@type": "WebPage",

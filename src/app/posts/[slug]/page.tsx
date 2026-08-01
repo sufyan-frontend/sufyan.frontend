@@ -34,7 +34,7 @@ export default async function PostPage({ params }: Props) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    inLanguage: "en-PK",
+    inLanguage: "en",
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     image: { "@type": "ImageObject", url: image, width: 1200, height: 630 },

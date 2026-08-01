@@ -10,6 +10,7 @@ import PricingSection from "@/components/PricingSection";
 import {
   projects, skills, experience,
   clientServices, whyChooseMe, processSteps, pricingTiers,
+  internationalHighlights,
 } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -127,6 +128,10 @@ const iconPaths: Record<string, string> = {
   mobile: "M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z",
   bolt: "M13 10V3L4 14h7v7l9-11h-7z",
   code: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
+  globe: "M21 12a9 9 0 11-18 0 9 9 0 0118 0zM3.6 9h16.8M3.6 15h16.8M12 3a15 15 0 010 18M12 3a15 15 0 000 18",
+  clock: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+  chat: "M21 12a9 9 0 01-9 9c-1.6 0-3.1-.4-4.4-1.1L3 21l1.1-4.6A9 9 0 1121 12zM8 12h.01M12 12h.01M16 12h.01",
+  card: "M3 10h18M3 8a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8zM7 15h2",
   sparkles: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
   gauge: "M3 15a9 9 0 1118 0M12 15l4-4M9 19h6",
 };
@@ -158,6 +163,38 @@ export default function Home() {
       />
 
       <HeroSection />
+
+      {/* Working with clients worldwide — international-first trust strip */}
+      <section className="py-14 border-y border-white/5 bg-card/30" aria-labelledby="global-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-10">
+              <p className="text-primary font-mono text-sm mb-2">Global by Default</p>
+              <h2 id="global-heading" className="text-2xl sm:text-3xl font-bold text-surface mb-3">
+                Working with Clients Worldwide
+              </h2>
+              <p className="text-surface/60 max-w-xl mx-auto text-sm leading-relaxed">
+                Most of my clients are overseas. I deliver remotely for businesses across the US, UK,
+                Europe, and the Gulf — with clear communication and no time-zone friction.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {internationalHighlights.map((item, i) => (
+              <Reveal key={item.title} delay={i * 0.06}>
+                <div className="bg-card border border-white/5 rounded-2xl p-6 hover:border-primary/20 transition-all duration-300 h-full">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                    <FeatureIcon name={item.icon} />
+                  </div>
+                  <h3 className="text-surface font-semibold text-base mb-1">{item.title}</h3>
+                  <p className="text-surface/55 text-sm leading-relaxed">{item.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Services */}
       <section className="py-16" aria-labelledby="services-heading">

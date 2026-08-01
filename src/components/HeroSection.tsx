@@ -29,9 +29,9 @@ export default function HeroSection() {
             </motion.h1>
 
             <motion.p {...fade(0.4)} className="text-surface/65 text-lg leading-relaxed mb-8 max-w-lg">
-              I&apos;m a React &amp; Next.js developer helping businesses launch high-performance,
+              I&apos;m a React &amp; Next.js developer helping businesses worldwide launch high-performance,
               SEO-friendly websites that look premium, load fast, and generate real leads —
-              from landing pages to full web apps.
+              from landing pages to full web apps. Fully remote, across US, UK &amp; Gulf time zones.
             </motion.p>
 
             <motion.div {...fade(0.5)} className="flex flex-wrap gap-3 mb-8">
@@ -96,7 +96,7 @@ export default function HeroSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </a>
-              <span className="text-surface/30 text-sm">{person.location}</span>
+              <span className="text-surface/30 text-sm">{person.location} · Remote worldwide</span>
             </motion.div>
           </div>
 
@@ -120,7 +120,7 @@ export default function HeroSection() {
               </div>
               <div className="absolute -bottom-2 -right-2 sm:bottom-4 sm:right-0 bg-card border border-white/10 rounded-xl px-3 py-2 flex items-center gap-2 shadow-xl">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" aria-hidden="true" />
-                <span className="text-surface text-xs sm:text-sm font-medium">Available for projects</span>
+                <span className="text-surface text-xs sm:text-sm font-medium">Available worldwide</span>
               </div>
             </div>
           </motion.div>

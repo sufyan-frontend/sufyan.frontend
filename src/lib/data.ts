@@ -276,6 +276,31 @@ export const clientServices = [
   },
 ];
 
+// International-client trust strip (homepage) — most clients are overseas, so this
+// foregrounds remote delivery, timezone overlap, English, and USD/global payment.
+export const internationalHighlights = [
+  {
+    title: 'Remote, Worldwide',
+    description: 'Fully remote delivery for clients anywhere — US, UK, Europe, the Gulf, Australia, and beyond.',
+    icon: 'globe',
+  },
+  {
+    title: 'Timezone Overlap',
+    description: 'Comfortable working across US, UK, and Gulf hours with reliable daily overlap and updates.',
+    icon: 'clock',
+  },
+  {
+    title: 'Clear English',
+    description: 'Fluent written and spoken English, so scope, progress, and feedback stay effortless.',
+    icon: 'chat',
+  },
+  {
+    title: 'USD & Global Pay',
+    description: 'Priced in USD with flexible international payment — Wise, Payoneer, or bank transfer.',
+    icon: 'card',
+  },
+];
+
 // "Why choose me" differentiators (homepage).
 export const whyChooseMe = [
   {

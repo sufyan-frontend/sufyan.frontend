@@ -35,7 +35,7 @@ const blogWebPageSchema = {
   name: "Muhammad Sufyan Blog — Frontend Development Articles",
   description: "53 articles by Muhammad Sufyan (sufyanjutt / sufyanfrontend) covering React.js, Next.js, Tailwind CSS, frontend career guidance for Pakistan developers, and personal brand building.",
   dateModified: "2026-06-09",
-  inLanguage: "en-PK",
+  inLanguage: "en",
   isPartOf: { "@id": "https://sufyan-frontend.vercel.app" },
   author: { "@id": "https://sufyan-frontend.vercel.app/#person" },
 };
