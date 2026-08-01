@@ -24,14 +24,14 @@ export default function HeroSection() {
             </motion.p>
 
             <motion.h1 {...fade(0.2)} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-surface leading-[1.1] mb-6">
-              I build fast, modern websites that turn{" "}
-              <span className="text-primary">visitors into customers</span>
+              Fast, dependable websites{" "}
+              <span className="text-primary">built to be trusted</span>
             </motion.h1>
 
             <motion.p {...fade(0.4)} className="text-surface/65 text-lg leading-relaxed mb-8 max-w-lg">
-              I&apos;m a React &amp; Next.js developer helping businesses worldwide launch high-performance,
-              SEO-friendly websites that look premium, load fast, and generate real leads —
-              from landing pages to full web apps. Fully remote, across US, UK &amp; Gulf time zones.
+              A React &amp; Next.js developer with 1.5+ years shipping production apps used by thousands.
+              I help businesses worldwide launch high-performance, SEO-friendly websites that look premium,
+              load fast, and generate real leads. Fully remote, across US, UK &amp; Gulf time zones.
             </motion.p>
 
             <motion.div {...fade(0.5)} className="flex flex-wrap gap-3 mb-8">
