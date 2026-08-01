@@ -13,7 +13,7 @@ import {
 } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Muhammad Sufyan | Frontend Developer in Lahore, Pakistan",
+  title: { absolute: "Muhammad Sufyan — Frontend Developer in Lahore, Pakistan" },
   description:
     "Muhammad Sufyan (sufyanjutt / sufyanfrontend) — Frontend Developer with 1.5+ years building React & Next.js apps in Lahore, Pakistan. Open to freelance & full-time work.",
   keywords: [
@@ -37,23 +37,23 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+// The Person entity is defined once, globally, in the root layout (#person).
+// This page declares the ProfilePage type (scoped to the homepage only — it must
+// not be emitted on every route) and points its mainEntity at that Person.
+const profilePageSchema = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://sufyan-frontend.vercel.app/#person",
-  name: "Muhammad Sufyan",
-  alternateName: ["sufyanjutt", "sufyanfrontend", "Sufyan Frontend"],
-  jobTitle: "Frontend Developer",
-  description: "Muhammad Sufyan (sufyanjutt / sufyanfrontend) is a Frontend Developer from Lahore, Pakistan with 1.5+ years building production-ready React.js and Next.js applications.",
-  email: "sufyantechsolutions@gmail.com",
-  telephone: "+923227479636",
+  "@type": "ProfilePage",
+  "@id": "https://sufyan-frontend.vercel.app/#profilepage",
   url: "https://sufyan-frontend.vercel.app",
-  image: "https://sufyan-frontend.vercel.app/profile.png",
-  address: { "@type": "PostalAddress", addressLocality: "Lahore", addressRegion: "Punjab", addressCountry: "PK" },
-  sameAs: ["https://github.com/sufyan-frontend", "https://www.linkedin.com/in/sufyan-frontend"],
-  knowsAbout: ["React.js", "Next.js", "JavaScript", "TypeScript", "Tailwind CSS", "Frontend Development", "Web Development", "REST APIs"],
-  award: "Best Instructor Certificate — Ehsas Lab 2024",
-  worksFor: { "@type": "Organization", name: "Ehya Education", url: "https://www.ehya.com.pk" },
+  name: "Muhammad Sufyan — Frontend Developer Portfolio",
+  description: "Portfolio of Muhammad Sufyan, a Frontend Developer from Lahore, Pakistan specialising in React.js and Next.js.",
+  dateCreated: "2024-01-01",
+  dateModified: "2026-06-09",
+  mainEntity: { "@id": "https://sufyan-frontend.vercel.app/#person" },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://sufyan-frontend.vercel.app/" }],
+  },
 };
 
 const faqSchema = {
@@ -101,7 +101,14 @@ const offerSchema = {
     description: tier.description,
     priceCurrency: "PKR",
     ...(tier.custom
-      ? { priceSpecification: { "@type": "PriceSpecification", description: "Custom quote" } }
+      ? {
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: 0,
+            priceCurrency: "PKR",
+            description: "Custom quote — final price depends on project scope",
+          },
+        }
       : { price: String(tier.pkrAmount) }),
     availability: "https://schema.org/InStock",
     seller: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
@@ -139,7 +146,7 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
       />
       <script
         type="application/ld+json"

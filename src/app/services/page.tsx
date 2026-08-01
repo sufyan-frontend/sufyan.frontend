@@ -5,9 +5,9 @@ import RunningCosts from "@/components/RunningCosts";
 import { services } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Services — Hire Muhammad Sufyan (sufyanjutt) | Frontend Developer",
+  title: { absolute: "Hire a React & Next.js Developer | Muhammad Sufyan" },
   description:
-    "Hire Muhammad Sufyan (sufyanjutt / sufyanfrontend) for React & Next.js development, responsive design, API integration, performance optimisation, and Vercel deployment. Based in Lahore, Pakistan.",
+    "Hire Muhammad Sufyan for React & Next.js development, responsive design, API integration, and performance optimisation. Based in Lahore, Pakistan.",
   keywords: [
     "hire frontend developer Pakistan", "hire React developer Lahore",
     "Muhammad Sufyan services", "sufyanjutt hire", "sufyanfrontend hire",
@@ -201,20 +201,8 @@ const professionalServiceSchema = {
   email: "sufyantechsolutions@gmail.com",
   priceRange: "$$",
   knowsAbout: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "REST API Integration", "Core Web Vitals"],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Frontend Development Services",
-    itemListElement: services.map((s) => ({
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: s.title,
-        description: s.description,
-        provider: { "@type": "Person", "@id": "https://sufyan-frontend.vercel.app/#person", name: "Muhammad Sufyan" },
-        areaServed: "Worldwide",
-      },
-    })),
-  },
+  // The 8 services are enumerated once, in servicesSchema (ItemList) below — no
+  // duplicate OfferCatalog here, to keep a single source of truth.
 };
 
 const breadcrumbSchema = {
@@ -253,45 +241,6 @@ const servicesFaqSchema = {
   ],
 };
 
-const howToSchema = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to Work With Muhammad Sufyan — Frontend Developer",
-  description: "The process for hiring Muhammad Sufyan (sufyanjutt / sufyanfrontend) for your React or Next.js frontend development project.",
-  step: [
-    {
-      "@type": "HowToStep",
-      position: 1,
-      name: "Contact Muhammad Sufyan",
-      text: "Reach out via email at sufyantechsolutions@gmail.com or through the contact form at sufyan-frontend.vercel.app/contact. Describe your project requirements.",
-    },
-    {
-      "@type": "HowToStep",
-      position: 2,
-      name: "Project Discovery Call",
-      text: "Muhammad Sufyan will review your requirements, ask clarifying questions, and provide a detailed project scope with estimated timeline and cost.",
-    },
-    {
-      "@type": "HowToStep",
-      position: 3,
-      name: "Development Phase",
-      text: "Muhammad Sufyan builds your React or Next.js frontend using Tailwind CSS, integrates your APIs, and shares progress updates throughout development.",
-    },
-    {
-      "@type": "HowToStep",
-      position: 4,
-      name: "Review and Revisions",
-      text: "Review the completed work, request any changes, and Muhammad Sufyan makes revisions until the final result matches your vision.",
-    },
-    {
-      "@type": "HowToStep",
-      position: 5,
-      name: "Deployment and Handover",
-      text: "Muhammad Sufyan deploys your project to Vercel or Netlify, provides the codebase, and offers post-launch support.",
-    },
-  ],
-};
-
 export default function Services() {
   return (
     <div className="pt-24 pb-20">
@@ -299,7 +248,6 @@ export default function Services() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesFaqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center mb-16">

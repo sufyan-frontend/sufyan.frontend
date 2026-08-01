@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import { blogPosts } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Blog — Muhammad Sufyan (sufyanjutt) | React & Next.js Articles",
+  title: { absolute: "Frontend Dev Blog: React & Next.js | Muhammad Sufyan" },
   description:
     "Frontend development articles by Muhammad Sufyan (sufyanjutt) — tutorials on React, Next.js App Router, Tailwind CSS, and performance optimisation.",
   keywords: [
@@ -40,7 +40,12 @@ const blogWebPageSchema = {
   author: { "@id": "https://sufyan-frontend.vercel.app/#person" },
 };
 
+// Superseded, noindexed posts — hidden from the listing (they 301 to their
+// replacements via next.config redirects).
+const RETIRED_SLUGS = new Set(["react-performance", "nextjs-app-router-guide"]);
+
 export default function Blog() {
+  const posts = blogPosts.filter((p) => !RETIRED_SLUGS.has(p.slug));
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogWebPageSchema) }} />
@@ -57,7 +62,7 @@ export default function Blog() {
         </Reveal>
 
         <div className="space-y-6">
-          {blogPosts.map((post, i) => (
+          {posts.map((post, i) => (
             <Reveal key={post.slug} delay={i * 0.1}>
               <article className="bg-card border border-white/5 rounded-2xl p-6 hover:border-primary/20 transition-all group">
                 <div className="flex flex-wrap items-center gap-2 mb-3">

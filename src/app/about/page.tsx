@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 import { person, skills, experience } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "About Muhammad Sufyan — sufyanjutt | Frontend Developer, Lahore",
+  title: { absolute: "About Muhammad Sufyan — Frontend Developer, Lahore" },
   description:
     "About Muhammad Sufyan (sufyanjutt / sufyanfrontend) — Frontend Developer from Lahore, Pakistan. 1.5+ years building React & Next.js apps at Ehya Education. Best Instructor at Ehsas Lab.",
   keywords: [

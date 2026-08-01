@@ -182,22 +182,6 @@ const organizationSchema = {
   },
 };
 
-const profilePageSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "@id": "https://sufyan-frontend.vercel.app/#profilepage",
-  url: "https://sufyan-frontend.vercel.app",
-  name: "Muhammad Sufyan — Frontend Developer Portfolio",
-  description: "Portfolio of Muhammad Sufyan, a Frontend Developer from Lahore, Pakistan specialising in React.js and Next.js.",
-  dateCreated: "2024-01-01",
-  dateModified: "2026-06-09",
-  mainEntity: { "@id": "https://sufyan-frontend.vercel.app/#person" },
-  breadcrumb: {
-    "@type": "BreadcrumbList",
-    itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://sufyan-frontend.vercel.app/" }],
-  },
-};
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
@@ -209,10 +193,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
         />
         <script
           type="application/ld+json"

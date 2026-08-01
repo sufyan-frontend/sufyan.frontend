@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 import { person, whatsappLink } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Contact Muhammad Sufyan (sufyanjutt) — Hire Frontend Developer",
+  title: { absolute: "Contact Muhammad Sufyan — Hire a Frontend Dev" },
   description:
     "Contact Muhammad Sufyan (sufyanjutt / sufyanfrontend) — Frontend Developer in Lahore, Pakistan. Available for freelance React/Next.js projects, full-time roles, and collaborations.",
   keywords: [

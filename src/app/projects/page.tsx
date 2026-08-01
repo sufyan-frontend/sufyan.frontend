@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 import { projects, practiceProjects } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Projects — Muhammad Sufyan (sufyanjutt) Portfolio",
+  title: { absolute: "Projects — Muhammad Sufyan Portfolio" },
   description:
     "Portfolio of Muhammad Sufyan (sufyanjutt / sufyanfrontend) — 9 live production projects: education platforms, corporate sites, AI interfaces, and web apps built with React & Next.js.",
   keywords: [

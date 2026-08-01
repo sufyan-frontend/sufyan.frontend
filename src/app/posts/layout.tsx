@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Posts — Muhammad Sufyan | Frontend Updates",
+  title: { absolute: "Posts — Muhammad Sufyan | Frontend Updates" },
   description:
     "Latest posts, updates, and insights from Muhammad Sufyan — frontend development, React, Next.js, and web technology.",
   alternates: { canonical: "https://sufyan-frontend.vercel.app/posts" },

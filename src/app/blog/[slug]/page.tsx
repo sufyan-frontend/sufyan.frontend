@@ -6,10 +6,13 @@ import { blogContent } from "@/lib/blog-content";
 
 const hasContent = (slug: string) => slug in blogContent;
 
+// `seo-fundamentals` has its own dedicated route; `react-performance` and
+// `nextjs-app-router-guide` are 301-redirected to newer posts (next.config) — so
+// none of them should be prerendered here.
+const EXCLUDED_SLUGS = new Set(["seo-fundamentals", "react-performance", "nextjs-app-router-guide"]);
+
 export function generateStaticParams() {
-  // `seo-fundamentals` has its own dedicated route (blog/seo-fundamentals/page.tsx),
-  // so exclude it here to avoid a static/dynamic path collision at build time.
-  return blogPosts.filter((post) => post.slug !== "seo-fundamentals").map((post) => ({ slug: post.slug }));
+  return blogPosts.filter((post) => !EXCLUDED_SLUGS.has(post.slug)).map((post) => ({ slug: post.slug }));
 }
 
 type Props = { params: Promise<{ slug: string }> };

@@ -28,7 +28,7 @@ async function fetchActiveReviews(): Promise<ActiveReview[]> {
 }
 
 export const metadata: Metadata = {
-  title: "Client Reviews & Testimonials — Muhammad Sufyan",
+  title: { absolute: "Client Reviews — Muhammad Sufyan" },
   description:
     "Read verified client reviews and testimonials for Muhammad Sufyan (sufyanjutt / sufyanfrontend), a Frontend Developer from Lahore, Pakistan. Worked with me? Leave your own review.",
   keywords: [
