@@ -10,8 +10,8 @@ export const person = {
   location: 'Lahore, Pakistan',
   github: 'https://github.com/sufyan-frontend',
   linkedin: 'https://www.linkedin.com/in/sufyan-frontend',
-  bio: 'Frontend Developer with 1.5+ years of experience building responsive, scalable, and production-ready web applications using React and Next.js.',
-  fullBio: 'Frontend Developer with 1.5+ years of experience building responsive, scalable, and production-ready web applications using React and Next.js. Experienced in developing real-world platforms for education, software companies, and business solutions. Strong focus on UI/UX, performance, and clean code practices. Currently working on multiple deployed production projects, including education portals, company websites, and SaaS-style platforms.',
+  bio: 'Frontend Developer with 2+ years of experience building responsive, scalable, and production-ready web applications using React and Next.js.',
+  fullBio: 'Frontend Developer with 2+ years of experience building responsive, scalable, and production-ready web applications using React and Next.js. Experienced in developing real-world platforms for education, software companies, and business solutions. Strong focus on UI/UX, performance, and clean code practices. Currently working on multiple deployed production projects, including education portals, company websites, and SaaS-style platforms.',
   objective: 'Seeking a Frontend Developer role where I can contribute to scalable web applications, improve UI/UX systems, and grow into a mid/senior-level developer role in a professional engineering environment.',
 };
 
@@ -171,7 +171,7 @@ export const experience = [
     company: 'Ehya Education',
     url: 'https://www.ehya.com.pk/',
     location: 'Lahore, Pakistan',
-    duration: '1.5+ Years',
+    duration: '2+ Years',
     period: '2025 – Present',
     highlights: [
       'Developed and maintained multiple education-based web platforms',
@@ -243,11 +243,13 @@ export const services = [
 ];
 
 // Headline metrics shown in the hero trust strip.
+// `shortLabel` is the compact form used in the hero strip; `label` is the full
+// wording used anywhere the stat has room to breathe.
 export const heroStats = [
-  { value: '13+', label: 'Live Projects Shipped' },
-  { value: '10+', label: 'Technologies Mastered' },
-  { value: '1.5+ yrs', label: 'Production Experience' },
-  { value: '100%', label: 'Responsive & SEO-Ready' },
+  { value: '13+', label: 'Live Projects Shipped', shortLabel: 'Projects' },
+  { value: '10+', label: 'Technologies Mastered', shortLabel: 'Technologies' },
+  { value: '2+ yrs', label: 'Production Experience', shortLabel: 'Experience' },
+  { value: '100%', label: 'Responsive & SEO-Ready', shortLabel: 'Responsive' },
 ];
 
 // Client-facing services (homepage grid) — framed around what a business buys, not just tech.

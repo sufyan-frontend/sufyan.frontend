@@ -215,7 +215,7 @@ export default function Contact() {
         </Reveal>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
-            { title: "1.5+ Years Production Experience", body: "Muhammad Sufyan has built and maintained real-world apps used by thousands of users — not just practice projects." },
+            { title: "2+ Years Production Experience", body: "Muhammad Sufyan has built and maintained real-world apps used by thousands of users — not just practice projects." },
             { title: "React & Next.js Specialist", body: "Deep expertise in React.js and Next.js App Router, Tailwind CSS, TypeScript, and REST API integration." },
             { title: "Education & AI Platform Experience", body: "Built complex platforms: Alif Laila, Ehya Education, Classmate Portal, and FieldX AI — all live in production." },
             { title: "Fast Turnaround", body: "Typical response within 24 hours. Efficient delivery with clean, maintainable code and proper documentation." },

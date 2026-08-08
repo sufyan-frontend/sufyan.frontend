@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | Muhammad Sufyan",
   },
   description:
-    "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building fast, responsive, and production-ready React and Next.js web applications.",
+    "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 2+ years of experience building fast, responsive, and production-ready React and Next.js web applications.",
   keywords: [
     "Muhammad Sufyan",
     "Sufyan Frontend Developer",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     url: "https://sufyan-frontend.vercel.app",
     title: "Muhammad Sufyan | Frontend Developer in Lahore, Pakistan",
     description:
-      "Frontend Developer with 1.5+ years building production-ready React & Next.js apps. Based in Lahore, Pakistan. Open to work.",
+      "Frontend Developer with 2+ years building production-ready React & Next.js apps. Based in Lahore, Pakistan. Open to work.",
     siteName: "Muhammad Sufyan — Frontend Developer",
     // OG image is supplied site-wide by app/opengraph-image.tsx (generated, 1200×630).
   },
@@ -119,7 +119,7 @@ const personSchema = {
     height: 400,
   },
   jobTitle: "Frontend Developer",
-  description: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building production-ready React.js and Next.js web applications for education platforms, corporate websites, and SaaS products.",
+  description: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 2+ years of experience building production-ready React.js and Next.js web applications for education platforms, corporate websites, and SaaS products.",
   email: "sufyantechsolutions@gmail.com",
   telephone: "+923227479636",
   address: {

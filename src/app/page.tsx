@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: { absolute: "Muhammad Sufyan — Frontend Developer in Lahore, Pakistan" },
   description:
-    "Muhammad Sufyan (sufyanjutt / sufyanfrontend) — Frontend Developer with 1.5+ years building React & Next.js apps in Lahore, Pakistan. Open to freelance & full-time work.",
+    "Muhammad Sufyan (sufyanjutt / sufyanfrontend) — Frontend Developer with 2+ years building React & Next.js apps in Lahore, Pakistan. Open to freelance & full-time work.",
   keywords: [
     "Muhammad Sufyan", "sufyanjutt", "sufyanfrontend", "sufyan jutt",
     "sufyan frontend developer", "Frontend Developer Lahore", "React Developer Pakistan",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://sufyan-frontend.vercel.app" },
   openGraph: {
     title: "Muhammad Sufyan | Frontend Developer in Lahore, Pakistan",
-    description: "sufyanjutt · sufyanfrontend — React & Next.js developer. 1.5+ years building production apps. Open to work.",
+    description: "sufyanjutt · sufyanfrontend — React & Next.js developer. 2+ years building production apps. Open to work.",
     url: "https://sufyan-frontend.vercel.app",
     images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Frontend Developer" }],
   },
@@ -64,7 +64,7 @@ const faqSchema = {
     {
       "@type": "Question",
       name: "Who is Muhammad Sufyan?",
-      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building React.js and Next.js web applications. He works at Ehya Education and has built production platforms used by thousands of users." },
+      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 2+ years of experience building React.js and Next.js web applications. He works at Ehya Education and has built production platforms used by thousands of users." },
     },
     {
       "@type": "Question",
@@ -494,7 +494,7 @@ export default function Home() {
             {[
               {
                 q: "Who is Muhammad Sufyan?",
-                a: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building React.js and Next.js web applications. He works at Ehya Education and has built production platforms used by thousands of users.",
+                a: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 2+ years of experience building React.js and Next.js web applications. He works at Ehya Education and has built production platforms used by thousands of users.",
               },
               {
                 q: "What does Muhammad Sufyan specialise in?",

@@ -5,7 +5,7 @@ import PrintButton from "@/components/cv/PrintButton";
 const SITE = "https://sufyan-frontend.vercel.app";
 const CV_URL = `${SITE}/cv`;
 const cvDescription =
-  "Online CV / resume of Muhammad Sufyan — Frontend Developer from Lahore, Pakistan with 1.5+ years building production-ready React & Next.js applications. View experience, technical skills, projects, certifications, and contact details, or download the CV as a one-page PDF.";
+  "Online CV / resume of Muhammad Sufyan — Frontend Developer from Lahore, Pakistan with 2+ years building production-ready React & Next.js applications. View experience, technical skills, projects, certifications, and contact details, or download the CV as a one-page PDF.";
 
 export const metadata: Metadata = {
   title: { absolute: "CV — Muhammad Sufyan | Frontend Developer (React & Next.js)" },
@@ -156,7 +156,7 @@ const experience = {
   role: "Frontend Developer (Intern → Junior)",
   company: "Ehya Education",
   location: "Lahore, Pakistan",
-  period: "2023 – Present · 1.5+ Years",
+  period: "2023 – Present · 2+ Years",
   points: [
     "Developed and maintained multiple production education platforms used by real students and faculty.",
     "Converted UI/UX designs into responsive React & Next.js applications with pixel-accurate layouts.",
@@ -215,7 +215,7 @@ const cvSchema = {
       alternateName: ["sufyanjutt", "sufyanfrontend", "Sufyan Frontend"],
       jobTitle: "Frontend Developer",
       description:
-        "Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building responsive, production-ready React and Next.js web applications for education platforms, software companies, and business solutions.",
+        "Frontend Developer from Lahore, Pakistan with 2+ years of experience building responsive, production-ready React and Next.js web applications for education platforms, software companies, and business solutions.",
       url: SITE,
       mainEntityOfPage: CV_URL,
       image: { "@type": "ImageObject", url: `${SITE}/profile.png`, width: 400, height: 400 },
@@ -448,7 +448,7 @@ export default function CvPage() {
           <section className="mt-6">
             <SectionHeading icon={<UserIcon className={iconSm} />}>Profile</SectionHeading>
             <p className="rounded-xl bg-slate-50 p-4 text-[13px] leading-relaxed text-slate-600 ring-1 ring-slate-100">
-              Frontend Developer with 1.5+ years of experience building responsive, scalable, and
+              Frontend Developer with 2+ years of experience building responsive, scalable, and
               production-ready web applications using React and Next.js. Experienced in developing
               real-world platforms for education, software companies, and business solutions. Strong
               focus on UI/UX, performance, and clean, reusable code — currently shipping multiple

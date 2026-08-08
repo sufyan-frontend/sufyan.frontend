@@ -23,7 +23,7 @@
 
 ## About
 
-Production-grade personal portfolio for **Muhammad Sufyan**, a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building React and Next.js web applications. The site is built with the Next.js App Router, fully server-rendered, and tuned for Core Web Vitals, structured data, and AI crawler visibility.
+Production-grade personal portfolio for **Muhammad Sufyan**, a Frontend Developer from Lahore, Pakistan with 2+ years of experience building React and Next.js web applications. The site is built with the Next.js App Router, fully server-rendered, and tuned for Core Web Vitals, structured data, and AI crawler visibility.
 
 - **53 blog articles** covering React, Next.js, Tailwind CSS, and frontend career guidance
 - **10 live production projects** showcased with screenshots and live links

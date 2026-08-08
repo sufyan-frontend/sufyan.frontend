@@ -7,14 +7,14 @@ import { person, skills, experience } from "@/lib/data";
 export const metadata: Metadata = {
   title: { absolute: "About Muhammad Sufyan — Frontend Developer, Lahore" },
   description:
-    "About Muhammad Sufyan (sufyanjutt / sufyanfrontend) — Frontend Developer from Lahore, Pakistan. 1.5+ years building React & Next.js apps at Ehya Education. Best Instructor at Ehsas Lab.",
+    "About Muhammad Sufyan (sufyanjutt / sufyanfrontend) — Frontend Developer from Lahore, Pakistan. 2+ years building React & Next.js apps at Ehya Education. Best Instructor at Ehsas Lab.",
   keywords: [
     "Muhammad Sufyan about", "sufyanjutt", "sufyanfrontend", "sufyan jutt frontend",
     "sufyan developer Lahore", "Ehya Education frontend developer", "Ehsas Lab instructor",
     "who is Muhammad Sufyan", "Muhammad Sufyan background", "Muhammad Sufyan experience",
     "sufyan jutt developer Pakistan", "Muhammad Sufyan skills", "sufyan web developer about",
     "Best Instructor Ehsas Lab 2024", "Muhammad Sufyan React developer", "Muhammad Sufyan Next.js developer",
-    "frontend developer 1.5 years Pakistan", "sufyan developer profile", "React developer Lahore background",
+    "frontend developer 2 years Pakistan", "sufyan developer profile", "React developer Lahore background",
     "Pakistani frontend developer", "Muhammad Sufyan portfolio about", "Muhammad Sufyan career",
     "sufyan frontend developer biography", "sufyan jutt lahore", "hire frontend developer Lahore",
   ],
@@ -36,7 +36,7 @@ const aboutPersonSchema = {
   jobTitle: "Frontend Developer",
   url: "https://sufyan-frontend.vercel.app",
   image: "https://sufyan-frontend.vercel.app/profile.png",
-  description: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 1.5+ years building React.js and Next.js production applications. He is the Best Instructor award winner at Ehsas Lab.",
+  description: "Muhammad Sufyan is a Frontend Developer from Lahore, Pakistan with 2+ years building React.js and Next.js production applications. He is the Best Instructor award winner at Ehsas Lab.",
   email: "sufyantechsolutions@gmail.com",
   telephone: "+923227479636",
   address: { "@type": "PostalAddress", addressLocality: "Lahore", addressRegion: "Punjab", addressCountry: "PK" },
@@ -60,7 +60,7 @@ const aboutWebPageSchema = {
   "@id": "https://sufyan-frontend.vercel.app/about",
   url: "https://sufyan-frontend.vercel.app/about",
   name: "About Muhammad Sufyan — Frontend Developer in Lahore, Pakistan",
-  description: "About Muhammad Sufyan (sufyanjutt / sufyanfrontend) — Frontend Developer with 1.5+ years of React.js and Next.js experience, working at Ehya Education in Lahore, Pakistan.",
+  description: "About Muhammad Sufyan (sufyanjutt / sufyanfrontend) — Frontend Developer with 2+ years of React.js and Next.js experience, working at Ehya Education in Lahore, Pakistan.",
   dateModified: "2026-06-09",
   isPartOf: { "@id": "https://sufyan-frontend.vercel.app" },
   about: { "@id": "https://sufyan-frontend.vercel.app/#person" },
@@ -80,7 +80,7 @@ const aboutFaqSchema = {
     {
       "@type": "Question",
       name: "How many years of experience does Muhammad Sufyan have?",
-      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan has 1.5+ years of professional frontend development experience, working at Ehya Education in Lahore. Prior to that he completed an intensive programme at Ehsas Lab where he became an instructor and won the Best Instructor Certificate." },
+      acceptedAnswer: { "@type": "Answer", text: "Muhammad Sufyan has 2+ years of professional frontend development experience, working at Ehya Education in Lahore. Prior to that he completed an intensive programme at Ehsas Lab where he became an instructor and won the Best Instructor Certificate." },
     },
     {
       "@type": "Question",

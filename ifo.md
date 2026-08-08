@@ -6,7 +6,7 @@ Frontend Developer (React / Next.js)
 🔗 GitHub:https://github.com/sufyan-frontend 
 
 👨‍💻 Professional Summary
-Frontend Developer with 1.5+ years of experience building responsive, scalable, and production-ready web applications using React and Next.js. Experienced in developing real-world platforms for education, software companies, and business solutions. Strong focus on UI/UX, performance, and clean code practices.
+Frontend Developer with 2+ years of experience building responsive, scalable, and production-ready web applications using React and Next.js. Experienced in developing real-world platforms for education, software companies, and business solutions. Strong focus on UI/UX, performance, and clean code practices.
 Currently working on multiple deployed production projects, including education portals, company websites, and SaaS-style platforms.
 
 🛠 Technical Skills
@@ -22,7 +22,7 @@ Deployment (Vercel, Netlify)
 💼 Work Experience
 Frontend Developer (Intern → Junior Role)
 Ehya Education | Lahore
-📅 1.5+ Years
+📅 2+ Years
 Developed and maintained multiple education-based web platforms
 Converted UI designs into responsive React/Next.js applications
 Integrated APIs and handled dynamic data rendering

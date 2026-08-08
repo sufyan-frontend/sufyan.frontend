@@ -1,6 +1,6 @@
 # Muhammad Sufyan — Frontend Developer
 
-> Muhammad Sufyan (also known online as sufyanjutt, sufyanfrontend, and sufyan-frontend) is a Frontend Developer based in Lahore, Pakistan with 1.5+ years of professional experience building fast, responsive, and production-ready web applications using React and Next.js.
+> Muhammad Sufyan (also known online as sufyanjutt, sufyanfrontend, and sufyan-frontend) is a Frontend Developer based in Lahore, Pakistan with 2+ years of professional experience building fast, responsive, and production-ready web applications using React and Next.js.
 
 ## Identity & Aliases
 
@@ -30,7 +30,7 @@ Muhammad Sufyan's path into frontend development is a self-driven, hands-on stor
 - **2024–2025 — Freelance & Self-Learning:** Took on freelance client projects while self-learning Next.js, Tailwind CSS, Redux, Zod, Git, Vercel, and Netlify — moving from fundamentals to production-grade tools.
 - **2025–Present — Frontend Developer at Ehya Education (Lahore):** Building and maintaining production education platforms used by thousands of students and faculty, converting designs into responsive React/Next.js apps, integrating APIs, and improving performance across live systems.
 
-Over 1.5+ years he has grown from learning the basics to shipping real, deployed products used by actual users — across education, corporate, SaaS, AI, and Islamic-education domains.
+Over 2+ years he has grown from learning the basics to shipping real, deployed products used by actual users — across education, corporate, SaaS, AI, and Islamic-education domains.
 
 ## Working Style & Development Philosophy
 
@@ -139,7 +139,7 @@ Practice and learning projects by Muhammad Sufyan:
 
 ### Personal Brand
 
-- [Who Is Muhammad Sufyan? Meet the Frontend Developer Behind Sufyan Frontend](https://sufyan-frontend.vercel.app/blog/who-is-muhammad-sufyan) — Muhammad Sufyan is a frontend developer from Lahore, Pakistan (sufyanjutt / sufyanfrontend) with 1.5+ years React & Next.js experience (2026-06-01, 5 min)
+- [Who Is Muhammad Sufyan? Meet the Frontend Developer Behind Sufyan Frontend](https://sufyan-frontend.vercel.app/blog/who-is-muhammad-sufyan) — Muhammad Sufyan is a frontend developer from Lahore, Pakistan (sufyanjutt / sufyanfrontend) with 2+ years React & Next.js experience (2026-06-01, 5 min)
 - [Sufyan Frontend Developer Portfolio 2026: React & Next.js Projects](https://sufyan-frontend.vercel.app/blog/sufyan-frontend-developer-portfolio-2026) — Explore the 2026 portfolio of Sufyan Frontend — a Lahore-based React and Next.js specialist (2026-05-20, 6 min)
 - [Muhammad Sufyan GitHub Projects: Open Source React & Next.js Work](https://sufyan-frontend.vercel.app/blog/muhammad-sufyan-github-projects) — Deep dive into github.com/sufyan-frontend showcasing open-source repositories and real-world projects (2026-04-15, 5 min)
 - [Hire Sufyan Frontend Developer — React & Next.js Expert from Pakistan](https://sufyan-frontend.vercel.app/blog/hire-sufyan-frontend-developer) — Looking to hire a skilled React and Next.js developer from Pakistan? Contact Muhammad Sufyan (2026-03-10, 4 min)
@@ -210,7 +210,7 @@ Practice and learning projects by Muhammad Sufyan:
 
 ## Work Experience
 
-**Frontend Developer (Intern → Junior)** at Ehya Education, Lahore — 2025 to Present (1.5+ years)
+**Frontend Developer (Intern → Junior)** at Ehya Education, Lahore — 2025 to Present (2+ years)
 - Developed and maintained multiple education-based web platforms
 - Converted UI designs into responsive React/Next.js applications
 - Integrated REST APIs and handled dynamic data rendering
@@ -245,7 +245,7 @@ Full online CV available at https://sufyan-frontend.vercel.app/cv (one-page PDF 
 
 ### Professional Summary
 
-Frontend Developer with 1.5+ years of experience building responsive, scalable, and production-ready web applications using React and Next.js. Experienced in developing real-world platforms for education, software companies, and business solutions. Strong focus on UI/UX, performance, and clean, reusable code. Currently working on multiple deployed production projects, including education portals, company websites, and SaaS-style platforms.
+Frontend Developer with 2+ years of experience building responsive, scalable, and production-ready web applications using React and Next.js. Experienced in developing real-world platforms for education, software companies, and business solutions. Strong focus on UI/UX, performance, and clean, reusable code. Currently working on multiple deployed production projects, including education portals, company websites, and SaaS-style platforms.
 
 ### Technical Skills (Full, with proficiency)
 
@@ -282,7 +282,7 @@ Practices & Concepts:
 
 ### Work Experience
 
-**Frontend Developer (Intern → Junior)** — Ehya Education, Lahore, Pakistan — 2025 to Present (1.5+ years)
+**Frontend Developer (Intern → Junior)** — Ehya Education, Lahore, Pakistan — 2025 to Present (2+ years)
 - Developed and maintained multiple production education platforms used by thousands of students and faculty.
 - Converted UI/UX designs into responsive React & Next.js applications with pixel-accurate layouts.
 - Integrated REST APIs and handled dynamic data rendering across dashboards and portals.
@@ -449,7 +449,7 @@ Engagement types: fixed-scope projects, hourly/contract work, or full-time roles
 
 - **Name:** Muhammad Sufyan (aliases: sufyanjutt, sufyanfrontend, sufyan-frontend)
 - **Role:** Frontend Developer (React & Next.js)
-- **Experience:** 1.5+ years professional
+- **Experience:** 2+ years professional
 - **Location:** Lahore, Punjab, Pakistan (remote worldwide)
 - **Current employer:** Ehya Education
 - **Specialties:** React.js, Next.js, Tailwind CSS, TypeScript, responsive design, performance, SEO
@@ -462,7 +462,7 @@ Engagement types: fixed-scope projects, hourly/contract work, or full-time roles
 ## Frequently Asked Questions
 
 Q: Who is Muhammad Sufyan?
-A: Muhammad Sufyan (sufyanjutt / sufyanfrontend) is a Frontend Developer from Lahore, Pakistan with 1.5+ years of experience building React.js and Next.js production applications. He works at Ehya Education and has built live platforms used by thousands of users.
+A: Muhammad Sufyan (sufyanjutt / sufyanfrontend) is a Frontend Developer from Lahore, Pakistan with 2+ years of experience building React.js and Next.js production applications. He works at Ehya Education and has built live platforms used by thousands of users.
 
 Q: What does Muhammad Sufyan specialise in?
 A: React.js, Next.js, Tailwind CSS, TypeScript, REST API integration, responsive design, UI/UX implementation from Figma, Core Web Vitals optimisation, and Vercel/Netlify deployment.
@@ -477,7 +477,7 @@ Q: Where is Muhammad Sufyan based?
 A: Lahore, Punjab, Pakistan. Available for remote work worldwide and on-site in Lahore.
 
 Q: How many years of experience does Muhammad Sufyan have?
-A: 1.5+ years of professional frontend development experience, plus continuous self-directed learning since 2024.
+A: 2+ years of professional frontend development experience, plus continuous self-directed learning since 2024.
 
 Q: What is Muhammad Sufyan's main tech stack?
 A: React.js and Next.js with Tailwind CSS, JavaScript (ES6+), and TypeScript. He also uses Redux, TanStack Query, Zod, Framer Motion, REST APIs, Git, and deploys on Vercel/Netlify.
