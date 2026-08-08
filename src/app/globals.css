@@ -98,6 +98,13 @@ h1, h2, h3, h4, h5, h6 {
   background-size: 40px 40px;
 }
 
+/* Tighter version for the small decorative blocks beside the hero portrait,
+   where the 40px spacing above would only render a couple of dots. */
+.dot-grid-tight {
+  background-image: radial-gradient(circle, rgba(56,189,248,0.35) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
 .skill-bar {
   width: var(--skill-level, 0%);
 }
