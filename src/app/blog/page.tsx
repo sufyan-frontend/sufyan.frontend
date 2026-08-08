@@ -111,7 +111,7 @@ export default function Blog() {
           {[
             { href: "/", label: "Home", desc: "Portfolio overview" },
             { href: "/about", label: "About", desc: "My background" },
-            { href: "/projects", label: "Projects", desc: "10 live productions" },
+            { href: "/projects", label: "Projects", desc: "14 live productions" },
             { href: "/services", label: "Services", desc: "What I offer" },
             { href: "/contact", label: "Contact", desc: "Hire me" },
           ].map(({ href, label, desc }) => (

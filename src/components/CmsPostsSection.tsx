@@ -97,7 +97,7 @@ export default function CmsPostsSection() {
 
   return (
     <section className="py-24" aria-labelledby="cms-posts-heading">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-primary font-mono text-sm mb-2">Updates</p>
           <h2 id="cms-posts-heading" className="text-3xl sm:text-4xl font-bold text-surface mb-4">

@@ -10,7 +10,7 @@ export default function PricingSection() {
 
   return (
     <section id="pricing" className="py-16" aria-labelledby="pricing-heading">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center mb-12">
             <p className="text-primary font-mono text-sm mb-2">Pricing</p>

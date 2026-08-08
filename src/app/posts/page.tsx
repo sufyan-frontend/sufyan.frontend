@@ -96,7 +96,7 @@ export default function PostsPage() {
     <>
       {/* Hero */}
       <section className="pt-24 pb-16 border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-primary font-mono text-sm mb-3">Updates</p>
           <h1 className="text-4xl sm:text-5xl font-bold text-surface mb-4">Posts</h1>
           <p className="text-surface/60 text-lg max-w-xl">
@@ -108,7 +108,7 @@ export default function PostsPage() {
       {/* Tag filter */}
       {!isLoading && allTags.length > 0 && (
         <section className="py-6 border-b border-white/5 sticky top-16 bg-dark/90 backdrop-blur-sm z-10">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-2 flex-wrap">
+          <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8 flex gap-2 flex-wrap">
             <button
               onClick={() => setActiveTag(null)}
               className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all ${
@@ -138,7 +138,7 @@ export default function PostsPage() {
 
       {/* Grid */}
       <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
           {isLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}

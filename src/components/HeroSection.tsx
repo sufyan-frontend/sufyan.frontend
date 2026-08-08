@@ -1,40 +1,34 @@
-"use client";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { person, heroStats, whatsappLink } from "@/lib/data";
 
-const fade = (delay: number) => ({
-  initial: { opacity: 0, y: 28 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.55, delay, ease: "easeOut" as const },
-});
-
+// Static hero (no entrance animations) so above-the-fold content paints
+// immediately instead of fading in after Framer Motion hydrates.
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/8 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent/8 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
+      <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           <div>
-            <motion.p {...fade(0.1)} className="text-primary font-mono text-sm mb-4 tracking-wide">
+            <p className="text-primary font-mono text-sm mb-4 tracking-wide">
               {person.name} — {person.role}
-            </motion.p>
+            </p>
 
-            <motion.h1 {...fade(0.2)} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-surface leading-[1.1] mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl font-bold text-surface leading-[1.1] mb-6">
               Fast, dependable websites{" "}
               <span className="text-primary">built to be trusted</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p {...fade(0.4)} className="text-surface/65 text-lg leading-relaxed mb-8 max-w-lg">
+            <p className="text-surface/65 text-lg leading-relaxed mb-8 max-w-lg">
               A React &amp; Next.js developer with 1.5+ years shipping production apps used by thousands.
               I help businesses worldwide launch high-performance, SEO-friendly websites that look premium,
               load fast, and generate real leads. Fully remote, across US, UK &amp; Gulf time zones.
-            </motion.p>
+            </p>
 
-            <motion.div {...fade(0.5)} className="flex flex-wrap gap-3 mb-8">
+            <div className="flex flex-wrap gap-3 mb-8">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-primary text-dark font-semibold px-6 py-3 rounded-xl hover:bg-primary/90 transition-all hover:shadow-lg hover:shadow-primary/20"
@@ -62,18 +56,18 @@ export default function HeroSection() {
                 </svg>
                 WhatsApp
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div {...fade(0.55)} className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 max-w-lg">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 max-w-lg">
               {heroStats.map((stat) => (
                 <div key={stat.label}>
                   <p className="text-2xl font-bold text-surface">{stat.value}</p>
                   <p className="text-surface/45 text-xs leading-tight mt-0.5">{stat.label}</p>
                 </div>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div {...fade(0.6)} className="flex items-center gap-5">
+            <div className="flex items-center gap-5">
               <a
                 href={person.github}
                 target="_blank"
@@ -97,25 +91,20 @@ export default function HeroSection() {
                 </svg>
               </a>
               <span className="text-surface/30 text-sm">{person.location} · Remote worldwide</span>
-            </motion.div>
+            </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
-            className="flex justify-center lg:justify-end"
-          >
+          <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <div className="absolute inset-0 rounded-full bg-linear-to-br from-primary to-accent blur-2xl opacity-20" aria-hidden="true" />
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full border-2 border-primary/20 overflow-hidden">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 2xl:w-96 2xl:h-96 rounded-full border-2 border-primary/20 overflow-hidden">
                 <Image
                   src="/profile.png"
                   alt="Muhammad Sufyan — Frontend Developer based in Lahore, Pakistan"
                   fill
                   className="object-cover"
                   priority
-                  sizes="(max-width: 640px) 256px, 320px"
+                  sizes="(max-width: 640px) 256px, (max-width: 1536px) 320px, 384px"
                 />
               </div>
               <div className="absolute -bottom-2 -right-2 sm:bottom-4 sm:right-0 bg-card border border-white/10 rounded-xl px-3 py-2 flex items-center gap-2 shadow-xl">
@@ -123,7 +112,7 @@ export default function HeroSection() {
                 <span className="text-surface text-xs sm:text-sm font-medium">Available worldwide</span>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

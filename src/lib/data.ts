@@ -38,6 +38,24 @@ export const skills = [
 
 export const projects = [
   {
+    id: 'shaheen-public-school',
+    title: 'Shaheen Public School',
+    description: 'A polished, image-rich website for a Lahore school — hero, live stats, mission &amp; vision, programme stages, campus facilities, a real-photo gallery, an admissions flow, and an enquiry form with map. Built in Next.js with a navy-and-gold identity.',
+    url: 'https://shaheenpublicschool.edu.pk/',
+    image: '/porfolio%20image/shaheen-public-school.png',
+    tags: ['Next.js', 'Education', 'School Website', 'Responsive'],
+    featured: true,
+  },
+  {
+    id: 'paragon-lyceum-school',
+    title: 'Paragon Lyceum School',
+    description: 'A clean, illustration-led school website with programme stages, campus facilities, student-life highlights, a photo/illustration gallery, a step-by-step admissions journey, and a contact section with map — designed and built with Next.js and Tailwind CSS.',
+    url: 'https://paragonlyceumschool.edu.pk/',
+    image: '/porfolio%20image/paragon-lyceum-school.png',
+    tags: ['Next.js', 'Education', 'School Website', 'Tailwind CSS'],
+    featured: true,
+  },
+  {
     id: 'sufyan-frontend-dashboard',
     title: 'Sufyan Frontend Dashboard',
     description: 'A modern, fully responsive admin dashboard built with Next.js and Tailwind CSS featuring clean data visualizations, sidebar navigation, and a professional dark UI.',
@@ -226,7 +244,7 @@ export const services = [
 
 // Headline metrics shown in the hero trust strip.
 export const heroStats = [
-  { value: '11+', label: 'Live Projects Shipped' },
+  { value: '13+', label: 'Live Projects Shipped' },
   { value: '10+', label: 'Technologies Mastered' },
   { value: '1.5+ yrs', label: 'Production Experience' },
   { value: '100%', label: 'Responsive & SEO-Ready' },

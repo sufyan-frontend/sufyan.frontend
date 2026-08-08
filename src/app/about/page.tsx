@@ -109,7 +109,7 @@ export default function About() {
       <div className="pt-24">
       {/* Bio */}
       <section className="py-16" aria-labelledby="about-heading">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <Reveal>
               <p className="text-primary font-mono text-sm mb-2">Who I Am</p>

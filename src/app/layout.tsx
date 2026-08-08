@@ -8,7 +8,7 @@ import { QueryProvider } from "@/providers/QueryProvider";
 // Body: Inter (clean, highly legible). Headings: Sora (geometric display).
 // Mono: Geist Mono (kept for eyebrow labels and code).
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
-const sora = Sora({ variable: "--font-sora", subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], display: "swap" });
+const sora = Sora({ variable: "--font-sora", subsets: ["latin"], weight: ["500", "600", "700", "800"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {

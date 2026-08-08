@@ -77,7 +77,7 @@ export default function Projects() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsItemListSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsBreadcrumbSchema) }} />
     <div className="pt-24 pb-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center mb-16">
             <p className="text-primary font-mono text-sm mb-2">Portfolio</p>
@@ -138,7 +138,7 @@ export default function Projects() {
       </div>
 
       {/* Practice Projects */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
+      <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8 mt-20">
         <Reveal>
           <div className="flex items-center gap-4 mb-10">
             <div className="flex-1 h-px bg-white/5" aria-hidden="true" />

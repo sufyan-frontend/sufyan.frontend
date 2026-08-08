@@ -166,7 +166,7 @@ export default function Home() {
 
       {/* Working with clients worldwide — international-first trust strip */}
       <section className="py-14 border-y border-white/5 bg-card/30" aria-labelledby="global-heading">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-10">
               <p className="text-primary font-mono text-sm mb-2">Global by Default</p>
@@ -198,7 +198,7 @@ export default function Home() {
 
       {/* Services */}
       <section className="py-16" aria-labelledby="services-heading">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-12">
               <p className="text-primary font-mono text-sm mb-2">What I Build</p>
@@ -243,7 +243,7 @@ export default function Home() {
 
       {/* Featured Projects */}
       <section className="py-16 bg-card/30" aria-labelledby="projects-heading">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-12">
               <p className="text-primary font-mono text-sm mb-2">Portfolio</p>
@@ -317,7 +317,7 @@ export default function Home() {
 
       {/* Why Choose Me */}
       <section className="py-16" aria-labelledby="why-heading">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-12">
               <p className="text-primary font-mono text-sm mb-2">Why Work With Me</p>
@@ -350,7 +350,7 @@ export default function Home() {
 
       {/* Process */}
       <section className="py-16 bg-card/30" aria-labelledby="process-heading">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-12">
               <p className="text-primary font-mono text-sm mb-2">How It Works</p>
@@ -384,7 +384,7 @@ export default function Home() {
 
       {/* Skills */}
       <section className="py-16" aria-labelledby="skills-heading">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-12">
               <p className="text-primary font-mono text-sm mb-2">Expertise</p>
@@ -411,7 +411,7 @@ export default function Home() {
 
       {/* Experience */}
       <section className="py-16" aria-labelledby="experience-heading">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-12">
               <p className="text-primary font-mono text-sm mb-2">Career</p>

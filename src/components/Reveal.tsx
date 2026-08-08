@@ -1,6 +1,3 @@
-"use client";
-import { motion } from "framer-motion";
-
 interface RevealProps {
   children: React.ReactNode;
   delay?: number;
@@ -8,20 +5,9 @@ interface RevealProps {
   direction?: "up" | "left" | "right" | "none";
 }
 
-export default function Reveal({ children, delay = 0, className = "", direction = "up" }: RevealProps) {
-  return (
-    <motion.div
-      initial={{
-        opacity: 0,
-        y: direction === "up" ? 28 : 0,
-        x: direction === "left" ? -28 : direction === "right" ? 28 : 0,
-      }}
-      whileInView={{ opacity: 1, y: 0, x: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, delay, ease: "easeOut" as const }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+// Scroll-reveal animation removed for faster perceived load — content now renders
+// immediately (no initial opacity:0 waiting on Framer Motion to hydrate).
+// delay/direction are accepted but ignored so existing call sites keep working.
+export default function Reveal({ children, className = "" }: RevealProps) {
+  return <div className={className}>{children}</div>;
 }
