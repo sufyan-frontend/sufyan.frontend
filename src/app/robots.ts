@@ -6,7 +6,8 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/admin/", "/admin"],
+        // /quotation (+ its exported PDF) is a client-facing document, not public content
+        disallow: ["/api/", "/admin/", "/admin", "/quotation", "/quotation.pdf"],
       },
       // Allow major AI crawlers to index this site
       { userAgent: "GPTBot",        allow: "/" },

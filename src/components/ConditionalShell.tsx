@@ -7,7 +7,11 @@ import FloatingActions from "@/components/FloatingActions";
 export default function ConditionalShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   // Routes that render standalone, without the site chrome (navbar/footer/floating CTAs).
-  const isBare = pathname.startsWith("/admin") || pathname.startsWith("/cv") || pathname.startsWith("/book");
+  const isBare =
+    pathname.startsWith("/admin") ||
+    pathname.startsWith("/cv") ||
+    pathname.startsWith("/book") ||
+    pathname.startsWith("/quotation");
 
   return (
     <>

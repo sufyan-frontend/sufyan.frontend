@@ -6,7 +6,8 @@
     "dev": "cross-env BACKEND_URL=http://localhost:3001 next dev",
     "dev:prod": "cross-env BACKEND_URL=https://sufyan-backend.vercel.app next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "pdf:quotation": "node scripts/generate-quotation-pdf.mjs"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.101.0",
