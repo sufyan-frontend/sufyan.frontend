@@ -82,9 +82,7 @@ const printCss = `
   @media screen and (max-width: 740px) { .qt-page { zoom: 0.72; } }
   @media screen and (max-width: 640px) { .qt-page { zoom: 0.62; } }
   @media screen and (max-width: 540px) { .qt-page { zoom: 0.52; } }
-  @media screen and (max-width: 440px) { .qt-page { zoom: 0.15; } .qt-backdrop { background: red !important; } }
-  @media screen and (max-width: 1200px) { .qt-backdrop { background: lime !important; } }
-  @media screen and (max-width: 2000px) { .qt-backdrop { background: orange !important; } }
+  @media screen and (max-width: 440px) { .qt-page { zoom: 0.42; } }
   @media screen and (max-width: 360px) { .qt-page { zoom: 0.36; } }
 
   @media print {
