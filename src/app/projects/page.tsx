@@ -1,77 +1,129 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import Reveal from "@/components/Reveal";
-import { projects, practiceProjects } from "@/lib/data";
+import ProjectCard from "@/components/projects/ProjectCard";
+import { ProjectsGridSkeleton } from "@/components/projects/ProjectCardSkeleton";
+import {
+  getProductionProjects,
+  getPracticeProjects,
+  getProjects,
+  type Project,
+} from "@/lib/projects-source";
 
-export const metadata: Metadata = {
-  title: { absolute: "Projects — Muhammad Sufyan Portfolio" },
-  description:
-    "Portfolio of Muhammad Sufyan (sufyanjutt / sufyanfrontend) — 15 live production projects: education platforms, corporate sites, healthcare and care-home sites, AI interfaces, and web apps built with React & Next.js.",
-  keywords: [
-    "Muhammad Sufyan projects", "sufyanjutt portfolio", "sufyanfrontend projects",
-    "React Next.js portfolio Pakistan", "Frontend Developer portfolio Lahore",
-    "Alif Laila education platform", "Ehya Education website", "FieldX AI frontend",
-    "Muhammad Sufyan portfolio 2026", "sufyan jutt projects", "sufyan-frontend projects",
-    "aliflaila.app developer", "ehya.com.pk developer", "fieldxai.com frontend",
-    "tillshoptechnologies.com developer", "sufyan frontend dashboard", "Muhammad Sufyan live websites",
-    "React developer portfolio 2026", "Next.js production projects Pakistan", "frontend developer works Lahore",
-    "Muhammad Sufyan github projects", "sufyan developer portfolio", "web developer portfolio Pakistan",
-    "education platform React developer", "admin dashboard Next.js Pakistan",
-    "Shifa Care Home website", "care home website developer", "healthcare website Next.js",
-  ],
-  alternates: { canonical: "https://sufyan-frontend.vercel.app/projects" },
-  openGraph: {
-    title: "Projects — Muhammad Sufyan (sufyanjutt) Portfolio",
-    description: "15 live production projects by sufyanjutt — education platforms, corporate sites, care-home & AI interfaces built with React & Next.js.",
-    url: "https://sufyan-frontend.vercel.app/projects",
-    images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Projects Portfolio" }],
-  },
-};
+const SITE = "https://sufyan-frontend.vercel.app";
+const PAGE = `${SITE}/projects`;
 
-const projectsWebPageSchema = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "@id": "https://sufyan-frontend.vercel.app/projects",
-  url: "https://sufyan-frontend.vercel.app/projects",
-  name: "Projects — Muhammad Sufyan (sufyanjutt) Frontend Developer Portfolio",
-  description: "15 live production projects by Muhammad Sufyan (sufyanjutt / sufyanfrontend) — education platforms, AI interfaces, corporate sites, care-home websites, and admin dashboards built with React.js and Next.js.",
-  dateModified: "2026-06-09",
-  isPartOf: { "@id": "https://sufyan-frontend.vercel.app" },
-  author: { "@id": "https://sufyan-frontend.vercel.app/#person" },
-};
-
-const projectsItemListSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Muhammad Sufyan Frontend Developer Projects",
-  description: "Production projects built by Muhammad Sufyan (sufyanjutt / sufyanfrontend) — a Frontend Developer from Lahore, Pakistan.",
-  url: "https://sufyan-frontend.vercel.app/projects",
-  // Derived from the `projects` array so the schema can never drift out of sync
-  // with what the page actually renders when a project is added or removed.
-  numberOfItems: projects.length,
-  itemListElement: projects.map((p, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    name: p.title,
-    url: p.url,
-  })),
-};
+/**
+ * Counts come from the live store so the copy can never drift from what the page
+ * renders. getProjects() falls back to data.ts when the backend is unreachable,
+ * so metadata generation never fails the build.
+ */
+export async function generateMetadata(): Promise<Metadata> {
+  const { projects } = await getProjects();
+  const n = projects.filter((p) => p.kind === "production").length;
+  return {
+    title: { absolute: "Projects — Muhammad Sufyan Portfolio" },
+    description: `Portfolio of Muhammad Sufyan (sufyanjutt / sufyanfrontend) — ${n} live production projects: education platforms, corporate sites, healthcare and care-home sites, AI interfaces, and web apps built with React & Next.js.`,
+    keywords: [
+      "Muhammad Sufyan projects", "sufyanjutt portfolio", "sufyanfrontend projects",
+      "React Next.js portfolio Pakistan", "Frontend Developer portfolio Lahore",
+      "Alif Laila education platform", "Ehya Education website", "FieldX AI frontend",
+      "Muhammad Sufyan portfolio 2026", "sufyan jutt projects", "sufyan-frontend projects",
+      "aliflaila.app developer", "ehya.com.pk developer", "fieldxai.com frontend",
+      "tillshoptechnologies.com developer", "sufyan frontend dashboard", "Muhammad Sufyan live websites",
+      "React developer portfolio 2026", "Next.js production projects Pakistan", "frontend developer works Lahore",
+      "Muhammad Sufyan github projects", "sufyan developer portfolio", "web developer portfolio Pakistan",
+      "education platform React developer", "admin dashboard Next.js Pakistan",
+      "Shifa Care Home website", "care home website developer", "healthcare website Next.js",
+    ],
+    alternates: { canonical: PAGE },
+    openGraph: {
+      title: "Projects — Muhammad Sufyan (sufyanjutt) Portfolio",
+      description: `${n} live production projects by sufyanjutt — education platforms, corporate sites, care-home & AI interfaces built with React & Next.js.`,
+      url: PAGE,
+      images: [{ url: `${SITE}/profile.png`, width: 1200, height: 630, alt: "Muhammad Sufyan — Projects Portfolio" }],
+    },
+  };
+}
 
 const projectsBreadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://sufyan-frontend.vercel.app/" },
-    { "@type": "ListItem", position: 2, name: "Projects", item: "https://sufyan-frontend.vercel.app/projects" },
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+    { "@type": "ListItem", position: 2, name: "Projects", item: PAGE },
   ],
 };
+
+/** CollectionPage + ItemList, built from whatever the store actually returned. */
+function buildSchemas(production: Project[]) {
+  const webPage = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": PAGE,
+    url: PAGE,
+    name: "Projects — Muhammad Sufyan (sufyanjutt) Frontend Developer Portfolio",
+    description: `${production.length} live production projects by Muhammad Sufyan (sufyanjutt / sufyanfrontend) — education platforms, AI interfaces, corporate sites, care-home websites, and admin dashboards built with React.js and Next.js.`,
+    isPartOf: { "@id": SITE },
+    author: { "@id": `${SITE}/#person` },
+  };
+  const itemList = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Muhammad Sufyan Frontend Developer Projects",
+    description:
+      "Production projects built by Muhammad Sufyan (sufyanjutt / sufyanfrontend) — a Frontend Developer from Lahore, Pakistan.",
+    url: PAGE,
+    numberOfItems: production.length,
+    itemListElement: production.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: p.title,
+      url: p.url,
+    })),
+  };
+  return { webPage, itemList };
+}
+
+/* ---------------------------- streamed grids ---------------------------- */
+
+async function ProductionGrid() {
+  const { projects } = await getProductionProjects();
+  const { webPage, itemList } = buildSchemas(projects);
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPage) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project, i) => (
+          <Reveal key={project.id} delay={i * 0.07}>
+            <ProjectCard project={project} tone="primary" badge="featured" priority={i < 3} />
+          </Reveal>
+        ))}
+      </div>
+    </>
+  );
+}
+
+async function PracticeGrid() {
+  const { projects } = await getPracticeProjects();
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((project, i) => (
+        <Reveal key={project.id} delay={i * 0.07}>
+          <ProjectCard project={project} tone="accent" badge="practice" />
+        </Reveal>
+      ))}
+    </div>
+  );
+}
+
+/* --------------------------------- page --------------------------------- */
 
 export default function Projects() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsWebPageSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsItemListSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsBreadcrumbSchema) }} />
     <div className="pt-24 pb-20">
       <div className="max-w-6xl 2xl:max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,53 +137,9 @@ export default function Projects() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, i) => (
-            <Reveal key={project.id} delay={i * 0.07}>
-              <article className="bg-card border border-white/5 rounded-2xl overflow-hidden group hover:border-primary/20 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 h-full flex flex-col">
-                <div className="relative h-52 overflow-hidden bg-dark">
-                  <Image
-                    src={project.image}
-                    alt={`Screenshot of ${project.title}`}
-                    fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    loading="lazy"
-                  />
-                  {project.featured && (
-                    <span className="absolute top-3 right-3 bg-accent text-dark text-xs font-bold px-2.5 py-1 rounded-full">
-                      Featured
-                    </span>
-                  )}
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-surface font-semibold text-lg mb-2">{project.title}</h3>
-                  <p className="text-surface/60 text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Visit ${project.title} live website`}
-                    title={`Visit ${project.title} live website`}
-                    className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:underline"
-                  >
-                    Visit Live Site
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+        <Suspense fallback={<ProjectsGridSkeleton count={6} imageClass="h-52" badge="featured" />}>
+          <ProductionGrid />
+        </Suspense>
       </div>
 
       {/* Practice Projects */}
@@ -140,56 +148,16 @@ export default function Projects() {
           <div className="flex items-center gap-4 mb-10">
             <div className="flex-1 h-px bg-white/5" aria-hidden="true" />
             <div className="text-center">
-              <p className="text-primary font-mono text-xs mb-1">Learning & Practice</p>
+              <p className="text-primary font-mono text-xs mb-1">Learning &amp; Practice</p>
               <h2 className="text-2xl sm:text-3xl font-bold text-surface">Practice Websites</h2>
             </div>
             <div className="flex-1 h-px bg-white/5" aria-hidden="true" />
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {practiceProjects.map((project, i) => (
-            <Reveal key={project.id} delay={i * 0.07}>
-              <article className="bg-card border border-white/5 rounded-2xl overflow-hidden group hover:border-accent/20 transition-all duration-300 hover:shadow-xl hover:shadow-accent/5 h-full flex flex-col">
-                <div className="relative h-52 overflow-hidden bg-dark">
-                  <Image
-                    src={project.image}
-                    alt={`Screenshot of ${project.title}`}
-                    fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    loading="lazy"
-                  />
-                  <span className="absolute top-3 left-3 bg-accent/20 text-accent text-xs font-semibold px-2.5 py-1 rounded-full border border-accent/20">
-                    Practice
-                  </span>
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-surface font-semibold text-lg mb-2">{project.title}</h3>
-                  <p className="text-surface/60 text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="text-xs bg-accent/10 text-accent px-2 py-1 rounded-full">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-accent text-sm font-medium hover:underline"
-                  >
-                    Visit Live Site
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+        <Suspense fallback={<ProjectsGridSkeleton count={3} imageClass="h-52" badge="practice" />}>
+          <PracticeGrid />
+        </Suspense>
       </div>
 
       {/* Hire CTA */}

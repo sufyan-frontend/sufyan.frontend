@@ -1,17 +1,37 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { Suspense } from "react";
 import HeroSection from "@/components/HeroSection";
 import Reveal from "@/components/Reveal";
 import CmsPostsSection from "@/components/CmsPostsSection";
 import ReviewsSlider from "@/components/ReviewsSlider";
 import SkillBar from "@/components/SkillBar";
 import PricingSection from "@/components/PricingSection";
+import ProjectCard from "@/components/projects/ProjectCard";
+import { ProjectsGridSkeleton } from "@/components/projects/ProjectCardSkeleton";
+import { getFeaturedProjects } from "@/lib/projects-source";
 import {
-  projects, skills, experience,
+  skills, experience,
   clientServices, whyChooseMe, processSteps, pricingTiers,
   internationalHighlights,
 } from "@/lib/data";
+
+/** Home teaser: 6 featured projects (two full rows of 3 on desktop). */
+const HOME_PROJECT_COUNT = 6;
+
+async function FeaturedProjectsGrid() {
+  const { projects } = await getFeaturedProjects(HOME_PROJECT_COUNT);
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((project, i) => (
+        <Reveal key={project.id} delay={i * 0.1}>
+          <ProjectCard project={project} tone="primary" imageClass="h-48" priority={i < 3} linkLabel="Visit Live" />
+        </Reveal>
+      ))}
+    </div>
+  );
+}
 
 export const metadata: Metadata = {
   title: { absolute: "Muhammad Sufyan — Frontend Developer in Lahore, Pakistan" },
@@ -145,10 +165,6 @@ function FeatureIcon({ name }: { name: string }) {
 }
 
 export default function Home() {
-  // Home shows a 6-project teaser only (two full rows of 3 on desktop) — the
-  // full list lives on /projects, linked by the "View all" CTA below the grid.
-  const featured = projects.filter((p) => p.featured).slice(0, 6);
-
   return (
     <>
       <script
@@ -258,48 +274,9 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featured.map((project, i) => (
-              <Reveal key={project.id} delay={i * 0.1}>
-                <article className="bg-card border border-white/5 rounded-2xl overflow-hidden group hover:border-primary/20 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 h-full flex flex-col">
-                  <div className="relative h-48 overflow-hidden bg-dark">
-                    <Image
-                      src={project.image}
-                      alt={`Screenshot of ${project.title}`}
-                      fill
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-surface font-semibold text-lg mb-2">{project.title}</h3>
-                    <p className="text-surface/60 text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Visit ${project.title} live website`}
-                      title={`Visit ${project.title} live website`}
-                      className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:underline"
-                    >
-                      Visit Live
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+          <Suspense fallback={<ProjectsGridSkeleton count={HOME_PROJECT_COUNT} imageClass="h-48" />}>
+            <FeaturedProjectsGrid />
+          </Suspense>
 
           <Reveal delay={0.3}>
             <div className="text-center mt-12">

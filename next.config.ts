@@ -2,6 +2,19 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  images: {
+    // Project screenshots uploaded through the admin panel are committed to the
+    // GitHub data repo and served from raw.githubusercontent.com. Screenshots
+    // that predate the CMS still live in this app's public/ folder and need no
+    // entry here.
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+        pathname: "/**",
+      },
+    ],
+  },
   async headers() {
     return [
       {
