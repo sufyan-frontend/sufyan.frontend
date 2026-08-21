@@ -38,9 +38,18 @@ export const skills = [
 
 export const projects = [
   {
+    id: 'shifa-care-home',
+    title: 'Shifa Care Home',
+    description: 'A warm, trust-first website for a residential care home — hero, service cards covering residential, nursing, dementia and respite care, a facilities showcase, a "day at Shifa" timeline, staff profiles, family reviews, FAQs, and an enquiry form. Built with Next.js and Tailwind CSS.',
+    url: 'https://shifa-care-home.vercel.app/',
+    image: '/porfolio%20image/shifa-care-home.png',
+    tags: ['Next.js', 'Healthcare', 'Care Home', 'Tailwind CSS'],
+    featured: true,
+  },
+  {
     id: 'shaheen-public-school',
     title: 'Shaheen Public School',
-    description: 'A polished, image-rich website for a Lahore school — hero, live stats, mission &amp; vision, programme stages, campus facilities, a real-photo gallery, an admissions flow, and an enquiry form with map. Built in Next.js with a navy-and-gold identity.',
+    description: 'A polished, image-rich website for a Lahore school — hero, live stats, mission and vision, programme stages, campus facilities, a real-photo gallery, an admissions flow, and an enquiry form with map. Built in Next.js with a navy-and-gold identity.',
     url: 'https://shaheenpublicschool.edu.pk/',
     image: '/porfolio%20image/shaheen-public-school.png',
     tags: ['Next.js', 'Education', 'School Website', 'Responsive'],

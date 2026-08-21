@@ -153,8 +153,8 @@ const skillBadges = [
 ];
 
 const experience = {
-  role: "Frontend Developer (Intern → Junior)",
-  company: "Ehya Education",
+  role: "Frontend Developer",
+  company: "EhyaSoft",
   location: "Lahore, Pakistan",
   period: "2023 – Present · 2+ Years",
   points: [
@@ -171,7 +171,7 @@ const projects = [
   { title: "Ehya Education Platform", url: "https://www.ehya.com.pk/", desc: "Complete institutional web platform with responsive UI and modern frontend architecture." },
   { title: "Classmate Portal", url: "https://classmate.ehya.com.pk/", desc: "Student/teacher interface system with a clean, dashboard-based UI design." },
   { title: "TillShop Technologies", url: "https://www.tillshoptechnologies.com/", desc: "Corporate software-house website with a modern landing page and service sections." },
-  { title: "Ehsas Next App", url: "https://ehsasnext.vercel.app/", desc: "React-based deployed application with an optimized, component-driven UI." },
+  { title: "EhyaSoft", url: "https://soft.ehya.com.pk/", desc: "Software agency site with services, portfolio, and process sections in a modern UI." },
   { title: "ANP Engineerings", url: "https://www.anpengineerings.com/", desc: "Business website with a professional corporate layout and responsive design." },
 ];
 

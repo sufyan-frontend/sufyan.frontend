@@ -7,7 +7,7 @@ import { projects, practiceProjects } from "@/lib/data";
 export const metadata: Metadata = {
   title: { absolute: "Projects — Muhammad Sufyan Portfolio" },
   description:
-    "Portfolio of Muhammad Sufyan (sufyanjutt / sufyanfrontend) — 9 live production projects: education platforms, corporate sites, AI interfaces, and web apps built with React & Next.js.",
+    "Portfolio of Muhammad Sufyan (sufyanjutt / sufyanfrontend) — 15 live production projects: education platforms, corporate sites, healthcare and care-home sites, AI interfaces, and web apps built with React & Next.js.",
   keywords: [
     "Muhammad Sufyan projects", "sufyanjutt portfolio", "sufyanfrontend projects",
     "React Next.js portfolio Pakistan", "Frontend Developer portfolio Lahore",
@@ -18,11 +18,12 @@ export const metadata: Metadata = {
     "React developer portfolio 2026", "Next.js production projects Pakistan", "frontend developer works Lahore",
     "Muhammad Sufyan github projects", "sufyan developer portfolio", "web developer portfolio Pakistan",
     "education platform React developer", "admin dashboard Next.js Pakistan",
+    "Shifa Care Home website", "care home website developer", "healthcare website Next.js",
   ],
   alternates: { canonical: "https://sufyan-frontend.vercel.app/projects" },
   openGraph: {
     title: "Projects — Muhammad Sufyan (sufyanjutt) Portfolio",
-    description: "9 live production projects by sufyanjutt — education platforms, corporate sites & AI interfaces built with React & Next.js.",
+    description: "15 live production projects by sufyanjutt — education platforms, corporate sites, care-home & AI interfaces built with React & Next.js.",
     url: "https://sufyan-frontend.vercel.app/projects",
     images: [{ url: "https://sufyan-frontend.vercel.app/profile.png", width: 1200, height: 630, alt: "Muhammad Sufyan — Projects Portfolio" }],
   },
@@ -34,7 +35,7 @@ const projectsWebPageSchema = {
   "@id": "https://sufyan-frontend.vercel.app/projects",
   url: "https://sufyan-frontend.vercel.app/projects",
   name: "Projects — Muhammad Sufyan (sufyanjutt) Frontend Developer Portfolio",
-  description: "10 live production projects by Muhammad Sufyan (sufyanjutt / sufyanfrontend) — education platforms, AI interfaces, corporate sites, and admin dashboards built with React.js and Next.js.",
+  description: "15 live production projects by Muhammad Sufyan (sufyanjutt / sufyanfrontend) — education platforms, AI interfaces, corporate sites, care-home websites, and admin dashboards built with React.js and Next.js.",
   dateModified: "2026-06-09",
   isPartOf: { "@id": "https://sufyan-frontend.vercel.app" },
   author: { "@id": "https://sufyan-frontend.vercel.app/#person" },
@@ -46,19 +47,15 @@ const projectsItemListSchema = {
   name: "Muhammad Sufyan Frontend Developer Projects",
   description: "Production projects built by Muhammad Sufyan (sufyanjutt / sufyanfrontend) — a Frontend Developer from Lahore, Pakistan.",
   url: "https://sufyan-frontend.vercel.app/projects",
-  numberOfItems: 10,
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Sufyan Frontend Dashboard", url: "https://sufyan-frontend-dashboard.vercel.app/" },
-    { "@type": "ListItem", position: 2, name: "Alif Laila Education Platform", url: "https://aliflaila.app/" },
-    { "@type": "ListItem", position: 3, name: "Ehya Education Platform", url: "https://www.ehya.com.pk/" },
-    { "@type": "ListItem", position: 4, name: "Classmate Portal", url: "https://classmate.ehya.com.pk/" },
-    { "@type": "ListItem", position: 5, name: "TillShop Technologies", url: "https://www.tillshoptechnologies.com/" },
-    { "@type": "ListItem", position: 6, name: "FieldX AI", url: "https://fieldxai.com/" },
-    { "@type": "ListItem", position: 7, name: "Faizan Noor ul Quran", url: "http://faizan-noor-ul-quran-s.vercel.app/" },
-    { "@type": "ListItem", position: 8, name: "ANP Engineering Website", url: "https://www.anpengineerings.com/" },
-    { "@type": "ListItem", position: 9, name: "Soft Ehya", url: "http://soft.ehya.com.pk/" },
-    { "@type": "ListItem", position: 10, name: "Ehsas Next App", url: "https://ehsasnext.vercel.app/" },
-  ],
+  // Derived from the `projects` array so the schema can never drift out of sync
+  // with what the page actually renders when a project is added or removed.
+  numberOfItems: projects.length,
+  itemListElement: projects.map((p, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: p.title,
+    url: p.url,
+  })),
 };
 
 const projectsBreadcrumbSchema = {

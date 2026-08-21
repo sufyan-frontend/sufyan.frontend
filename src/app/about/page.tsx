@@ -300,7 +300,7 @@ export default function About() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
             {[
               { href: "/", label: "Home", desc: "Portfolio overview" },
-              { href: "/projects", label: "Projects", desc: "10 live productions" },
+              { href: "/projects", label: "Projects", desc: "15 live productions" },
               { href: "/services", label: "Services", desc: "What I offer" },
               { href: "/blog", label: "Blog", desc: "53 dev articles" },
               { href: "/contact", label: "Contact", desc: "Hire me" },

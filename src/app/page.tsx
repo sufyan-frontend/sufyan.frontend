@@ -145,7 +145,9 @@ function FeatureIcon({ name }: { name: string }) {
 }
 
 export default function Home() {
-  const featured = projects.filter((p) => p.featured);
+  // Home shows a 6-project teaser only (two full rows of 3 on desktop) — the
+  // full list lives on /projects, linked by the "View all" CTA below the grid.
+  const featured = projects.filter((p) => p.featured).slice(0, 6);
 
   return (
     <>
