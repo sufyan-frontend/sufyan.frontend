@@ -407,6 +407,26 @@ export default function Services() {
         </div>
 
         <Reveal>
+          <Link
+            href="/apps"
+            className="group flex flex-col sm:flex-row sm:items-center gap-4 bg-card border border-accent/15 rounded-2xl p-8 mb-8 hover:border-accent/40 transition-all"
+          >
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-primary text-2xl shadow-lg">
+              📱
+            </div>
+            <div className="flex-1">
+              <h2 className="text-xl font-bold text-surface">Beyond the web — Android apps</h2>
+              <p className="text-surface/60 text-sm mt-1">
+                I also build native Android tools — file sharing, phone &amp; laptop control, and an AI phone agent. Free APKs with full setup guides.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-1.5 text-accent font-semibold text-sm shrink-0 group-hover:gap-2.5 transition-all">
+              View apps <span aria-hidden>→</span>
+            </span>
+          </Link>
+        </Reveal>
+
+        <Reveal>
           <div className="text-center bg-card border border-primary/10 rounded-2xl p-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-surface mb-4">Have a project in mind?</h2>
             <p className="text-surface/60 mb-2 max-w-lg mx-auto">Muhammad Sufyan is open to new React and Next.js projects — freelance, contract, and full-time. Based in Lahore, available worldwide.</p>

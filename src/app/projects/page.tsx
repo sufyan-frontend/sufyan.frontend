@@ -185,11 +185,12 @@ export default function Projects() {
             <p className="text-primary font-mono text-xs text-center uppercase tracking-widest mb-2">Explore More</p>
             <h2 className="text-xl font-bold text-surface text-center mb-8">More From Muhammad Sufyan</h2>
           </Reveal>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
             {[
               { href: "/", label: "Home", desc: "Portfolio overview" },
               { href: "/about", label: "About", desc: "My background" },
               { href: "/services", label: "Services", desc: "What I offer" },
+              { href: "/apps", label: "Apps", desc: "Free Android apps" },
               { href: "/blog", label: "Blog", desc: "53 dev articles" },
               { href: "/contact", label: "Contact", desc: "Hire me" },
             ].map(({ href, label, desc }) => (
