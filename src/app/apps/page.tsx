@@ -7,18 +7,19 @@ import { siteUrl } from "@/lib/data";
 export const metadata: Metadata = {
   title: { absolute: "Android Apps by Muhammad Sufyan — Free APK Downloads" },
   description:
-    "Free Android apps built by Muhammad Sufyan — WiFi Drop file sharing, ADB Control Center, Laptop Control and an AI phone agent. Download the APK and follow the full setup guide for each.",
+    "Free Android apps built by Muhammad Sufyan — WiFi Drop file sharing, ADB Control Center, Laptop Control, DrawPad screen drawing and an AI phone agent. Download the APK and follow the full setup guide for each.",
   keywords: [
     "Muhammad Sufyan apps", "sufyan android apps", "free apk download",
     "wifi file sharing app", "android control app", "laptop control from phone",
     "scrcpy android app", "phone to phone mirror app", "sufyanfrontend apps",
+    "draw on screen android app", "screen annotation app", "drawing app apk",
     "android developer Pakistan apps", "free android tools",
   ],
   alternates: { canonical: `${siteUrl}/apps` },
   openGraph: {
     title: "Android Apps by Muhammad Sufyan",
     description:
-      "Free Android apps — file sharing, phone control, laptop control and an AI phone agent. Download and full guides.",
+      "Free Android apps — file sharing, phone control, laptop control, drawing on the screen and an AI phone agent. Download and full guides.",
     url: `${siteUrl}/apps`,
     images: [{ url: `${siteUrl}/profile.png`, width: 1200, height: 630, alt: "Muhammad Sufyan — Apps" }],
   },
@@ -70,9 +71,9 @@ export default function AppsPage() {
           </Reveal>
           <Reveal>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-surface/70 sm:text-lg">
-              A set of Android tools — file sharing, phone control, laptop control and an
-              AI phone agent. Each one is free, works on your own Wi-Fi, and comes with a
-              full step-by-step guide. Download the APK and go.
+              A set of Android tools — file sharing, phone control, laptop control,
+              drawing on the screen and an AI phone agent. Each one is free, runs on your
+              own devices, and comes with a full step-by-step guide. Download the APK and go.
             </p>
           </Reveal>
         </div>

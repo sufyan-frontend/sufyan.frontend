@@ -270,6 +270,77 @@ export const apps: PortfolioApp[] = [
     ],
     tech: ["Kotlin", "Accessibility Service", "MediaProjection", "WebSocket", "Node.js"],
   },
+  {
+    slug: "drawpad",
+    name: "DrawPad",
+    tagline: "Draw straight on the screen — over any app, or on a canvas of your own",
+    emoji: "🖌️",
+    gradient: "from-rose-400 to-orange-500",
+    summary:
+      "A drawing canvas with pinch-zoom, plus a screen overlay that floats your marks on top of whatever is running — so you can circle, point at and annotate anything on the phone.",
+    longDescription:
+      "DrawPad has two halves. Inside the app is a proper canvas: twelve colours, brush sizes from 1 to 80, a real eraser, undo and redo, pinch to zoom and drag to pan, and Save to write a PNG into your gallery. Strokes are kept as vectors rather than pixels, so zooming in shows real detail instead of a magnified blur. The second half is the screen overlay: tap Screen and a transparent canvas covers the whole phone, so you can draw over WhatsApp, a video, a map or the home screen. A small bubble floats on top — tap it for the tools, drag it anywhere. Draw mode takes your touches; Pass mode lets every tap through to the app underneath while the marks stay floating above it.",
+    version: "1.0",
+    size: "6.4 MB",
+    minAndroid: "Android 7 (API 24)",
+    pkg: "com.sufyan.drawpad",
+    apk: "/apps/drawpad.apk",
+    free: true,
+    offline: true,
+    features: [
+      "Draw on top of any app — the marks float over whatever is on screen",
+      "Draw / Pass switch: keep using the phone normally with the drawing still showing",
+      "Floating bubble you can drag anywhere; tap it to open or hide the tools",
+      "Pinch to zoom and drag to pan — strokes stay sharp because they are vectors, not pixels",
+      "12 colours, brush size 1–80, a real eraser, undo and redo",
+      "Save the drawing to Pictures/DrawPad as a PNG",
+      "Optionally draw above the status bar and the pull-down notification shade",
+      "Completely offline — no account, no internet, no ads",
+    ],
+    requirements: [
+      "Android 7 or newer",
+      "\"Display over other apps\" permission, for drawing on the screen",
+      "Optional: DrawPad turned on in Accessibility, only if you want to draw over the notification shade too",
+    ],
+    install: [
+      "Download the APK and open it on the phone.",
+      "If Android warns \"unknown source\", allow this app to install.",
+      "Open DrawPad — the canvas is ready straight away.",
+    ],
+    guide: [
+      {
+        title: "Draw in the app",
+        detail:
+          "Draw with one finger. Pick a colour from the row at the bottom and set the thickness with the Size slider. Two fingers pinch to zoom and drag to move around; Fit brings the whole drawing on screen and 1:1 goes back to normal. Save writes a PNG into Pictures/DrawPad.",
+      },
+      {
+        title: "Draw on the screen itself",
+        detail:
+          "Tap Screen at the top. Android asks for the \"Display over other apps\" permission the first time — allow it for DrawPad. The app steps aside and a transparent canvas covers the phone, so you can draw over anything.",
+      },
+      {
+        title: "The floating bubble",
+        detail:
+          "Tap the bubble to open the tool panel and tap it again to put it away; drag it to park it anywhere. The panel holds Draw/Pass, the colour, the brush size, B100 for how strong the bubble's border is, Erase, Undo, Clear and ✕ to stop.",
+      },
+      {
+        title: "Use the phone while the drawing stays",
+        detail:
+          "Tap Pass. The marks stay floating on the screen but every tap goes through to the app underneath, so you can scroll, type and switch apps normally. Tap Draw to go back to drawing.",
+      },
+      {
+        title: "Draw over the notification shade",
+        detail:
+          "Android places app overlays underneath the status bar and the pull-down shade, so marks disappear when the shade opens. To have them on top of those as well, turn DrawPad on in Settings → Accessibility, then stop and start the overlay once.",
+      },
+    ],
+    safety: [
+      "Everything stays on the phone — nothing is uploaded and there is no account.",
+      "The Accessibility option reads nothing: it does not inspect the screen or your content, it only lets the canvas sit above the status bar.",
+      "In Draw mode your touches go to DrawPad, so tap Pass or ✕ whenever you want the phone back.",
+    ],
+    tech: ["Kotlin", "Canvas", "WindowManager overlay", "Accessibility Service", "MediaStore"],
+  },
 ];
 
 export function getApp(slug: string): PortfolioApp | undefined {
