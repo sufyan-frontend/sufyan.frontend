@@ -277,9 +277,9 @@ export const apps: PortfolioApp[] = [
     emoji: "🖌️",
     gradient: "from-rose-400 to-orange-500",
     summary:
-      "A drawing canvas with pinch-zoom, plus a screen overlay that floats your marks on top of whatever is running — so you can circle, point at and annotate anything on the phone.",
+      "A drawing canvas with text, pictures and pinch-zoom, plus a screen overlay that floats your marks on top of whatever is running — so you can circle, label and annotate anything on the phone.",
     longDescription:
-      "DrawPad has two halves. Inside the app is a proper canvas: twelve colours, brush sizes from 1 to 80, a real eraser, undo and redo, pinch to zoom and drag to pan, and Save to write a PNG into your gallery. Strokes are kept as vectors rather than pixels, so zooming in shows real detail instead of a magnified blur. The second half is the screen overlay: tap Screen and a transparent canvas covers the whole phone, so you can draw over WhatsApp, a video, a map or the home screen. A small bubble floats on top — tap it for the tools, drag it anywhere. Draw mode takes your touches; Pass mode lets every tap through to the app underneath while the marks stay floating above it.",
+      "DrawPad has two halves. Inside the app is a proper canvas: twelve colours, brush sizes from 1 to 80, typed text and pictures from your gallery that you can drag and pinch into place, an eraser that shows exactly what it will wipe, undo and redo, pinch to zoom and drag to pan, and Save to write a PNG into your gallery. Strokes are kept as vectors rather than pixels, so zooming in shows real detail instead of a magnified blur. The second half is the screen overlay: tap Screen and a transparent canvas covers the whole phone, so you can draw over WhatsApp, a video, a map or the home screen. A small bubble floats on top — tap it for the tools, drag it anywhere. Draw mode takes your touches; Pass mode lets every tap through to the app underneath while the marks stay floating above it.",
     version: "1.0",
     size: "6.4 MB",
     minAndroid: "Android 7 (API 24)",
@@ -291,8 +291,11 @@ export const apps: PortfolioApp[] = [
       "Draw on top of any app — the marks float over whatever is on screen",
       "Draw / Pass switch: keep using the phone normally with the drawing still showing",
       "Floating bubble you can drag anywhere; tap it to open or hide the tools",
+      "Add text and pictures from the gallery, then drag to move and pinch to resize them",
+      "Eraser with a ring showing exactly what it will wipe — it rubs out lines, words and photos alike",
       "Pinch to zoom and drag to pan — strokes stay sharp because they are vectors, not pixels",
-      "12 colours, brush size 1–80, a real eraser, undo and redo",
+      "12 colours, brush size 1–80, undo and redo",
+      "Volume keys double as shortcuts while the overlay is up",
       "Save the drawing to Pictures/DrawPad as a PNG",
       "Optionally draw above the status bar and the pull-down notification shade",
       "Completely offline — no account, no internet, no ads",
@@ -327,6 +330,16 @@ export const apps: PortfolioApp[] = [
         title: "Use the phone while the drawing stays",
         detail:
           "Tap Pass. The marks stay floating on the screen but every tap goes through to the app underneath, so you can scroll, type and switch apps normally. Tap Draw to go back to drawing.",
+      },
+      {
+        title: "Add words and pictures",
+        detail:
+          "Tap Text to type a word — it lands in the middle ready to be positioned. Tap Img to pick a photo from the gallery. Either one can be dragged to move and pinched to resize while Move is on; tap Brush when you are done. The eraser works on them just like it does on a line: only the part under your finger goes.",
+      },
+      {
+        title: "Volume-key shortcuts",
+        detail:
+          "While the overlay is running, volume up switches between Draw and Pass and volume down opens or closes the tool panel, so you do not have to reach for the bubble. The keys go back to changing the volume as soon as the overlay is stopped. This needs DrawPad turned on in Accessibility.",
       },
       {
         title: "Draw over the notification shade",
