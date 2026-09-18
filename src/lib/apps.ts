@@ -354,6 +354,83 @@ export const apps: PortfolioApp[] = [
     ],
     tech: ["Kotlin", "Canvas", "WindowManager overlay", "Accessibility Service", "MediaStore"],
   },
+  {
+    slug: "qr-studio",
+    name: "QR Studio",
+    tagline: "Make a QR code that actually looks good — and is checked before you save it",
+    emoji: "🔳",
+    gradient: "from-emerald-400 to-green-600",
+    summary:
+      "Turn a link, a Wi-Fi password, a phone number or a contact card into a QR code you would happily print. Colours, gradients, dot shapes, a logo in the middle and a SCAN ME frame — with every code test-scanned inside the app before you save it.",
+    longDescription:
+      "Most QR apps give you a black square; the pretty ones give you a code that quietly stops scanning. QR Studio does both halves. Pick what goes inside — text, a number, a link, a call, an SMS, a WhatsApp message, an e-mail, a Wi-Fi network, a contact card or a map location — and the app writes it in the exact format scanners understand, so tapping the code offers to join the network or save the contact instead of showing raw text. Then style it: eight one-tap looks, any foreground and background colour, solid, linear or radial fill, four dot shapes, four corner-eye shapes, a separate eye colour, a logo dropped in the middle and a poster frame with your own caption. After every change the app decodes its own image with the same library a scanner uses and shows SCAN TESTED or a plain warning about contrast, dim light or a logo that has grown too big. Save a PNG to the gallery, export a vector SVG for print, or share it straight to any app. It works with no internet, no account and no ads, and the whole interface speaks English, Urdu or Roman Urdu.",
+    version: "1.0",
+    size: "4.9 MB",
+    minAndroid: "Android 7 (API 24)",
+    pkg: "com.sufyan.qr",
+    apk: "/apps/qr-studio.apk",
+    free: true,
+    offline: true,
+    features: [
+      "Ten content types — text, number, link, call, SMS, WhatsApp, e-mail, Wi-Fi, contact, location",
+      "Eight finished looks, one tap each",
+      "Any colour, with solid, gradient or radial fill",
+      "Four dot shapes and four corner-eye shapes, with a separate eye colour",
+      "Your logo in the middle, and a SCAN ME poster frame with your own words",
+      "Every code test-scanned in the app before you save — with a warning when it would fail",
+      "PNG to the gallery, SVG for print, or share straight to any app",
+      "English, اردو and Roman Urdu, switchable at any time",
+      "Fully offline — no internet permission, no account, no ads",
+    ],
+    requirements: [
+      "Android 7 or newer",
+      "No internet connection needed at any point",
+      "About 5 MB of space",
+    ],
+    install: [
+      "Download the APK and open it on the phone.",
+      'If Android warns about an "unknown source", allow this app to install.',
+      "Open QR Studio and pick your language on the first screen.",
+    ],
+    guide: [
+      {
+        title: "Choose what goes in the code",
+        detail:
+          "The row under the preview picks the kind of code: Text, Number, Link, Call, SMS, WhatsApp, E-mail, Wi-Fi, Contact or Location. Each one asks for the right fields — Wi-Fi asks for the network name and password, Contact asks for name, phone, e-mail and company. The code redraws as you type.",
+      },
+      {
+        title: "Give it a look",
+        detail:
+          "LOOK holds eight ready combinations — Classic, Midnight, Sunset, Ocean, Mint, Poster, Royal and Print. One tap sets the colours, the shapes and the strength together, and every one of them has been checked to still scan.",
+      },
+      {
+        title: "Tune the colours and shapes",
+        detail:
+          "COLOUR sets the code colour, the background, and whether the fill is solid, a gradient or radial with a second colour. SHAPE sets the corner eyes, the eye colour, the dot shape and the error-correction strength — a higher letter survives more damage but holds less text.",
+      },
+      {
+        title: "Add a logo or a poster frame",
+        detail:
+          "BRAND puts a picture from your gallery in the middle of the code and adds a frame under it with your own caption, such as SCAN ME. If the logo grows big enough to break the code, the badge at the top turns into a warning before you save it.",
+      },
+      {
+        title: "Save, export or share",
+        detail:
+          "SAVE writes a PNG into Pictures/QR Studio in your gallery. SVG writes a vector into Downloads, which is what a printer wants for a banner or a poster. SHARE sends the image straight to WhatsApp, e-mail or anywhere else without saving it first.",
+      },
+      {
+        title: "Switch the language",
+        detail:
+          "The pill next to the title opens the language picker again. Urdu is written in its own script and the whole screen flips right to left; Roman Urdu keeps the Latin letters. Nothing you have typed is lost when you switch.",
+      },
+    ],
+    safety: [
+      "Everything happens on the phone — the app has no internet permission at all, so nothing you type can leave it.",
+      "A Wi-Fi password or a contact card put into a code stays in the image on your phone until you share it yourself.",
+      "The SCAN TESTED badge is a real decode of the image the app just drew, not a guess.",
+    ],
+    tech: ["Kotlin", "ZXing", "Canvas", "MediaStore", "SVG export"],
+  },
 ];
 
 export function getApp(slug: string): PortfolioApp | undefined {
