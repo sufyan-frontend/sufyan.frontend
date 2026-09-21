@@ -38,6 +38,15 @@ export const skills = [
 
 export const projects = [
   {
+    id: 'crunch-bite',
+    title: 'Crunch Bite — Fast Food & Karahi Tikka',
+    description: 'A bold, appetite-first website for a Narowal fast-food and karahi restaurant — hero with WhatsApp ordering, crowd-favourite dishes, a full filterable menu with live prices, deals and family combos, a story section with stats, customer reviews, an Instagram feed, and a location block with an order form wired to WhatsApp. Built with Next.js and Tailwind CSS.',
+    url: 'https://crunch-bite-suf.vercel.app/',
+    image: '/porfolio%20image/crunch-bite.png',
+    tags: ['Next.js', 'Restaurant', 'Tailwind CSS', 'WhatsApp Ordering'],
+    featured: true,
+  },
+  {
     id: 'shifa-care-home',
     title: 'Shifa Care Home',
     description: 'A warm, trust-first website for a residential care home — hero, service cards covering residential, nursing, dementia and respite care, a facilities showcase, a "day at Shifa" timeline, staff profiles, family reviews, FAQs, and an enquiry form. Built with Next.js and Tailwind CSS.',

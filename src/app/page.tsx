@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Suspense } from "react";
 import HeroSection from "@/components/HeroSection";
 import Reveal from "@/components/Reveal";
-import CmsPostsSection from "@/components/CmsPostsSection";
 import ReviewsSlider from "@/components/ReviewsSlider";
 import SkillBar from "@/components/SkillBar";
 import PricingSection from "@/components/PricingSection";
@@ -358,8 +357,6 @@ export default function Home() {
 
       {/* Pricing (client component — auto PKR/USD by visitor location) */}
       <PricingSection />
-
-      <CmsPostsSection />
 
       {/* Skills */}
       <section className="py-16" aria-labelledby="skills-heading">
