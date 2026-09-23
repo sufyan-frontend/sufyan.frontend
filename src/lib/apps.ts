@@ -431,6 +431,77 @@ export const apps: PortfolioApp[] = [
     ],
     tech: ["Kotlin", "ZXing", "Canvas", "MediaStore", "SVG export"],
   },
+  {
+    slug: "game-night",
+    name: "Game Night",
+    tagline: "46 family games and 5 party tools on one TV — played with the remote",
+    emoji: "🎲",
+    gradient: "from-violet-500 to-fuchsia-500",
+    summary:
+      "A whole games cupboard for the living-room TV: Ludo, Carrom, Chess, Snakes & Ladders, Tambola, Charades, Trivia, Solitaire, arcade classics and more — plus dice, a coin, a spinner, a timer and a scoreboard. Made for the Fire TV remote, and just as happy on a tablet or phone.",
+    longDescription:
+      "Game Night puts 46 games and 5 table tools behind one home screen, built first for the Fire TV remote and working equally with touch on a tablet or phone. Board games — Ludo for up to four, Carrom, Chess, Checkers, Snakes & Ladders, Reversi, Four in a Row, Sea Battle, Mancala, Five in a Row, Nine Men's Morris, Dots & Boxes, Yacht Dice and Tic-Tac-Toe — play against the computer or with the family. Card games cover Solitaire, Crazy Eights, Blackjack and Higher or Lower. The party section runs the evening: Trivia with teams, Charades, Truth or Dare, Forbidden Words, Riddles, Draw and Guess, Spin the Bottle, Hot Potato, a Tambola caller with tickets, Reaction Duel, Math Race and Word Scramble. Quieter moments get Sudoku, Water Sort, 2048, Minesweeper, Word Search, Memory Match, Slide Puzzle, Hangman, Simon, and arcade games like Snake, Brick Breaker, Falling Blocks, Space Defender, Pong, Sky Hopper and Dino Run. The table tools — up to six dice, a coin, a spin wheel, a round timer and a six-player scoreboard that saves every point — serve any board game you already own. There are no ads, no account, no internet and no permissions at all.",
+    version: "1.3",
+    size: "2.4 MB",
+    minAndroid: "Android 5.1 (API 22)",
+    pkg: "com.sufyan.gamenight",
+    apk: "/apps/game-night.apk",
+    free: false,
+    offline: true,
+    features: [
+      "46 games: board, card, party, arcade and puzzle",
+      "Ludo, Carrom, Chess, Snakes & Ladders and Tambola the whole family knows",
+      "Play against the computer or pass the remote around",
+      "Team party games — Trivia, Charades, Truth or Dare, Forbidden Words",
+      "Dice, coin, spin wheel, round timer and a six-player scoreboard",
+      "Every game works with the TV remote's D-pad — and with touch",
+      "Scores and settings saved on every change",
+      "Background music with a one-button mute",
+      "No ads, no account, no internet, no permissions",
+    ],
+    requirements: [
+      "Fire TV, a Fire tablet, or any Android 5.1+ phone or tablet",
+      "A TV remote, a game controller or a touchscreen",
+      "No internet connection needed at any point",
+    ],
+    install: [
+      "On Fire TV and Fire tablets, get it from the Amazon Appstore.",
+      "On other Android devices, download the APK and open it.",
+      'If Android warns about an "unknown source", allow this app to install.',
+    ],
+    guide: [
+      {
+        title: "Pick a game",
+        detail:
+          "The home screen groups everything into Board games, Card games, Party games, Arcade and puzzles, and Table tools. Move with the D-pad and press OK, or tap a card. Back always returns home.",
+      },
+      {
+        title: "Choose who plays",
+        detail:
+          "Most games have a vs Computer / 2 Players button, and Ludo and the party games let you set how many players or teams. The choice is remembered for next time.",
+      },
+      {
+        title: "Play with the remote",
+        detail:
+          "The hint line in each game says what the keys do. OK is the main action, the arrows move, and Play/Pause rolls the dice or calls the next number.",
+      },
+      {
+        title: "Use the table tools",
+        detail:
+          "Dice, Coin Flip, Spin Wheel, Timer and Scoreboard help with any board game on the table. The timer keeps running while you use other tools and jumps to the front at zero.",
+      },
+      {
+        title: "Music on or off",
+        detail:
+          "The note button at the top right switches the background music. On the home screen the Menu key does the same.",
+      },
+    ],
+    safety: [
+      "The app asks for no Android permissions at all, so it cannot reach the internet or anything on the device.",
+      "No ads, no in-app purchases, no chat and no links out of the app.",
+    ],
+    tech: ["Kotlin", "Canvas", "Android TV / Leanback", "D-pad focus", "ToneGenerator"],
+  },
 ];
 
 export function getApp(slug: string): PortfolioApp | undefined {
