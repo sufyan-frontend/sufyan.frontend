@@ -107,22 +107,31 @@ export default function AppsPage() {
                 <div className="mt-4 flex flex-wrap gap-2">
                   <Badge>{a.size}</Badge>
                   <Badge>{a.minAndroid.split("(")[0].trim()}</Badge>
-                  {a.free && <Badge tone="green">Free</Badge>}
+                  {a.free ? <Badge tone="green">Free</Badge> : a.price && <Badge tone="amber">{a.price}</Badge>}
                   {a.offline && <Badge tone="violet">Offline</Badge>}
                   {a.needsPc && <Badge tone="amber">Needs PC</Badge>}
                 </div>
 
                 <div className="mt-6 flex flex-1 items-end gap-3">
-                  <a
-                    href={a.apk}
-                    download
-                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-[1.03]"
-                  >
-                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
-                    </svg>
-                    Download APK
-                  </a>
+                  {a.apk ? (
+                    <a
+                      href={a.apk}
+                      download
+                      className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-[1.03]"
+                    >
+                      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
+                      </svg>
+                      Download APK
+                    </a>
+                  ) : (
+                    <a
+                      href={a.storeUrl ?? `/apps/${a.slug}`}
+                      className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-[1.03]"
+                    >
+                      {a.storeUrl ? "Get it on Amazon" : "Amazon Appstore · soon"}
+                    </a>
+                  )}
                   <Link
                     href={`/apps/${a.slug}`}
                     className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 px-5 py-2.5 text-sm font-medium text-surface/80 transition-colors hover:border-accent/50 hover:text-accent"

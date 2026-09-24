@@ -90,16 +90,25 @@ export default async function AppGuidePage({
 
           <Reveal>
             <div className="mt-7 flex flex-wrap items-center gap-3">
-              <a
-                href={app.apk}
-                download
-                className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-[1.03] glow"
-              >
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
-                </svg>
-                Download APK · {app.size}
-              </a>
+              {app.apk ? (
+                <a
+                  href={app.apk}
+                  download
+                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-[1.03] glow"
+                >
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
+                  </svg>
+                  Download APK · {app.size}
+                </a>
+              ) : (
+                <a
+                  href={app.storeUrl ?? "#"}
+                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-[1.03]"
+                >
+                  {app.storeUrl ? "Get it on Amazon · " + (app.price ?? "") : "On the Amazon Appstore soon · " + (app.price ?? "")}
+                </a>
+              )}
               <span className="text-xs text-surface/50">
                 v{app.version} · {app.minAndroid}
               </span>
@@ -220,18 +229,27 @@ export default async function AppGuidePage({
             </div>
             <h2 className="text-xl font-semibold">Get {app.name}</h2>
             <p className="max-w-md text-sm text-surface/60">
-              Free · {app.size} · {app.minAndroid}
+              {app.free ? "Free" : app.price ?? "Paid"} · {app.size} · {app.minAndroid}
             </p>
-            <a
-              href={app.apk}
-              download
-              className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-[1.03]"
-            >
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
-              </svg>
-              Download APK
-            </a>
+            {app.apk ? (
+              <a
+                href={app.apk}
+                download
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-[1.03]"
+              >
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
+                </svg>
+                Download APK
+              </a>
+            ) : (
+              <a
+                href={app.storeUrl ?? "#"}
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-[1.03]"
+              >
+                {app.storeUrl ? "Get it on Amazon · " + (app.price ?? "") : "On the Amazon Appstore soon · " + (app.price ?? "")}
+              </a>
+            )}
           </div>
         </Reveal>
       </div>

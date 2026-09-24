@@ -19,9 +19,14 @@ export type PortfolioApp = {
   size: string;
   minAndroid: string;
   pkg: string;
-  /** path under /public, e.g. "/apps/wifi-drop.apk" */
-  apk: string;
+  /** path under /public, e.g. "/apps/wifi-drop.apk". Left out for paid apps
+   *  sold on a store, so the site never gives away what the store sells. */
+  apk?: string;
   free: boolean;
+  /** shown instead of "Free" on paid apps, e.g. "$9.99" */
+  price?: string;
+  /** the store listing, once it is live; until then the page says "coming soon" */
+  storeUrl?: string;
   offline: boolean;
   /** set when a companion piece is needed on a PC */
   needsPc?: string;
@@ -501,6 +506,77 @@ export const apps: PortfolioApp[] = [
       "No ads, no in-app purchases, no chat and no links out of the app.",
     ],
     tech: ["Kotlin", "Canvas", "Android TV / Leanback", "D-pad focus", "ToneGenerator"],
+  },
+  {
+    slug: "invoice-maker",
+    name: "Invoice Maker",
+    tagline: "Invoices, receipts and estimates as real PDFs, in under a minute",
+    emoji: "🧾",
+    gradient: "from-indigo-500 to-emerald-500",
+    summary:
+      "A billing desk on your tablet: pick a customer, add a few lines from your price list, and a clean, professional PDF is ready to share, print or save. Taxes, discounts and part payments are worked out to the last cent, and everything stays on your device.",
+    longDescription:
+      "Invoice Maker makes invoices, receipts and estimates for freelancers, shops and contractors. Save your customers and the products or services you sell once, then build a bill by picking them from a list. Every document is a genuine PDF with sharp, selectable text, in one of four templates (Classic, Modern, Minimal and Professional) with your logo, signature, brand colour and an optional PAID, UNPAID, DRAFT or COPY watermark. The totals engine handles per-line and whole-bill discounts, several named tax rates, tax-inclusive prices and 44 currencies, rounding the way an accountant would so the lines always add up. Record full or part payments and each invoice shows Paid, Partly paid, Unpaid or Overdue by itself, while the dashboard shows what you invoiced, how much has come in, and a six-month chart. An estimate becomes an invoice in one tap, and an invoice becomes a receipt. Your data stays on the device: the app has no internet access, and a backup file can be sent to WhatsApp, email or Drive in one tap and restored on a new tablet, logo and all. It speaks English, Spanish, French, German, Arabic, Urdu and Hindi, with right-to-left layouts, and has a wide layout with a side menu for tablets. One payment on the Amazon Appstore unlocks everything: no subscription, no in-app purchases, no ads.",
+    version: "1.1",
+    size: "2.2 MB",
+    minAndroid: "Android 7.0 (API 24)",
+    pkg: "com.sufyan.invoice",
+    free: false,
+    price: "$9.99",
+    offline: true,
+    features: [
+      "Invoices, receipts and estimates, each a real PDF",
+      "Four templates with your logo, signature, colour and watermark",
+      "Discounts, several tax rates, tax-inclusive pricing and 44 currencies",
+      "Full and part payments, with Paid, Unpaid and Overdue worked out for you",
+      "Dashboard with totals, a collected bar and a six-month chart",
+      "Saved customers and a price list of products and services",
+      "Estimate to invoice, and invoice to receipt, in one tap",
+      "One-tap backup to WhatsApp, email or Drive, and restore from the file",
+      "Seven languages, including Arabic and Urdu right-to-left",
+      "Pay once: no subscription, no in-app purchases, no ads",
+    ],
+    requirements: [
+      "A Fire tablet, or any Android 7.0+ tablet or phone",
+      "No internet connection needed at any point",
+    ],
+    install: [
+      "On Fire tablets, get it from the Amazon Appstore.",
+      "Open it and type your business name and currency, or skip and do it later in Settings.",
+    ],
+    guide: [
+      {
+        title: "Set up your business",
+        detail:
+          "Settings > Business profile holds your name, address, tax number and logo. Document design picks the template, colour, watermark and signature. Everything you set here goes on each new document.",
+      },
+      {
+        title: "Make an invoice",
+        detail:
+          "Tap Create document and choose Invoice, Receipt or Estimate. Choose a customer, then Add saved item or type a line. Preview saves it and shows the finished PDF.",
+      },
+      {
+        title: "Send it",
+        detail:
+          "From the preview, Share sends the PDF to email, WhatsApp or any other app, Print sends it to a printer, and Save PDF stores it in a folder you pick.",
+      },
+      {
+        title: "Get paid",
+        detail:
+          "Mark as paid records the full balance, or record a part payment from the document's menu. The status and the dashboard follow the money on their own.",
+      },
+      {
+        title: "Keep a backup",
+        detail:
+          "Settings > Backup & data > Share a backup sends one file with everything in it to WhatsApp, email or Drive. On a new tablet, Restore from a backup and pick that file.",
+      },
+    ],
+    safety: [
+      "The app has no internet permission, so it cannot send your business data anywhere.",
+      "No ads, no account, no in-app purchases and no tracking.",
+      "A document or backup only leaves the device when you share or save it yourself.",
+    ],
+    tech: ["Kotlin", "Jetpack Compose", "Material 3", "SQLite", "PdfDocument", "BigDecimal money maths"],
   },
 ];
 
