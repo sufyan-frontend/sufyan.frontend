@@ -27,6 +27,8 @@ export type PortfolioApp = {
   price?: string;
   /** the store listing, once it is live; until then the page says "coming soon" */
   storeUrl?: string;
+  /** who sells it, for the button text; defaults to "Amazon" */
+  storeName?: string;
   offline: boolean;
   /** set when a companion piece is needed on a PC */
   needsPc?: string;
@@ -373,8 +375,10 @@ export const apps: PortfolioApp[] = [
     size: "4.9 MB",
     minAndroid: "Android 7 (API 24)",
     pkg: "com.sufyan.qr",
-    apk: "/apps/qr-studio.apk",
-    free: true,
+    free: false,
+    price: "$4.99",
+    storeUrl: "https://sufjutt.gumroad.com/l/qrcode-genrater",
+    storeName: "Gumroad",
     offline: true,
     features: [
       "Ten content types — text, number, link, call, SMS, WhatsApp, e-mail, Wi-Fi, contact, location",
@@ -393,7 +397,8 @@ export const apps: PortfolioApp[] = [
       "About 5 MB of space",
     ],
     install: [
-      "Download the APK and open it on the phone.",
+      "Buy QR Studio on Gumroad, then open the receipt email on the phone and tap Download QR Studio.",
+      "Unzip the download and tap QR-Studio-1.0.apk.",
       'If Android warns about an "unknown source", allow this app to install.',
       "Open QR Studio and pick your language on the first screen.",
     ],
@@ -450,8 +455,9 @@ export const apps: PortfolioApp[] = [
     size: "2.4 MB",
     minAndroid: "Android 5.1 (API 22)",
     pkg: "com.sufyan.gamenight",
-    apk: "/apps/game-night.apk",
     free: false,
+    price: "€3.49",
+    storeUrl: "https://www.amazon.fr/dp/B0HKTFPKWL",
     offline: true,
     features: [
       "46 games: board, card, party, arcade and puzzle",
@@ -470,9 +476,8 @@ export const apps: PortfolioApp[] = [
       "No internet connection needed at any point",
     ],
     install: [
-      "On Fire TV and Fire tablets, get it from the Amazon Appstore.",
-      "On other Android devices, download the APK and open it.",
-      'If Android warns about an "unknown source", allow this app to install.',
+      "Buy Game Night on the Amazon Appstore with the button above.",
+      "It installs on your Fire TV or Fire tablet signed in to the same Amazon account.",
     ],
     guide: [
       {

@@ -106,7 +106,7 @@ export default async function AppGuidePage({
                   href={app.storeUrl ?? "#"}
                   className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-[1.03]"
                 >
-                  {app.storeUrl ? "Get it on Amazon · " + (app.price ?? "") : "On the Amazon Appstore soon · " + (app.price ?? "")}
+                  {app.storeUrl ? `Get it on ${app.storeName ?? "Amazon"} · ` + (app.price ?? "") : "On the Amazon Appstore soon · " + (app.price ?? "")}
                 </a>
               )}
               <span className="text-xs text-surface/50">
@@ -247,7 +247,7 @@ export default async function AppGuidePage({
                 href={app.storeUrl ?? "#"}
                 className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-[1.03]"
               >
-                {app.storeUrl ? "Get it on Amazon · " + (app.price ?? "") : "On the Amazon Appstore soon · " + (app.price ?? "")}
+                {app.storeUrl ? `Get it on ${app.storeName ?? "Amazon"} · ` + (app.price ?? "") : "On the Amazon Appstore soon · " + (app.price ?? "")}
               </a>
             )}
           </div>

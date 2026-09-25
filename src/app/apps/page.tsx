@@ -129,7 +129,7 @@ export default function AppsPage() {
                       href={a.storeUrl ?? `/apps/${a.slug}`}
                       className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-[1.03]"
                     >
-                      {a.storeUrl ? "Get it on Amazon" : "Amazon Appstore · soon"}
+                      {a.storeUrl ? `Get it on ${a.storeName ?? "Amazon"}` : "Amazon Appstore · soon"}
                     </a>
                   )}
                   <Link
