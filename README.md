@@ -90,35 +90,41 @@ src/
 ├── app/
 │   ├── layout.tsx          # Root layout — metadata, schemas, Navbar, Footer
 │   ├── page.tsx            # Home page
-│   ├── about/page.tsx
-│   ├── projects/page.tsx
-│   ├── services/page.tsx
-│   ├── blog/
-│   │   ├── page.tsx
-│   │   └── [slug]/page.tsx
-│   ├── contact/page.tsx
-│   ├── privacy/page.tsx
-│   ├── terms/page.tsx
+│   ├── about/  projects/  services/  contact/  cv/  book/  quotation/  terms/
+│   ├── blog/               # SEO articles from lib/data.ts — [slug] + seo-fundamentals
+│   ├── posts/              # CMS posts written in the admin panel — [slug]
+│   ├── reviews/            # Client reviews + submission form
+│   ├── apps/               # Android app guides — [slug] from lib/apps.ts
+│   ├── privacy/
+│   │   ├── page.tsx        # Site privacy policy
+│   │   └── [slug]/page.tsx # Per-app policies from lib/privacy-policies.ts
+│   ├── admin/              # CMS dashboard (posts, reviews)
+│   ├── api/
+│   │   ├── cms/            # Proxies to the backend: posts, projects, reviews
+│   │   ├── contact/        # POST — nodemailer email handler
+│   │   └── revalidate/     # On-demand ISR
 │   ├── sitemap.ts          # Dynamic sitemap
-│   ├── robots.ts           # Dynamic robots.txt
-│   └── api/contact/route.ts  # POST — nodemailer email handler
-├── components/
-│   ├── Navbar.tsx
-│   ├── Footer.tsx
-│   ├── HeroSection.tsx
-│   ├── ContactForm.tsx
-│   └── Reveal.tsx          # Framer Motion scroll-reveal wrapper
-└── lib/
-    ├── data.ts             # Person, projects, skills, blog posts, testimonials
-    └── blog-content.tsx    # JSX content map for blog slugs
+│   └── robots.ts           # Dynamic robots.txt
+├── components/             # Shared UI, plus book/ cv/ projects/ quotation/
+├── lib/
+│   ├── data.ts             # Person, fallback projects, skills, blog posts, testimonials
+│   ├── projects-source.ts  # Projects from the CMS, with data.ts as fallback
+│   ├── privacy-policies.ts # Per-app privacy policy content
+│   ├── apps.ts             # Android app catalogue
+│   └── blog-content.tsx    # JSX content map for blog slugs
+└── providers/              # React Query provider
 public/
 ├── profile.png
 ├── favicon.png
 ├── Muhammad Sufyan.pdf     # CV download
 ├── llms.txt
 ├── site.webmanifest
-├── porfolio image/         # Project screenshots
-└── ehsas lab image/        # Certificate images
+├── apps/                   # APK downloads
+├── book/opt/               # Images for the book view
+└── images/
+    ├── projects/           # Client project screenshots (WebP)
+    ├── practice/           # Practice project screenshots (WebP)
+    └── certificates/       # Certificate images (WebP)
 ```
 
 ---

@@ -52,6 +52,11 @@ const nextConfig: NextConfig = {
       // 301 them to their replacements so links/crawlers don't dead-end.
       { source: "/blog/react-performance", destination: "/blog/react-performance-2026", permanent: true },
       { source: "/blog/nextjs-app-router-guide", destination: "/blog/nextjs-server-components-guide", permanent: true },
+      // Screenshots moved out of space-named folders and were converted to WebP.
+      // Keep old image URLs (search results, shared links) resolving.
+      { source: "/porfolio%20image/:name.png", destination: "/images/projects/:name.webp", permanent: true },
+      { source: "/practicewebsite/chabot.png", destination: "/images/practice/chatbot.webp", permanent: true },
+      { source: "/practicewebsite/:name.png", destination: "/images/practice/:name.webp", permanent: true },
     ];
   },
 };

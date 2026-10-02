@@ -263,9 +263,9 @@ export default function About() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { src: "/ehsas%20lab%20image/instructercertifcae.jpeg", label: "Best Instructor Certificate" },
-              { src: "/ehsas%20lab%20image/instructercertifcae3.jpeg", label: "Instructor Recognition Award" },
-              { src: "/ehsas%20lab%20image/teacherdaycelebration.jpeg", label: "Teacher Day Celebration" },
+              { src: "/images/certificates/instructor-certificate.webp", label: "Best Instructor Certificate" },
+              { src: "/images/certificates/instructor-recognition-award.webp", label: "Instructor Recognition Award" },
+              { src: "/images/certificates/teacher-day-celebration.webp", label: "Teacher Day Celebration" },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 0.12}>
                 <figure className="bg-card border border-white/5 rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-300 group hover:shadow-xl hover:shadow-primary/5">

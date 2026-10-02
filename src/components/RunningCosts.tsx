@@ -1,6 +1,6 @@
 "use client";
 import Reveal from "@/components/Reveal";
-import { useRegion, CurrencyToggle } from "@/components/region";
+import { useRegion, CurrencyToggle } from "@/components/Region";
 import { runningCosts, runningCostsNote } from "@/lib/data";
 
 const costIcons: Record<string, React.ReactNode> = {

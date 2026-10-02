@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import { useRegion, CurrencyToggle } from "@/components/region";
+import { useRegion, CurrencyToggle } from "@/components/Region";
 import { pricingTiers, pricingFeatureRows, pricingNotePK, pricingNoteINTL, whatsappLink } from "@/lib/data";
 
 export default function PricingSection() {

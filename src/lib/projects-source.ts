@@ -81,7 +81,10 @@ export async function getProjects(): Promise<{ projects: Project[]; source: Proj
     // An empty store almost certainly means a misconfigured backend rather than
     // "the portfolio is genuinely empty" — show the fallback instead of nothing.
     if (list.length === 0) throw new Error('backend returned no projects')
-    return { projects: list, source: 'api' }
+    return {
+      projects: list.map((p: Project) => ({ ...p, image: resolveProjectImage(p.image) })),
+      source: 'api',
+    }
   } catch (err) {
     console.warn(
       `[projects] falling back to data.ts — ${err instanceof Error ? err.message : 'unknown error'}`,
@@ -110,11 +113,24 @@ export async function getFeaturedProjects(limit = 6) {
 
 /**
  * Screenshots come from two places: files already in this app's public folder
- * (site-relative, e.g. "/porfolio%20image/ehya-pk.png") and uploads committed to
+ * (site-relative, e.g. "/images/projects/ehya-pk.webp") and uploads committed to
  * the data repo by the admin panel (absolute raw.githubusercontent URLs).
  * next/image handles both, but remote hosts must be allowed in next.config.ts.
+ *
+ * Records saved before the public/ cleanup still point at the old
+ * "/porfolio%20image/*.png" and "/practicewebsite/*.png" files, so map those to
+ * the WebP files that replaced them.
  */
+const LEGACY_IMAGES: [RegExp, string][] = [
+  [/^\/porfolio(?:%20| )image\/([\w-]+)\.png$/, '/images/projects/$1.webp'],
+  [/^\/practicewebsite\/chabot\.png$/, '/images/practice/chatbot.webp'],
+  [/^\/practicewebsite\/([\w-]+)\.png$/, '/images/practice/$1.webp'],
+]
+
 export function resolveProjectImage(image: string | null): string | null {
   if (!image) return null
+  for (const [pattern, replacement] of LEGACY_IMAGES) {
+    if (pattern.test(image)) return image.replace(pattern, replacement)
+  }
   return image
 }
