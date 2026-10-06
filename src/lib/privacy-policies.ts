@@ -76,6 +76,62 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
     ],
   },
   {
+    slug: "chompy-fish",
+    name: "Chompy Fish",
+    updated: "October 2026",
+    description:
+      "What the Chompy Fish ocean game for children does and does not collect. It has no internet access and asks for no permissions, so nothing can leave the tablet or TV.",
+    intro:
+      "Chompy Fish is an ocean action game for children on Fire tablets, Fire TV and Android: swim, eat smaller fish, grow and beat the bosses. It collects nothing, sends nothing and has no account, and it does not ask for a single Android permission. This page sets out exactly what the app can and cannot do.",
+    sections: [
+      {
+        title: "What Chompy Fish Collects",
+        content: [
+          "Nothing. Chompy Fish has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It never asks a child or a parent for a name, age, email, photo, voice or location.",
+          "The app does not request the INTERNET permission. It has no technical ability to send anything anywhere, and it plays fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On The Device",
+        content: [
+          "To remember a child's progress, the app keeps a few things in its own private storage: the levels won and the stars earned on each, the pearls collected, which fish friends have been unlocked and which one is chosen, a count of fish eaten, and the settings (music, sound effects, voice and gentle mode).",
+          "That is the complete list. There are no names, ages, device identifiers or timestamps. The data is excluded from Android and Amazon backups and device transfer, other apps cannot read it, and it is deleted when the app is uninstalled. The Settings screen also has a Reset button, which asks before it clears anything.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "None. The app declares no Android permissions: not internet, storage, camera, microphone, contacts, location, phone or vibration. Every fish, sea, sound and tune is made by the app itself or bundled inside it.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Chompy Fish is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases and never sees any payment details. Fish friends are unlocked with pearls found while playing, never with money.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Chompy Fish is made for children and follows Amazon's Child-Directed App Policy and the US Children's Online Privacy Protection Act (COPPA). Because it collects no personal information at all, there is nothing to disclose, consent to, review or delete.",
+          "The app contains no advertising, no in-app purchases, no chat, no online play, no web browser and no links out of the app, so a child cannot be sent anywhere or asked to buy anything.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Chompy Fish ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Chompy Fish, email sufyantechsolutions@gmail.com with the subject line: Chompy Fish Privacy.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "drawpad",
     name: "DrawPad",
     subject: "DrawPad Android app",
