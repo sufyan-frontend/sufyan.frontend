@@ -1048,6 +1048,62 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
     ],
   },
   {
+    slug: "starblaze",
+    name: "Starblaze",
+    updated: "October 2026",
+    description:
+      "What the Starblaze arcade space shooter does and does not collect. It has no internet access and asks for no permissions, so nothing can leave the tablet or TV.",
+    intro:
+      "Starblaze is an arcade space shooter for Fire tablets, Fire TV and Android: fly a starfighter through 48 missions in six sectors, collect crystals, upgrade your ship and beat the bosses. It collects nothing, sends nothing and has no account, and it does not ask for a single Android permission. This page sets out exactly what the app can and cannot do.",
+    sections: [
+      {
+        title: "What Starblaze Collects",
+        content: [
+          "Nothing. Starblaze has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It never asks a player for a name, age, email, photo, voice or location.",
+          "The app does not request the INTERNET permission. It has no technical ability to send anything anywhere, and it plays fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On The Device",
+        content: [
+          "To remember a player's progress, the app keeps a few things in its own private storage: the missions won with the stars and best score on each, the crystals collected, which ships have been bought and which one is flying, the hangar upgrade levels, the best Endless score and wave, a few totals (missions won, enemies destroyed, bosses beaten), and the settings (music, sound effects, voice, difficulty, touch speed and screen shake).",
+          "That is the complete list. There are no names, ages, device identifiers or timestamps. The data is excluded from Android and Amazon backups and from device-to-device transfer, other apps cannot read it, and it is deleted when the app is uninstalled. The Settings screen also has a Reset button, which asks before it clears anything.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "None. The app declares no Android permissions: not internet, storage, camera, microphone, contacts, location, phone or vibration. Every ship, sound, tune and voice line is made by the app itself or bundled inside it.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Starblaze is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases and never sees any payment details. Ships and upgrades are bought with crystals collected while playing, never with money.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Starblaze is made for players of all ages, children included. Because it collects no personal information at all, it is consistent with the US Children's Online Privacy Protection Act (COPPA): there is nothing to disclose, consent to, review or delete.",
+          "The app contains no advertising, no in-app purchases, no chat, no online play, no web browser and no links out of the app, so a child cannot be sent anywhere or asked to buy anything.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Starblaze ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Starblaze, email sufyantechsolutions@gmail.com with the subject line: Starblaze Privacy.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "starbright-kids",
     name: "Starbright Kids",
     updated: "September 2026",
