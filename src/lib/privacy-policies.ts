@@ -516,6 +516,62 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
     ],
   },
   {
+    slug: "jelly-jewels",
+    name: "Jelly Jewels",
+    updated: "October 2026",
+    description:
+      "What the Jelly Jewels app does and does not collect. It asks for no permissions and has no internet access, so nothing can leave your TV or tablet.",
+    intro:
+      "Jelly Jewels is a match-3 puzzle game for Fire TV and Fire tablets. It asks for no permissions at all, has no internet access, and collects nothing. Your progress stays on the device. This page sets out exactly what the app can and cannot do.",
+    sections: [
+      {
+        title: "What Jelly Jewels Collects",
+        content: [
+          "Nothing. Jelly Jewels has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It never asks for your name, email, phone number or location, and the developer never receives any data from it.",
+          "The app does not request the INTERNET permission. It has no technical ability to send anything anywhere, and it plays fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "To remember your journey, the app keeps a few things in its own private storage on the device: the levels you have won with their stars and best scores, the coins and helpers (Hammer, Free Swap, Shuffle and the start-of-level helpers) you have earned, your daily gift streak, which tips you have already seen, a few totals of levels won and lost, and your settings (music, sound effects, voice and hints).",
+          "None of this identifies you. Other apps cannot read it, it is not included in Android's cloud backup, and uninstalling the app deletes all of it. Start Over in Settings deletes it too.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "None. The released app requests no Android permissions whatsoever: not internet, storage, camera, microphone, contacts, location or phone.",
+          "The music, the sound effects, the voice and all 200 levels are bundled inside the app, and every jewel and screen is drawn on the device. None of this needs a permission.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Jelly Jewels is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app contains no in-app purchases and never sees any payment details. Coins and helpers are earned by playing and can never be bought with money.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Jelly Jewels is suitable for all ages and collects no data from anyone, including children. It contains no advertising, no in-app purchases, no gambling, no chat, no online play and no links out of the app.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Jelly Jewels ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Jelly Jewels, email sufyantechsolutions@gmail.com with the subject line: Jelly Jewels Privacy.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "jewel-caravan",
     name: "Jewel Caravan",
     updated: "September 2026",
