@@ -132,6 +132,68 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
     ],
   },
   {
+    slug: "cubit-3d",
+    name: "Cubit 3D",
+    updated: "October 2026",
+    description:
+      "What the Cubit 3D volume and material calculator does and does not collect. It has no internet access and asks for no permissions, so nothing can leave the device unless you share a result yourself.",
+    intro:
+      "Cubit 3D is a volume and material calculator for Fire tablets and Android: type the sizes of a slab, a post hole, a pile, a trench, some stairs or a tank, see the shape in 3D, and get the volume, weight, bags and cost. It collects nothing, sends nothing and has no account, and it does not ask for a single Android permission. This page sets out exactly what the app can and cannot do.",
+    sections: [
+      {
+        title: "What Cubit 3D Collects",
+        content: [
+          "Nothing. Cubit 3D has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It never asks for a name, email, photo or location.",
+          "The app does not request the INTERNET permission. It has no technical ability to send anything anywhere, and it works fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On The Device",
+        content: [
+          "So that your work is still there next time, the app keeps in its own private storage: the sizes and units you typed for each shape, the liquid levels of the tanks, the quantity, the materials, bag sizes and waste allowance you chose, any prices you entered, and your settings (metric or imperial, currency and language).",
+          "If you tap Save, it also keeps that calculation under the name you give it, with its figures, so the saved list can show a project total.",
+          "That is the complete list. There are no device identifiers and no location. The data is excluded from Android and Amazon backups and from device-to-device transfer, other apps cannot read it, and it is deleted when the app is uninstalled. You can delete any saved calculation in the app at any time.",
+        ],
+      },
+      {
+        title: "Sharing",
+        content: [
+          "The Share buttons hand a plain-text summary of a calculation (or of your saved list) to Android's own share menu. Nothing is sent unless you tap Share and then choose an app, such as email or a messenger, yourself. What happens to the text after that is up to the app you picked.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "None. The app declares no Android permissions: not internet, storage, camera, microphone, contacts, location or phone. The 3D models are drawn by the app itself, and nothing is ever downloaded.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Cubit 3D is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases and never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Cubit 3D is a general-audience tool and is not directed at children. Because it collects no personal information at all, there is nothing to disclose, consent to, review or delete.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Cubit 3D ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Cubit 3D, email sufyantechsolutions@gmail.com with the subject line: Cubit 3D Privacy.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "drawpad",
     name: "DrawPad",
     subject: "DrawPad Android app",
