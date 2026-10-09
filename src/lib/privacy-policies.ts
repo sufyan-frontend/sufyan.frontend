@@ -991,6 +991,63 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
     ],
   },
   {
+    slug: "royal-chess-3d",
+    name: "Royal Chess 3D",
+    updated: "October 2026",
+    description:
+      "What the Royal Chess 3D game does and does not collect. It has no internet access and asks for no permissions, so nothing can leave the tablet.",
+    intro:
+      "Royal Chess 3D is a 3D chess game for Fire tablets: play the computer on five difficulty levels, from Novice to Master, or play a friend on the same tablet. It collects nothing, sends nothing and has no account, and it does not ask for a single Android permission. This page sets out exactly what the app can and cannot do.",
+    sections: [
+      {
+        title: "What Royal Chess 3D Collects",
+        content: [
+          "Nothing. Royal Chess 3D has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It never asks for a name, age, email, photo, voice or location.",
+          "The app does not request the INTERNET permission. It has no technical ability to send anything anywhere, and it plays fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On The Device",
+        content: [
+          "To remember your games and preferences, the app keeps a few things in its own private storage: the game in progress (the moves played, the difficulty and the colour you chose) so you can continue it later, your wins, losses and draws at each difficulty level with your current and best winning streak, the number of two-player games played, the difficulty and colour you last picked, and your settings (board and piece set, sound, legal-move highlights, board coordinates, graphics quality, animation speed and whether the board turns in two-player mode).",
+          "That is the complete list. There are no names, device identifiers or timestamps. A finished game is removed from storage. The data is excluded from Android and Amazon backups and from device-to-device transfer, other apps cannot read it, and it is deleted when the app is uninstalled. The Statistics screen also has a Reset button, which asks before it clears anything.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "None. The app declares no Android permissions: not internet, storage, camera, microphone, contacts, location, phone or vibration. The boards, pieces and sound effects are made by the app itself, the textures and fonts are bundled inside it, and nothing is ever downloaded.",
+          "The game is drawn with Android's built-in WebView, which only loads the files packaged inside the app. There is no web browser and there are no links out of the app.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Royal Chess 3D is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases and never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Royal Chess 3D is a general-audience game that is suitable for all ages, and it is not directed at children. Because it collects no personal information at all, there is nothing to disclose, consent to, review or delete.",
+          "The app contains no advertising, no in-app purchases, no chat, no online play, no web browser and no links out of the app.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Royal Chess 3D ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Royal Chess 3D, email sufyantechsolutions@gmail.com with the subject line: Royal Chess 3D Privacy.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "scan-studio",
     name: "Scan Studio",
     updated: "September 2026",
