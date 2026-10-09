@@ -1273,6 +1273,62 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
     ],
   },
   {
+    slug: "topple-cannon",
+    name: "Topple Cannon",
+    updated: "October 2026",
+    description:
+      "What the Topple Cannon knock-down game does and does not collect. It has no internet access and asks for no permissions, so nothing can leave the tablet or TV.",
+    intro:
+      "Topple Cannon is a 3D cannon game for children and families on Fire tablets, Fire TV and Android: tap to fire and knock every crate off the platform. It collects nothing, sends nothing and has no account, and it does not ask for a single Android permission. This page sets out exactly what the app can and cannot do.",
+    sections: [
+      {
+        title: "What Topple Cannon Collects",
+        content: [
+          "Nothing. Topple Cannon has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It never asks a child or a parent for a name, age, email, photo, voice or location.",
+          "The app does not request the INTERNET permission. It has no technical ability to send anything anywhere, and it plays fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On The Device",
+        content: [
+          "To remember a player's progress, the app keeps a few things in its own private storage: the furthest level reached, the stars earned on each level, the coins collected, which cannons and balls have been unlocked and which ones are chosen, whether the first-shot hint has been shown, and the settings (music, sounds and easy mode).",
+          "That is the complete list. There are no names, ages, device identifiers or timestamps. The data is excluded from Android and Amazon backups, other apps cannot read it, and it is deleted when the app is uninstalled. The Settings screen also has a Reset button, which asks before it clears anything.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "None. The app declares no Android permissions: not internet, storage, camera, microphone, contacts, location, phone or vibration. Every model, picture, sound and tune is made by the app itself or bundled inside it.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Topple Cannon is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases and never sees any payment details. Cannons and balls are unlocked with coins earned while playing, never with money.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Topple Cannon is made for children and families and follows Amazon's Child-Directed App Policy and the US Children's Online Privacy Protection Act (COPPA). Because it collects no personal information at all, there is nothing to disclose, consent to, review or delete.",
+          "The app contains no advertising, no in-app purchases, no chat, no online play, no web browser and no links out of the app, so a child cannot be sent anywhere or asked to buy anything.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Topple Cannon ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Topple Cannon, email sufyantechsolutions@gmail.com with the subject line: Topple Cannon Privacy.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "voice-studio",
     name: "Voice Studio",
     updated: "September 2026",
