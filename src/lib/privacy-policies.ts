@@ -1512,6 +1512,65 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "tidy-pdf",
+    name: "Tidy PDF",
+    subject: "Tidy PDF app for Windows",
+    updated: "October 2026",
+    description:
+      "What the Tidy PDF Windows app does with your files. Every task runs on your own PC, nothing is uploaded, and there is no account, analytics or advertising.",
+    intro:
+      "Tidy PDF merges, splits, compresses, converts and signs PDF files on Windows PCs. It works fully offline: your documents are processed on your own computer and are never uploaded anywhere. This page sets out exactly what the app can and cannot do.",
+    sections: [
+      {
+        title: "What Tidy PDF Collects",
+        content: [
+          "Nothing. Tidy PDF has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives your documents or any information about you.",
+          "The app contains no code that sends your files or your data over the internet. Every task runs on your PC, and the app works with no internet connection at all.",
+        ],
+      },
+      {
+        title: "Your Documents",
+        content: [
+          "Tidy PDF only opens the files you choose or drop into its window. It reads them and saves each result as a new file, next to the original or in a folder you pick in Settings. Your original files are never changed or overwritten.",
+          "While a task runs, the result is written to a temporary file in the same folder. That file is deleted as soon as the task finishes or is cancelled.",
+        ],
+      },
+      {
+        title: "What Stays On Your PC",
+        content: [
+          "Tidy PDF remembers a few settings: light or dark mode, where to save results, whether Tidy PDF Pro is unlocked, and, in the free version, how many tasks you have done today.",
+          "It also keeps a small log of errors to help fix problems. The log can contain file names and folder paths. It never leaves your PC unless you choose to send it to us, and Settings has a button that opens its folder.",
+          "All of this is stored in the app's own folder on your PC and is removed when you uninstall Tidy PDF.",
+        ],
+      },
+      {
+        title: "Purchases",
+        content: [
+          "Tidy PDF Pro is an optional in-app purchase sold through the Microsoft Store. Microsoft handles the payment and your Microsoft account; Tidy PDF never sees any payment or account details.",
+          "To check whether Pro is unlocked, the app asks the Microsoft Store on your PC. That exchange is between your PC and Microsoft and is covered by the Microsoft Privacy Statement.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Tidy PDF is a productivity tool for a general audience and is not directed at children. It collects no personal information from anyone.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Tidy PDF ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Tidy PDF, email sufyantechsolutions@gmail.com with the subject line: Tidy PDF Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
