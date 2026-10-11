@@ -1644,6 +1644,90 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "clayframe",
+    name: "Clayframe",
+    updated: "October 2026",
+    description:
+      "What the Clayframe stop motion studio does and does not collect. It has no internet access; the camera and microphone are used only on the tablet, and movies leave the device only when you export or share them.",
+    intro:
+      "Clayframe is a stop motion studio for Fire tablets and Android: take a picture, move your model a little, take another, then add titles, music and sound and play it back as a movie. It collects nothing, sends nothing and has no account. It uses the camera, and the microphone if you record a voiceover, but only on the tablet itself. This page sets out exactly what the app can and cannot do.",
+    sections: [
+      {
+        title: "What Clayframe Collects",
+        content: [
+          "Nothing. Clayframe has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It never asks for a name, age, email or location.",
+          "The app does not request the INTERNET permission. It has no technical ability to send anything anywhere, and it works fully offline.",
+        ],
+      },
+      {
+        title: "The Camera",
+        content: [
+          "The camera screen shows the live picture so you can set up each shot. A picture is kept only when you press the shutter (or a volume key, a selfie remote or the timer does). Each picture is saved in the app's own private storage as part of your movie.",
+          "Android asks for the camera permission the first time you open the camera. It can be turned off at any time in the tablet's settings; your saved movies stay and can still be edited and played.",
+        ],
+      },
+      {
+        title: "The Microphone",
+        content: [
+          "The microphone is used only to record a voiceover, and only while you are recording one. The recording is saved inside that movie in the app's private storage. Android asks for the microphone permission the first time you tap Record; everything else in the app works without it.",
+        ],
+      },
+      {
+        title: "Photos You Add",
+        content: [
+          "You can add pictures from the tablet to a movie, or pick a photo as a green-screen background. Clayframe opens Android's own file picker and can read only the files you choose there. A copy of each chosen picture is stored with the movie; the original is left untouched.",
+        ],
+      },
+      {
+        title: "What Stays On The Device",
+        content: [
+          "The app keeps these things in its own private storage: your movies (their pictures, small preview copies, title cards, voiceover recordings, background photos and the movie settings such as speed, look, music and sound effects) and the app settings (default speed and shape, picture quality, ghost strength, grid, which camera to use, shutter sound, volume-key shutter and whether the tips card was closed).",
+          "That is the complete list. There are no names, device identifiers or location. Movies are excluded from Android and Amazon backups, other apps cannot read them, and they are deleted when you delete the movie or uninstall the app.",
+        ],
+      },
+      {
+        title: "Exporting And Sharing",
+        content: [
+          "Export saves a finished movie as an MP4 video or a GIF in the tablet's gallery, in a Clayframe folder, so you can watch or keep it. This happens only when you tap Make movie.",
+          "Share opens Android's own share menu. Clayframe itself never sends a movie anywhere; whatever app you pick in the share menu handles it under its own policy.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "Camera: to take the pictures for your movie, as described above.",
+          "Microphone: to record a voiceover, only when you tap Record.",
+          "Storage: only on Android 9 and older, to save an exported movie to the gallery. Newer systems need no permission for that.",
+          "No other permissions: not internet, contacts, location or phone.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Clayframe is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Clayframe is a creative tool for all ages, and many families make movies with it together. Because it collects no personal information at all, there is nothing to disclose, consent to, review or delete. It contains no chat, no online play, no web browser and no links out of the app.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Clayframe ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Clayframe, email sufyantechsolutions@gmail.com with the subject line: Clayframe Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
