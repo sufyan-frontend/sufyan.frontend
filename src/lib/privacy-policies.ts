@@ -1571,6 +1571,79 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "splash-pals",
+    name: "Splash Pals",
+    updated: "October 2026",
+    description:
+      "What the Splash Pals coloring book for children does and does not collect. It has no internet access; the camera is used only on the tablet, to turn a drawing into a page or to pick a color, and nothing leaves the device.",
+    intro:
+      "Splash Pals is a coloring book for children on Fire tablets and Android: tap a shape to fill it with color, earn stars and collect animal pals. It collects nothing, sends nothing and has no account. It can use the camera, but only on the tablet itself and only when a child chooses Magic Camera or Color Catcher. This page sets out exactly what the app can and cannot do.",
+    sections: [
+      {
+        title: "What Splash Pals Collects",
+        content: [
+          "Nothing. Splash Pals has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It never asks a child or a parent for a name, age, email, voice or location.",
+          "The app does not request the INTERNET permission. It has no technical ability to send anything anywhere, and it works fully offline.",
+        ],
+      },
+      {
+        title: "The Camera",
+        content: [
+          "Magic Camera takes a photo of a drawing on paper and turns it into black lines that the child can color in. The photo is processed on the tablet; only the finished line drawing is kept, as a page in the app's own storage. The photo itself is not saved and is never sent anywhere.",
+          "Color Catcher shows the camera picture and reads the color in the middle of it, so the child can paint with that color. Only the color value is kept. No picture is saved.",
+          "Android asks for the camera permission the first time either feature is used. Everything else in the app works without it, and the permission can be turned off at any time in the tablet's settings.",
+        ],
+      },
+      {
+        title: "What Stays On The Device",
+        content: [
+          "The app keeps these things in its own private storage: the pictures a child finishes, unfinished pictures so they can be continued later, pages made with Magic Camera, the stars earned, the best result for each page, which pals have been unlocked and which one is chosen, colors caught with Color Catcher, the date of the last daily gift, and the settings (music, sounds, spoken praise and little hands mode).",
+          "That is the complete list. There are no names, ages, device identifiers or location. The data is excluded from Android and Amazon backups, other apps cannot read it, and it is deleted when the app is uninstalled. The grown-ups screen also has a Start again button, which asks before it clears anything.",
+        ],
+      },
+      {
+        title: "Saving And Sharing Pictures",
+        content: [
+          "A finished picture or its certificate can be saved to the tablet's Photos, in a Splash Pals album, so it can be printed or kept. This happens only when someone taps Save.",
+          "Sharing a picture opens Android's own share menu, and only after a grown-up answers a sum question. Splash Pals itself never sends a picture anywhere; whatever app the grown-up picks in the share menu handles it under its own policy.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "Camera: for Magic Camera and Color Catcher only, as described above.",
+          "Storage: only on Android 9 and older, to save a picture to Photos when Save is tapped. Newer systems need no permission for that.",
+          "No other permissions: not internet, microphone, contacts, location or phone.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Splash Pals is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases and never sees any payment details. Pals are unlocked with stars earned by coloring, never with money.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Splash Pals is made for children and follows Amazon's Child-Directed App Policy and the US Children's Online Privacy Protection Act (COPPA). Because it collects no personal information at all, there is nothing to disclose, consent to, review or delete.",
+          "The app contains no advertising, no in-app purchases, no chat, no online play, no web browser and no links out of the app, so a child cannot be sent anywhere or asked to buy anything.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Splash Pals ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Splash Pals, email sufyantechsolutions@gmail.com with the subject line: Splash Pals Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
