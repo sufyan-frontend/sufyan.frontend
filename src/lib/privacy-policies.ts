@@ -1728,6 +1728,154 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "brushwave",
+    name: "Brushwave",
+    updated: "October 2026",
+    description:
+      "What the Brushwave drawing app does and does not collect. It has no internet access; drawings and photos stay on your device, and the photo cut-out runs on the device itself.",
+    intro:
+      "Brushwave is an offline drawing app for Fire tablets and Android: mirror and kaleidoscope drawing, ten brushes, shapes and text, a Photo Studio with an on-device background remover, and PNG and SVG export. It collects nothing, sends nothing and has no account. This page sets out exactly what the app can and cannot do, including why it asks for the permissions it asks for.",
+    sections: [
+      {
+        title: "What Brushwave Collects",
+        content: [
+          "Nothing. Brushwave has no accounts, no sign-in, no analytics, no advertising and no crash reporting. It does not ask for your name, email, phone number or location.",
+          "The app does not request the INTERNET permission at all, so it has no technical ability to send anything anywhere, and it works fully offline.",
+        ],
+      },
+      {
+        title: "Your Drawings",
+        content: [
+          "Drawings are saved automatically in the app's own private storage, so My drawings can reopen them. Other apps cannot read them, and they are deleted when you delete a drawing or uninstall the app.",
+          "If your device's own backup is switched on, Android may include the app's files in that backup, under your device account's settings. Brushwave itself never uploads anything.",
+          "When you tap Save, Brushwave writes a PNG into Pictures/Brushwave in your gallery; Save as SVG writes a vector file into Download/Brushwave. Those files belong to you and the app never sends them anywhere.",
+        ],
+      },
+      {
+        title: "Photos And The Background Remover",
+        content: [
+          "When you add a photo, Android's own picker asks you to choose it. Brushwave receives only the photo you picked; it cannot browse your gallery.",
+          "Remove background works out the main subject of the photo with a small neural network (U2-Net) that is built into the app and runs on the device. The photo is never uploaded: there is no server and no internet connection involved. The cut-out, crop, effects and new background are kept with your drawing in the app's private storage.",
+        ],
+      },
+      {
+        title: "Sharing",
+        content: [
+          "Share opens Android's own share menu with a picture of your drawing. Brushwave never sends anything itself; whatever app you pick in the share menu handles the picture under its own policy.",
+        ],
+      },
+      {
+        title: "Display Over Other Apps",
+        content: [
+          'To let you draw on top of other apps, Brushwave asks for Android\'s "Display over other apps" permission when you first use that feature. It only lets the app place its own transparent canvas over the screen. It does not let Brushwave see, read or capture what is underneath.',
+        ],
+      },
+      {
+        title: "The Optional Accessibility Service",
+        content: [
+          "Brushwave includes an optional accessibility service for one technical reason: only an accessibility service may place a window above the status bar and the notification shade, so the on-screen drawing does not disappear when the shade is pulled down.",
+          'The service is declared with canRetrieveWindowContent="false". It cannot read the text, contents or structure of any screen, and it does not. It performs no actions on your behalf and sends nothing anywhere. It also lets the volume keys act as shortcuts while drawing on the screen; it never records what you type.',
+          "It is off unless you switch it on in Settings, and can be switched off there at any time. Everything else works without it.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "SYSTEM_ALERT_WINDOW: to place the drawing canvas over the screen, only when you use Draw on screen.",
+          "FOREGROUND_SERVICE, FOREGROUND_SERVICE_SPECIAL_USE and POST_NOTIFICATIONS: to show the ongoing notification Android requires while the on-screen canvas is running, so you can always stop it.",
+          "WRITE_EXTERNAL_STORAGE, on Android 9 and older only: to save a picture into your gallery. Newer systems need no storage permission for that.",
+          "That is the complete list. Brushwave does not request internet, camera, microphone, contacts, location or phone permissions. The optional accessibility service is bound by Android itself through BIND_ACCESSIBILITY_SERVICE.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Brushwave is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Brushwave is a drawing tool for all ages. It collects no personal information from anyone, including children, and contains no advertising, chat, web browser or links out of the app.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Brushwave ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Brushwave, email sufyantechsolutions@gmail.com with the subject line: Brushwave Privacy.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "lumen",
+    name: "Lumen Calculator",
+    updated: "October 2026",
+    description:
+      "What the Lumen Calculator app does and does not collect. It has no internet access and asks for no permissions; your calculations and history stay on your device.",
+    intro:
+      "Lumen is an offline calculator for Fire tablets and Android: a scientific calculator with history, graphing, 18 unit converters, a programmer mode and 15 everyday tools. It collects nothing, sends nothing and has no account, and it does not ask for a single Android permission. This page sets out exactly what the app can and cannot do.",
+    sections: [
+      {
+        title: "What Lumen Collects",
+        content: [
+          "Nothing. Lumen has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It does not ask for your name, email, phone number or location.",
+          "The app does not request the INTERNET permission, so it has no technical ability to send anything anywhere, and it works fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "Lumen keeps your last 500 calculations in its history so you can look back at them, plus the functions you graph, the memory value and your settings (theme, number format, angle unit and so on). All of it is stored in the app's own private storage, which other apps cannot read.",
+          'You can switch off "Save calculations" in Settings and clear the history at any time. Everything is deleted when you uninstall the app.',
+          "If your device's own backup is switched on, Android may include the app's settings and history in that backup, under your device account's settings. Lumen itself never uploads anything.",
+        ],
+      },
+      {
+        title: "Copy And Share",
+        content: [
+          "Copy puts a result on your device's clipboard, where you can paste it into another app. Share opens Android's own share menu with the sum and its answer as text. Lumen never sends anything itself; whatever app you pick in the share menu handles the text under its own policy.",
+        ],
+      },
+      {
+        title: "Permissions",
+        content: [
+          "None. Lumen does not request internet, storage, camera, microphone, contacts, location or phone permissions. The optional key vibration uses Android's standard touch feedback, which needs no permission.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Lumen is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Lumen is a calculator for a general audience. It collects no personal information from anyone, including children, and contains no advertising, chat, web browser or links out of the app.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Lumen ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Lumen, email sufyantechsolutions@gmail.com with the subject line: Lumen Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
