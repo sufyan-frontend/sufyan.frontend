@@ -1876,6 +1876,71 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "drift-off",
+    name: "Drift Off",
+    updated: "October 2026",
+    description:
+      "What the Drift Off sleep timer for Fire TV does and does not collect. It has no internet access; your timer, bedtime and settings stay on your Fire TV.",
+    intro:
+      "Drift Off is an offline sleep timer for Fire TV: it pauses what is playing at the time you choose, shows a goodnight screen, plays gentle sleep sounds it makes itself, and can stop a kids' TV at bedtime. It collects nothing, sends nothing and has no account. This page sets out exactly what the app can and cannot do, including why it asks for the permissions it asks for.",
+    sections: [
+      {
+        title: "What Drift Off Collects",
+        content: [
+          "Nothing. Drift Off has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It does not ask for your name, email, phone number or location.",
+          "The app does not request the INTERNET permission, so it has no technical ability to send anything anywhere, and it works fully offline. The sleep sounds are generated on the Fire TV itself; nothing is streamed.",
+        ],
+      },
+      {
+        title: "What Stays On Your Fire TV",
+        content: [
+          "Drift Off keeps the time your current timer ends, the timer length you used last, your bedtime settings (time, nights, wake-up time) and your choices for how the night ends. If you turn on the bedtime lock, it also keeps the four-arrow grown-up code you chose. All of it is stored in the app's own private storage, which other apps cannot read, and it is deleted when you uninstall the app.",
+          "If your device's own backup is switched on, Android may include these settings in that backup, under your device account's settings. Drift Off itself never uploads anything.",
+        ],
+      },
+      {
+        title: "Other Apps And Your Viewing",
+        content: [
+          "To stop your show when the timer ends, Drift Off sends the same pause command the remote's pause button sends, and briefly takes over the sound, which tells the playing app to pause. It does not see which app is playing, what you are watching or for how long, and it keeps no record of your viewing.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "RECEIVE_BOOT_COMPLETED: to set your timer and bedtime again after the Fire TV restarts.",
+          "SCHEDULE_EXACT_ALARM: so the timer ends on the minute you chose.",
+          "USE_FULL_SCREEN_INTENT: on newer Fire TV software, the goodnight screen can only come to the front through a full-screen notification. It is used for nothing else.",
+          "FOREGROUND_SERVICE, FOREGROUND_SERVICE_MEDIA_PLAYBACK and FOREGROUND_SERVICE_SPECIAL_USE: to keep a sleep sound playing, or to fade the volume over the last minutes of the timer, while another app is on screen.",
+          "That is the complete list. Drift Off does not request internet, storage, camera, microphone, contacts, location or phone permissions.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Drift Off is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Drift Off is set up by grown-ups; its bedtime feature helps parents end TV time at night. It collects no personal information from anyone, including children, and contains no advertising, chat, web browser or links out of the app.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Drift Off ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Drift Off, email sufyantechsolutions@gmail.com with the subject line: Drift Off Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
