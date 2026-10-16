@@ -2011,6 +2011,75 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "mantel",
+    name: "Mantel",
+    updated: "October 2026",
+    description:
+      "What Mantel, the clock and weather app for Fire TV, does and does not collect. It asks the internet for one thing only: the weather forecast for the city you choose.",
+    intro:
+      "Mantel turns your Fire TV into a clock, with twelve clock faces, the weather, world clocks and a timer. It has no account and no Mantel server, and it collects nothing about you. The only time it uses the internet is to fetch the weather forecast for the city you pick, from the Norwegian Meteorological Institute (MET Norway). This page sets out exactly what that involves.",
+    sections: [
+      {
+        title: "What Mantel Collects",
+        content: [
+          "Nothing. Mantel has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It does not ask for your name, email, phone number or location.",
+          "There is no Mantel server, so the developer never receives anything from the app.",
+        ],
+      },
+      {
+        title: "The Weather Forecast",
+        content: [
+          "To show the weather, Mantel asks MET Norway's public forecast service (api.met.no) for the forecast at the city you chose. The request contains that city's map position, taken from the list of cities built into the app and rounded to about a kilometre, together with the app's name, which MET Norway asks every app to send.",
+          "This is the city's position, not yours: Mantel never reads the Fire TV's location. As with any request on the internet, MET Norway can see the internet address it comes from; its own terms cover that. Mantel asks again when the forecast runs out (about every half hour), when you choose another city or when you press \"Update the weather now\". Turning off \"Show the weather\" stops the requests altogether.",
+          "Weather data: MET Norway, under the Creative Commons 4.0 BY International licence.",
+        ],
+      },
+      {
+        title: "Your First City",
+        content: [
+          "On first start Mantel suggests the biggest city in your Fire TV's time zone, worked out from the time-zone setting alone. You can change it at any time in the menu.",
+        ],
+      },
+      {
+        title: "Settings Kept On The Fire TV",
+        content: [
+          "Your choices (clock face, colour, weather city, world-clock cities, timer, chime, night hours and the like) and the last forecast are kept in the app's own private storage on the Fire TV, so the clock looks the same tomorrow and can show the weather while the internet is down. Other apps cannot read them, and they are deleted when you uninstall Mantel.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "INTERNET: to fetch the weather forecast described above, and for nothing else.",
+          "That is the complete list. Mantel does not request storage, camera, microphone, contacts, location or phone permissions. It keeps the TV screen on while the clock is showing, which needs no permission.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Mantel is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Mantel is a clock for a general audience. It collects no personal information from anyone, including children, and contains no advertising, chat, web browser or links out of the app.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Mantel ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Mantel, email sufyantechsolutions@gmail.com with the subject line: Mantel Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
