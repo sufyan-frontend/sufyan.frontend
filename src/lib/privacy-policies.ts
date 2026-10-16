@@ -2080,6 +2080,69 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "arena-scoreboard",
+    name: "Arena Scoreboard",
+    updated: "October 2026",
+    description:
+      "What Arena Scoreboard, the scoreboard and score keeper for Fire TV, does and does not collect. It works entirely on your TV and your home network; no account, no cloud.",
+    intro:
+      "Arena Scoreboard turns your Fire TV into a scoreboard for basketball, football, soccer, baseball, hockey, volleyball, pickleball, tennis, table tennis, badminton, cornhole, darts and any other game. Everything happens on the TV itself. There is no Arena Scoreboard server, no account and no cloud, and nothing about you is collected. This page sets out exactly what the app can and cannot do, including how the phone remote works.",
+    sections: [
+      {
+        title: "What Arena Scoreboard Collects",
+        content: [
+          "Nothing. Arena Scoreboard has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It does not ask for your name, email, phone number or location.",
+          "There is no Arena Scoreboard server, so the developer never receives anything from the app.",
+        ],
+      },
+      {
+        title: "Games And Settings On The Fire TV",
+        content: [
+          "The game in progress (team names, colours, scores, clocks and the sport's options), the options you used last for each sport, and your display choices are kept in the app's own private storage on the Fire TV, so a game survives a restart or a power cut. Other apps cannot read them, and they are deleted when you uninstall the app.",
+          "Team and player names are whatever you type. They are shown only on your own TV and on phones you connect as a remote, and are never sent anywhere else.",
+        ],
+      },
+      {
+        title: "The Phone Remote",
+        content: [
+          "When you open \"Phone remote\", the Fire TV serves a small score page on your home network, at an address with a random code that is shown in the QR code. A phone on the same Wi-Fi that opens it sees the scoreboard and can press its buttons; the phone and the TV talk directly over your home network, and nothing passes through the internet.",
+          "The page keeps working while the app is open, so a phone that scanned the code can stay connected during the game. It stops when you leave the app. Anyone you give the address to, on your own network, can score; there is nothing else they can see or change.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "INTERNET: only so the Fire TV can serve the phone remote page on your home network, as described above. The app contacts nothing on the internet.",
+          "That is the complete list. Arena Scoreboard does not request storage, camera, microphone, contacts, location or phone permissions. It keeps the TV screen on while it is open, which needs no permission.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Arena Scoreboard is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Arena Scoreboard is a scorekeeping tool for a general audience. It collects no personal information from anyone, including children, and contains no advertising, chat, web browser or links out of the app.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Arena Scoreboard ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Arena Scoreboard, email sufyantechsolutions@gmail.com with the subject line: Arena Scoreboard Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
