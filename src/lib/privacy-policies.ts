@@ -1941,6 +1941,76 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "vigil",
+    name: "Vigil",
+    updated: "October 2026",
+    description:
+      "What the Vigil IP camera viewer for Fire TV does and does not collect. It connects only to the cameras you add, over your home network; no cloud, no account.",
+    intro:
+      "Vigil shows your own security cameras (RTSP and ONVIF cameras and recorders) live on your Fire TV. It talks to the cameras directly over your home network. There is no Vigil server, no cloud and no account, and nothing about you or your cameras is collected. This page sets out exactly what the app can and cannot do, including why it asks for the permissions it asks for.",
+    sections: [
+      {
+        title: "What Vigil Collects",
+        content: [
+          "Nothing. Vigil has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It does not ask for your name, email, phone number or location.",
+          "There is no Vigil server. The app never sends your camera pictures, addresses or logins anywhere; the developer cannot see them.",
+        ],
+      },
+      {
+        title: "Your Cameras And Their Video",
+        content: [
+          "The video goes straight from your camera to your Fire TV over your home network. Vigil shows it on screen and does not record, store or upload it.",
+          "For each camera you add, Vigil keeps its name, brand, network address, stream address and login (username and password) in the app's own private storage on the Fire TV, so it can connect again. Other apps cannot read it, and it is deleted when you delete the camera or uninstall the app.",
+          "Vigil's own data is excluded from Android backups, so your camera logins are not copied to any backup account.",
+        ],
+      },
+      {
+        title: "Finding Cameras On Your Network",
+        content: [
+          "\"Find cameras\" sends a standard ONVIF hello message on your home network and lists the cameras that answer. When you choose one and type its login, Vigil asks that camera, and only that camera, for its stream addresses. Nothing is sent outside your home network.",
+        ],
+      },
+      {
+        title: "Adding A Camera From Your Phone",
+        content: [
+          "While the \"Use your phone\" screen is open, the Fire TV serves a small web page on your home network at a random address shown in the QR code. The camera details you type on your phone go directly to your Fire TV. The page stops the moment you leave that screen, and nothing passes through the internet.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "INTERNET and ACCESS_NETWORK_STATE: to receive the video from your cameras on the home network and to ask ONVIF cameras for their stream addresses. Vigil contacts nothing on the internet.",
+          "ACCESS_WIFI_STATE and CHANGE_WIFI_MULTICAST_STATE: \"Find cameras\" sends the ONVIF hello by Wi-Fi multicast, which some Fire TVs only let through when an app asks for it.",
+          "That is the complete list. Vigil does not request storage, camera, microphone, contacts, location or phone permissions.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Vigil is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Vigil is a home-security tool for a general audience. It collects no personal information from anyone, including children, and contains no advertising, chat, web browser or links out of the app.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Vigil ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Vigil, email sufyantechsolutions@gmail.com with the subject line: Vigil Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
