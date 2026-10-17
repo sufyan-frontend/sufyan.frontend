@@ -2414,6 +2414,80 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "brisk",
+    name: "Brisk",
+    updated: "October 2026",
+    description:
+      "What Brisk, the QR code scanner and QR code maker, does and does not collect. It has no internet permission: codes are read on your device and your history stays there.",
+    intro:
+      "Brisk reads QR codes and barcodes with your camera or from your pictures, and makes QR codes of your own. It does all of this on your device. Brisk has no permission to use the internet, no account and no advertising, so nothing it reads can be sent anywhere. This page sets out exactly what the app touches and why.",
+    sections: [
+      {
+        title: "What Brisk Collects",
+        content: [
+          "Nothing. Brisk has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It does not ask for your name, email, phone number or location.",
+          "The app does not request Android's internet permission, so it cannot send anything anywhere. The developer never receives any information from it.",
+        ],
+      },
+      {
+        title: "The Camera",
+        content: [
+          "With your permission, Brisk uses the camera only to look for codes in the live picture. The picture is read in memory, frame by frame, and thrown away at once. Nothing is recorded, saved or shared. You can refuse the camera and still scan pictures from your gallery.",
+        ],
+      },
+      {
+        title: "Pictures You Choose",
+        content: [
+          "When you pick a picture to scan, or share one to Brisk, the app reads that one picture to find codes in it. When you add your own logo to a QR code you make, that picture is used to draw the code. Brisk keeps no copy of either picture.",
+          "QR codes you save are written to your gallery in Pictures/Brisk; codes you share go only to the app you choose.",
+        ],
+      },
+      {
+        title: "Your History",
+        content: [
+          "The codes you scan or make are kept in a history in the app's own private storage on your device, so you can find them again. You can delete any of them, clear it all, or turn history off in Settings, and everything is deleted when you uninstall the app. If you export your history, the spreadsheet goes only where you send it.",
+        ],
+      },
+      {
+        title: "Links And Actions",
+        content: [
+          "Brisk checks links for warning signs on your device, without contacting any server. A link, a map, a search, a phone call, a message or a payment is only handed to the matching app on your device when you tap its button. What that app does is covered by its own privacy policy.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "CAMERA: to read codes, as described above. VIBRATE: a short buzz when a code is read. WRITE_EXTERNAL_STORAGE, on Android 9 and older only: to save a QR code you made to your gallery.",
+          "That is the complete list. Brisk does not request internet, location, contacts, microphone or phone permissions; adding a contact or an event opens your own contacts or calendar app for you to confirm.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Brisk is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details. Payment QR codes you scan are only displayed; paying happens in your own bank or wallet app.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Brisk is for a general audience. It collects no personal information from anyone, including children, and contains no advertising or chat.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Brisk ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Brisk, email sufyantechsolutions@gmail.com with the subject line: Brisk Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
