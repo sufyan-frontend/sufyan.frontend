@@ -2344,6 +2344,76 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "device-vitals",
+    name: "Device Vitals",
+    updated: "October 2026",
+    description:
+      "What Device Vitals, the battery health, storage and cleaner app, does and does not collect. It has no internet permission: everything it reads stays on your device.",
+    intro:
+      "Device Vitals checks your battery's health, shows what fills your storage, and helps you clean out junk files. To do that it reads information about your device, its files and its apps, but it has no permission to use the internet at all, so nothing it reads can ever leave your device. There is no account, no server and no advertising. This page sets out exactly what the app reads and why.",
+    sections: [
+      {
+        title: "What Device Vitals Collects",
+        content: [
+          "Nothing. Device Vitals has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It does not ask for your name, email, phone number or location.",
+          "The app does not even request Android's internet permission, so it cannot send anything anywhere. The developer never receives any information from it.",
+        ],
+      },
+      {
+        title: "Battery Readings",
+        content: [
+          "The app reads the battery's level, charging current, voltage, temperature and the capacity figures Android reports. If you turn on the optional battery monitor, it keeps a log of these readings and of each charge, so it can measure how much your battery holds and ring the charge and heat alarms you set.",
+          "This log is kept in the app's own private storage on your device, covers recent days only, and is deleted when you uninstall the app. The monitor shows a notification while it runs and can be turned off at any time.",
+        ],
+      },
+      {
+        title: "Your Files",
+        content: [
+          "With your permission (All files access on Android 11 and newer, storage access on older versions), the app looks through shared storage to sort files by kind, find large files, duplicates and junk such as temporary files, logs, thumbnails and leftover installers. It reads names, sizes and dates, and compares the content of same-sized files only to find exact duplicates.",
+          "Nothing is deleted unless you choose it and confirm. Your files are never copied, uploaded or shared by the app.",
+        ],
+      },
+      {
+        title: "Your Apps",
+        content: [
+          "With your permission (Usage access), the app reads how much space each installed app uses, its cache, and when you last opened it, so it can show which apps use the most space and how much cache can be cleared. It lists your installed apps for the same reason. From the app list you can open Android's own app info or uninstall screens.",
+          "Clearing app caches is done by Android itself, after it asks you to confirm.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "All files access / storage: to find and remove junk, large files and duplicates you choose. Usage access and the list of installed apps: to show app sizes and caches. Uninstall request: to open Android's uninstall dialog for an app you pick.",
+          "Foreground service, notifications, start at boot, vibration and battery-optimisation exemption: only for the optional battery monitor and its alarms. That is the complete list; there is no internet, camera, microphone, contacts or location permission.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Device Vitals is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Device Vitals is for a general audience. It collects no personal information from anyone, including children, and contains no advertising, chat, web browser or links out of the app.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Device Vitals ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Device Vitals, email sufyantechsolutions@gmail.com with the subject line: Device Vitals Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
