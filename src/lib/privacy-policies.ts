@@ -2275,6 +2275,75 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "minaret",
+    name: "Minaret",
+    updated: "October 2026",
+    description:
+      "What Minaret, the prayer times and masjid display app for Fire TV, does and does not collect. Prayer times are calculated on the TV; no account, no location tracking, nothing sent to the internet.",
+    intro:
+      "Minaret shows prayer times on your Fire TV, at home or in a masjid. It works out every time on the TV itself from the position of the sun, for a city you choose by hand. There is no Minaret server, no account and no cloud, and nothing about you is collected. This page sets out exactly what the app keeps and why.",
+    sections: [
+      {
+        title: "What Minaret Collects",
+        content: [
+          "Nothing. Minaret has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It does not ask for your name, email, phone number or location.",
+          "There is no Minaret server, so the developer never receives anything from the app.",
+        ],
+      },
+      {
+        title: "Your Place And The Prayer Times",
+        content: [
+          "Minaret does not use the TV's location. On first start it suggests the biggest city in the TV's time zone; you confirm it, pick another from the list of cities built into the app, or type coordinates. The city, the calculation method and your other settings are kept only on the TV.",
+          "The prayer times, the Hijri date and the Qibla direction are calculated on the TV. No internet connection is used for any of them.",
+        ],
+      },
+      {
+        title: "Setting Up From Your Phone",
+        content: [
+          "When you open \"Set up from your phone\", the Fire TV serves a small page on your home network, at an address with a random code that is shown in the QR code. A phone on the same Wi-Fi that opens it can change the masjid's name, iqamah and Jumu'ah times and notices, send an adhan recording, and view the month's timetable. Everything travels directly between the phone and the TV over your home network and never passes through the internet.",
+          "The page stops when you leave the app. Anyone you give the address to, on your own network, can make these changes; nothing else on the TV can be seen or changed.",
+        ],
+      },
+      {
+        title: "Adhan Recordings And Notices",
+        content: [
+          "An adhan recording you send is stored in the app's own private storage on the Fire TV and played only on that TV. So are the masjid name and notices you type. Other apps cannot read them, and they are excluded from Android backups. You can remove a recording in the app, and everything is deleted when you uninstall it.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "INTERNET: only so the Fire TV can serve the page your phone uses to set it up, on your home network, as described above. The app contacts nothing on the internet.",
+          "That is the complete list. Minaret does not request location, storage, camera, microphone, contacts or phone permissions. It keeps the TV screen on while it is open, which needs no permission.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Minaret is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Minaret is for a general audience. It collects no personal information from anyone, including children, and contains no advertising, chat, web browser or links out of the app.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Minaret ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Minaret, email sufyantechsolutions@gmail.com with the subject line: Minaret Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
