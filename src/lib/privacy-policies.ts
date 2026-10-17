@@ -2206,6 +2206,75 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "frameside",
+    name: "Frameside",
+    updated: "October 2026",
+    description:
+      "What Frameside, the photo frame and slideshow app for Fire TV, does and does not collect. Your photos go from your phone to your TV over your own Wi-Fi and stay on the TV; no account, no cloud.",
+    intro:
+      "Frameside turns your Fire TV into a digital photo frame. You send photos from your phone to the TV over your home Wi-Fi, and the TV shows them as a slideshow. There is no Frameside server, no account and no cloud: your photos are never uploaded to the internet, and nothing about you is collected. This page sets out exactly what the app does with your photos.",
+    sections: [
+      {
+        title: "What Frameside Collects",
+        content: [
+          "Nothing. Frameside has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It does not ask for your name, email, phone number or location.",
+          "There is no Frameside server, so the developer never receives anything from the app, and never sees your photos.",
+        ],
+      },
+      {
+        title: "How Photos Reach The TV",
+        content: [
+          "When you open \"Add photos from your phone\", the Fire TV serves a small page on your home network, at an address with a random code that is shown in the QR code. A phone on the same Wi-Fi that opens it can choose photos and send them; they travel directly from the phone to the TV over your home network and never pass through the internet.",
+          "Before sending, the page on your phone turns each photo the right way up and shrinks it to TV size. The page stops when you leave the app. Anyone you give the address to, on your own network, can send photos to your TV and see small previews of the latest ones; nothing else can be seen or changed.",
+        ],
+      },
+      {
+        title: "Your Photos On The TV",
+        content: [
+          "Your photos, their small previews and the album names are kept in the app's own private storage on the Fire TV. Other apps cannot read them, and they are excluded from Android backups. You can delete any photo, any album, or all of them in the app, and everything is deleted when you uninstall it.",
+          "Frameside keeps only the picture itself at TV size, not the original file; details such as where a photo was taken are not stored.",
+        ],
+      },
+      {
+        title: "The Built-In Galleries",
+        content: [
+          "The Nature and Art pictures that come with the app are public-domain images from the US National Park Service, The Metropolitan Museum of Art and the Cleveland Museum of Art, stored inside the app. Showing them involves no internet connection.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "INTERNET: only so the Fire TV can serve the page your phone uses to send photos, on your home network, as described above. The app contacts nothing on the internet.",
+          "That is the complete list. Frameside does not request storage, camera, microphone, contacts, location or phone permissions. It keeps the TV screen on while it is open, which needs no permission.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Frameside is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Frameside is for a general audience. It collects no personal information from anyone, including children, and contains no advertising, chat, web browser or links out of the app.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Frameside ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Frameside, email sufyantechsolutions@gmail.com with the subject line: Frameside Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
