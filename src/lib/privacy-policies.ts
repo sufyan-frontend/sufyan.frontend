@@ -2143,6 +2143,69 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "countdown-studio",
+    name: "Countdown Studio",
+    updated: "October 2026",
+    description:
+      "What Countdown Studio, the countdown and stage timer app for Fire TV, does and does not collect. It works entirely on your TV; no account, no cloud, no internet needed.",
+    intro:
+      "Countdown Studio shows countdowns to Christmas, New Year, birthdays and any date you choose on your Fire TV, and includes a stage timer, a visual timer and a stopwatch. Everything happens on the TV itself. There is no Countdown Studio server, no account and no cloud, and nothing about you is collected. This page sets out exactly what the app can and cannot do, including how the stage timer's phone remote works.",
+    sections: [
+      {
+        title: "What Countdown Studio Collects",
+        content: [
+          "Nothing. Countdown Studio has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It does not ask for your name, email, phone number or location.",
+          "There is no Countdown Studio server, so the developer never receives anything from the app, and the app needs no internet connection.",
+        ],
+      },
+      {
+        title: "Your Countdowns And Timers",
+        content: [
+          "The countdowns you add (their names, dates, times and scenes), the timer and stopwatch settings, and the messages you put on the screen are kept in the app's own private storage on the Fire TV, so they are still there after a restart. Other apps cannot read them, and they are deleted when you uninstall the app.",
+          "Holiday dates are worked out on the TV itself from the TV's date and time zone.",
+        ],
+      },
+      {
+        title: "The Stage Timer's Phone Remote",
+        content: [
+          "When you open \"Phone remote\" on the stage timer, the Fire TV serves a small page on your home network, at an address with a random code that is shown in the QR code. A phone on the same Wi-Fi that opens it can start, pause and change the timer and put a message on the screen; the phone and the TV talk directly over your home network, and nothing passes through the internet.",
+          "The page keeps working while the app is open and stops when you leave the app. Anyone you give the address to, on your own network, can control the timer; there is nothing else they can see or change.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "INTERNET: only so the Fire TV can serve the phone remote page on your home network, as described above. The app contacts nothing on the internet.",
+          "That is the complete list. Countdown Studio does not request storage, camera, microphone, contacts, location or phone permissions. It keeps the TV screen on while it is open, which needs no permission.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Countdown Studio is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Countdown Studio is for a general audience. It collects no personal information from anyone, including children, and contains no advertising, chat, web browser or links out of the app.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Countdown Studio ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Countdown Studio, email sufyantechsolutions@gmail.com with the subject line: Countdown Studio Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
