@@ -2488,6 +2488,89 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "hush-diary",
+    name: "Hush Diary",
+    updated: "October 2026",
+    description:
+      "What Hush Diary, the private diary with a lock, does and does not collect. It has no internet permission: your entries and photos are encrypted and stay on your device.",
+    intro:
+      "Hush Diary is a private diary. Everything you write, every mood you record and every photo you add stays on your device, encrypted, and the app has no permission to use the internet. There is no account, no advertising and no analytics. This page sets out exactly what the app touches and why.",
+    sections: [
+      {
+        title: "What Hush Diary Collects",
+        content: [
+          "Nothing. Hush Diary has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives your entries, your moods, your photos or anything else from the app.",
+          "The app does not request Android's internet permission, so it cannot send anything anywhere.",
+        ],
+      },
+      {
+        title: "Your Diary",
+        content: [
+          "Your entries, with their titles, text, moods, weather, activities, tags and dates, are stored only in the app's own private storage on your device. They are encrypted with AES-256.",
+          "The first name you may give for the greeting, and your settings, are stored on your device only.",
+          "Everything is deleted when you uninstall the app. Hush Diary is excluded from Android's cloud backup, so your diary is never copied to any online backup without you knowing; only a backup file you make yourself leaves the app.",
+        ],
+      },
+      {
+        title: "The Lock",
+        content: [
+          "If you set a PIN or password, your diary's key is kept only in a form locked by that PIN or password, and by a recovery code that is shown to you once and can be viewed again only while the diary is open. Neither your PIN, your password nor your recovery code is stored in readable form or sent anywhere.",
+          "Nobody, including the developer, can open your diary without your PIN, password or recovery code. If you lose all of them, the diary cannot be recovered.",
+          "When \"Hide in recent apps\" is on, the app also blocks screenshots of itself.",
+        ],
+      },
+      {
+        title: "Photos",
+        content: [
+          "When you add a photo to an entry, you choose it from your gallery. Hush Diary makes its own resized copy, encrypts it and keeps it in its private storage. Your original photo is not changed, and the app reads no other pictures.",
+        ],
+      },
+      {
+        title: "Backups, Exports And Sharing",
+        content: [
+          "A backup is one file, locked with a password you choose when you make it, saved to the place you pick. A PDF or text export is not locked, so anyone who has the file can read it. Sharing an entry as text hands it only to the app you choose. What happens to a file or text after that is up to you and that app.",
+        ],
+      },
+      {
+        title: "Notifications",
+        content: [
+          "If you turn on the daily reminder, the app shows a notification at the time you choose. It never contains anything from your diary. POST_NOTIFICATIONS and RECEIVE_BOOT_COMPLETED are used only for this reminder.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "POST_NOTIFICATIONS: the optional daily reminder. RECEIVE_BOOT_COMPLETED: to set the reminder again after a restart.",
+          "That is the complete list. Hush Diary does not request internet, camera, microphone, location, contacts or storage permissions; photos are picked through the system's own picker.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Hush Diary is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Hush Diary is for a general audience and is not directed at children under 13. It collects no personal information from anyone, and contains no advertising, chat or social features.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Hush Diary ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Hush Diary, email sufyantechsolutions@gmail.com with the subject line: Hush Diary Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
