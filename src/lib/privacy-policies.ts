@@ -2571,6 +2571,100 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "glowscope",
+    name: "Glowscope",
+    updated: "October 2026",
+    description:
+      "What Glowscope, the kaleidoscope and mirror drawing app, does and does not collect. It has no internet permission: your drawings stay on your device.",
+    intro:
+      "Glowscope is a drawing app with mirror and kaleidoscope drawing, and a canvas that can float over any app on your screen. It collects nothing, sends nothing and has no account. This page sets out exactly what the app can and cannot do, including why it asks for the permissions it asks for.",
+    sections: [
+      {
+        title: "What Glowscope Collects",
+        content: [
+          "Nothing. Glowscope has no accounts, no sign-in, no analytics, no advertising and no crash reporting. It does not ask for your name, email, phone number or location, and the developer never receives anything from the app.",
+          "The app does not request Android's internet permission, so it cannot send anything anywhere.",
+        ],
+      },
+      {
+        title: "Your Drawings",
+        content: [
+          "Every drawing saves itself into the app's own private storage on your device, so it can be opened again from My drawings. Your settings (colours, brush, theme and language) are stored there too. Nothing is uploaded.",
+          "Android's own device backup may include this private storage, as it does for most apps, if you have turned backup on for your device. Glowscope itself never sends it anywhere.",
+          "Everything is deleted when you uninstall the app.",
+        ],
+      },
+      {
+        title: "Saving And Sharing",
+        content: [
+          "When you tap Save to gallery, Glowscope writes a PNG into Pictures/Glowscope on your device. That file belongs to you; the app never reads it back or sends it anywhere.",
+          "When you tap Share, Android's share sheet hands the picture only to the app you choose. What happens to it after that is up to you and that app.",
+        ],
+      },
+      {
+        title: "Photos You Add",
+        content: [
+          "If you use the Image button, Android's own picker asks you to choose one photo. Glowscope receives only the photo you picked and places it on the page. It cannot browse your gallery and never copies your photos anywhere.",
+        ],
+      },
+      {
+        title: "Display Over Other Apps",
+        content: [
+          'To draw on the screen, Glowscope needs Android’s "Display over other apps" permission. It only lets the app place its own transparent canvas and tool panel on top of the screen. It does not let Glowscope see, read or capture what is underneath.',
+        ],
+      },
+      {
+        title: "The Accessibility Service",
+        content: [
+          "Glowscope includes an optional accessibility service for one technical reason: only an accessibility service may place a window above the status bar and the notification shade. Without it, your marks disappear whenever the shade is pulled down.",
+          'The service is declared with canRetrieveWindowContent="false". It cannot read the text, contents or structure of any screen, and it does not. It performs no actions on your behalf and sends nothing anywhere.',
+          "While drawing on screen, it also lets the volume keys act as shortcuts. It never records what you type.",
+          "The service is entirely optional. Glowscope works without it; you simply cannot draw over the notification shade.",
+        ],
+      },
+      {
+        title: "Links To The Appstore",
+        content: [
+          "Rate Glowscope and More apps open pages in the Amazon Appstore app. Glowscope sends nothing with them; anything you do there is covered by Amazon's own privacy notice.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "SYSTEM_ALERT_WINDOW: to place the drawing canvas over the screen.",
+          "FOREGROUND_SERVICE, FOREGROUND_SERVICE_SPECIAL_USE and POST_NOTIFICATIONS: to show the ongoing notification Android requires while drawing on screen, so you can always stop it.",
+          "WRITE_EXTERNAL_STORAGE and READ_EXTERNAL_STORAGE, on Android 9 and below only: to save a PNG into your gallery. On Android 10 and above no storage permission is used at all.",
+          "That is the complete list. Glowscope does not request internet, camera, microphone, contacts, location or phone permissions.",
+          "The optional accessibility service is bound by Android itself through BIND_ACCESSIBILITY_SERVICE; it is enabled only if you turn it on in Settings, and can be turned off there at any time.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Glowscope is sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Glowscope is for a general audience. It collects no personal information from anyone, including children, and contains no advertising, chat or social features.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Glowscope ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Glowscope, email sufyantechsolutions@gmail.com with the subject line: Glowscope Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
