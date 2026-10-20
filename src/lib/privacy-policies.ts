@@ -925,12 +925,12 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
     slug: "qr-studio",
     name: "QR Studio",
     subject: "QR Studio Android app",
-    updated: "September 2026",
+    updated: "October 2026",
     back: { href: "/apps/qr-studio", label: "Back to QR Studio" },
     description:
       "What the QR Studio Android app does and does not collect. It has no internet permission, so nothing can leave your phone.",
     intro:
-      "QR Studio is an offline QR code maker for Android. It collects nothing, sends nothing and has no account — it does not even hold the permission that would let it reach the internet. This page sets out exactly what the app can and cannot do.",
+      "QR Studio is an offline QR code maker for Fire tablets and Android. It collects nothing, sends nothing and has no account — it does not even hold the permission that would let it reach the internet. This page sets out exactly what the app can and cannot do.",
     sections: [
       {
         title: "What QR Studio Collects",
@@ -943,21 +943,36 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
         title: "What You Type Into a Code",
         content: [
           "A QR code is made from whatever you type — a link, a phone number, a Wi-Fi password, a contact card, a location. All of it is turned into a code on the phone itself, by maths running inside the app.",
-          "None of it is uploaded, logged or kept anywhere outside the app. Nothing is stored between sessions except the single language you chose, which is saved so the app opens in it next time.",
+          "None of it is uploaded, logged or kept anywhere outside the app.",
           "A Wi-Fi password or a contact card placed into a code lives inside the picture that code makes. That picture stays on your phone until you choose to share or print it.",
+        ],
+      },
+      {
+        title: "What Is Kept On Your Device",
+        content: [
+          "My codes: every code you save, share or show is kept in the app's own private storage on your device - its text, its look and a small picture of it - so you can open it again. You can delete any of them in My codes, and all of them are removed when you uninstall the app.",
+          "The code you were last working on, your language, your theme (Light or Dark) and your recent colours are kept the same way, so the app opens where you left it.",
+          "Android's own device backup may include this private storage, as it does for most apps, if you have turned backup on for your device. QR Studio itself never sends it anywhere.",
         ],
       },
       {
         title: "Images You Save",
         content: [
-          "Tapping SAVE writes a PNG into Pictures/QR Studio in your own gallery. Tapping SVG writes a vector file into Downloads. Both files belong to you; the app never reads them back and never sends them anywhere.",
-          "Tapping SHARE hands the image to Android's own share sheet, and you pick the app it goes to. QR Studio does not choose a destination and does not keep a copy of what was shared.",
+          "Save picture writes a PNG into Pictures/QR Studio in your own gallery. Save for print writes an SVG vector file into Downloads. Both files belong to you; the app never reads them back and never sends them anywhere.",
+          "Share hands the image to Android's own share sheet, and you pick the app it goes to. QR Studio does not choose a destination.",
+          "Show puts the code on the full screen at full brightness for someone to scan. Nothing is sent; it only changes the screen.",
         ],
       },
       {
         title: "A Logo You Add",
         content: [
           "If you add a logo to the middle of a code, Android's own picker asks you to choose one picture. The app receives only that one picture, draws it into the code, and does nothing else with it. It cannot browse your gallery on its own.",
+        ],
+      },
+      {
+        title: "Links To The Appstore",
+        content: [
+          "Rate QR Studio and More apps open pages in the Amazon Appstore app (or amazon.com in the browser where there is no Appstore). QR Studio sends nothing with them; anything you do there is covered by Amazon's own privacy notice.",
         ],
       },
       {
@@ -973,7 +988,7 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       {
         title: "Children",
         content: [
-          "QR Studio collects no data from anyone, including children, and contains no advertising, no in-app purchases and no external links.",
+          "QR Studio is for a general audience. It collects no data from anyone, including children, and contains no advertising, no in-app purchases, no chat and no social features. Its only links lead to the Amazon Appstore, as described above.",
         ],
       },
       {
