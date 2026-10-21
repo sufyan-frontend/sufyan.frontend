@@ -38,6 +38,15 @@ export const skills = [
 
 export const projects = [
   {
+    id: 'finead-communication',
+    title: 'Finead Communication — Advertising, Branding & Construction',
+    description: 'A full company website for a Lahore advertising, retail branding and construction firm — billboards, hoardings, shop fronts, interiors and renovation under one roof. Twelve SEO-ready service pages with dynamic Open Graph images, a portfolio, team and careers pages, FAQs, LocalBusiness and FAQ structured data, a contact form with email delivery, and a custom admin panel for projects, team, jobs and enquiries. Built with Next.js and Tailwind CSS.',
+    url: 'https://finead-communication.vercel.app/',
+    image: '/images/projects/finead-communication.webp',
+    tags: ['Next.js', 'Advertising', 'Construction', 'Admin Panel'],
+    featured: true,
+  },
+  {
     id: 'crunch-bite',
     title: 'Crunch Bite — Fast Food & Karahi Tikka',
     description: 'A bold, appetite-first website for a Narowal fast-food and karahi restaurant — hero with WhatsApp ordering, crowd-favourite dishes, a full filterable menu with live prices, deals and family combos, a story section with stats, customer reviews, an Instagram feed, and a location block with an order form wired to WhatsApp. Built with Next.js and Tailwind CSS.',
