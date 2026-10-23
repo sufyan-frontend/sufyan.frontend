@@ -2680,6 +2680,73 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "stagelight",
+    name: "Stagelight",
+    updated: "October 2026",
+    description:
+      "What Stagelight, the sheet music reader and page turner, does and does not collect. It requests no permissions at all: your music, marks and setlists stay on your device.",
+    intro:
+      "Stagelight turns a tablet into a music stand: it shows your sheet music, turns pages by tap, swipe or Bluetooth pedal, keeps setlists, and lets you write on your music. It collects nothing, sends nothing and has no account. This page sets out exactly what the app touches and why.",
+    sections: [
+      {
+        title: "What Stagelight Collects",
+        content: [
+          "Nothing. Stagelight has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It does not ask for your name, email, phone number or location.",
+          "The app requests no Android permissions at all, including the internet permission, so it cannot send anything anywhere. The developer never receives any information from it.",
+        ],
+      },
+      {
+        title: "Your Music",
+        content: [
+          "When you import a PDF or photos of sheet music, you choose the files in your device's own file picker, and Stagelight copies them into its private storage on your device so they are always ready on the stand. The details you add (titles, composers, keys, tags, tempos, bookmarks), the marks you draw on pages and your setlists are kept there too.",
+          "Everything is deleted when you delete a score or uninstall the app. Stagelight never uploads, shares or scans your music for any other purpose.",
+        ],
+      },
+      {
+        title: "Backups",
+        content: [
+          "If you make a backup, Stagelight writes one file to the place you pick in the system's save dialog, and nowhere else. Restoring reads only the backup file you choose.",
+        ],
+      },
+      {
+        title: "Page-Turner Pedals",
+        content: [
+          "Bluetooth page turners are paired in your device's own Bluetooth settings. Stagelight only listens for the key presses they send (such as the arrow and page keys) while a score is open, to turn pages. It does not use Bluetooth itself.",
+        ],
+      },
+      {
+        title: "Links To The Appstore",
+        content: [
+          "The Rate and More apps buttons open the Amazon Appstore, or amazon.com in your browser on devices without the Appstore. Stagelight sends nothing with them; what the Appstore does is covered by Amazon's own privacy policy.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Stagelight is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Stagelight is for a general audience, including young music students. It collects no personal information from anyone, including children, and contains no advertising, chat or social features.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Stagelight ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Stagelight, email sufyantechsolutions@gmail.com with the subject line: Stagelight Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
