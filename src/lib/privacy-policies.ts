@@ -2747,6 +2747,74 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "lobbylog",
+    name: "Lobbylog",
+    updated: "October 2026",
+    description:
+      "What Lobbylog, the visitor sign-in, waitlist and feedback kiosk, does and does not collect. It requests no permissions at all: every record stays on the tablet.",
+    intro:
+      "Lobbylog turns a tablet at a front desk into a kiosk where visitors sign in and out, join a waitlist or rate their visit. The business that runs the kiosk decides what it asks. Lobbylog itself collects nothing, sends nothing and has no account. This page explains what is stored, where, and who can see it.",
+    sections: [
+      {
+        title: "What The Developer Collects",
+        content: [
+          "Nothing. Lobbylog has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind.",
+          "The app requests no Android permissions at all, including the internet permission, so it cannot send anything anywhere. The developer never receives any information from it, about the business or about its visitors.",
+        ],
+      },
+      {
+        title: "What Visitors Enter",
+        content: [
+          "Visitors type what the business's kiosk asks for: their name and, if the business turns them on, a phone number, email, company, the person they are visiting, the reason for the visit, answers to the business's own questions, a signature, a waitlist party size or service, and ratings with optional comments.",
+          "All of it is saved only in the app's private storage on that tablet, for the business that runs it. Other visitors never see it: the sign-out list shows only a first name and an initial.",
+        ],
+      },
+      {
+        title: "Who Can See The Records",
+        content: [
+          "The visitor log, waitlist and comments are shown only in the staff area, which the business can protect with a PIN. Staff can save records as a spreadsheet file to a place they choose; from then on that file is the business's responsibility.",
+          "Records older than the period the business chooses (30 days, 90 days, a year, or always) are deleted automatically, and staff can delete all records at any time. Uninstalling the app deletes everything.",
+        ],
+      },
+      {
+        title: "The Business's Responsibilities",
+        content: [
+          "The business that runs a Lobbylog kiosk decides what to ask and how long to keep it, and is responsible for telling its visitors how it uses their details, as local privacy law requires.",
+        ],
+      },
+      {
+        title: "Links To The Appstore",
+        content: [
+          "The Rate and More apps buttons, shown only in the staff area, open the Amazon Appstore, or amazon.com in a browser on devices without the Appstore. Lobbylog sends nothing with them.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Lobbylog is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Lobbylog is a tool for businesses and is not directed at children. It collects no personal information for the developer from anyone.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Lobbylog ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Lobbylog, email sufyantechsolutions@gmail.com with the subject line: Lobbylog Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
