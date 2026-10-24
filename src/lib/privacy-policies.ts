@@ -3008,6 +3008,67 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "daywise",
+    name: "Daywise",
+    updated: "October 2026",
+    description:
+      "What Daywise, the day clock and reminder display for Fire tablets and Fire TV, does and does not collect. It asks for no permissions and has no internet access: reminders and settings stay on the device.",
+    intro:
+      "Daywise is a large day clock for people who lose track of the days, such as people living with dementia: it shows the day, the part of the day, the time and the date, speaks reminders the family sets up, and dims at night. It asks for no Android permissions at all, has no account and sends nothing to the developer. This page sets out exactly what the app touches and why.",
+    sections: [
+      {
+        title: "What The Developer Collects",
+        content: [
+          "Nothing. Daywise has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind.",
+          "The app requests no Android permissions, including no internet permission, so it cannot send anything anywhere. The developer never receives any information from it.",
+        ],
+      },
+      {
+        title: "Reminders, Notes And Settings",
+        content: [
+          "The reminders, the note on the clock, the record of which reminders were marked done (kept for two weeks, to show the family today's progress), and all settings are stored only in the app's private storage on the device. Uninstalling the app removes them.",
+          "The optional caregiver PIN is stored only as a one-way hash, never as the number itself.",
+        ],
+      },
+      {
+        title: "Speech",
+        content: [
+          "Daywise speaks the time and reminders with the text-to-speech voice already installed on the device. It sends no text anywhere and does not use the microphone.",
+        ],
+      },
+      {
+        title: "Health Information",
+        content: [
+          "Daywise is a clock and reminder display, not a medical device, and it does not diagnose or treat any condition. Reminder texts such as medication reminders are written by the family and never leave the device.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Daywise is made for adults and older people and their families. It collects no personal information from anyone and contains no advertising, chat or social features.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Daywise is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Daywise ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Daywise, email sufyantechsolutions@gmail.com with the subject line: Daywise Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
