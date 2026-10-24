@@ -2882,6 +2882,73 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "buttonrescue",
+    name: "Button Rescue",
+    updated: "October 2026",
+    description:
+      "What Button Rescue, the on-screen power, lock and volume buttons app, does and does not collect. Its accessibility service reads nothing on the screen, and the app has no internet permission.",
+    intro:
+      "Button Rescue puts the power, lock and volume buttons on the screen for people whose hardware buttons are broken or hard to press. It opens the device's own power menu, locks the screen, changes the volume, shows a floating button, and can turn the screen on with a shake or a wave. It collects nothing, sends nothing and has no account. This page sets out exactly what the app touches and why.",
+    sections: [
+      {
+        title: "What The Developer Collects",
+        content: [
+          "Nothing. Button Rescue has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind.",
+          "The app does not request Android's internet permission, so it cannot send anything anywhere. The developer never receives any information from it.",
+        ],
+      },
+      {
+        title: "The Accessibility Service",
+        content: [
+          "Android allows only an accessibility service to open the power menu, lock the screen or take a screenshot for another app. Button Rescue uses its accessibility service for exactly these system actions (power menu, lock, screenshot, notifications, quick settings, back, home and recent apps) and to show its floating button. It is switched on by you in the system's Accessibility settings, after the app explains what it does, and you can switch it off there at any time.",
+          "The service is set up to receive no accessibility events and no window content. It cannot see, read or record what is on your screen or what you type, and it collects nothing from other apps.",
+        ],
+      },
+      {
+        title: "Sensors And Waking The Screen",
+        content: [
+          "If you switch on Shake to wake or Wave to wake, the app reads the motion sensor and the proximity sensor only while the screen is off, and only for the time you choose in the settings, to notice a shake or a wave and turn the screen on. The readings are used at that moment and never stored or sent.",
+        ],
+      },
+      {
+        title: "Screen Lock On Older Devices",
+        content: [
+          "On Android 8 and older, locking the screen needs the device admin permission. Button Rescue asks for it only there, and only for the single power to lock the screen. It never uses any other admin power. Turn it off in Settings, Security, Device admin apps before uninstalling the app.",
+        ],
+      },
+      {
+        title: "Screenshots, Volume And Settings",
+        content: [
+          "Screenshots are taken by the system and saved by the system, in its usual place; Button Rescue never opens, reads or copies them. Volume changes go straight to the system. Your settings (the floating button's size and position, the language, the theme) are kept only on your device.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Button Rescue is a utility for all ages. It collects no personal information from anyone and contains no advertising, chat or social features.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Button Rescue is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Button Rescue ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Button Rescue, email sufyantechsolutions@gmail.com with the subject line: Button Rescue Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
