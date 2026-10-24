@@ -2815,6 +2815,73 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "tilevoice",
+    name: "Tilevoice",
+    updated: "October 2026",
+    description:
+      "What Tilevoice, the AAC talking picture board, does and does not collect. It has no internet permission: words, photos and voice recordings stay on the tablet.",
+    intro:
+      "Tilevoice is an AAC (augmentative and alternative communication) app: people who cannot speak, or find speaking hard, tap picture tiles and the tablet says the words. Families and therapists can add their own photos and record a real voice for any word. Tilevoice collects nothing, sends nothing and has no account. This page sets out exactly what the app touches and why.",
+    sections: [
+      {
+        title: "What The Developer Collects",
+        content: [
+          "Nothing. Tilevoice has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind.",
+          "The app does not request Android's internet permission, so it cannot send anything anywhere. The developer never receives any information from it.",
+        ],
+      },
+      {
+        title: "Words, Photos And Recordings",
+        content: [
+          "The boards and words, the photos added to tiles and the voice recordings are kept only in the app's private storage on the tablet. Photos are chosen in the tablet's own picture picker or taken with its camera app; Tilevoice keeps a small square copy and nothing else.",
+          "Phrases typed on the keyboard and the words used most are remembered on the tablet only, to suggest words. Everything is deleted when you start over, delete a tile, or uninstall the app.",
+        ],
+      },
+      {
+        title: "The Microphone",
+        content: [
+          "Tilevoice asks for the microphone only when a grown-up taps Record on a tile, to record a family member saying that word. Recording stops when they tap Stop, and the recording is played only when that tile is chosen. The microphone is never used at any other time, and nothing is ever listened to or sent anywhere.",
+        ],
+      },
+      {
+        title: "Speech",
+        content: [
+          "Words are spoken by the text-to-speech voice already installed on the tablet. Tilevoice uses offline voices only and sends no text anywhere.",
+        ],
+      },
+      {
+        title: "Backups",
+        content: [
+          "A backup is one file written to the place a grown-up picks in the tablet's save dialog, and nowhere else. Restoring reads only the file they choose.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Tilevoice is used by children and adults. It collects no personal information from anyone, contains no advertising, chat or social features, and has no links a child can reach: the settings, the Rate and More apps buttons, and the Appstore links are behind a grown-ups-only check.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Tilevoice is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Tilevoice ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Tilevoice, email sufyantechsolutions@gmail.com with the subject line: Tilevoice Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
