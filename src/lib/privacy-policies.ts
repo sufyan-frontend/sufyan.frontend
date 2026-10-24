@@ -2949,6 +2949,65 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "cueglass",
+    name: "Cueglass",
+    updated: "October 2026",
+    description:
+      "What Cueglass, the teleprompter for Fire tablets and Fire TV, does and does not collect. Scripts stay on your device; the microphone only measures loudness for voice-paced scrolling; the phone remote works only on your home network.",
+    intro:
+      "Cueglass is a teleprompter: you write or import a script and it scrolls on the screen while you speak. It can be paced by your voice and driven from your phone's browser over your home Wi-Fi. Cueglass has no account and sends nothing to the developer. This page sets out exactly what the app touches and why.",
+    sections: [
+      {
+        title: "What The Developer Collects",
+        content: [
+          "Nothing. Cueglass has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any information from it.",
+        ],
+      },
+      {
+        title: "Your Scripts",
+        content: [
+          "Scripts are kept only in the app's private storage on your device. A text file you open is read once to create a script; a script you save as a text file is written only to the place you pick in the system's save dialog. Deleting a script or uninstalling the app removes them.",
+        ],
+      },
+      {
+        title: "The Microphone",
+        content: [
+          "Cueglass uses the microphone only when you switch on Voice-paced scrolling, and only while a script is scrolling. It measures how loud the sound is, many times a second, to decide whether to move the text; each short slice of sound is turned into one loudness number and thrown away. Nothing is recorded, stored or sent anywhere.",
+        ],
+      },
+      {
+        title: "The Phone Remote And The Network",
+        content: [
+          "Cueglass asks for the internet permission only for the phone remote. When you open the phone remote screen, the app serves one small web page on your home network, at a random address shown in the QR code. A phone on the same Wi-Fi that opens that address can start, stop and adjust the prompter, see the titles of your scripts, and send a new script to the device. The page is not reachable from the internet, works only while Cueglass is open, and nothing is sent to the developer or any other server.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Cueglass is a tool for all ages. It collects no personal information from anyone and contains no advertising, chat or social features.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Cueglass is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Cueglass ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Cueglass, email sufyantechsolutions@gmail.com with the subject line: Cueglass Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
