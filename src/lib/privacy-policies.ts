@@ -3069,6 +3069,72 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "signdeck",
+    name: "Signdeck",
+    updated: "October 2026",
+    description:
+      "What Signdeck, the digital signage and menu board app for Fire TV, does and does not collect. Boards and photos stay on the TV; the phone editor works only on your own network, while the app is open.",
+    intro:
+      "Signdeck turns a TV with a Fire TV into a sign: it shows menus, notices, photos, opening hours, a Wi-Fi welcome and QR codes one after another, and can be edited from a phone's browser on the same network. Signdeck has no account and sends nothing to the developer. This page sets out exactly what the app touches and why.",
+    sections: [
+      {
+        title: "What The Developer Collects",
+        content: [
+          "Nothing. Signdeck has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any information from it.",
+        ],
+      },
+      {
+        title: "Your Boards And Photos",
+        content: [
+          "Boards, slides, settings and the photos you send to the TV are kept only in the app's private storage on the TV. Photos are made TV-sized and stored there with a small copy for the editors. Deleting a board or photo, or uninstalling the app, removes them.",
+          "Text you put on slides, such as a Wi-Fi name and password, is shown on the screen because you asked for it to be shown. Only put on a slide what anyone in the room may see.",
+        ],
+      },
+      {
+        title: "The Phone Editor And The Network",
+        content: [
+          "Signdeck asks for the internet permission only for the phone editor. While Signdeck is open, the TV serves one small web page on your home or business network, at an address with a secret part that is shown in the QR code. A phone on the same network that opens that address can see and change your boards and send photos to the TV. The page is not reachable from the internet, works only while Signdeck is open, and nothing is sent to the developer or any other server. You can make a new secret address in Settings at any time, so phones that knew the old one can no longer edit.",
+        ],
+      },
+      {
+        title: "Starting When The TV Turns On",
+        content: [
+          "Signdeck can open its display again after the TV is switched on. For that it asks to be told when the device starts up (RECEIVE_BOOT_COMPLETED). On newer Android versions this also needs the \"display over other apps\" setting, which you can switch on yourself; Signdeck uses it only to open its own screen, never to draw over other apps.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate and More apps open the Amazon Appstore; the privacy link opens this page in a browser. QR codes on your slides are only shown on the screen; Signdeck never opens them itself.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Signdeck is a tool for businesses and organisations and is not directed at children. It collects no personal information from anyone and contains no advertising, chat or social features.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Signdeck is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Signdeck ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Signdeck, email sufyantechsolutions@gmail.com with the subject line: Signdeck Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
