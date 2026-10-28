@@ -3135,6 +3135,72 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "hubbub",
+    name: "Hubbub",
+    updated: "October 2026",
+    description:
+      "What Hubbub, the party game for Fire TV played on phones, does and does not collect. Players' names, answers and drawings stay on the TV for the game and are never sent anywhere.",
+    intro:
+      "Hubbub is a party game: the TV shows the game and friends play on their own phones, in the phone's web browser, over the home Wi-Fi. Hubbub has no account and sends nothing to the developer. This page sets out exactly what the app touches and why.",
+    sections: [
+      {
+        title: "What The Developer Collects",
+        content: [
+          "Nothing. Hubbub has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any information from it.",
+        ],
+      },
+      {
+        title: "Players, Answers And Drawings",
+        content: [
+          "To play, each person types a name on their phone. The names, the answers people write, their votes and their drawings are kept only in the TV's memory while Hubbub is open, and are shown on the TV screen to the people in the room, which is the point of the game. They are not saved to storage and disappear when Hubbub is closed.",
+          "A phone remembers its own player name and a random player number in its browser, so it can rejoin after a dropped connection. Nothing else is stored on the phone.",
+        ],
+      },
+      {
+        title: "The Players' Page And The Network",
+        content: [
+          "Hubbub asks for the internet permission only for the players' page. While Hubbub is open, the TV serves one small web page on your home network; phones on the same Wi-Fi open it by scanning the QR code or typing the short address shown on the TV. The page is not reachable from the internet, works only while Hubbub is open, and nothing is sent to the developer or any other server.",
+        ],
+      },
+      {
+        title: "Settings",
+        content: [
+          "Your language, the music and sound switches, relaxed timers and the app's look are stored in the app's private storage on the TV. Uninstalling the app removes them.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate and More apps open the Amazon Appstore; the privacy link opens this page in a browser.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Hubbub is a family game for all ages; its prompts and questions are written to be family-friendly. It collects no personal information from anyone, contains no advertising, chat with strangers or links out of the room, and only people on the same home network can join.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Hubbub is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Hubbub ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Hubbub, email sufyantechsolutions@gmail.com with the subject line: Hubbub Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
