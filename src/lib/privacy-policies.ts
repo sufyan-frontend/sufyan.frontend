@@ -3261,6 +3261,68 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "chimes",
+    name: "Chimes",
+    updated: "November 2026",
+    description:
+      "What Chimes, the mahjong solitaire game for Fire TV and Fire tablets, does and does not collect. It asks for no permissions, never goes online and collects nothing.",
+    intro:
+      "Chimes is a mahjong solitaire tile-matching game for Fire TV and Fire tablets. It asks for no permissions, has no internet access and collects nothing. Your progress stays on the device. This page sets out exactly what the app keeps and why.",
+    sections: [
+      {
+        title: "What Chimes Collects",
+        content: [
+          "Nothing. Chimes has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It never asks for your name, email, phone number or location, and the developer never receives any data from it.",
+          "The app does not request the INTERNET permission. It cannot send or receive anything over the internet, and it plays fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "To remember your progress, the app keeps a few things in its own private storage on the device: the stars earned on each level, coins, achievements, statistics, your top 10 scores, the Daily Challenge days you have won, the themes you have unlocked, the game in progress, and your settings (language, music, sound effects, timer and tile shading).",
+          "None of this identifies you, and other apps cannot read it. Uninstalling the app deletes all of it. If the device's own backup is switched on, the operating system may include this small progress file in the device backup, as it does for most apps; Chimes itself never sends it anywhere.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "None. The app requests no Android permissions whatsoever: not internet, storage, camera, microphone, contacts, location or phone.",
+          "The music and sound effects are files bundled inside the app, and the boards are dealt on the device. None of this needs a permission.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate Us and More Games open the Amazon Appstore, and Privacy policy opens this page in the device's browser. They only open when you choose them. No web pages open inside the app.",
+        ],
+      },
+      {
+        title: "Coins And Payments",
+        content: [
+          "Chimes is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. The coins in the game are earned only by playing. They cannot be bought, sold or exchanged for money: there are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Chimes is suitable for all ages and is not directed at children. It collects no data from anyone, including children, and has no advertising, no chat and no online play.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Chimes ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Chimes, email sufyantechsolutions@gmail.com with the subject line: Chimes Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
