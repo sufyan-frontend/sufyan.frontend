@@ -3201,6 +3201,66 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "crayontrail",
+    name: "Crayon Trail",
+    updated: "November 2026",
+    description:
+      "What Crayon Trail, the ABC letter-tracing app for young children on Fire tablets, does and does not collect. It asks for no permissions, never goes online and collects nothing.",
+    intro:
+      "Crayon Trail helps children aged 3 to 7 learn to write their letters by tracing them with a finger, a crayon at a time, and earning stars. It is made for children, so it is built to collect nothing at all. This page sets out exactly what the app keeps and why.",
+    sections: [
+      {
+        title: "What The Developer Collects",
+        content: [
+          "Nothing. Crayon Trail has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It does not collect, store or share personal information about children or adults, and the developer never receives any information from it.",
+        ],
+      },
+      {
+        title: "No Permissions And No Internet",
+        content: [
+          "Crayon Trail asks for no Android permissions. It does not have the internet permission, so it cannot send or receive anything over the internet. It does not use the camera, the microphone, location, contacts or files.",
+        ],
+      },
+      {
+        title: "What Stays On The Tablet",
+        content: [
+          "The app remembers which letters were finished, how many stars each one earned, the chosen crayon and the grown-up settings. This is kept only in the app's private storage on the tablet and is removed when the app is uninstalled. A grown-up can clear the stars at any time from the grown-ups panel.",
+          "If the device's own backup is switched on, the operating system may include this small progress file in the device backup, as it does for most apps. Crayon Trail itself never sends it anywhere.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate and More apps open the Amazon Appstore (or Google Play, when the app was installed from there). Both sit behind a grown-ups question, a times-table sum, so that a child cannot open them by accident. There are no other links, and no web pages open inside the app.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Crayon Trail is made for children and follows the U.S. Children's Online Privacy Protection Act (COPPA) and similar laws: it collects no personal information from anyone, shows no advertising, and has no chat, sharing or social features.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Crayon Trail is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases, no subscriptions and no advertising, and it never sees any payment details.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Crayon Trail ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Crayon Trail, email sufyantechsolutions@gmail.com with the subject line: Crayon Trail Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
