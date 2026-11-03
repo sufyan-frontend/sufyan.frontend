@@ -1660,6 +1660,69 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
     ],
   },
   {
+    slug: "my-drawing",
+    name: "My Drawing",
+    updated: "November 2026",
+    description:
+      "What the My Drawing app for children does and does not collect. It has no internet access and no permissions; pictures stay inside the app on the tablet.",
+    intro:
+      "My Drawing is a drawing and coloring app for children on Fire tablets and Android: draw with crayon, marker and spray paint, or tap to fill 24 coloring pages, and keep every picture in My Gallery. It collects nothing, sends nothing and has no account. This page sets out exactly what the app can and cannot do.",
+    sections: [
+      {
+        title: "What My Drawing Collects",
+        content: [
+          "Nothing. My Drawing has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It never asks a child or a parent for a name, age, email, voice or location.",
+          "The app requests no permissions at all, not even INTERNET. It has no technical ability to send anything anywhere, and it works fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On The Device",
+        content: [
+          "The app keeps these things in its own private storage: the pictures saved in My Gallery (for a coloring page, also its colors and which page it was, so it can be reopened), the picture on the easel if the app is closed in the middle of one, and the settings (sound effects on or off, and how often the rating question has been shown).",
+          "That is the complete list. There are no names, ages, device identifiers or location. Other apps cannot read this storage, and it is deleted when the app is uninstalled. If the tablet's own backup is switched on, Android or Fire OS may include it in that backup, which the device owner controls.",
+        ],
+      },
+      {
+        title: "Sharing Pictures",
+        content: [
+          "A picture in My Gallery can be shared, but only after a grown-up answers a times-table question. Sharing opens Android's own share menu. My Drawing itself never sends a picture anywhere; whatever app the grown-up picks in the share menu handles it under its own policy.",
+        ],
+      },
+      {
+        title: "Links Out Of The App",
+        content: [
+          "The For grown-ups screen, reached only through the same times-table question, has two buttons: Rate this app and More apps from us. Both open the Amazon Appstore (or the Amazon website if the Appstore is not installed). After a few saved pictures the app may ask, at most twice, whether a grown-up would like to rate it; Rate us also goes through the question first.",
+          "There are no other links, no web browser, no chat and no online play.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "My Drawing is a paid app sold through the Amazon Appstore. Amazon handles the purchase. The app contains no in-app purchases and never sees any payment details.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "My Drawing is made for children and follows Amazon's Child-Directed App Policy and the US Children's Online Privacy Protection Act (COPPA). Because it collects no personal information at all, there is nothing to disclose, consent to, review or delete.",
+          "There is no advertising and nothing to buy inside the app, and everything that leaves the app is behind the grown-ups question.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of My Drawing ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about My Drawing, email sufyantechsolutions@gmail.com with the subject line: My Drawing Privacy.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "clayframe",
     name: "Clayframe",
     updated: "October 2026",
