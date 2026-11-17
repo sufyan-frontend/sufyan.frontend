@@ -3386,6 +3386,519 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "hallcall",
+    name: "Hallcall",
+    updated: "November 2026",
+    description:
+      "What Hallcall, the bingo caller for Fire TV, Fire tablets and Android phones, does and does not collect. It asks for no permissions, never goes online and collects nothing.",
+    intro:
+      "Hallcall is a bingo caller for Fire TV, Fire tablets and Android phones: it draws the balls, shows them on a big board and reads each one out in a recorded caller's voice. It asks for no permissions, has no internet access and collects nothing. This page sets out exactly what the app keeps and why.",
+    sections: [
+      {
+        title: "What Hallcall Collects",
+        content: [
+          "Nothing. Hallcall has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It never asks for your name, email, phone number or location, and the developer never receives any data from it.",
+          "The app does not request the INTERNET permission. It cannot send or receive anything over the internet, and it works fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "So a game survives a power cut, the app keeps a few things in its own private storage on the device: the game in progress (75-ball or 90-ball, the prize pattern and the balls called so far), your settings (voice, chime, traditional calls, the automatic caller's timer, the board's look, light or dark screens and ask-before-leaving), and a count of finished games used to decide when to ask for a rating.",
+          "None of this identifies you, and other apps cannot read it. Uninstalling the app deletes all of it. Hallcall is excluded from the device's cloud backup, so this file never leaves the device.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "None. The app requests no Android permissions whatsoever: not internet, storage, camera, microphone, contacts, location or phone.",
+          "The caller's voice is a set of sound files recorded in advance and bundled inside the app, the chime is made by the app itself, and the balls are drawn on the device. The app never records or listens to anything.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate Hallcall and More apps open the Amazon Appstore, and Privacy opens this page in the device's browser. They only open when you choose them. No web pages open inside the app.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Hallcall is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions. Hallcall only calls numbers: it takes no bets, holds no money and pays no prizes.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Hallcall is suitable for all ages and is not directed at children. It collects no data from anyone, including children, and has no advertising, no chat and no online play.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Hallcall ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Hallcall, email sufyantechsolutions@gmail.com with the subject line: Hallcall Privacy.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "repwall",
+    name: "Repwall",
+    updated: "November 2026",
+    description:
+      "What Repwall, the gym and HIIT wall timer for Fire TV, Fire tablets and Android phones, does and does not collect. It never goes online and collects nothing.",
+    intro:
+      "Repwall is a big interval timer for gyms, studios and home workouts on Fire TV, Fire tablets and Android phones: Tabata, HIIT, EMOM, AMRAP and For Time, plus a wall clock. It has no internet access and collects nothing. This page sets out exactly what the app keeps, the two permissions it asks for, and why.",
+    sections: [
+      {
+        title: "What Repwall Collects",
+        content: [
+          "Nothing. Repwall has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It never asks for your name, email, phone number or location, and the developer never receives any data from it.",
+          "The app does not request the INTERNET permission. It cannot send or receive anything over the internet, and it works fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "The app keeps a few things in its own private storage on the device: the timers you save in My timers (their names and times), your settings (language, clock look, light or dark screens, count-in length, sounds and countdown beeps, showing the time of day on the timer, opening the wall clock when the TV starts, ask before stopping a timer), and a count of finished workouts used to decide when to ask for a rating.",
+          "None of this identifies you, and other apps cannot read it. Uninstalling the app deletes all of it. Repwall is excluded from the device's cloud backup, so this file never leaves the device.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "Run at startup (RECEIVE_BOOT_COMPLETED): only used when you switch on \"Open the wall clock when the TV starts\" in Settings, so the wall clock comes back by itself after a power cut. It is off until you turn it on.",
+          "Display over other apps (SYSTEM_ALERT_WINDOW): newer Android versions only let an app open its screen after the TV starts if this is allowed. Repwall never draws over other apps; you grant it yourself in the system settings, and only if you want the clock to open at startup.",
+          "Nothing else: not internet, storage, camera, microphone, contacts, location or phone. The beeps are made by the app itself.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate Repwall and More apps open the Amazon Appstore, and Privacy opens this page in the device's browser. They only open when you choose them. No web pages open inside the app.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Repwall is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Repwall is suitable for all ages and is not directed at children. It collects no data from anyone, including children, and has no advertising, no chat and no online features.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Repwall ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Repwall, email sufyantechsolutions@gmail.com with the subject line: Repwall Privacy.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "inkloop",
+    name: "Inkloop",
+    updated: "November 2026",
+    description:
+      "What Inkloop, a cursive handwriting app for children, does and does not collect. It asks for no permissions, never goes online and collects nothing.",
+    intro:
+      "Inkloop is a cursive handwriting app for children for Fire tablets, Fire TV and Android devices. It asks for no permissions, has no internet access and collects nothing. This page sets out exactly what the app keeps and why.",
+    sections: [
+      {
+        title: "What Inkloop Collects",
+        content: [
+          "Nothing. Inkloop has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any data from it.",
+          "The app does not request the INTERNET permission. It cannot send or receive anything over the internet, and it works fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "To remember each child's progress, the app keeps a few things in its own private storage on the device: the child profiles (an optional first name and a colour), the stars earned on each letter, number and word, and the extra practice words a grown-up typed in, and your settings (language and sound, among others). A child's name is optional and is only shown on the device so siblings can find their own profile.",
+          "Other apps cannot read this, and uninstalling the app deletes all of it. If the device's own backup is switched on, the operating system may include this small file in the device backup, as it does for most apps; Inkloop itself never sends it anywhere.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "None. The app requests no Android permissions whatsoever: not internet, storage, camera, microphone, contacts, location or phone. The sounds are made by the app itself.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy open the Amazon Appstore or this page in the device's browser. They are only reachable after the grown-ups question, and only open when chosen. No web pages open inside the app.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Inkloop is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Inkloop is made for children and their parents. It collects no personal information from anyone, children included: nothing leaves the device, and there is no advertising, no chat, no sign-in and no online play. The parts meant for grown-ups (Settings, rating the app, More apps and this privacy page) sit behind a short maths question a young child cannot answer, so a child cannot leave the app by accident.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Inkloop ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Inkloop, email sufyantechsolutions@gmail.com with the subject line: Inkloop Privacy.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "clockling",
+    name: "Clockling",
+    updated: "November 2026",
+    description:
+      "What Clockling, a learn-to-tell-time app for children, does and does not collect. It asks for no permissions, never goes online and collects nothing.",
+    intro:
+      "Clockling is a learn-to-tell-time app for children for Fire tablets, Fire TV and Android devices. It asks for no permissions, has no internet access and collects nothing. This page sets out exactly what the app keeps and why.",
+    sections: [
+      {
+        title: "What Clockling Collects",
+        content: [
+          "Nothing. Clockling has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any data from it.",
+          "The app does not request the INTERNET permission. It cannot send or receive anything over the internet, and it works fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "To remember each child's progress, the app keeps a few things in its own private storage on the device: the child profiles (an optional first name and a colour) and the stars earned on each level, and your settings (language and sound, among others). A child's name is optional and is only shown on the device so siblings can find their own profile.",
+          "Other apps cannot read this, and uninstalling the app deletes all of it. If the device's own backup is switched on, the operating system may include this small file in the device backup, as it does for most apps; Clockling itself never sends it anywhere.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "None. The app requests no Android permissions whatsoever: not internet, storage, camera, microphone, contacts, location or phone. The sounds are made by the app itself.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy open the Amazon Appstore or this page in the device's browser. They are only reachable after the grown-ups question, and only open when chosen. No web pages open inside the app.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Clockling is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Clockling is made for children and their parents. It collects no personal information from anyone, children included: nothing leaves the device, and there is no advertising, no chat, no sign-in and no online play. The parts meant for grown-ups (Settings, rating the app, More apps and this privacy page) sit behind a short maths question a young child cannot answer, so a child cannot leave the app by accident.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Clockling ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Clockling, email sufyantechsolutions@gmail.com with the subject line: Clockling Privacy.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "twistytrails",
+    name: "Twisty Trails",
+    updated: "November 2026",
+    description:
+      "What Twisty Trails, a maze game for young children, does and does not collect. It asks for no permissions, never goes online and collects nothing.",
+    intro:
+      "Twisty Trails is a maze game for young children for Fire tablets, Fire TV and Android devices. It asks for no permissions, has no internet access and collects nothing. This page sets out exactly what the app keeps and why.",
+    sections: [
+      {
+        title: "What Twisty Trails Collects",
+        content: [
+          "Nothing. Twisty Trails has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any data from it.",
+          "The app does not request the INTERNET permission. It cannot send or receive anything over the internet, and it works fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "To remember each child's progress, the app keeps a few things in its own private storage on the device: the child profiles (an optional first name and a colour), the stars earned on each maze and which mazes are open, and your settings (language and sound, among others). A child's name is optional and is only shown on the device so siblings can find their own profile.",
+          "Other apps cannot read this, and uninstalling the app deletes all of it. If the device's own backup is switched on, the operating system may include this small file in the device backup, as it does for most apps; Twisty Trails itself never sends it anywhere.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "None. The app requests no Android permissions whatsoever: not internet, storage, camera, microphone, contacts, location or phone. The sounds are made by the app itself.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy open the Amazon Appstore or this page in the device's browser. They are only reachable after the grown-ups question, and only open when chosen. No web pages open inside the app.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Twisty Trails is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Twisty Trails is made for children and their parents. It collects no personal information from anyone, children included: nothing leaves the device, and there is no advertising, no chat, no sign-in and no online play. The parts meant for grown-ups (Settings, rating the app, More apps and this privacy page) sit behind a short maths question a young child cannot answer, so a child cannot leave the app by accident.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Twisty Trails ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Twisty Trails, email sufyantechsolutions@gmail.com with the subject line: Twisty Trails Privacy.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "readyline",
+    name: "Readyline",
+    updated: "November 2026",
+    description:
+      "What Readyline, the order-ready board for Fire TV, does and does not collect. It sends nothing to the internet and collects nothing.",
+    intro:
+      "Readyline turns a TV into an order-ready board for cafés, takeaways and counters: order numbers move from Preparing to Ready. It has no accounts and collects nothing. This page sets out exactly what the app keeps, the permissions it asks for, and why.",
+    sections: [
+      {
+        title: "What Readyline Collects",
+        content: [
+          "Nothing. Readyline has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any data from it.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "The app keeps a few things in its own private storage on the TV: the order numbers on the board and when each was added, the shop name and bottom message you typed, the board's titles and look, sound and voice settings, and the secret address of the phone remote.",
+          "Order numbers are just numbers; the app asks for no customer names or details. Other apps cannot read this data, it is excluded from the device's cloud backup, and uninstalling the app deletes all of it.",
+        ],
+      },
+      {
+        title: "The Phone Remote And The Network",
+        content: [
+          "While Readyline is open, the TV serves one small web page on your shop's own Wi-Fi network, so staff can add and call orders from a phone's browser by scanning the QR code on the TV. This is why the app asks for the INTERNET permission: Android needs it for any network connection, even one that stays inside the shop.",
+          "The page lives under a secret address that only the QR code shows, it is reachable only from the same local network, and nothing is sent to the internet or to the developer. The board works fully without it, from the TV remote.",
+        ],
+      },
+      {
+        title: "Spoken Calls",
+        content: [
+          "If you turn the voice on, order numbers are read out by the device's own text-to-speech engine. Readyline only passes it the number to say.",
+        ],
+      },
+      {
+        title: "Other Permissions",
+        content: [
+          "Run at startup (RECEIVE_BOOT_COMPLETED) and display over other apps (SYSTEM_ALERT_WINDOW) are only used if you switch on opening the board when the TV starts, so it comes back by itself after a power cut. Readyline never draws over other apps.",
+          "Nothing else: no storage, camera, microphone, contacts, location or phone.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy open the Amazon Appstore or this page in the device's browser. They only open when you choose them.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Readyline is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Readyline is suitable for all ages and is not directed at children. It collects no data from anyone, including children, and has no advertising, no chat and no online features.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Readyline ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Readyline, email sufyantechsolutions@gmail.com with the subject line: Readyline Privacy.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "stayboard",
+    name: "Stayboard",
+    updated: "November 2026",
+    description:
+      "What Stayboard, the welcome board for holiday rentals, does and does not collect. It never goes online and collects nothing.",
+    intro:
+      "Stayboard turns the TV in a holiday rental into a welcome board for guests: the guest's name, house information, Wi-Fi details and checkout time. It has no internet access and collects nothing. This page sets out exactly what the app keeps, the permissions it asks for, and why.",
+    sections: [
+      {
+        title: "What Stayboard Collects",
+        content: [
+          "Nothing. Stayboard has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any data from it.",
+          "The app does not request the INTERNET permission. It cannot send or receive anything over the internet.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "Everything the host types stays in the app's private storage on that TV: the place name, the host's name and phone number, the greeting and the current guest's name, the information pages, the guest Wi-Fi name, password and security type, checkout day and time, and the board's settings.",
+          "The host's settings PIN is never stored as typed: only a salted SHA-256 hash of it is kept, together with a hashed recovery code. Other apps cannot read any of this, it is excluded from the device's cloud backup, and uninstalling the app deletes all of it.",
+          "The Wi-Fi details and host phone number are shown on screen to whoever is in the room, which is the point of the board; the host can hide the Wi-Fi details at any time and should change the guest name between stays.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "Run at startup (RECEIVE_BOOT_COMPLETED) and display over other apps (SYSTEM_ALERT_WINDOW) are only used if the host switches on opening the board when the TV starts. Stayboard never draws over other apps.",
+          "Nothing else: not internet, storage, camera, microphone, contacts, location or phone.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy open the Amazon Appstore or this page in the device's browser. They only open when chosen.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Stayboard is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Stayboard is suitable for all ages and is not directed at children. It collects no data from anyone, including children, and has no advertising, no chat and no online features.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Stayboard ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Stayboard, email sufyantechsolutions@gmail.com with the subject line: Stayboard Privacy.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "cashbell",
+    name: "Cashbell",
+    updated: "November 2026",
+    description:
+      "What Cashbell, the offline cash register for small shops, does and does not collect. It never goes online and collects nothing.",
+    intro:
+      "Cashbell is a simple cash register for small shops, stalls and food trucks on Fire tablets, Fire TV and Android devices. It has no internet access and collects nothing. This page sets out exactly what the app keeps and why.",
+    sections: [
+      {
+        title: "What Cashbell Collects",
+        content: [
+          "Nothing. Cashbell has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives your sales or any other data.",
+          "The app does not request the INTERNET permission. It cannot send or receive anything over the internet.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "Your shop's data stays in the app's private storage on the device: the products and prices, the sales you ring up (items, totals, payment type and time), the shop name and receipt header and footer, currency and tax settings, and the owner PIN, which is only kept as a hash, never as typed.",
+          "Cashbell does not ask for customer names or card numbers. Other apps cannot read this data, it is excluded from the device's cloud backup, and uninstalling the app deletes it, so make your own backups.",
+        ],
+      },
+      {
+        title: "Backups, Exports And Receipts",
+        content: [
+          "Backup, Restore and Export sales (CSV) use the device's own file picker: you choose where the file goes (for example a folder or your own cloud drive), and Cashbell only writes or reads that one file.",
+          "Share receipt hands the receipt text to an app you pick (such as email or messaging). Nothing is sent unless you choose to share it.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "None. The app requests no Android permissions: not internet, storage, camera, microphone, contacts, location or phone. Files are saved only through the file picker you control.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy open the Amazon Appstore or this page in the device's browser. They only open when you choose them.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Cashbell is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Cashbell is suitable for all ages and is not directed at children. It collects no data from anyone, including children, and has no advertising, no chat and no online features.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Cashbell ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Cashbell, email sufyantechsolutions@gmail.com with the subject line: Cashbell Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
