@@ -3899,6 +3899,75 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "markleaf",
+    name: "Markleaf",
+    updated: "November 2026",
+    description:
+      "What Markleaf, the PDF fill, sign and annotate app for Fire tablets, does and does not collect. It asks for no permissions, never goes online and collects nothing.",
+    intro:
+      "Markleaf lets you fill in, sign, highlight and mark up PDFs on Fire tablets and Android devices. It asks for no permissions, has no internet access and collects nothing. This page sets out exactly what the app keeps and why.",
+    sections: [
+      {
+        title: "What Markleaf Collects",
+        content: [
+          "Nothing. Markleaf has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives your PDFs, your signature or any other data.",
+          "The app does not request the INTERNET permission. It cannot send or receive anything over the internet, and it works fully offline.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "When you open a PDF in Markleaf, a copy is kept in the app's private storage so your original file is never changed. Next to it the app keeps your marks (pen, highlighter, text boxes and placed signatures) and a small cover picture for the shelf.",
+          "The signature you draw is kept on the device so you can place it on the next form; you can delete it at any time in Settings. Your settings (theme and stylus-only mode) are kept there too.",
+          "Other apps cannot read any of this, and uninstalling the app deletes all of it. If the device's own backup is switched on, the operating system may include the app's files in the device backup, as it does for most apps; Markleaf itself never sends them anywhere.",
+        ],
+      },
+      {
+        title: "Opening, Saving And Sharing",
+        content: [
+          "PDFs only come into the app when you choose them: with Open a PDF (the device's own file picker) or with Open with Markleaf from another app.",
+          "Save a copy writes a new PDF, with your marks, to a place you pick in the file picker. Share hands that file to an app you choose, such as email. Nothing leaves the app unless you do one of these.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "None. The app requests no Android permissions: not internet, storage, camera, microphone, contacts, location or phone. Files are opened and saved only through the system file picker that you control.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy policy open the Amazon Appstore or this page in the device's browser. They only open when you choose them.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Markleaf is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Markleaf is suitable for all ages and is not directed at children. It collects no data from anyone, including children, and has no advertising, no chat and no online features.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Markleaf ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Markleaf, email sufyantechsolutions@gmail.com with the subject line: Markleaf Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
