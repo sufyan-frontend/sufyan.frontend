@@ -3968,6 +3968,90 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "weatherpane",
+    name: "Weatherpane",
+    updated: "November 2026",
+    description:
+      "What Weatherpane, the weather display for Fire TV, does and does not collect. It has no accounts and collects nothing about you.",
+    intro:
+      "Weatherpane turns a TV into a weather display: the forecast for a town or city you choose and, if you have one, the readings of your own weather station on your home network. It has no accounts and collects nothing about you. This page sets out exactly what the app sends, what it keeps, the permissions it asks for, and why.",
+    sections: [
+      {
+        title: "What Weatherpane Collects",
+        content: [
+          "Nothing about you. Weatherpane has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any data from it.",
+        ],
+      },
+      {
+        title: "The Forecast",
+        content: [
+          "To show the forecast, the app asks MET Norway (api.met.no, the Norwegian Meteorological Institute) for the weather at the place you chose, about every 30 minutes. The request carries only that place's latitude and longitude, rounded to about 100 metres around the town's centre, and the app's name. MET Norway's servers see the TV's internet address, as any website does; see the MET Norway privacy statement at met.no.",
+          "The place is picked from a list of towns and cities built into the app (from GeoNames). The first time, the app chooses the biggest city in the TV's time zone; it does not use GPS or location services, and it never asks for your location.",
+        ],
+      },
+      {
+        title: "Your Weather Station And The Home Network",
+        content: [
+          "If you connect a weather station, its readings travel only inside your home network: the app reads an Ecowitt gateway's own page, receives the readings an Ecowitt or Ambient Weather console sends to the TV when you set up a \"Customized\" upload, or listens for the readings a WeatherFlow Tempest hub broadcasts on your Wi-Fi. None of this goes to the internet or to the developer.",
+          "While Weatherpane is open, the TV also serves one small web page on your home network, so a phone that scans the QR code on the TV can choose the place, name the station and set it up without the remote. The page lives under a secret address that only the QR code shows and is reachable only from the same network.",
+          "The app can search your home network for an Ecowitt gateway when you press \"Find on my network\": it asks each address on the network whether it is a gateway. It does this only when you press the button.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "The app keeps in its own private storage on the TV: the place you chose, your units and settings, the station's name and the gateway's address if you typed them, the last forecast, and the last 48 hours of your station's readings for the Trends page.",
+          "Other apps cannot read this data, it is excluded from the device's cloud backup, and uninstalling the app deletes all of it. The demo station's pretend readings are never stored.",
+        ],
+      },
+      {
+        title: "Permissions In Full",
+        content: [
+          "Internet (INTERNET): to download the forecast and to talk to your station and phone on your home network.",
+          "Network and Wi-Fi state (ACCESS_NETWORK_STATE, ACCESS_WIFI_STATE): to show the TV's address on your network in the setup steps.",
+          "Wi-Fi multicast (CHANGE_WIFI_MULTICAST_STATE): so the TV can hear a Tempest hub's broadcasts.",
+          "Nothing else: no storage, camera, microphone, contacts, location or phone.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy open the Amazon Appstore or this page in the device's browser. They only open when you choose them.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Weatherpane is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Weatherpane is suitable for all ages and is not directed at children. It collects no data from anyone, including children, and has no advertising, no chat and no social features.",
+        ],
+      },
+      {
+        title: "Credits",
+        content: [
+          "Forecast data: MET Norway, licensed under CC BY 4.0. Place names: GeoNames, licensed under CC BY 4.0.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Weatherpane ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Weatherpane, email sufyantechsolutions@gmail.com with the subject line: Weatherpane Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
