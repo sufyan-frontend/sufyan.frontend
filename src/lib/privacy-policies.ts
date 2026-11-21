@@ -4186,6 +4186,72 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "tallyrise",
+    name: "Tallyrise",
+    updated: "November 2026",
+    description:
+      "What Tallyrise, the sales goal and team leaderboard board for Fire TV, does and does not collect. It has no accounts, sends nothing to the internet and collects nothing.",
+    intro:
+      "Tallyrise turns a shop's TV into a sales board: today's total against a goal, whether the shop is ahead of pace, and a leaderboard of who is selling most. It has no accounts and collects nothing. This page sets out exactly what the app keeps on the device, and why.",
+    sections: [
+      {
+        title: "What Tallyrise Collects",
+        content: [
+          "Nothing. Tallyrise has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any data from it.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "The app keeps a few things in its own private storage on the TV, tablet or phone it runs on: the sales you add (time, amount or number, and which team member made the sale), the names you give your team, your goals and opening hours, the shop name shown on the board, and your settings (look, sounds, currency and language).",
+          "None of this leaves the device. Other apps cannot read it, it is excluded from the device's cloud backup, and uninstalling the app deletes all of it. You can delete any sale in the sales log, remove a team member, clear all sales, or start fresh at any time.",
+        ],
+      },
+      {
+        title: "The Phone Page",
+        content: [
+          "Optionally, the TV can show a QR code that opens a small page on a phone, so sales and names can be entered from the phone. That page is served by the TV itself over your own Wi-Fi network, under a secret address only the QR code knows. It does not go through the internet or any server of ours, it works only while Tallyrise is open, and nothing typed on it is sent anywhere except to your TV.",
+        ],
+      },
+      {
+        title: "Permissions",
+        content: [
+          "Internet access only, and only for the phone page on your own network described above. Tallyrise sends nothing to the internet. It asks for no storage, camera, microphone, contacts, location or phone permissions. Its bell and fanfare sounds are made by the app itself; there is no speech and no recording.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy in Settings open the Amazon Appstore or this page in the device's browser. They only open when you choose them.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Tallyrise is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. It records sales amounts that you type, but it does not take payments, and there are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Tallyrise is a business tool for shop owners and their staff and is not directed at children. It collects no data from anyone and has no advertising, no chat and no online features.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Tallyrise ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Tallyrise, email sufyantechsolutions@gmail.com with the subject line: Tallyrise Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
