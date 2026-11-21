@@ -4052,6 +4052,140 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "chalkbay",
+    name: "Chalkbay",
+    updated: "November 2026",
+    description:
+      "What Chalkbay, the classroom screen and timer for Fire TV, does and does not collect. It works offline, asks for no permissions and collects nothing.",
+    intro:
+      "Chalkbay turns a TV into a classroom screen: a class board, a big timer, a fair name picker, a group maker, a traffic light, work signs and dice. It has no accounts and collects nothing. This page sets out exactly what the app keeps on the device, and why.",
+    sections: [
+      {
+        title: "What Chalkbay Collects",
+        content: [
+          "Nothing. Chalkbay has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any data from it.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "The app keeps a few things in its own private storage on the TV or tablet: your class lists (a class name and the pupils' names you type, or just a number of pupils), the message on the class board, the last timer length, and your settings (colours, sounds, fair picking and language).",
+          "Pupils' names never leave the device. Other apps cannot read this data, it is excluded from the device's cloud backup, and uninstalling the app deletes all of it. You can change or delete any class at any time in My classes.",
+        ],
+      },
+      {
+        title: "Permissions",
+        content: [
+          "None. Chalkbay asks for no permissions at all: no internet, storage, camera, microphone, contacts, location or phone. It works fully offline. Its bell and chime sounds are made by the app itself; there is no speech and no recording.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy in Settings open the Amazon Appstore or this page in the device's browser. They only open when you choose them.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Chalkbay is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Chalkbay is a tool for teachers and is not directed at children, although a class watches its screen. It collects no data from anyone, including children, and has no advertising, no chat and no online features.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Chalkbay ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Chalkbay, email sufyantechsolutions@gmail.com with the subject line: Chalkbay Privacy.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "talkbloom",
+    name: "Talkbloom AAC",
+    updated: "November 2026",
+    description:
+      "What Talkbloom AAC, the talking picture board for people who can't speak, does and does not collect. Everything stays on the device; the developer receives nothing.",
+    intro:
+      "Talkbloom is an AAC (augmentative and alternative communication) app: tap pictures or type, and the device speaks for you. What a person says can be very personal, so Talkbloom keeps all of it on the device. It has no accounts and collects nothing. This page sets out exactly what the app keeps, and why.",
+    sections: [
+      {
+        title: "What Talkbloom Collects",
+        content: [
+          "Nothing. Talkbloom has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The app does not ask for internet access, and the developer never receives any data from it.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "The app keeps these things in its own private storage on the tablet or phone: your boards, folders and tiles (words, pictures and colours), your saved phrases, the last 100 sentences spoken (History), how often each word was used (so the keyboard can suggest your own words first), photos you add to tiles, voice recordings you make for tiles and phrases, and your settings.",
+          "Other apps cannot read this data. It is excluded from the device's automatic cloud backup, so it never leaves the device on its own. Uninstalling the app deletes all of it. You can clear History, delete any tile, phrase, photo or recording, or start over with the starter boards at any time.",
+        ],
+      },
+      {
+        title: "Backups You Make",
+        content: [
+          "Back up in Settings saves everything listed above into one file, in a place you choose (for example the device's storage or a cloud folder you use). That file is yours: the developer never sees it. Keep it somewhere private, because it can contain photos, recordings and things that were said. Restore reads such a file back; it checks the file first and ignores anything that isn't a Talkbloom backup.",
+        ],
+      },
+      {
+        title: "Permissions",
+        content: [
+          "Microphone: only to record a voice for a tile or phrase, and only while you press Record. Recordings are saved on the device and are never sent anywhere. Talkbloom works fully without this permission.",
+          "Photos and camera: when you choose Photo or Camera for a tile, the device's own photo picker or camera app opens. Talkbloom only receives the one picture you choose, makes a small copy for the tile, and asks for no storage or camera permission.",
+          "No internet, contacts, location or phone permissions.",
+        ],
+      },
+      {
+        title: "Speech",
+        content: [
+          "Talkbloom speaks with the text-to-speech engine installed on your device (for example Amazon's or Google's). On most devices these voices work offline. Some engines offer voices that need the internet, marked with a cloud in Talkbloom's voice list; if you choose one, that engine may send the text to its maker to be spoken, under the engine maker's own privacy policy. Recorded voices are always played from the device.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy open the Amazon Appstore or this page in the device's browser. They only open when chosen, and only after a grown-up answers a short sum, so a child can't leave the app by accident.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Talkbloom is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Children use Talkbloom to communicate, with a parent, carer or therapist setting it up. It collects no data from anyone, including children, has no advertising, no chat and no online features, and keeps settings, editing and every outside link behind the grown-ups' sum.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Talkbloom ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Talkbloom, email sufyantechsolutions@gmail.com with the subject line: Talkbloom Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
