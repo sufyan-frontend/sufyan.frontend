@@ -4331,6 +4331,78 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "nightcap",
+    name: "Nightcap",
+    updated: "November 2026",
+    description:
+      "What Nightcap, the sleep timer and sleep sounds app for Fire TV and Fire tablets, does and does not collect. It has no accounts, no internet permission and collects nothing.",
+    intro:
+      "Nightcap is a sleep timer for your TV: when the time you pick is up, it pauses what is playing and says goodnight. It also plays calm sleep sounds, shows a night clock and can keep a nightly bedtime. It has no accounts and collects nothing. This page sets out exactly what the app keeps on the device, and why.",
+    sections: [
+      {
+        title: "What Nightcap Collects",
+        content: [
+          "Nothing. Nightcap has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. It does not even have the internet permission, so it cannot send anything anywhere. The developer never receives any data from it.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "The app keeps a few settings in its own private storage: the timer lengths you used, how the night should end (warning, volume fade, goodnight screen, sounds afterwards), your sleep sound and volume, the night clock's colour and brightness, the bedtime and its nights, the morning time and the grown-up code for the bedtime lock, and the language.",
+          "None of this leaves the device. Other apps cannot read it, it is excluded from the device's cloud backup, and uninstalling the app deletes all of it.",
+        ],
+      },
+      {
+        title: "Pausing What Plays",
+        content: [
+          "When the timer ends, or at bedtime, Nightcap sends the same pause signal as the remote's pause button. It does not see or record what you are watching or listening to.",
+        ],
+      },
+      {
+        title: "Permissions",
+        content: [
+          "A foreground service, so the timer keeps counting and sleep sounds keep playing while another app is on screen. Starting at boot, so bedtime alarms are set again after the device restarts. Display over other apps, only so the goodnight and bedtime screens can open over your show on newer Android versions, and only if you allow it in the device's settings. No internet, storage, camera, microphone, contacts, location or phone permissions.",
+        ],
+      },
+      {
+        title: "Sleep Sounds",
+        content: [
+          "Six of the sounds are public-domain or CC0 nature recordings that come inside the app; the fan and the three noises are made by the app itself. Nothing is downloaded and nothing is recorded.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy in Settings open the Amazon Appstore or this page in the device's browser. They only open when you choose them.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Nightcap is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Nightcap's bedtime lock is set up by parents for a child's TV, but the app is not directed at children and collects no data from anyone. It has no advertising, no chat and no online features.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Nightcap ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Nightcap, email sufyantechsolutions@gmail.com with the subject line: Nightcap Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
