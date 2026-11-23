@@ -4252,6 +4252,85 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
       },
     ],
   },
+  {
+    slug: "auraframe",
+    name: "Auraframe",
+    updated: "November 2026",
+    description:
+      "What Auraframe, the photo frame and art slideshow for Fire TV and Fire tablets, does and does not collect. It has no accounts, sends nothing to the internet and collects nothing.",
+    intro:
+      "Auraframe turns a TV or tablet into a photo frame: your own photos, sent from your phone over your home Wi-Fi, and built-in public-domain paintings and nature photos. It has no accounts and collects nothing. This page sets out exactly what the app keeps on the device, and why.",
+    sections: [
+      {
+        title: "What Auraframe Collects",
+        content: [
+          "Nothing. Auraframe has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any data from it, and never sees your photos.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "The photos you send or pick are stored only in the app's own private storage on the TV, tablet or phone it runs on, together with small preview copies, the albums you make, which pictures you marked as favourites, and your settings (timing, frame, clock, night hours, sound and language).",
+          "When a photo arrives, the app reads only what it needs to show it the right way up and to sort it: its orientation and the date it was taken. Other information a photo may carry, such as a location, is not used, and the copy kept by the app is re-saved without it.",
+          "None of this leaves the device. Other apps cannot read it, it is excluded from the device's cloud backup, and uninstalling the app deletes all of it. You can delete any photo or album at any time, on the TV or from the phone page.",
+        ],
+      },
+      {
+        title: "The Phone Page",
+        content: [
+          "To add photos, the TV shows a QR code that opens a small page on a phone. That page is served by the TV itself over your own Wi-Fi network, under a secret address only the QR code knows. Photos go straight from the phone to the TV; they do not pass through the internet or any server of ours. The page works only while Auraframe is open, and nothing is installed on the phone.",
+        ],
+      },
+      {
+        title: "Photos Picked On A Tablet",
+        content: [
+          "On a Fire tablet you can also pick photos from the tablet itself. Android's own picker hands the app only the photos you choose; Auraframe asks for no permission to read your other files.",
+        ],
+      },
+      {
+        title: "Permissions",
+        content: [
+          "Internet access only, and only for the phone page on your own network described above. Auraframe sends nothing to the internet. It asks for no storage, camera, microphone, contacts, location or phone permissions. Its calm sounds (fireplace, rain, ocean, brown noise) are made by the app itself; there is no recording.",
+        ],
+      },
+      {
+        title: "Built-in Pictures",
+        content: [
+          "The paintings and nature photos that come with the app are in the public domain (mostly museum collections and the U.S. National Park Service). They are part of the app; nothing is downloaded to show them.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy in Settings open the Amazon Appstore or this page in the device's browser. They only open when you choose them.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Auraframe is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Auraframe is a general-audience photo frame and is not directed at children. It collects no data from anyone and has no advertising, no chat and no online features.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Auraframe ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Auraframe, email sufyantechsolutions@gmail.com with the subject line: Auraframe Privacy.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPrivacyPolicy(slug: string): AppPrivacyPolicy | undefined {
