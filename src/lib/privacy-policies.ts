@@ -4253,6 +4253,72 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
     ],
   },
   {
+    slug: "kitestep",
+    name: "Kitestep",
+    updated: "November 2026",
+    description:
+      "What Kitestep, the visual schedule and kids' routine chart for Fire TV and tablets, does and does not collect. It has no accounts, sends nothing to the internet and collects nothing.",
+    intro:
+      "Kitestep shows a child's routines (morning, after school, bedtime) on the TV or tablet, one picture step at a time, with timers, stars and rewards. A parent or carer sets it up. It has no accounts and collects nothing. This page sets out exactly what the app keeps on the device, and why.",
+    sections: [
+      {
+        title: "What Kitestep Collects",
+        content: [
+          "Nothing. Kitestep has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any data from it.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "The app keeps a few things in its own private storage on the TV, tablet or phone it runs on: the children's first names (or any names you type), the animal and colour chosen for each child, your routines and their steps, times and days, which steps were done on each day for the last six weeks, the stars each child has earned, the rewards you set, and your settings (look, sounds, language and the grown-up check).",
+          "None of this leaves the device. Other apps cannot read it, it is excluded from the device's cloud backup, and uninstalling the app deletes all of it. You can rename or remove a child, delete any routine, or start fresh at any time.",
+        ],
+      },
+      {
+        title: "The Phone Page",
+        content: [
+          "Optionally, the TV can show a QR code that opens a small page on a phone, so a parent can tick steps and type names and routines on the phone. That page is served by the TV itself over your own Wi-Fi network, under a secret address only the QR code knows. It does not go through the internet or any server of ours, it works only while Kitestep is open, and nothing typed on it is sent anywhere except to your TV.",
+        ],
+      },
+      {
+        title: "Permissions",
+        content: [
+          "Internet access only, and only for the phone page on your own network described above. Kitestep sends nothing to the internet. It asks for no storage, camera, microphone, contacts, location or phone permissions. It has no speech and records nothing; its chimes are made by the app itself.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate, More apps and Privacy in Settings open the Amazon Appstore or this page in the device's browser. They only open when chosen, and they sit behind the grown-up check (a times-table sum), so a child can't open them by accident.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "Kitestep is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions. The stars and rewards in the app are not money and cannot be bought.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "Kitestep is a parenting tool: a grown-up sets it up and children follow their routines on the screen. It collects no data from anyone, children included, and has no advertising, no chat, no social features and no online features. Routines, children, settings and every link out of the app are behind the grown-up check.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of Kitestep ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about Kitestep, email sufyantechsolutions@gmail.com with the subject line: Kitestep Privacy.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "auraframe",
     name: "Auraframe",
     updated: "November 2026",
