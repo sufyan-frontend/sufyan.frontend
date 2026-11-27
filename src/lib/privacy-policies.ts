@@ -4253,6 +4253,81 @@ export const privacyPolicies: AppPrivacyPolicy[] = [
     ],
   },
   {
+    slug: "cctvwallpro",
+    name: "CCTV Wall Pro",
+    updated: "November 2026",
+    description:
+      "What CCTV Wall Pro, the IP camera viewer and security camera wall for Fire TV and Fire tablets, does and does not collect. It has no accounts and no cloud: video goes straight from your cameras to your device.",
+    intro:
+      "CCTV Wall Pro shows live video from your own IP security cameras (RTSP and ONVIF) on a Fire TV, Fire tablet or Android device. It has no accounts, no cloud service and collects nothing. This page sets out exactly what the app keeps on the device, what it connects to, and why.",
+    sections: [
+      {
+        title: "What CCTV Wall Pro Collects",
+        content: [
+          "Nothing. The app has no accounts, no sign-in, no analytics, no advertising, no crash reporting and no tracking of any kind. The developer never receives any data from it and never sees your cameras or their video.",
+        ],
+      },
+      {
+        title: "What Stays On Your Device",
+        content: [
+          "The app keeps, in its own private storage on the device: the cameras you add (name, description, stream addresses, brand, ONVIF details such as maker and model), your groups, saved layouts and settings, and for each camera when it last showed a picture and its last connection problem.",
+          "Camera user names and passwords are encrypted with a key held in the Android Keystore, which never leaves the device. Logins are never written to logs, never included in problem reports, and are excluded from device backups. Deleting a camera deletes its login, and the app's database overwrites deleted records.",
+          "No video, snapshots or recordings are stored: the app shows live video only. Uninstalling the app deletes everything it kept.",
+        ],
+      },
+      {
+        title: "Your Cameras And Your Network",
+        content: [
+          "The app connects only to the cameras you add, directly over your own network (RTSP for video, ONVIF for camera details and pan/tilt/zoom). Video goes from the camera to your device and nowhere else; there is no server of ours in between.",
+          "Find ONVIF cameras sends a standard ONVIF hello (WS-Discovery) on your local network only, so that cameras on that network can answer. It reaches no device outside your network.",
+          "Network diagnostics checks whether each of your cameras answers on its own address and port. It contacts nothing else.",
+        ],
+      },
+      {
+        title: "Add From Your Phone",
+        content: [
+          "Optionally, the app can show a QR code that opens a small form on your phone, so you can type a camera's details on the phone instead of with a TV remote. That page is served by your TV or tablet itself over your own Wi-Fi, at a secret address that changes each time and is only in the QR code. It works only while that screen is open, and what you type goes only to your device, not through the internet or any server of ours.",
+        ],
+      },
+      {
+        title: "Permissions",
+        content: [
+          "Internet and network state: to receive video from your cameras and talk to them over your local network, and for the phone form described above. Wi-Fi state and Wi-Fi multicast: for the ONVIF camera search on your local network. The app asks for no camera, microphone, location, contacts, storage or phone permissions.",
+        ],
+      },
+      {
+        title: "Links That Leave The App",
+        content: [
+          "Rate this app, Write a review, More apps and See all our apps open the Amazon Appstore. Share opens your device's share menu. Contact support and Report a problem open your e-mail app (the problem report contains your device model, Android version, app version and a summary of camera health with addresses but never any user names or passwords; you see it before sending). The user guide and this page open in your browser. None of these open unless you choose them. On a TV without a browser or e-mail app, a QR code is shown instead so you can open the link on your phone.",
+        ],
+      },
+      {
+        title: "Payments",
+        content: [
+          "CCTV Wall Pro is a paid app sold through the Amazon Appstore. Amazon handles the purchase; the app never sees any payment details. There are no in-app purchases and no subscriptions.",
+        ],
+      },
+      {
+        title: "Children",
+        content: [
+          "CCTV Wall Pro is a tool for adults who own security cameras. It is not directed at children and collects no data from anyone.",
+        ],
+      },
+      {
+        title: "Changes",
+        content: [
+          "If a future version of CCTV Wall Pro ever collects anything, this page will be updated before that version is released, and the change will be described plainly here.",
+        ],
+      },
+      {
+        title: "Contact",
+        content: [
+          "For any privacy question about CCTV Wall Pro, email sufyantechsolutions@gmail.com with the subject line: CCTV Wall Pro Privacy.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "kitestep",
     name: "Kitestep",
     updated: "November 2026",

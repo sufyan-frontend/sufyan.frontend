@@ -1,0 +1,230 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CCTV Wall Pro user guide</title><meta name="description" content="How to add IP cameras, use the camera wall, ONVIF, RTSP, rotation and PTZ in CCTV Wall Pro for Fire TV and Fire tablets.">
+<meta name="theme-color" content="#0A1120"><style>
+:root{--bg:#0A1120;--sf:#121B2E;--rs:#1B2741;--tx:#EEF3FA;--mu:#A8B5CB;--ac:#5CC8FF;--ok:#3DDC97;--w:760px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif}
+a{color:var(--ac)}header{padding:28px 18px 8px;max-width:var(--w);margin:0 auto}
+.brand{display:flex;gap:14px;align-items:center}.brand svg{flex:0 0 52px}h1{font-size:28px;line-height:1.2;margin:0}
+.sub{color:var(--mu);margin:6px 0 0}main{max-width:var(--w);margin:0 auto;padding:0 18px 80px}
+.search{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0}
+.search input{width:100%;font:inherit;color:var(--tx);background:var(--rs);border:2px solid transparent;border-radius:12px;padding:12px 14px}
+.search input:focus{outline:none;border-color:var(--ac)}
+nav.toc{background:var(--sf);border-radius:16px;padding:16px 18px;margin:8px 0 28px}nav.toc h2{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);margin:0 0 8px}
+nav.toc ol{margin:0;padding-left:22px;columns:2;column-gap:28px}nav.toc li{margin:3px 0;break-inside:avoid}
+@media(max-width:560px){nav.toc ol{columns:1}}
+section.ch{background:var(--sf);border-radius:18px;padding:22px 20px;margin:0 0 22px;scroll-margin-top:76px}
+section.ch h2{font-size:23px;line-height:1.25;margin:0 0 6px}.num{color:var(--ac);margin-right:6px}
+.lead{margin:0 0 14px}h3{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);margin:20px 0 8px}
+figure{margin:14px 0}figure img{width:100%;height:auto;border-radius:12px;display:block;background:#060A14}
+figcaption{color:var(--mu);font-size:14px;margin-top:6px}ol.steps{padding-left:22px}ol.steps li{margin:6px 0}
+.p{background:var(--rs);border-radius:12px;padding:12px 14px;margin:8px 0}.p b{display:block}.p span{color:var(--mu)}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:18px;font-size:15px}
+.hidden{display:none}.empty{color:var(--mu);display:none}footer{max-width:var(--w);margin:0 auto;padding:0 18px 40px;color:var(--mu);font-size:15px}
+.btn{display:inline-block;background:var(--ac);color:#04182A;text-decoration:none;font-weight:600;border-radius:12px;padding:10px 16px;margin:4px 8px 4px 0}
+.btn.alt{background:var(--rs);color:var(--tx)}
+@media print{:root{--bg:#fff;--sf:#fff;--rs:#f3f5f8;--tx:#111;--mu:#444;--ac:#0b5c8a}body{font-size:12pt}.search,.nav,.noprint{display:none!important}
+section.ch{break-inside:avoid-page;border:1px solid #ddd}figure img{max-width:70%}a{color:#111}}
+</style></head><body>
+<header id="top"><div class="brand"><svg viewBox="0 0 64 64" width="52" height="52" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1B2741"/><g fill="#24324F"><rect x="11" y="11" width="19" height="19" rx="3"/><rect x="34" y="11" width="19" height="19" rx="3"/><rect x="11" y="34" width="19" height="19" rx="3"/><rect x="34" y="34" width="19" height="19" rx="3"/></g><circle cx="32" cy="32" r="13" fill="#0A1120"/><circle cx="32" cy="32" r="10" fill="none" stroke="#5CC8FF" stroke-width="3.2"/><circle cx="32" cy="32" r="3.8" fill="#5CC8FF"/></svg><div><h1>CCTV Wall Pro user guide</h1><p class="sub">IP camera viewer and security wall for Fire TV and Fire tablets · 24 chapters</p></div></div></header>
+<main><div class="search noprint"><label class="hidden" for="q">Search the guide</label><input id="q" type="search" placeholder="Search: ONVIF, password, Tapo, PTZ…" autocomplete="off"></div>
+<p id="none" class="empty">Nothing matches. Try another word, or see Troubleshooting.</p>
+<nav class="toc" aria-label="Contents"><h2>Contents</h2><ol>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#overview">Application overview</a></li>
+<li><a href="#adding-cameras">Adding IP cameras</a></li>
+<li><a href="#manual-rtsp">Manual RTSP setup</a></li>
+<li><a href="#onvif-discovery">ONVIF discovery</a></li>
+<li><a href="#credentials">Camera credentials</a></li>
+<li><a href="#testing">Testing connections</a></li>
+<li><a href="#groups">Camera groups</a></li>
+<li><a href="#single">Single camera mode</a></li>
+<li><a href="#two">Two camera layout</a></li>
+<li><a href="#four">Four camera layout</a></li>
+<li><a href="#six">Six camera layout</a></li>
+<li><a href="#nine">Nine camera layout</a></li>
+<li><a href="#fullscreen">Fullscreen mode</a></li>
+<li><a href="#rotation">Automatic camera rotation</a></li>
+<li><a href="#ptz">PTZ controls</a></li>
+<li><a href="#layouts">Saved layouts</a></li>
+<li><a href="#camera-settings">Camera settings</a></li>
+<li><a href="#network">Network requirements</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#formats">Unsupported camera formats</a></li>
+<li><a href="#security">Security and privacy</a></li>
+<li><a href="#faq">Frequently asked questions</a></li>
+<li><a href="#support">Contact and support</a></li>
+</ol></nav>
+<section class="ch" id="getting-started"><h2><span class="num">1.</span>Getting started</h2><p class="lead">What you need, and the first two minutes with the app.</p>
+<figure><img src="/guides/cctv-wall-pro/img/welcome.webp" width="960" height="540" loading="lazy" alt="The welcome screen on first start."><figcaption>The welcome screen on first start.</figcaption></figure>
+<h3>What it is for</h3><p>CCTV Wall Pro shows live video from IP security cameras on your Fire TV, Fire tablet or Android device. It talks to your cameras directly over your own network: there is no cloud service and no account.</p>
+<h3>Step by step</h3><ol class="steps"><li>Make sure your cameras and this device are on the same home or office network (Wi-Fi or Ethernet).</li><li>Open CCTV Wall Pro. The welcome screen explains the app in three lines.</li><li>Choose See the demo wall to try the wall with four built-in demo clips, or Add my camera to add your own straight away.</li><li>Add your first camera (chapter 3). The demo clips are removed by themselves when you do.</li></ol>
+<h3>What you should see</h3><p>After the welcome screen the app opens on the camera wall. From then on it always opens on the wall you used last.</p>
+<h3>Common problems</h3><div class="p"><b>My camera is a Ring, Blink, Google Nest, Arlo or most Wyze models.</b><span>These cameras only send video to their maker&#x27;s cloud and offer no RTSP or ONVIF, so no viewer app can show them. Cameras and recorders that offer RTSP or ONVIF work: Hikvision, Dahua, Amcrest, Lorex, Reolink, TP-Link Tapo, EZVIZ, Uniview, Axis, Foscam and many more.</span></div><div class="p"><b>Can I watch my cameras when I am away from home?</b><span>The app connects inside your own network. It can reach a camera elsewhere only if you set up a VPN to that network yourself.</span></div>
+<div class="nav"><span></span><a href="#overview">Application overview →</a></div></section>
+<section class="ch" id="overview"><h2><span class="num">2.</span>Application overview</h2><p class="lead">The Home screen, the side menu and where everything lives.</p>
+<figure><img src="/guides/cctv-wall-pro/img/home.webp" width="960" height="540" loading="lazy" alt="Home on a Fire TV."><figcaption>Home on a Fire TV.</figcaption></figure>
+<h3>What it is for</h3><p>Home is the dashboard: it shows how many cameras you have and whether any need attention, and opens the wall, groups, saved layouts and quick actions.</p>
+<h3>Step by step</h3><ol class="steps"><li>Press Back on the wall to reach Home.</li><li>On a TV or tablet, the menu on the left has Home, Wall, Cameras, Groups, Help and Settings. Move left with the remote to reach it.</li><li>On a phone, Home shows big buttons for the same places, and every screen has a back arrow at the top.</li><li>Open wall starts monitoring; Rotate cameras shows each camera full screen in turn; Add camera starts the setup.</li></ol>
+<h3>What you should see</h3><p>The line under the title reads, for example, &quot;6 cameras · all good at last check&quot;, or says how many need attention.</p>
+<h3>Common problems</h3><div class="p"><b>The remote does nothing on a screen.</b><span>Every button can be reached with the arrow keys; the one you are on has a bright blue ring. If no ring is visible, press an arrow key once.</span></div>
+<div class="nav"><a href="#getting-started">← Getting started</a><a href="#adding-cameras">Adding IP cameras →</a></div></section>
+<section class="ch" id="adding-cameras"><h2><span class="num">3.</span>Adding IP cameras</h2><p class="lead">The four ways to add a camera, and which one to pick.</p>
+<figure><img src="/guides/cctv-wall-pro/img/add.webp" width="960" height="540" loading="lazy" alt="The four ways to add a camera."><figcaption>The four ways to add a camera.</figcaption></figure>
+<h3>What it is for</h3><p>Cameras differ: some answer an ONVIF search, others only give an RTSP address. The Add a camera screen offers every way in.</p>
+<h3>Step by step</h3><ol class="steps"><li>Open Home and choose Add camera (or Cameras &gt; Add).</li><li>Find ONVIF cameras: searches your network (chapter 5). Best for Hikvision, Dahua, Reolink, Axis, Uniview and most recorders.</li><li>Add from your phone: scan the QR code and type the details on your phone instead of with the remote.</li><li>Choose the brand and type the IP: the stream path is filled in for you.</li><li>Paste an RTSP address: for anything that gives you an rtsp:// address (chapter 4).</li><li>Every way ends with a live test (chapter 7) before the camera is saved.</li></ol>
+<h3>What you should see</h3><p>The new camera appears on the wall in the first free tile, and in Cameras.</p>
+<h3>Common problems</h3><div class="p"><b>Add from your phone says the TV did not answer.</b><span>Keep the Add from your phone screen open on the TV while you fill in the form, and make sure the phone is on the same Wi-Fi, not on mobile data or a guest network.</span></div><div class="p"><b>I don&#x27;t know my camera&#x27;s IP address.</b><span>Look in the camera&#x27;s own app (device info or network settings), or in your router&#x27;s list of connected devices. Giving the camera a fixed (reserved) address in your router stops it changing later.</span></div>
+<div class="nav"><a href="#overview">← Application overview</a><a href="#manual-rtsp">Manual RTSP setup →</a></div></section>
+<section class="ch" id="manual-rtsp"><h2><span class="num">4.</span>Manual RTSP setup</h2><p class="lead">Adding a camera by brand and IP address, or with a full rtsp:// address.</p>
+<figure><img src="/guides/cctv-wall-pro/img/manual.webp" width="960" height="540" loading="lazy" alt="Adding a camera by brand and IP address."><figcaption>Adding a camera by brand and IP address.</figcaption></figure>
+<h3>What it is for</h3><p>RTSP is the standard way cameras send live video. If you know the camera&#x27;s IP address or its RTSP address, you can add it by hand.</p>
+<h3>Step by step</h3><ol class="steps"><li>Choose Add camera &gt; Choose the brand and type the IP (or Paste an RTSP address).</li><li>Type a name, such as Front door, and if you like a short description.</li><li>By brand: pick the brand, type the IP address, and change the port only if your camera uses another one. The main and sub stream paths are filled in; read the tip under the brands.</li><li>Full address: paste the main stream address, for example rtsp://192.168.1.20:554/stream1, and optionally a sub stream address for the wall.</li><li>Type the camera&#x27;s user name and password under Login.</li><li>Choose Test and save.</li></ol>
+<h3>What you should see</h3><p>The test shows the live picture with its format, for example H.264 · 1920×1080, and a Save camera button.</p>
+<h3>Common problems</h3><div class="p"><b>The address contains the login, like rtsp://admin:pass@…</b><span>That works. When you save, the login is taken out of the address and stored encrypted, and the address is saved without it.</span></div><div class="p"><b>&quot;The address must start with rtsp://&quot;</b><span>Only RTSP addresses are accepted here. HTTP snapshot or web page addresses are not video streams.</span></div><div class="p"><b>The picture stays grey or freezes after a few seconds.</b><span>Turn on Use TCP only. Some routers and Wi-Fi extenders drop UDP video.</span></div>
+<div class="nav"><a href="#adding-cameras">← Adding IP cameras</a><a href="#onvif-discovery">ONVIF discovery →</a></div></section>
+<section class="ch" id="onvif-discovery"><h2><span class="num">5.</span>ONVIF discovery</h2><p class="lead">Letting the app find ONVIF cameras on your network.</p>
+<figure><img src="/guides/cctv-wall-pro/img/discover.webp" width="960" height="540" loading="lazy" alt="An ONVIF camera found on the network."><figcaption>An ONVIF camera found on the network.</figcaption></figure>
+<h3>What it is for</h3><p>ONVIF is a standard most security cameras and recorders speak. With it the app finds the camera, reads its video profiles and stream addresses, and can control pan/tilt/zoom.</p>
+<h3>Step by step</h3><ol class="steps"><li>Choose Add camera &gt; Find ONVIF cameras. The search runs for about five seconds.</li><li>Pick your camera from the list. Its name and model are shown when the camera reports them.</li><li>Type the camera&#x27;s user name and password and choose Connect.</li><li>Check the camera name, the full-screen (main) stream and the wall (sub) stream. The app picks the largest picture for full screen and a smaller one for the wall.</li><li>Choose Test and save.</li></ol>
+<h3>What you should see</h3><p>After Connect you see the maker, model and firmware, and a list of profiles such as MainStream · 1920×1080 · H.264.</p>
+<h3>Common problems</h3><div class="p"><b>No camera answered.</b><span>Turn on ONVIF in the camera&#x27;s app or web page (many cameras ship with it off, and some need a separate ONVIF user). Make sure the device and camera are on the same network, and turn off &quot;AP isolation&quot; or &quot;client isolation&quot; on the router. You can also type the camera&#x27;s IP under Know the camera&#x27;s IP? and choose Connect.</span></div><div class="p"><b>The camera refused this login.</b><span>Use the camera&#x27;s admin user, or the ONVIF user made in its app. ONVIF logins also fail when the camera&#x27;s clock is far off; the app uses the camera&#x27;s own clock, but a camera with no time set at all may still refuse.</span></div>
+<div class="nav"><a href="#manual-rtsp">← Manual RTSP setup</a><a href="#credentials">Camera credentials →</a></div></section>
+<section class="ch" id="credentials"><h2><span class="num">6.</span>Camera credentials</h2><p class="lead">Which login to use, and how the app keeps it safe.</p>
+<figure><img src="/guides/cctv-wall-pro/img/onvif-login.webp" width="960" height="540" loading="lazy" alt="Typing a camera login."><figcaption>Typing a camera login.</figcaption></figure>
+<h3>What it is for</h3><p>Most cameras need a user name and password before they send video. CCTV Wall Pro stores each login encrypted on this device.</p>
+<h3>Step by step</h3><ol class="steps"><li>Use the login of the camera itself, not the cloud account of its app. Tapo: make a Camera Account in the Tapo app (Camera settings &gt; Advanced settings). EZVIZ: user admin, and the 6-letter verification code on the camera&#x27;s label.</li><li>Type it in the Login fields when you add or edit a camera. Show reveals the password while you type.</li><li>To change a login later, open the camera, choose Edit, type the new login and save.</li></ol>
+<h3>What you should see</h3><p>Camera details shows Login: Stored encrypted on this device.</p>
+<h3>Common problems</h3><div class="p"><b>Wrong user name or password, after it worked before.</b><span>The camera&#x27;s password may have been changed in its app. Edit the camera and type the new one. The app stops trying after three refusals so the camera does not lock its own account.</span></div><div class="p"><b>Where is my password kept?</b><span>Encrypted with a key from the Android Keystore that never leaves the device. It is not in backups, not in logs, and not in problem reports. Deleting a camera deletes its login.</span></div>
+<div class="nav"><a href="#onvif-discovery">← ONVIF discovery</a><a href="#testing">Testing connections →</a></div></section>
+<section class="ch" id="testing"><h2><span class="num">7.</span>Testing connections</h2><p class="lead">The live test before saving, and testing a saved camera.</p>
+<figure><img src="/guides/cctv-wall-pro/img/test.webp" width="960" height="540" loading="lazy" alt="A successful connection test."><figcaption>A successful connection test.</figcaption></figure>
+<h3>What it is for</h3><p>The test plays the camera once, right away, and tells you in plain words what happened, so you know it works before you rely on it.</p>
+<h3>Step by step</h3><ol class="steps"><li>When adding: choose Test and save. A window opens and connects to the camera.</li><li>If the picture appears, the line under it says It works and shows the video format. Choose Save camera.</li><li>If it fails, the window says why and what to do. Choose Try again after fixing it, Back to the form to change details, or Save anyway for a camera that is switched off right now.</li><li>For a saved camera: open Cameras, pick the camera and choose Test connection. If the camera has a sub stream you can test it too.</li></ol>
+<h3>What you should see</h3><p>A live picture within a few seconds; the test gives up with a reason after 15 seconds without a picture.</p>
+<h3>Common problems</h3><div class="p"><b>The test says The camera can&#x27;t be reached.</b><span>The camera is off, on another network, or its IP address changed. Network diagnostics (chapter 19) checks whether its port answers.</span></div><div class="p"><b>The test says The camera has no stream at this address.</b><span>The camera answered but not at this path. Pick the brand again, or try the other stream (main or sub).</span></div>
+<div class="nav"><a href="#credentials">← Camera credentials</a><a href="#groups">Camera groups →</a></div></section>
+<section class="ch" id="groups"><h2><span class="num">8.</span>Camera groups</h2><p class="lead">Watching only the cameras of one place: Home Security, Office, Shop, Warehouse, Reception.</p>
+<figure><img src="/guides/cctv-wall-pro/img/groups.webp" width="960" height="540" loading="lazy" alt="Making a group."><figcaption>Making a group.</figcaption></figure>
+<h3>What it is for</h3><p>A group is a set of cameras you watch together. Opening a group shows only its cameras on the wall, and it can open with its own saved layout.</p>
+<h3>Step by step</h3><ol class="steps"><li>Open Groups and choose New group.</li><li>Type a name or pick one: Home Security, Office, Shop, Warehouse, Reception, Outdoor, Night.</li><li>Tick the cameras that belong to the group. A camera can be in several groups.</li><li>Under Opens with, choose The smallest wall that fits, or one of your saved layouts.</li><li>Choose Save and open. Next time, open the group from Home or Groups.</li></ol>
+<h3>What you should see</h3><p>The wall&#x27;s title shows the group&#x27;s name instead of All cameras.</p>
+<h3>Common problems</h3><div class="p"><b>How do I see all cameras again?</b><span>Open Groups and choose Show all cameras on the wall.</span></div><div class="p"><b>Does deleting a group delete its cameras?</b><span>No. Only the group is deleted.</span></div>
+<div class="nav"><a href="#testing">← Testing connections</a><a href="#single">Single camera mode →</a></div></section>
+<section class="ch" id="single"><h2><span class="num">9.</span>Single camera mode</h2><p class="lead">One camera filling the wall.</p>
+<figure><img src="/guides/cctv-wall-pro/img/wall-1.webp" width="960" height="540" loading="lazy" alt="The 1-camera wall."><figcaption>The 1-camera wall.</figcaption></figure>
+<h3>What it is for</h3><p>The 1-camera wall shows one camera as large as possible while keeping the wall&#x27;s controls, which suits a screen dedicated to a front door or a cash desk.</p>
+<h3>Step by step</h3><ol class="steps"><li>Open the wall. If the bar at the top is hidden, press any key or tap the screen.</li><li>Choose the button with one square.</li><li>To change which camera it shows, press Menu (≡) on the remote or hold the tile on a touch screen, and choose Replace with another camera.</li></ol>
+<h3>What you should see</h3><p>One camera fills the screen with its name and LIVE sign.</p>
+<h3>Common problems</h3><div class="p"><b>What is the difference from full screen?</b><span>Single camera mode is a wall layout and is remembered when the app reopens. Full screen (chapter 14) is a temporary view with previous/next, sound and PTZ.</span></div>
+<div class="nav"><a href="#groups">← Camera groups</a><a href="#two">Two camera layout →</a></div></section>
+<section class="ch" id="two"><h2><span class="num">10.</span>Two camera layout</h2><p class="lead">Two cameras side by side (stacked on a phone held upright).</p>
+<figure><img src="/guides/cctv-wall-pro/img/wall-2.webp" width="960" height="540" loading="lazy" alt="Two cameras."><figcaption>Two cameras.</figcaption></figure>
+<h3>What it is for</h3><p>Two large pictures, for example the front and back door.</p>
+<h3>Step by step</h3><ol class="steps"><li>On the wall, choose the button with two squares.</li><li>The two cameras that were first on the wall stay; an empty tile shows Choose a camera.</li></ol>
+<h3>What you should see</h3><p>Two 16:9 pictures side by side on a TV, or one above the other on a phone held upright.</p>
+<h3>Common problems</h3><div class="p"><b>A tile says Choose a camera.</b><span>Select it and pick a camera from the list.</span></div>
+<div class="nav"><a href="#single">← Single camera mode</a><a href="#four">Four camera layout →</a></div></section>
+<section class="ch" id="four"><h2><span class="num">11.</span>Four camera layout</h2><p class="lead">The classic 2 × 2 wall.</p>
+<figure><img src="/guides/cctv-wall-pro/img/wall-4.webp" width="960" height="540" loading="lazy" alt="The 4-camera wall."><figcaption>The 4-camera wall.</figcaption></figure>
+<h3>What it is for</h3><p>Four cameras at once is the most common security wall and works smoothly on every Fire TV.</p>
+<h3>Step by step</h3><ol class="steps"><li>On the wall, choose the button with four squares.</li><li>Move between tiles with the arrow keys; the selected tile has a blue ring.</li><li>Press OK on a tile for full screen. Press Menu (≡), or hold the tile, to replace, move or remove its camera.</li></ol>
+<h3>What you should see</h3><p>Four live pictures, each with its name at the bottom and LIVE at the top.</p>
+<h3>Common problems</h3><div class="p"><b>Some tiles say Paused to keep the wall smooth.</b><span>Your device can decode only so many videos at once (see Settings and Diagnostics). Paused tiles play when you open them; giving cameras a sub stream lets more play together.</span></div>
+<div class="nav"><a href="#two">← Two camera layout</a><a href="#six">Six camera layout →</a></div></section>
+<section class="ch" id="six"><h2><span class="num">12.</span>Six camera layout</h2><p class="lead">One large camera and five smaller ones.</p>
+<figure><img src="/guides/cctv-wall-pro/img/wall-6.webp" width="960" height="540" loading="lazy" alt="The 6-camera wall."><figcaption>The 6-camera wall.</figcaption></figure>
+<h3>What it is for</h3><p>Like a recorder&#x27;s 6-split: the most important camera is shown four times larger than the others.</p>
+<h3>Step by step</h3><ol class="steps"><li>On the wall, choose the button with one large and five small squares.</li><li>The camera in tile 1 is the large one. To make another camera large, select it, press Menu (≡) and choose Move earlier until it is in tile 1.</li></ol>
+<h3>What you should see</h3><p>One large picture top-left, two on the right and three along the bottom (on a phone held upright, six equal tiles).</p>
+<h3>Common problems</h3><div class="p"><b>Not all six play at once.</b><span>On devices with fewer video decoders, extra tiles show Paused. Turn on Use sub streams on the wall in Settings.</span></div>
+<div class="nav"><a href="#four">← Four camera layout</a><a href="#nine">Nine camera layout →</a></div></section>
+<section class="ch" id="nine"><h2><span class="num">13.</span>Nine camera layout</h2><p class="lead">A 3 × 3 wall for larger systems.</p>
+<figure><img src="/guides/cctv-wall-pro/img/wall-9.webp" width="960" height="540" loading="lazy" alt="The 9-camera wall."><figcaption>The 9-camera wall.</figcaption></figure>
+<h3>What it is for</h3><p>Nine cameras at once for shops, warehouses and offices, on devices strong enough to decode them.</p>
+<h3>Step by step</h3><ol class="steps"><li>On the wall, choose the button with nine squares.</li><li>Check Settings &gt; Cameras playing at once: it shows how many this device plays smoothly. Tiles over that number show Paused until opened.</li><li>For best results give each camera a sub stream (most cameras have one) and keep Use sub streams on the wall turned on.</li></ol>
+<h3>What you should see</h3><p>Up to nine live tiles; on smaller devices the first ones play and the rest wait.</p>
+<h3>Common problems</h3><div class="p"><b>Why not all nine on my Fire TV Stick?</b><span>Small streaming sticks have a limited number of hardware video decoders. The app plays as many as the device can handle smoothly instead of letting every tile stutter. You can change the number in Settings at your own risk.</span></div>
+<div class="nav"><a href="#six">← Six camera layout</a><a href="#fullscreen">Fullscreen mode →</a></div></section>
+<section class="ch" id="fullscreen"><h2><span class="num">14.</span>Fullscreen mode</h2><p class="lead">One camera on the whole screen, with sound and controls.</p>
+<figure><img src="/guides/cctv-wall-pro/img/full.webp" width="960" height="540" loading="lazy" alt="Full screen with its controls."><figcaption>Full screen with its controls.</figcaption></figure>
+<h3>What it is for</h3><p>Full screen uses the camera&#x27;s main (highest quality) stream for a closer look.</p>
+<h3>Step by step</h3><ol class="steps"><li>On the wall, select a camera and press OK (or tap it).</li><li>Left and Right show the previous and next camera.</li><li>Press OK to show the controls: Previous, Next, Rotate, PTZ (on cameras that support it), Sound, Reconnect and Details. They hide after five seconds.</li><li>Press Back (or the back arrow) to return to the wall.</li></ol>
+<h3>What you should see</h3><p>The camera&#x27;s name, address and video format at the bottom, and its status at the top-left.</p>
+<h3>Common problems</h3><div class="p"><b>There is no sound.</b><span>Full screen starts muted. Choose Muted to turn sound on. Only cameras with a microphone send sound.</span></div><div class="p"><b>The picture shows a problem and Trying again.</b><span>The app reconnects by itself, waiting a little longer each time. Choose Reconnect now to try at once.</span></div>
+<div class="nav"><a href="#nine">← Nine camera layout</a><a href="#rotation">Automatic camera rotation →</a></div></section>
+<section class="ch" id="rotation"><h2><span class="num">15.</span>Automatic camera rotation</h2><p class="lead">Showing each camera full screen in turn.</p>
+<figure><img src="/guides/cctv-wall-pro/img/rotation.webp" width="960" height="540" loading="lazy" alt="Rotation in progress."><figcaption>Rotation in progress.</figcaption></figure>
+<h3>What it is for</h3><p>Rotation turns a spare TV into a monitor that cycles through your cameras by itself.</p>
+<h3>Step by step</h3><ol class="steps"><li>Press Play/Pause on the remote on the wall, or choose Rotate on the wall or on Home.</li><li>Each camera shows for the time set in Settings &gt; Rotation (5 to 60 seconds). The top-left says ROTATING, the interval and the position, for example 2/6.</li><li>Left and Right move to the previous or next camera at once. Play/Pause pauses and restarts rotation.</li><li>Choose which cameras take part in Settings &gt; Cameras in the rotation (none ticked = all, or the open group&#x27;s).</li><li>To start rotating every time the app opens, turn on Start rotating when the app opens.</li><li>Press Back to stop rotation immediately.</li></ol>
+<h3>What you should see</h3><p>A camera that is off or unreachable is skipped after a short look, so the rotation never stops on a blank screen.</p>
+<h3>Common problems</h3><div class="p"><b>Rotation skips a camera.</b><span>That camera could not be reached. Open Diagnostics to see why.</span></div>
+<div class="nav"><a href="#fullscreen">← Fullscreen mode</a><a href="#ptz">PTZ controls →</a></div></section>
+<section class="ch" id="ptz"><h2><span class="num">16.</span>PTZ controls</h2><p class="lead">Pan, tilt and zoom for cameras that move.</p>
+<figure><img src="/guides/cctv-wall-pro/img/ptz.webp" width="960" height="540" loading="lazy" alt="The PTZ panel."><figcaption>The PTZ panel.</figcaption></figure>
+<h3>What it is for</h3><p>Pan/tilt/zoom cameras can be turned and zoomed from the app over ONVIF. The PTZ button only appears for cameras added through ONVIF whose profile reports PTZ support.</p>
+<h3>Step by step</h3><ol class="steps"><li>Open the camera full screen and press OK to show the controls.</li><li>Choose PTZ. A panel with arrows and zoom buttons opens on the right.</li><li>Hold an arrow (hold OK on the remote, or keep your finger on it) to move; the camera stops when you let go.</li><li>Use Zoom in and Zoom out the same way.</li><li>Choose a preset name to jump to a saved position. Choose Save position to store the current view as a new preset.</li><li>Choose Close or press Back to hide the panel.</li></ol>
+<h3>What you should see</h3><p>The camera moves while the button is held and stops when it is released.</p>
+<h3>Common problems</h3><div class="p"><b>There is no PTZ button.</b><span>The camera was added by RTSP address, or its ONVIF profile has no PTZ. Add it again through Find ONVIF cameras.</span></div><div class="p"><b>The camera refuses to move.</b><span>Some cameras need a login with operator or admin rights for PTZ. The message under the panel shows what the camera answered.</span></div>
+<div class="nav"><a href="#rotation">← Automatic camera rotation</a><a href="#layouts">Saved layouts →</a></div></section>
+<section class="ch" id="layouts"><h2><span class="num">17.</span>Saved layouts</h2><p class="lead">Keeping your favourite arrangements.</p>
+<figure><img src="/guides/cctv-wall-pro/img/layouts.webp" width="960" height="540" loading="lazy" alt="Saved layouts."><figcaption>Saved layouts.</figcaption></figure>
+<h3>What it is for</h3><p>A saved layout remembers the wall size and which camera sits in each tile, so you can switch between, for example, Front of house and Night watch.</p>
+<h3>Step by step</h3><ol class="steps"><li>Arrange the wall: choose a size and put cameras where you want them (Menu (≡) &gt; Replace, Move earlier, Move later).</li><li>Choose Save on the wall&#x27;s top bar, pick or type a name, and choose Save.</li><li>Open a layout from Home &gt; Saved layouts, Groups &gt; Saved layouts, or the wall&#x27;s Layouts button.</li><li>Delete a layout with the bin button next to it.</li></ol>
+<h3>What you should see</h3><p>The wall switches to the saved size and cameras. The app always reopens on the last wall you used.</p>
+<h3>Common problems</h3><div class="p"><b>A tile in a layout is empty.</b><span>The camera that was there has been deleted. Choose a new one for that tile and save the layout again under the same name.</span></div>
+<div class="nav"><a href="#ptz">← PTZ controls</a><a href="#camera-settings">Camera settings →</a></div></section>
+<section class="ch" id="camera-settings"><h2><span class="num">18.</span>Camera settings</h2><p class="lead">Editing, renaming, reordering, favourites and deleting.</p>
+<figure><img src="/guides/cctv-wall-pro/img/details.webp" width="960" height="540" loading="lazy" alt="Camera details."><figcaption>Camera details.</figcaption></figure>
+<h3>What it is for</h3><p>Camera details shows everything about one camera and lets you change it.</p>
+<h3>Step by step</h3><ol class="steps"><li>Open Cameras and pick a camera.</li><li>Edit: change the name, description, addresses, login or TCP setting.</li><li>Make favourite: favourites come first in the camera list and on a new wall.</li><li>Move up and Move down change the order cameras fill the wall.</li><li>Delete removes the camera and its encrypted login from this device (the camera itself is not changed).</li></ol>
+<h3>What you should see</h3><p>Status shows when the camera last sent a picture, or its last problem with what to do.</p>
+<h3>Common problems</h3><div class="p"><b>Can I change the stream profile of an ONVIF camera?</b><span>Add it again through Find ONVIF cameras and choose different main and sub profiles, then delete the old one.</span></div>
+<div class="nav"><a href="#layouts">← Saved layouts</a><a href="#network">Network requirements →</a></div></section>
+<section class="ch" id="network"><h2><span class="num">19.</span>Network requirements</h2><p class="lead">What your network needs for smooth video, and how to check it.</p>
+<figure><img src="/guides/cctv-wall-pro/img/diagnostics.webp" width="960" height="540" loading="lazy" alt="Network diagnostics."><figcaption>Network diagnostics.</figcaption></figure>
+<h3>What it is for</h3><p>Live video needs a steady connection between each camera and this device.</p>
+<h3>Step by step</h3><ol class="steps"><li>Put this device and the cameras on the same network. Ethernet is best for the TV; on Wi-Fi use 5 GHz if you can.</li><li>Allow about 1–2 Mbit/s for each sub stream on the wall and 4–8 Mbit/s for a 1080p main stream in full screen.</li><li>Open Settings &gt; Network diagnostics and choose Check cameras: it tests whether each camera&#x27;s port answers and how fast.</li><li>The same screen shows this device&#x27;s address, its video decoders and how many streams it plays smoothly.</li></ol>
+<h3>What you should see</h3><p>Each camera shows Reachable on port 554 (or its own port) with a time in milliseconds.</p>
+<h3>Common problems</h3><div class="p"><b>No answer in 3 s.</b><span>The camera is off, unplugged, or on another network. Check its address in its own app or your router.</span></div><div class="p"><b>Refused or unreachable.</b><span>Something answered at that address but not on the RTSP port. Check the port number in the camera&#x27;s settings.</span></div>
+<div class="nav"><a href="#camera-settings">← Camera settings</a><a href="#troubleshooting">Troubleshooting →</a></div></section>
+<section class="ch" id="troubleshooting"><h2><span class="num">20.</span>Troubleshooting</h2><p class="lead">What each message on a tile means and what to do.</p>
+<figure><img src="/guides/cctv-wall-pro/img/offline.webp" width="960" height="540" loading="lazy" alt="A tile explaining why it has no picture."><figcaption>A tile explaining why it has no picture.</figcaption></figure>
+<h3>What it is for</h3><p>Every problem is shown in words on the tile and in Diagnostics, with a fix. One camera failing never stops the others.</p>
+<h3>Step by step</h3><ol class="steps"><li>CONNECTING: the app is reaching the camera. Allow up to 15 seconds.</li><li>RECONNECTING: the camera dropped. The app tries again after 2, 4, 8, 16, 32 and then every 60 seconds, and at once when the network comes back.</li><li>OFFLINE with Wrong user name or password: edit the camera&#x27;s login.</li><li>The camera stopped answering: try Use TCP only, or the sub stream.</li><li>This device can&#x27;t play the camera&#x27;s video format: see chapter 21.</li><li>Use Reconnect on the wall bar to make every camera try again at once.</li></ol>
+<h3>What you should see</h3><p>When the camera is back, its tile returns to LIVE by itself.</p>
+<h3>Common problems</h3><div class="p"><b>All cameras are offline at once.</b><span>The device lost its network, or the router restarted. The wall reconnects by itself when the network is back.</span></div><div class="p"><b>The picture is delayed by a few seconds.</b><span>The app keeps the buffer short for live video; a delay of about a second is normal for RTSP. Wi-Fi congestion adds more. Ethernet and sub streams help.</span></div>
+<div class="nav"><a href="#network">← Network requirements</a><a href="#formats">Unsupported camera formats →</a></div></section>
+<section class="ch" id="formats"><h2><span class="num">21.</span>Unsupported camera formats</h2><p class="lead">H.264, H.265 and MJPEG: what plays where.</p>
+<figure><img src="/guides/cctv-wall-pro/img/test-failed.webp" width="960" height="540" loading="lazy" alt="A test that explains why a stream can&#x27;t play."><figcaption>A test that explains why a stream can&#x27;t play.</figcaption></figure>
+<h3>What it is for</h3><p>Cameras send video in different formats. Whether a format plays depends on this device&#x27;s video decoder, not only on the app.</p>
+<h3>Step by step</h3><ol class="steps"><li>H.264 plays on every Fire TV and Fire tablet. It is the safest choice.</li><li>H.265 (HEVC) plays only where the device has an H.265 decoder. Settings &gt; Network diagnostics shows whether this one does.</li><li>If a camera shows This device can&#x27;t play the camera&#x27;s video format, open the camera&#x27;s own app or web page and set its video encoding to H.264 (for both the main and the sub stream).</li><li>Some cameras offer H.264+ or H.265+ &quot;smart codec&quot; options; turn them off if the picture stutters.</li></ol>
+<h3>What you should see</h3><p>After switching the camera to H.264, the test shows H.264 and the picture.</p>
+<h3>Common problems</h3><div class="p"><b>MJPEG-only cameras.</b><span>Very old cameras that only send MJPEG over HTTP are not supported. Cameras that send MJPEG over RTSP may play, depending on the device.</span></div><div class="p"><b>The camera works in VLC on my computer but not here.</b><span>Computers decode formats in software; TVs and tablets use hardware decoders with fewer formats. Choose H.264 on the camera.</span></div>
+<div class="nav"><a href="#troubleshooting">← Troubleshooting</a><a href="#security">Security and privacy →</a></div></section>
+<section class="ch" id="security"><h2><span class="num">22.</span>Security and privacy</h2><p class="lead">What the app stores, sends and never does.</p>
+<figure><img src="/guides/cctv-wall-pro/img/settings.webp" width="960" height="540" loading="lazy" alt="Settings."><figcaption>Settings.</figcaption></figure>
+<h3>What it is for</h3><p>A security camera app must itself be secure. CCTV Wall Pro is built to keep your video and logins on your network and your device.</p>
+<h3>Step by step</h3><ol class="steps"><li>No account and no cloud: video goes straight from each camera to this device.</li><li>Camera logins are encrypted with the Android Keystore, kept out of backups, logs and problem reports, and erased from the database when you delete a camera.</li><li>The app connects only to the cameras you add. The ONVIF search only asks cameras on your local network to say hello.</li><li>Add from your phone runs a small page on your network only while that screen is open, at a secret address in the QR code.</li><li>No ads, no tracking, no analytics. Links to the Amazon Appstore and e-mail open only when you choose them.</li><li>Settings &gt; Delete all cameras and logins wipes everything.</li></ol>
+<h3>What you should see</h3><p>Camera details shows Login: Stored encrypted on this device.</p>
+<h3>Common problems</h3><div class="p"><b>Is the camera video recorded?</b><span>No. The app shows live video only and stores no video or pictures.</span></div>
+<div class="nav"><a href="#formats">← Unsupported camera formats</a><a href="#faq">Frequently asked questions →</a></div></section>
+<section class="ch" id="faq"><h2><span class="num">23.</span>Frequently asked questions</h2><p class="lead">Short answers to common questions.</p>
+<h3>What it is for</h3><p>Quick answers before you contact support.</p>
+<h3>Common problems</h3><div class="p"><b>Does it record?</b><span>No, CCTV Wall Pro is a live viewer. Keep recording on your NVR, DVR or the camera&#x27;s memory card.</span></div><div class="p"><b>Does it work with my NVR or DVR?</b><span>Yes, if it offers RTSP or ONVIF. Add each channel as a camera; for Hikvision channel 2 is 201/202, for Dahua change channel=1 to the channel number.</span></div><div class="p"><b>How many cameras can I add?</b><span>As many as you like. The wall shows up to nine at once; groups and layouts organise the rest.</span></div><div class="p"><b>Does it keep the TV awake?</b><span>Yes, while the wall or a camera is showing, so the screen saver does not cover your cameras. Turn this off in Settings. The picture shifts by a few pixels each minute to protect OLED and plasma screens.</span></div><div class="p"><b>Does it need the internet?</b><span>No. It needs your local network only. The online guide and Appstore links use the internet when you open them.</span></div><div class="p"><b>Will it work on Fire TV models with Vega OS?</b><span>No. It is an Android app for Fire OS (Fire TV Stick, Cube, Fire TV smart TVs and Fire tablets) and Android devices.</span></div>
+<div class="nav"><a href="#security">← Security and privacy</a><a href="#support">Contact and support →</a></div></section>
+<section class="ch" id="support"><h2><span class="num">24.</span>Contact and support</h2><p class="lead">How to reach us, report a problem and rate the app.</p>
+<figure><img src="/guides/cctv-wall-pro/img/about.webp" width="960" height="540" loading="lazy" alt="Feedback, support and more apps."><figcaption>Feedback, support and more apps.</figcaption></figure>
+<h3>What it is for</h3><p>If something does not work, we want to hear about it.</p>
+<h3>Step by step</h3><ol class="steps"><li>Open Settings &gt; Rate, feedback and more apps.</li><li>Contact support opens an e-mail to sufyantechsolutions@gmail.com. On a TV without an e-mail app, a QR code lets you write from your phone.</li><li>Report a problem (in Network diagnostics) adds a summary of your device and camera health, without any passwords or logins, to the e-mail.</li><li>If the app works well for you, Rate this app opens its Amazon Appstore page.</li></ol>
+<h3>What you should see</h3><p>Support answers in English, usually within two working days.</p>
+<h3>Common problems</h3><div class="p"><b>What should I include?</b><span>Your camera brand and model, what you expected and what you saw. The problem report fills in the technical part for you.</span></div>
+<div class="nav"><a href="#faq">← Frequently asked questions</a><a href="#top">Back to top ↑</a></div></section>
+</main><footer><p class="noprint"><a class="btn" href="https://www.amazon.com/gp/mas/dl/android?p=com.sufyan.cctvwall">CCTV Wall Pro on Amazon</a><a class="btn alt" href="javascript:window.print()">Print this guide</a></p>
+<p>Support: <a href="mailto:sufyantechsolutions@gmail.com">sufyantechsolutions@gmail.com</a> · <a href="https://sufyan-frontend.vercel.app/privacy/cctvwallpro">Privacy policy</a></p>
+<p>No account, no cloud, no ads. Video goes straight from your cameras to your device.</p></footer><script>
+const q=document.getElementById('q'),cs=[...document.querySelectorAll('section.ch')],none=document.getElementById('none');
+q.addEventListener('input',()=>{const t=q.value.trim().toLowerCase();let n=0;
+cs.forEach(c=>{const hit=!t||c.textContent.toLowerCase().includes(t);c.classList.toggle('hidden',!hit);if(hit)n++});
+none.style.display=n?'none':'block'});
+</script></body></html>

@@ -46,6 +46,10 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    // Static app user guides in public/guides/<app>/index.html, opened from a QR code in the app.
+    return [{ source: "/guides/cctv-wall-pro", destination: "/guides/cctv-wall-pro/index.html" }];
+  },
   async redirects() {
     return [
       // Older, thinner posts were superseded by newer versions and are noindexed.
